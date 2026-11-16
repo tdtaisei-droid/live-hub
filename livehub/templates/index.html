@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LIVEHUB — 全国のライブ・お笑い・舞台情報をひとつに</title>
-<meta name="description" content="全国の会場・イベンター・劇場・事務所・主催者の公式発表を横断して集約。新規発表とチケット発売を見逃さない。">
+<meta name="description" content="全国の会場・イベンター・劇場・事務所・主催者の公式発表を横断して集約。新しく発表された公演を見逃さない。">
 <style>
 :root{
   --bg:#0f0f12;--panel:#17171c;--line:#2a2a33;--text:#f1f0ea;--sub:#a3a2a8;--dim:#6f6e76;
@@ -71,7 +71,6 @@ input[type=search],select{flex:1;min-width:0;width:0;background:var(--panel);col
 .g-musical{background:var(--musical);color:#20061d}
 .g-stage{background:var(--stage);color:#04162a}
 .k-new{border:1px solid var(--accent);color:var(--accent)}
-.k-ticket{background:#fff;color:#111}
 .k-free{background:#3ddc97;color:#04210f}
 .k-house{border:1px solid #c9b27a;color:#e8d6a6}
 .k-special{background:#c9b27a;color:#1f1704}
@@ -84,8 +83,8 @@ body.theater #houses{display:flex}
 body.theater #genres{display:none}
 .daygroup h2{display:flex;justify-content:space-between}
 .today{color:var(--accent)}
-.sale{color:var(--text);font-weight:700}
-.sale.soon{color:var(--accent)}
+.tix{display:inline-block;margin-top:6px;font-size:12px;color:var(--sub);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.tix:hover{color:var(--text);border-color:var(--sub)}
 .star{background:none;border:0;color:var(--dim);font-size:20px;cursor:pointer;padding:0 4px;height:32px}
 .star[aria-pressed=true]{color:var(--comedy)}
 .src{color:var(--dim);font-size:11.5px;margin-top:4px}
@@ -161,7 +160,7 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
   </section>
   <div id="list"></div>
   <footer>
-    <p>掲載情報は各公式サイト(会場・イベンター・劇場・事務所・主催者)の公開情報をもとにしています。日時・出演者・発売情報は必ずリンク先の公式情報でご確認ください。</p>
+    <p>掲載情報は各公式サイト(会場・イベンター・劇場・事務所・主催者)の公開情報をもとにしています。チケットの販売・先行情報は掲載していません。ファンクラブ先行などが最も早いことが多いため、必ず公式サイトでご確認ください。日時・出演者・発売情報は必ずリンク先の公式情報でご確認ください。</p>
     <p><a href="about.html">このサイトについて・情報源一覧・掲載停止のご依頼</a> ・ <span id="gen"></span></p>
   </footer>
 </main>
@@ -231,7 +230,6 @@ const followed = e => [...st.follows].some(f => e._hay.includes(f.toLowerCase())
 const isDaily = e => !!e.house && e.kind === "event" && !e.special;
 const TABS = [
   ["new", "新着", e => !isDaily(e) && isNew(e)],
-  ["sale", "まもなく発売", e => !isDaily(e) && e._sale && days(e._sale) >= -1 && days(e._sale) <= 14],
   ["upcoming", "開催予定", e => !isDaily(e) && e._start && days(e._end || e._start) >= 0],
   ["theater", "劇場スケジュール", e => e.house === st.house && (!e._start || days(e._end || e._start) >= 0)],
   ["follow", "★ フォロー中", e => followed(e)],  // フォローした人が出る劇場の定期公演もここに出す
@@ -300,13 +298,6 @@ function dateBox(e){
   return `<div class="date"><div class="m">${x.getFullYear()!==TODAY.getFullYear()? x.getFullYear()+"/":""}${x.getMonth()+1}月</div>
     <div class="d">${x.getDate()}</div><div class="w">${W[x.getDay()]}${e._end ? "〜" + (e._end.getMonth()+1) + "/" + e._end.getDate() : ""}</div></div>`;
 }
-function saleText(e){
-  if (!e._sale) return "";
-  const n = days(e._sale);
-  const when = `${e._sale.getMonth()+1}/${e._sale.getDate()}(${W[e._sale.getDay()]})` + (e._sale.getHours() ? ` ${e._sale.getHours()}:${String(e._sale.getMinutes()).padStart(2,"0")}` : "");
-  const rel = n === 0 ? "今日" : n === 1 ? "明日" : n > 1 && n <= 14 ? `あと${n}日` : "";
-  return `<span class="sale ${n>=0&&n<=3?"soon":""}">🎫 ${esc(e.ticket_sale_label || "発売")} ${when}${rel ? "・" + rel : ""}</span>`;
-}
 function perfLine(e){
   const ps = e.performers || [];
   if (!ps.length) return "";
@@ -322,16 +313,15 @@ function card(e){
     <div>
       <div class="badges"><span class="badge g-${e.genre||"music"}">${esc(meta.genres[e.genre] || "その他")}</span>
         ${isNew(e) ? `<span class="badge k-new">NEW</span>` : ""}
-        ${e.kind === "ticket" ? `<span class="badge k-ticket">チケット</span>` : ""}
         ${e.free ? `<span class="badge k-free">無料</span>` : ""}
         ${e.house && st.tab !== "theater" ? `<span class="badge k-house">${esc(HOUSES[e.house] || "")}</span>` : ""}
         ${e.special ? `<span class="badge k-special">特別公演</span>` : ""}</div>
       <a class="title" href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.title)}</a>
       <div class="meta">
         ${e.venue || e.prefecture ? `<span>📍 ${esc(e.venue || "")}${e.prefecture ? `(${esc(e.prefecture)})` : ""}</span>` : (e.region !== "不明" ? `<span>📍 ${esc(e.region)}</span>` : "")}
-        ${saleText(e)}
       </div>
       ${perfLine(e)}
+      <a class="tix" href="${esc(e.url)}" target="_blank" rel="noopener">🎫 チケット・先行は公式で確認 →</a>
       <div class="src">出典: ${esc((e.source_names || []).join(" / "))}</div>
     </div>
     ${key ? `<button class="star" data-follow="${esc(key)}" aria-pressed="${on}" title="${esc(key)} をフォロー">${on ? "★" : "☆"}</button>` : "<span></span>"}
@@ -360,10 +350,6 @@ function render(){
       (groups.get(k) || groups.set(k, []).get(k)).push(e);
     }
     if (groups.has("上演中")) { const v = groups.get("上演中"); groups.delete("上演中"); groups = new Map([["上演中", v], ...groups]); }
-  } else if (st.tab === "sale") {
-    list.sort((a, b) => a._sale - b._sale);
-    for (const e of list) { const n = days(e._sale); const k = n <= 0 ? "今日・発売中" : n === 1 ? "明日" : n <= 7 ? "今週" : "来週以降";
-      (groups.get(k) || groups.set(k, []).get(k)).push(e); }
   } else {
     list.sort((a, b) => (a._start || 9e15) - (b._start || 9e15));
     for (const e of list) { const k = e._start ? `${e._start.getFullYear()}年${e._start.getMonth()+1}月` : "日程未定・ニュース";

@@ -343,3 +343,17 @@ def test_candidate_check_rejects_namesake():
     bad = '<html><head><title>人材派遣のホットスタッフ</title><meta name="description" content="あなたに近い派遣会社"></head></html>'
     assert check_candidate(s, "https://a/", Stub(good))["ok"]
     assert not check_candidate(s, "https://b/", Stub(bad))["ok"]
+
+
+def test_site_does_not_publish_ticket_info(tmp_path):
+    import json
+    from livehub import sitebuild
+    ev = [{"title": "架空公演", "url": "https://x/1", "source_id": "kyodo-tokyo", "sources": ["kyodo-tokyo"], "genre": "music",
+           "kind": "ticket", "ticket_sale_at": "2026-12-01T10:00:00", "ticket_sale_label": "最速先行",
+           "start_date": "2027-01-10", "region": "関東", "first_seen": "2026-11-16T06:00:00"}]
+    out = sitebuild.build(ev, out_dir=tmp_path, today=REF)
+    data = json.loads((out / "events.json").read_text(encoding="utf-8"))
+    e = data["events"][0]
+    assert "ticket_sale_at" not in e and "ticket_sale_label" not in e and e["kind"] == "announce"
+    html = (out / "index.html").read_text(encoding="utf-8")
+    assert "まもなく発売" not in html and "最速先行" not in html

@@ -21,6 +21,12 @@ def build(events: list[dict], out_dir: Path = ROOT / "site", today: date | None 
     src_names = {s.id: s.name for s in sources}
     for e in events:
         e["source_names"] = [src_names.get(i, i) for i in e.get("sources", [e.get("source_id")])]
+        # チケットの発売・先行情報は公開しない(最速の先行を網羅できず、誤解を招くため)。
+        # 日付の読み分けには内部で使うので、データベースには残す。
+        e.pop("ticket_sale_at", None)
+        e.pop("ticket_sale_label", None)
+        if e.get("kind") == "ticket":
+            e["kind"] = "announce"
     meta = {
         "generated_at": datetime.now().isoformat(timespec="minutes"),
         "today": today.isoformat(),
