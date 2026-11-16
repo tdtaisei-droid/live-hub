@@ -23,7 +23,10 @@ CATEGORIES = {
 }
 
 # 何日に1回巡回するか(CSVの interval_days 列で個別に上書き可)
-DEFAULT_INTERVAL = {"halls": 7}
+# 毎日: イベンター・事務所・主催者・舞台制作・店舗イベント(先行・発売情報が最も早く出る)
+# 3日に1回: 音楽会場・劇場(公演追加はあるが、イベンター経由でも拾える)
+# 週1回: 公立文化ホール(販売を大々的にしないので遅くてよい)
+DEFAULT_INTERVAL = {"venues_music": 3, "theaters": 3, "halls": 7}
 
 MIN_MUSIC_CAPACITY = 200   # 音楽ライブ会場
 MIN_COMEDY_CAPACITY = 100  # お笑いライブの会場(劇場・寄席など)

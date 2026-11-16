@@ -259,3 +259,11 @@ def test_shared_site_feed_does_not_force_venue():
     ev = to_event(item, s, REF, NOW)
     assert ev.prefecture == "愛知県"            # 本文の会場名から判定(福岡にしない)
     assert to_event(item2, s, REF, NOW).prefecture is None
+
+
+def test_crawl_frequency_by_category():
+    by = {}
+    for s in load_sources():
+        by.setdefault(s.category, set()).add(s.interval_days)
+    assert by["promoters"] == {1} and by["agencies"] == {1} and by["organizers"] == {1}
+    assert by["venues_music"] == {3} and by["theaters"] == {3} and by["halls"] == {7}
