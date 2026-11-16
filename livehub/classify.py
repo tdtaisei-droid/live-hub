@@ -62,3 +62,21 @@ STORE_LIVE = re.compile(r"(ミニライブ|ミニ・ライブ|ミニライヴ|�
 
 def is_free(text: str) -> bool:
     return FREE.search(text) is not None
+
+
+# 公立ホールで多い、対象外の催し(アマチュアの発表・式典・講演など)
+HALL_NOISE = re.compile(
+    r"(発表会|発表公演|おさらい会|合唱祭|合唱団|合唱コンクール|吹奏楽|定期演奏会|演奏会|コンクール|講演会|講演|"
+    r"シンポジウム|セミナー|説明会|研修|式典|成人式|入学式|卒業式|表彰式|記念式典|総会|大会|カラオケ|"
+    r"民謡|詩吟|日本舞踊|フラダンス|展示|展覧会|作品展|上映会|映画会|健康|"
+    r"(市民|区民|町民|村民)(音楽祭|文化祭|芸術祭|まつり|祭|合唱|オーケストラ|劇団|ミュージカル)|"
+    r"子ども会|PTA|中学校|高等学校|高校|小学校|保育|幼稚園)"
+)
+# ホールで残すのは、対象ジャンルの語を含むもの
+HALL_TARGET = re.compile(
+    r"(お笑い|漫才|コント|落語|爆笑|芸人|ライブ|LIVE|ツアー|TOUR|コンサート|ミュージカル|舞台|演劇|公演|劇団|"
+    r"ものまね|リサイタル|新喜劇)", re.I)
+
+
+def is_hall_target(text: str) -> bool:
+    return HALL_TARGET.search(text) is not None and HALL_NOISE.search(text) is None

@@ -9,7 +9,7 @@ from datetime import date, datetime
 from pathlib import Path
 from typing import Optional
 
-from .classify import STORE_LIVE, classify_genre, classify_kind, is_free, is_relevant
+from .classify import STORE_LIVE, classify_genre, classify_kind, is_free, is_hall_target, is_relevant
 from .collectors import RawItem
 from .collectors.html import find_feeds, find_schedule_pages, page_text, parse_jsonld_events, parse_schedule_blocks
 from .collectors.ics import parse_ics
@@ -32,6 +32,8 @@ def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[E
         return None
     if item.structured and not is_relevant(text + " 公演"):
         return None  # 映画イベント等の除外は構造化データにも適用
+    if src.category == "halls" and not is_hall_target(text):
+        return None  # 公立ホールは発表会・式典などが多いので、対象ジャンルの公演だけ残す
     sched = extract_schedule(text, ref)
     start = item.start_date or sched.start_date
     end = item.end_date or sched.end_date
@@ -175,6 +177,9 @@ def run(sources: Optional[list[Source]] = None, only: Optional[set[str]] = None,
             continue
         if not src.crawlable:
             stats["skipped"] += 1
+            continue
+        if not only and not src.due(ref):
+            stats["not_today"] += 1  # 週1回巡回の情報源で、今日は担当日でない
             continue
         try:
             raw = _items_for(src, fetcher, ref, store.urls_for(src.id) if src.method == "html_detail" else None)

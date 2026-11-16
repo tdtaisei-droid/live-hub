@@ -225,3 +225,28 @@ def test_collect_via_top_page_menu():
     s = src(id="v", category="venues_music", name="会場V", prefecture="東京都", url="https://v.example.com/")
     items = _items_for(s, Stub(), REF)
     assert len(items) == 2 and items[0].url.startswith("https://v.example.com/schedule/detail/")
+
+
+# ---- 公立ホール ----
+def test_hall_filter():
+    from livehub.classify import is_hall_target
+    assert is_hall_target("爆笑!お笑いエンタメライブ in岐阜 岐阜市民会館 大ホール")
+    assert is_hall_target("ミュージカル『X』全国ツアー 倉敷市民会館")
+    assert not is_hall_target("第30回 ピアノ発表会")
+    assert not is_hall_target("市民合唱団 定期演奏会")
+    assert not is_hall_target("成人式")
+    assert not is_hall_target("市民ミュージカル公演")       # アマチュア公演
+    assert not is_hall_target("講演会「まちづくりの未来」")
+
+
+def test_weekly_rotation():
+    s = src(id="hall-x", category="halls", name="会館X", prefecture="岐阜県", interval_days=7)
+    days = [date(2026, 11, 16 + i) for i in range(14)]
+    assert sum(s.due(d) for d in days) == 2          # 2週間で2回
+    assert src(id="daily").due(days[0])              # 既定は毎日
+
+
+def test_halls_load_weekly():
+    halls = [s for s in load_sources() if s.category == "halls"]
+    assert len(halls) >= 90
+    assert all(s.interval_days == 7 and (s.capacity or 0) >= 1000 for s in halls)

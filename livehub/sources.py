@@ -2,7 +2,9 @@
 from __future__ import annotations
 
 import csv
+import zlib
 from dataclasses import dataclass, field
+from datetime import date
 from pathlib import Path
 from typing import Optional
 
@@ -17,10 +19,15 @@ CATEGORIES = {
     "agencies": "芸能事務所",
     "organizers": "主催者(アーティスト・劇団など)",
     "stores": "店舗イベント(インストアライブ)",  # 店頭が会場のためキャパ条件なし
+    "halls": "公立文化ホール(市民会館・文化会館)",
 }
+
+# 何日に1回巡回するか(CSVの interval_days 列で個別に上書き可)
+DEFAULT_INTERVAL = {"halls": 7}
 
 MIN_MUSIC_CAPACITY = 200   # 音楽ライブ会場
 MIN_COMEDY_CAPACITY = 100  # お笑いライブの会場(劇場・寄席など)
+MIN_HALL_CAPACITY = 1000   # 公立文化ホール(まず1,000席以上から。段階的に下げる)
 
 
 def min_capacity(category: str, genre: Optional[str]) -> Optional[int]:
@@ -29,6 +36,8 @@ def min_capacity(category: str, genre: Optional[str]) -> Optional[int]:
         return MIN_MUSIC_CAPACITY
     if category == "theaters" and genre == "comedy":
         return MIN_COMEDY_CAPACITY
+    if category == "halls":
+        return MIN_HALL_CAPACITY
     return None
 
 
@@ -49,10 +58,18 @@ class Source:
     operator: Optional[str] = None
     notes: str = ""
     verified: bool = False
+    interval_days: int = 1
 
     @property
     def is_location(self) -> bool:
-        return self.category in ("venues_music", "theaters")
+        return self.category in ("venues_music", "theaters", "halls")
+
+    def due(self, day: "date") -> bool:
+        """今日巡回する日か。interval_days=7 なら、IDごとに曜日を散らして週1回。"""
+        if self.interval_days <= 1:
+            return True
+        slot = zlib.crc32(self.id.encode()) % self.interval_days
+        return day.toordinal() % self.interval_days == slot
 
     @property
     def crawlable(self) -> bool:
@@ -96,6 +113,8 @@ def load_sources(directory: Path = SOURCES_DIR) -> list[Source]:
                     operator=_opt(row.get("operator")),
                     notes=(row.get("notes") or "").strip(),
                     verified=(row.get("verified") or "").strip() == "1",
+                    interval_days=int(row["interval_days"]) if (row.get("interval_days") or "").strip().isdigit()
+                    else DEFAULT_INTERVAL.get(cat, 1),
                 )
                 # 音楽会場は200以上、お笑いの会場は100以上のみ(不明は確認待ちとして残す)
                 low = min_capacity(cat, s.genre_default)
