@@ -18,7 +18,17 @@ CATEGORIES = {
     "organizers": "主催者(アーティスト・劇団など)",
 }
 
-MIN_MUSIC_CAPACITY = 200
+MIN_MUSIC_CAPACITY = 200   # 音楽ライブ会場
+MIN_COMEDY_CAPACITY = 100  # お笑いライブの会場(劇場・寄席など)
+
+
+def min_capacity(category: str, genre: Optional[str]) -> Optional[int]:
+    """キャパの下限。下限未満の会場は登録しても読み込まない。"""
+    if category == "venues_music":
+        return MIN_MUSIC_CAPACITY
+    if category == "theaters" and genre == "comedy":
+        return MIN_COMEDY_CAPACITY
+    return None
 
 
 @dataclass
@@ -86,8 +96,9 @@ def load_sources(directory: Path = SOURCES_DIR) -> list[Source]:
                     notes=(row.get("notes") or "").strip(),
                     verified=(row.get("verified") or "").strip() == "1",
                 )
-                # 音楽会場はキャパ200以上のみ(不明は確認待ちとして残す)
-                if cat == "venues_music" and s.capacity is not None and s.capacity < MIN_MUSIC_CAPACITY:
+                # 音楽会場は200以上、お笑いの会場は100以上のみ(不明は確認待ちとして残す)
+                low = min_capacity(cat, s.genre_default)
+                if low and s.capacity is not None and s.capacity < low:
                     continue
                 out.append(s)
     return out
@@ -99,8 +110,9 @@ def validate(sources: list[Source]) -> list[str]:
     for s in sources:
         if s.is_location and not s.prefecture:
             problems.append(f"{s.id}: 都道府県が空です")
-        if s.category == "venues_music" and s.capacity is None:
-            problems.append(f"{s.id}: キャパが空です(200以上か確認してください)")
+        low = min_capacity(s.category, s.genre_default)
+        if low and s.capacity is None:
+            problems.append(f"{s.id}: キャパが空です({low}以上か確認してください)")
         if s.method != "manual" and not (s.url or s.schedule_url or s.feed_url):
             problems.append(f"{s.id}: URLが未登録のため巡回できません")
         if s.genre_default and s.genre_default not in ("music", "comedy", "musical", "stage"):

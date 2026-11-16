@@ -147,3 +147,13 @@ def test_source_registry_is_valid():
     assert all(s.prefecture for s in srcs if s.is_location)
     bad = [m for m in validate(srcs) if "genre_default" in m or "都道府県" in m]
     assert bad == []
+
+
+def test_capacity_rules(tmp_path):
+    d = tmp_path / "s"
+    d.mkdir()
+    head = "id,name,aliases,prefecture,city,capacity,url,schedule_url,feed_url,method,genre_default,operator,notes,verified\n"
+    (d / "venues_music.csv").write_text(head + "m1,大ハコ,,東京都,,250,,,,auto,music,,,0\nm2,小ハコ,,東京都,,150,,,,auto,music,,,0\n", encoding="utf-8")
+    (d / "theaters.csv").write_text(head + "c1,お笑い劇場A,,東京都,,120,,,,auto,comedy,,,0\nc2,お笑い劇場B,,東京都,,80,,,,auto,comedy,,,0\n", encoding="utf-8")
+    ids = {s.id for s in load_sources(d)}
+    assert ids == {"m1", "c1"}  # 音楽は200以上、お笑いは100以上
