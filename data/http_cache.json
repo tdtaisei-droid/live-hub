@@ -94,5 +94,101 @@
 "https://www.vi-shinkansen.co.jp/": {
 "etag": null,
 "last_modified": null
+},
+"https://www.tokyo-dome.co.jp/dome/event": {
+"etag": null,
+"last_modified": null
+},
+"https://www.nipponbudokan.or.jp/feed": {
+"etag": "\"407b2ee47560042f0d683e4045518da4\"",
+"last_modified": "Mon, 16 Nov 2026 10:19:22 GMT"
+},
+"https://www.t-i-forum.co.jp/visitors/event/": {
+"etag": null,
+"last_modified": null
+},
+"https://www.saitama-arena.co.jp/schedule/": {
+"etag": "\"699a-6606377c6bde2\"",
+"last_modified": "Mon, 16 Nov 2026 11:56:27 GMT"
+},
+"https://www.yokohama-arena.co.jp/event": {
+"etag": null,
+"last_modified": null
+},
+"https://www.osaka-johall.com/event/": {
+"etag": null,
+"last_modified": null
+},
+"https://horipro-stage.jp/stage/": {
+"etag": null,
+"last_modified": null
+},
+"https://kageki.hankyu.co.jp/schedule/index.html": {
+"etag": null,
+"last_modified": null
+},
+"https://www.umegei.com/system/schedules/": {
+"etag": null,
+"last_modified": null
+},
+"https://www.kabuki-bito.jp/schedule": {
+"etag": null,
+"last_modified": null
+},
+"https://www.bunkamura.co.jp/pickup/performance.html": {
+"etag": null,
+"last_modified": null
+},
+"https://www.bunkamura.co.jp/pickup/event.html": {
+"etag": null,
+"last_modified": null
+},
+"https://stage.parco.jp/calendar/": {
+"etag": null,
+"last_modified": null
+},
+"https://www.nelke.co.jp/topics/performance.html": {
+"etag": "W/\"1006553775ab3311f7c113e889fa4c3a\"",
+"last_modified": "Mon, 16 Nov 2026 10:50:02 GMT"
+},
+"https://www.nelke.co.jp/stage/": {
+"etag": "W/\"e295fe410ce0ec53d136fc45b866068e\"",
+"last_modified": "Mon, 16 Nov 2026 10:49:56 GMT"
+},
+"https://www.nntt.jac.go.jp/performance/": {
+"etag": null,
+"last_modified": null
+},
+"https://www.nntt.jac.go.jp/performance/calendar.html": {
+"etag": null,
+"last_modified": null
+},
+"https://setagaya-pt.jp/stage/": {
+"etag": null,
+"last_modified": null
+},
+"https://www.geigeki.jp/accessibility/support/": {
+"etag": null,
+"last_modified": null
+},
+"https://www.kaat.jp/event/search": {
+"etag": null,
+"last_modified": null
+},
+"https://www.shochikugeino.co.jp/topics/events/": {
+"etag": null,
+"last_modified": null
+},
+"https://www.amuse.co.jp/about/stage/": {
+"etag": null,
+"last_modified": "Mon, 16 Nov 2026 15:33:01 GMT"
+},
+"https://www.vi-shinkansen.co.jp/stage": {
+"etag": null,
+"last_modified": null
+},
+"https://omuta-bunka-kaikan.or.jp/feed": {
+"etag": "\"6d408ca48b14574c1bdd4c486b4bcb7d-gzip\"",
+"last_modified": "Sun, 15 Nov 2026 07:57:13 GMT"
 }
 }
