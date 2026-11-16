@@ -327,3 +327,19 @@ def test_house_special_and_performers():
     sp = to_event(RawItem("架空コンビA 単独ライブ 12月2日", "https://l/2"), s, REF, NOW)
     assert reg.house == "yoshimoto" and not reg.special and reg.performers == ["架空コンビA", "架空トリオB"]
     assert sp.special
+
+
+def test_candidate_check_rejects_namesake():
+    from livehub.fetch import Response
+    from livehub.pipeline import check_candidate
+
+    class Stub:
+        def __init__(self, html): self.html = html
+        def allowed(self, url): return True
+        def get(self, url, use_cache=True): return Response(url, 200, self.html, "text/html")
+
+    s = src(id="hs", name="ホットスタッフ・プロモーション", aliases=["HOT STUFF"])
+    good = '<html><head><title>HOT STUFF PROMOTION | LIVE SCHEDULE</title></head></html>'
+    bad = '<html><head><title>人材派遣のホットスタッフ</title><meta name="description" content="あなたに近い派遣会社"></head></html>'
+    assert check_candidate(s, "https://a/", Stub(good))["ok"]
+    assert not check_candidate(s, "https://b/", Stub(bad))["ok"]

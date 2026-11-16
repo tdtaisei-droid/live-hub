@@ -1,13 +1,13 @@
 id,name,aliases,prefecture,city,capacity,url,schedule_url,feed_url,method,genre_default,operator,notes,verified
-wess,WESS,ウエス,北海道,札幌市,,,,,auto,music,,北海道エリア,0
+wess,WESS,ウエス,北海道,札幌市,,https://wess.jp/,,,auto,music,,北海道エリア。URL: アーティスト公式サイトの公演窓口記載で確認(2026-11-17),0
 north-road,ノースロードミュージック,,北海道,札幌市,,,,,auto,music,,北海道エリア,0
 kyodo-sapporo,キョードー札幌,,北海道,札幌市,,,,,auto,music,,北海道エリア,0
-gip,ジー・アイ・ピー,GIP,宮城県,仙台市,,,,,auto,music,,東北エリア,0
+gip,ジー・アイ・ピー,GIP,宮城県,仙台市,,https://www.gip-web.co.jp/,,,auto,music,,東北エリア。URL: 会社情報記載で確認(2026-11-17),0
 kyodo-tohoku,キョードー東北,,宮城県,仙台市,,,,,auto,music,,東北エリア,0
 kyodo-tokyo,キョードー東京,,東京都,,,https://www.kyodotokyo.com/,,,auto,music,,関東エリア/ミュージカル招聘も,0
 diskgarage,ディスクガレージ,DISK GARAGE,東京都,,,https://www.diskgarage.com/,,,auto,music,,関東エリア,0
 hip,H.I.P.,ハヤシインターナショナルプロモーション,東京都,,,,,,auto,music,,関東エリア/洋楽招聘,0
-hotstuff,ホットスタッフ・プロモーション,HOT STUFF,東京都,,,,,,auto,music,,関東エリア,0
+hotstuff,ホットスタッフ・プロモーション,HOT STUFF,東京都,,,,,,auto,music,,関東エリア。同名の人材派遣会社があるので注意。URLは候補を自動確認中,0
 creativeman,クリエイティブマンプロダクション,クリエイティブマン,東京都,,,,,,auto,music,,関東エリア/洋楽・フェス,0
 smash,SMASH,スマッシュ,東京都,,,,,,auto,music,,関東エリア/洋楽・フェス,0
 vintage-rock,VINTAGE ROCK,ヴィンテージ・ロック,東京都,,,,,,auto,music,,関東エリア,0
@@ -17,16 +17,16 @@ fob-niigata,FOB新潟,,新潟県,新潟市,,,,,auto,music,,新潟エリア,0
 kyodo-hokuriku,キョードー北陸,,石川県,金沢市,,,,,auto,music,,北陸エリア,0
 fob-kanazawa,FOB金沢,,石川県,金沢市,,,,,auto,music,,北陸エリア,0
 kyodo-tokai,キョードー東海,,愛知県,名古屋市,,,,,auto,music,,東海エリア,0
-sunday-folk,サンデーフォークプロモーション,サンデーフォーク,愛知県,名古屋市,,,,,auto,music,,東海エリア,0
-jailhouse,ジェイルハウス,JAILHOUSE,愛知県,名古屋市,,,,,auto,music,,東海エリア,0
+sunday-folk,サンデーフォークプロモーション,サンデーフォーク,愛知県,名古屋市,,,,,auto,music,,東海エリア。電話052-320-9100は確認、URL未確認,0
+jailhouse,ジェイルハウス,JAILHOUSE,愛知県,名古屋市,,https://www.jailhouse.jp/,,,auto,music,,東海エリア。URL: 公演告知の問い合わせ先記載で確認(2026-11-17),0
 kyodo-osaka,キョードーインフォメーション(キョードー大阪),キョードー大阪,大阪府,大阪市,,,,,auto,music,,関西エリア,0
-yumebanchi,夢番地,YUMEBANCHI,大阪府,大阪市,,,,,auto,music,,関西・中四国エリア,0
-shimizu-onsen,清水音泉,,大阪府,大阪市,,,,,auto,music,,関西エリア,0
+yumebanchi,夢番地,YUMEBANCHI,大阪府,大阪市,,https://www.yumebanchi.jp/,,,auto,music,,関西・中四国エリア。URL: 公演告知の問い合わせ先記載で確認(2026-11-17),0
+shimizu-onsen,清水音泉,,大阪府,大阪市,,https://shimizuonsen.com/,,,auto,music,,関西エリア。URL: 主催フェスOTODAMAの公式サイトが同ドメイン(2026-11-17),0
 greens,GREENS,グリーンズ,大阪府,大阪市,,,,,auto,music,,関西エリア,0
 sound-creator,サウンドクリエーター,,大阪府,大阪市,,,,,auto,music,,関西エリア,0
 smash-west,SMASH WEST,スマッシュウエスト,大阪府,大阪市,,,,,auto,music,,関西エリア,0
-kyodo-west,キョードー西日本,,福岡県,福岡市,,,,,auto,music,,九州・中国エリア,0
-bea,BEA,,福岡県,福岡市,,,,,auto,music,,九州エリア,0
+kyodo-west,キョードー西日本,,福岡県,福岡市,,https://www.kyodo-west.co.jp/,,,auto,music,,九州・中国エリア。URL: LINE公式アカウント記載で確認(2026-11-17),0
+bea,BEA,,福岡県,福岡市,,,,,auto,music,,九州エリア。電話092-712-4221は確認、URL未確認。同名の別会社(インバウンド事業)に注意,0
 kyodo-kyushu,キョードー九州,,福岡県,福岡市,,,,,auto,music,,九州エリア,0
-duke,デューク,DUKE,香川県,高松市,,,,,auto,music,,四国エリア,0
+duke,デューク,DUKE,香川県,高松市,,https://www.duke.co.jp/,,,auto,music,,四国エリア。URL: DUKEオフィシャルのチケットページで確認(2026-11-17),0
 pmc,ピーエムエージェンシー,PM AGENCY,沖縄県,那覇市,,,,,auto,music,,沖縄エリア。社名・実在を要確認,0

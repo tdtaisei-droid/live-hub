@@ -260,3 +260,14 @@ def find_schedule_pages(html_text: str, base_url: str, limit: int = 2) -> list[s
         if rank is not None and (url not in scored or scored[url] > (rank, order)):
             scored[url] = (rank, order)
     return [u for u, _ in sorted(scored.items(), key=lambda kv: kv[1])][:limit]
+
+
+_TITLE = re.compile(r"<title[^>]*>(.*?)</title>", re.S | re.I)
+_META = re.compile(r'<meta[^>]+(?:property|name)=["\'](?:og:site_name|og:title|description)["\'][^>]*content=["\']([^"\']*)', re.I)
+_H1 = re.compile(r"<h1[^>]*>(.*?)</h1>", re.S | re.I)
+
+
+def page_identity(html_text: str) -> str:
+    """サイトの名乗り(題名・サイト名・説明・見出し)。本文は見ない(同名の言及で誤判定しないため)。"""
+    parts = _TITLE.findall(html_text)[:1] + _META.findall(html_text)[:3] + _H1.findall(html_text)[:2]
+    return clean_space(unescape(re.sub(r"<[^>]+>", " ", " ".join(parts))))[:600]

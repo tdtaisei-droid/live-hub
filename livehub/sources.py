@@ -64,6 +64,7 @@ class Source:
     verified: bool = False
     interval_days: int = 1
     house: Optional[str] = None   # 専用劇場を持つ劇団・事務所(config/houses.json)
+    url_auto: bool = False        # 候補URLを自動確認して仮登録したもの(人の確認待ち)
 
     @property
     def is_location(self) -> bool:
@@ -97,8 +98,25 @@ def load_houses(path: Path = HOUSES_PATH) -> dict[str, dict]:
     return {k: v for k, v in json.loads(path.read_text(encoding="utf-8")).items() if not k.startswith("_")}
 
 
-def load_sources(directory: Path = SOURCES_DIR) -> list[Source]:
+CANDIDATES_PATH = ROOT / "config" / "url_candidates.csv"
+URL_CHECK_PATH = ROOT / "data" / "url_check.json"
+
+
+def load_candidates(path: Path = CANDIDATES_PATH) -> dict[str, str]:
+    if not path.exists():
+        return {}
+    with path.open(encoding="utf-8", newline="") as f:
+        return {r["id"].strip(): r["url"].strip() for r in csv.DictReader(f) if r.get("id") and r.get("url")}
+
+
+def load_url_checks(path: Path = URL_CHECK_PATH) -> dict[str, dict]:
+    import json
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+
+
+def load_sources(directory: Path = SOURCES_DIR, use_checked_candidates: bool = True) -> list[Source]:
     house_of = {sid: h for h, v in load_houses().items() for sid in v["sources"]}
+    checks = load_url_checks() if use_checked_candidates else {}
     out: list[Source] = []
     seen: set[str] = set()
     for cat in CATEGORIES:
@@ -134,6 +152,10 @@ def load_sources(directory: Path = SOURCES_DIR) -> list[Source]:
                     else DEFAULT_INTERVAL.get(cat, 1),
                     house=house_of.get(sid),
                 )
+                # URL未登録で、候補URLが自動確認(ページの題名に名前が入っている)に合格していれば仮登録
+                chk = checks.get(sid)
+                if not s.url and chk and chk.get("ok") and chk.get("url"):
+                    s.url, s.url_auto = chk["url"], True
                 # 音楽会場は200以上、お笑いの会場は100以上のみ(不明は確認待ちとして残す)
                 low = min_capacity(cat, s.genre_default)
                 if low and s.capacity is not None and s.capacity < low:

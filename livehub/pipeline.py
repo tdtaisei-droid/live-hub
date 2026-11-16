@@ -11,13 +11,13 @@ from typing import Optional
 
 from .classify import ENDED, STORE_LIVE, is_news_post, is_special, classify_genre_with_default, classify_kind, is_venue_target, is_broadcast_target, is_free, is_hall_target, is_relevant
 from .collectors import RawItem
-from .collectors.html import find_feeds, find_schedule_pages, page_text, parse_jsonld_events, parse_schedule_blocks
+from .collectors.html import page_identity, find_feeds, find_schedule_pages, page_text, parse_jsonld_events, parse_schedule_blocks
 from .collectors.ics import parse_ics
 from .collectors.rss import parse_feed
 from .fetch import BlockedByRobots, Fetcher
 from .geo import detect_location, region_of
 from .models import Event
-from .sources import Source, load_sources
+from .sources import URL_CHECK_PATH, Source, load_candidates, load_sources
 from .store import Store
 from .textutil import clean_title, extract_performers, extract_schedule, find_dates, normalize, quoted_titles
 
@@ -261,6 +261,61 @@ def discover(sources: Optional[list[Source]] = None, out: Path = DATA / "source_
         except Exception as exc:
             info["status"] = f"error: {exc!r}"[:200]
         result[src.id] = info
+    out.parent.mkdir(exist_ok=True)
+    out.write_text(json.dumps(result, ensure_ascii=False, indent=1), encoding="utf-8")
+    return result
+
+
+# ---------- 候補URLの自動確認 ----------
+_GENERIC = re.compile(r"(株式会社|有限会社|\(.*?\)|（.*?）|公式|オフィシャル|サイト|ホームページ|劇場$|ホール$)")
+
+
+def name_keys(src: Source) -> list[str]:
+    keys = []
+    for n in [src.name, *src.aliases]:
+        for v in (n, _GENERIC.sub("", n)):
+            k = normalize(v)
+            if len(k) >= 3 and k not in keys:
+                keys.append(k)
+    return keys
+
+
+def check_candidate(src: Source, url: str, fetcher: Fetcher) -> dict:
+    """候補ページを1回だけ開き、題名・サイト名・見出しに名前(別名)が入っていれば合格。"""
+    info = {"url": url, "checked": datetime.now().isoformat(timespec="seconds"), "ok": False}
+    try:
+        if not fetcher.allowed(url):
+            info["reason"] = "robots.txtで拒否"
+            return info
+        r = fetcher.get(url, use_cache=False)
+        if r.status >= 400 or not r.text:
+            info["reason"] = f"HTTP {r.status}"
+            return info
+        ident = page_identity(r.text)
+        info["identity"] = ident[:200]
+        hit = next((k for k in name_keys(src) if k in normalize(ident)), None)
+        info["ok"] = hit is not None
+        info["matched"] = hit
+        if not hit:
+            info["reason"] = "ページの名乗りに名前が見つからない"
+        if r.url != url:
+            info["final_url"] = r.url
+    except Exception as exc:
+        info["reason"] = f"error: {exc!r}"[:200]
+    return info
+
+
+def verify_candidates(out: Path = URL_CHECK_PATH) -> dict:
+    srcs = {s.id: s for s in load_sources(use_checked_candidates=False)}
+    fetcher = Fetcher()
+    result = json.loads(out.read_text(encoding="utf-8")) if out.exists() else {}
+    for sid, url in load_candidates().items():
+        src = srcs.get(sid)
+        if not src or src.url:  # 正式に登録済みなら確認不要
+            continue
+        if result.get(sid, {}).get("url") == url and result[sid].get("ok"):
+            continue  # 合格済み
+        result[sid] = check_candidate(src, url, fetcher)
     out.parent.mkdir(exist_ok=True)
     out.write_text(json.dumps(result, ensure_ascii=False, indent=1), encoding="utf-8")
     return result
