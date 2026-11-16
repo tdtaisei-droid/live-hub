@@ -1,197 +1,6 @@
 {
-"https://www.tokyo-dome.co.jp/dome/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.nipponbudokan.or.jp/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.t-i-forum.co.jp/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.saitama-arena.co.jp/": {
-"etag": "\"614d-6606377a68bac\"",
-"last_modified": "Mon, 16 Nov 2026 11:56:25 GMT"
-},
-"https://www.yokohama-arena.co.jp/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.osaka-johall.com/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.diskgarage.com/": {
-"etag": "W/\"410ca4b6f796b3bf05a20d3ad9e0feb4\"",
-"last_modified": null
-},
-"https://www.tohostage.com/": {
-"etag": null,
-"last_modified": "Fri, 28 Feb 2025 06:43:40 GMT"
-},
-"https://horipro-stage.jp/": {
-"etag": null,
-"last_modified": null
-},
-"https://kageki.hankyu.co.jp/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.umegei.com/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.kabuki-bito.jp/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.bunkamura.co.jp/": {
-"etag": null,
-"last_modified": null
-},
-"https://stage.parco.jp/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.nelke.co.jp/": {
-"etag": "W/\"8b0bc35092f2be029fd21e2859361952\"",
-"last_modified": "Mon, 16 Nov 2026 10:49:51 GMT"
-},
-"https://www.siscompany.com/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.nntt.jac.go.jp/": {
-"etag": null,
-"last_modified": null
-},
-"https://setagaya-pt.jp/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.geigeki.jp/": {
-"etag": null,
-"last_modified": "Mon, 16 Nov 2026 15:01:24 GMT"
-},
-"https://www.kaat.jp/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.shochikugeino.co.jp/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.ohtapro.co.jp/": {
-"etag": "W/\"5717-65ed0a117ae15\"",
-"last_modified": "Tue, 27 Oct 2026 11:20:09 GMT"
-},
-"https://www.amuse.co.jp/": {
-"etag": null,
-"last_modified": "Mon, 16 Nov 2026 15:17:33 GMT"
-},
-"https://www.vi-shinkansen.co.jp/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.tokyo-dome.co.jp/dome/event": {
-"etag": null,
-"last_modified": null
-},
+"__version__": "2",
 "https://www.nipponbudokan.or.jp/feed": {
-"etag": "\"407b2ee47560042f0d683e4045518da4\"",
-"last_modified": "Mon, 16 Nov 2026 10:19:22 GMT"
-},
-"https://www.t-i-forum.co.jp/visitors/event/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.saitama-arena.co.jp/schedule/": {
-"etag": "\"699a-6606377c6bde2\"",
-"last_modified": "Mon, 16 Nov 2026 11:56:27 GMT"
-},
-"https://www.yokohama-arena.co.jp/event": {
-"etag": null,
-"last_modified": null
-},
-"https://www.osaka-johall.com/event/": {
-"etag": null,
-"last_modified": null
-},
-"https://horipro-stage.jp/stage/": {
-"etag": null,
-"last_modified": null
-},
-"https://kageki.hankyu.co.jp/schedule/index.html": {
-"etag": null,
-"last_modified": null
-},
-"https://www.umegei.com/system/schedules/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.kabuki-bito.jp/schedule": {
-"etag": null,
-"last_modified": null
-},
-"https://www.bunkamura.co.jp/pickup/performance.html": {
-"etag": null,
-"last_modified": null
-},
-"https://www.bunkamura.co.jp/pickup/event.html": {
-"etag": null,
-"last_modified": null
-},
-"https://stage.parco.jp/calendar/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.nelke.co.jp/topics/performance.html": {
-"etag": "W/\"1006553775ab3311f7c113e889fa4c3a\"",
-"last_modified": "Mon, 16 Nov 2026 10:50:02 GMT"
-},
-"https://www.nelke.co.jp/stage/": {
-"etag": "W/\"e295fe410ce0ec53d136fc45b866068e\"",
-"last_modified": "Mon, 16 Nov 2026 10:49:56 GMT"
-},
-"https://www.nntt.jac.go.jp/performance/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.nntt.jac.go.jp/performance/calendar.html": {
-"etag": null,
-"last_modified": null
-},
-"https://setagaya-pt.jp/stage/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.geigeki.jp/accessibility/support/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.kaat.jp/event/search": {
-"etag": null,
-"last_modified": null
-},
-"https://www.shochikugeino.co.jp/topics/events/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.amuse.co.jp/about/stage/": {
-"etag": null,
-"last_modified": "Mon, 16 Nov 2026 22:18:37 GMT"
-},
-"https://www.vi-shinkansen.co.jp/stage": {
-"etag": null,
-"last_modified": null
-},
-"https://omuta-bunka-kaikan.or.jp/feed": {
-"etag": "\"6d408ca48b14574c1bdd4c486b4bcb7d-gzip\"",
-"last_modified": "Sun, 15 Nov 2026 07:57:13 GMT"
-},
-"https://www.nipponbudokan.or.jp/comments/feed": {
 "etag": "\"407b2ee47560042f0d683e4045518da4\"",
 "last_modified": "Mon, 16 Nov 2026 10:19:22 GMT"
 },
@@ -223,6 +32,10 @@
 "etag": null,
 "last_modified": null
 },
+"https://www.yokohama-arena.co.jp/event": {
+"etag": null,
+"last_modified": null
+},
 "https://pia-arena-mm.jp/event/index.html": {
 "etag": "\"1767d-66066231d05cf\"",
 "last_modified": "Mon, 16 Nov 2026 15:07:32 GMT"
@@ -231,23 +44,7 @@
 "etag": "\"ba35-6606623268f3b\"",
 "last_modified": "Mon, 16 Nov 2026 15:07:32 GMT"
 },
-"https://www.club-quattro.com/shibuya/schedule/": {
-"etag": null,
-"last_modified": null
-},
-"https://bigcat-live.com/schedule/": {
-"etag": null,
-"last_modified": null
-},
-"https://bigcat-live.com/feed/atom": {
-"etag": "W/\"5f78f102dd320eeef89d2691146462c4\"",
-"last_modified": "Mon, 16 Nov 2026 22:08:24 GMT"
-},
 "https://janusosaka.com/schedule": {
-"etag": null,
-"last_modified": null
-},
-"https://rohmtheatrekyoto.jp/program/": {
 "etag": null,
 "last_modified": null
 },
@@ -259,10 +56,6 @@
 "etag": null,
 "last_modified": null
 },
-"https://www.kumamoto-jo-hall.jp/event/": {
-"etag": null,
-"last_modified": null
-},
 "https://wess.jp/concert-schedule/": {
 "etag": null,
 "last_modified": null
@@ -271,59 +64,11 @@
 "etag": null,
 "last_modified": null
 },
-"https://www.gip-web.co.jp/schedule/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.creativeman.co.jp/event/": {
-"etag": null,
-"last_modified": "Mon, 16 Nov 2026 02:31:45 GMT"
-},
-"https://www.creativeman.co.jp/news/": {
-"etag": null,
-"last_modified": "Mon, 16 Nov 2026 02:33:35 GMT"
-},
 "https://smash-jpn.com/calendar/": {
 "etag": null,
 "last_modified": null
 },
 "https://smash-jpn.com/live/?id=4784": {
-"etag": null,
-"last_modified": null
-},
-"https://vintage-rock.com/live/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.kyodo-hokuriku.co.jp/schedule": {
-"etag": null,
-"last_modified": null
-},
-"https://www.kyodotokai.co.jp/events/index/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.sundayfolk.com/articles/detail/34333": {
-"etag": null,
-"last_modified": null
-},
-"https://www.jailhouse.jp/live/tatsuyakitanidekaipure/": {
-"etag": null,
-"last_modified": null
-},
-"http://www.shimizuonsen.com/schedule": {
-"etag": null,
-"last_modified": null
-},
-"https://www.greens-corp.co.jp/schedule/cal/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.greens-corp.co.jp/schedule/info/index.php?event_id=13728": {
-"etag": null,
-"last_modified": null
-},
-"https://www.sound-c.co.jp/schedule/": {
 "etag": null,
 "last_modified": null
 },
@@ -335,11 +80,27 @@
 "etag": "\"40a1-65f3762c52c2c\"",
 "last_modified": "Sun, 01 Nov 2026 13:55:45 GMT"
 },
-"https://www.duke.co.jp/calendar/": {
+"https://www.bunkamura.co.jp/pickup/performance.html": {
 "etag": null,
 "last_modified": null
 },
-"https://www.nissaytheatre.or.jp/schedule/": {
+"https://www.bunkamura.co.jp/pickup/event.html": {
+"etag": null,
+"last_modified": null
+},
+"https://www.nelke.co.jp/topics/performance.html": {
+"etag": "W/\"1006553775ab3311f7c113e889fa4c3a\"",
+"last_modified": "Mon, 16 Nov 2026 10:50:02 GMT"
+},
+"https://www.nelke.co.jp/stage/": {
+"etag": "W/\"e295fe410ce0ec53d136fc45b866068e\"",
+"last_modified": "Mon, 16 Nov 2026 10:49:56 GMT"
+},
+"https://www.nntt.jac.go.jp/performance/": {
+"etag": null,
+"last_modified": null
+},
+"https://www.nntt.jac.go.jp/performance/calendar.html": {
 "etag": null,
 "last_modified": null
 },
@@ -350,18 +111,6 @@
 "https://www.misonoza.co.jp/lineup/month250607.html": {
 "etag": "\"7373-63001185b4880\"",
 "last_modified": "Mon, 10 Mar 2025 18:25:22 GMT"
-},
-"https://www.shinkabukiza.co.jp/perf_info/": {
-"etag": "\"a068-6600ea2648434\"",
-"last_modified": "Thu, 12 Nov 2026 06:43:50 GMT"
-},
-"https://www.shochiku.co.jp/play/schedules/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.hakataza.co.jp/lineup/": {
-"etag": null,
-"last_modified": null
 },
 "https://lumine.yoshimoto.co.jp/schedule/": {
 "etag": null,
@@ -395,14 +144,6 @@
 "etag": null,
 "last_modified": null
 },
-"https://www.p-jinriki.com/news/2026/007095.php": {
-"etag": null,
-"last_modified": null
-},
-"https://www.p-jinriki.com/event/": {
-"etag": null,
-"last_modified": null
-},
 "https://www.maseki.co.jp/live/": {
 "etag": null,
 "last_modified": null
@@ -415,67 +156,19 @@
 "etag": null,
 "last_modified": null
 },
-"https://asaikikaku.co.jp/news/live/34362.html": {
+"https://starto.jp/s/p/media/list?ima=3714": {
 "etag": null,
-"last_modified": null
-},
-"https://www.titan-net.co.jp/schedule/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.titan-net.co.jp/live/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.sma.co.jp/s/sma/live?ima=0000&type=item&dy=202611": {
-"etag": null,
-"last_modified": "Sun, 15 Nov 2026 22:18:29 GMT"
-},
-"https://starto.jp/s/p/media/list?ima=1647": {
-"etag": null,
-"last_modified": "Mon, 16 Nov 2026 22:18:00 GMT"
+"last_modified": "Mon, 16 Nov 2026 23:36:00 GMT"
 },
 "https://starto.jp/s/p/live/10625": {
 "etag": null,
-"last_modified": "Mon, 16 Nov 2026 22:18:00 GMT"
+"last_modified": "Mon, 16 Nov 2026 23:37:00 GMT"
 },
-"https://www.ldh.co.jp/live/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.ldh.co.jp/perfectyear2026-calendar/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.stardust.co.jp/news/category/live/": {
-"etag": null,
-"last_modified": null
-},
-"https://shinkigeki.yoshimoto.co.jp/schedule/": {
-"etag": null,
-"last_modified": null
-},
-"https://iwaki-alios.jp/schedule-all": {
-"etag": null,
-"last_modified": null
-},
-"https://iwaki-alios.jp/will-premier-list": {
+"https://www.vi-shinkansen.co.jp/stage": {
 "etag": null,
 "last_modified": null
 },
 "https://www.mpac.jp/event/43135/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.actcity.jp/event/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.fenice-sacay.jp/event/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.archaic.or.jp/schedule/": {
 "etag": null,
 "last_modified": null
 },
@@ -489,11 +182,11 @@
 },
 "https://www.tv-tokyo.co.jp/timetable/": {
 "etag": null,
-"last_modified": "Mon, 16 Nov 2026 22:21:02 GMT"
+"last_modified": "Mon, 16 Nov 2026 23:38:25 GMT"
 },
 "https://www.tv-tokyo.co.jp/event/": {
 "etag": null,
-"last_modified": "Mon, 16 Nov 2026 22:21:05 GMT"
+"last_modified": "Mon, 16 Nov 2026 23:38:29 GMT"
 },
 "https://www.fujitv.co.jp/timetable/weekly/index.html": {
 "etag": null,
@@ -503,24 +196,16 @@
 "etag": null,
 "last_modified": null
 },
-"https://www.hbc.co.jp/event/idolfes/": {
-"etag": "W/\"1876-65f4761bd8f9e\"",
-"last_modified": "Mon, 02 Nov 2026 09:00:47 GMT"
-},
-"https://www.hbc.co.jp/event/index.html": {
-"etag": "W/\"2ea7-65f966c457cab\"",
-"last_modified": "Fri, 06 Nov 2026 07:18:46 GMT"
-},
 "https://www.stv.jp/tv/timetable/index.html": {
 "etag": "W/\"d93fbf8781ea0f837d0109104b243dc3\"",
 "last_modified": "Mon, 16 Nov 2026 21:21:14 GMT"
 },
 "https://www.htb.co.jp/timetable/": {
-"etag": "\"68cd7ac324aa32b723f636d114f08c834c46f33b\"",
+"etag": "\"e032b00e5476e9eda362d6b3ca0684cdbd0a7ec1\"",
 "last_modified": null
 },
 "https://www.htb.co.jp/event/": {
-"etag": "\"2ea07326cfc29222a42b663d6560c4eeea8797f5\"",
+"etag": "\"7ca145087921cf5206f00273d56cd3099ab65b79\"",
 "last_modified": null
 },
 "https://www.uhb.jp/timetable/": {
@@ -547,14 +232,6 @@
 "etag": null,
 "last_modified": null
 },
-"https://www.aba-net.com/timetable/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.aba-net.com/event/": {
-"etag": null,
-"last_modified": null
-},
 "https://www.ibc.co.jp/timetable/tv/": {
 "etag": null,
 "last_modified": null
@@ -578,14 +255,6 @@
 "https://www.mmt-tv.co.jp/event/articles/7hiyjj9psm8y442t.html": {
 "etag": "W/\"32d45cecf5b52f0c9b7d85afae85d94a\"",
 "last_modified": "Wed, 16 Sep 2026 08:00:11 GMT"
-},
-"https://www.khb-tv.co.jp/program/schedule/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.khb-tv.co.jp/event/": {
-"etag": null,
-"last_modified": null
 },
 "https://www.akita-abs.co.jp/weeklyprogram/": {
 "etag": null,
@@ -614,22 +283,6 @@
 "https://www.ybc.co.jp/radio/radiopro/": {
 "etag": null,
 "last_modified": null
-},
-"https://www.yts.co.jp/weekly-programs/": {
-"etag": "\"4d6d-65eb839df13de\"",
-"last_modified": "Mon, 26 Oct 2026 06:13:18 GMT"
-},
-"https://www.yts.co.jp/event/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.sakuranbo.co.jp/timetable/": {
-"etag": "W/\"68e44b74-1977\"",
-"last_modified": "Mon, 06 Oct 2025 23:06:28 GMT"
-},
-"https://www.sakuranbo.co.jp/event/": {
-"etag": "W/\"6af42e96-125ee\"",
-"last_modified": "Wed, 11 Nov 2026 09:00:06 GMT"
 },
 "https://www.fukushima-tv.co.jp/program/today.html": {
 "etag": null,
@@ -671,14 +324,6 @@
 "etag": null,
 "last_modified": "Tue, 27 Oct 2026 07:44:31 GMT"
 },
-"https://www.nsttv.com/program/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.nsttv.com/event/": {
-"etag": null,
-"last_modified": null
-},
 "https://www.ohbsn.com/tv/time-table.php": {
 "etag": null,
 "last_modified": null
@@ -687,51 +332,15 @@
 "etag": null,
 "last_modified": null
 },
-"https://www.uxtv.co.jp/event/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.bbt.co.jp/hensei/week.php": {
-"etag": null,
-"last_modified": null
-},
-"https://www.bbt.co.jp/event/ticket/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.tulip-tv.co.jp/programs/timetable.html": {
-"etag": null,
-"last_modified": null
-},
-"https://www.tulip-tv.co.jp/events/index.html": {
-"etag": null,
-"last_modified": null
-},
 "http://www.ishikawa-tv.com/sp/timetable/day.php": {
-"etag": null,
-"last_modified": null
-},
-"https://www.hab.co.jp/timetable/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.hab.co.jp/event/": {
 "etag": null,
 "last_modified": null
 },
 "https://www.fukui-tv.co.jp/program/week/week_main.php": {
 "etag": null,
-"last_modified": "Mon, 16 Nov 2026 22:27:47 GMT"
+"last_modified": "Mon, 16 Nov 2026 23:43:52 GMT"
 },
 "https://www.ybs.jp/timetable": {
-"etag": null,
-"last_modified": null
-},
-"https://www.uty.co.jp/tv/program.php": {
-"etag": null,
-"last_modified": null
-},
-"https://www.uty.co.jp/event/": {
 "etag": null,
 "last_modified": null
 },
@@ -755,14 +364,6 @@
 "etag": null,
 "last_modified": null
 },
-"https://www.sut-tv.com/timetable/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.sut-tv.com/event/": {
-"etag": null,
-"last_modified": null
-},
 "https://www.satv.co.jp/0200weekly/": {
 "etag": null,
 "last_modified": null
@@ -783,31 +384,7 @@
 "etag": null,
 "last_modified": null
 },
-"https://tv-aichi.co.jp/timetable/": {
-"etag": null,
-"last_modified": null
-},
-"https://tv-aichi.co.jp/event/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.mietv.com/weekly_schedule": {
-"etag": null,
-"last_modified": null
-},
-"https://www.mietv.com/event": {
-"etag": null,
-"last_modified": null
-},
 "https://www.mbs.jp/timetable/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.asahi.co.jp/event/": {
-"etag": null,
-"last_modified": "Wed, 04 Nov 2026 01:24:47 GMT"
-},
-"https://www.ktv.jp/event/": {
 "etag": null,
 "last_modified": null
 },
@@ -817,7 +394,7 @@
 },
 "https://www.tv-osaka.co.jp/timetables/weekly/": {
 "etag": null,
-"last_modified": "Mon, 16 Nov 2026 22:30:04 GMT"
+"last_modified": "Mon, 16 Nov 2026 23:40:17 GMT"
 },
 "https://www.tv-osaka.co.jp/ip4/event/": {
 "etag": null,
@@ -859,14 +436,6 @@
 "etag": "\"22d05469856163839c610be4656adbfc\"",
 "last_modified": "Mon, 16 Nov 2026 15:05:02 GMT"
 },
-"https://www.nkt-tv.co.jp/program/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.nkt-tv.co.jp/event/": {
-"etag": "\"0ceb5c854820aed3810dda965bb3f084\"",
-"last_modified": "Mon, 16 Nov 2026 15:05:04 GMT"
-},
 "https://tsk-tv.com/timetable/": {
 "etag": null,
 "last_modified": null
@@ -874,14 +443,6 @@
 "https://www.rsk.co.jp/tv/program/": {
 "etag": null,
 "last_modified": null
-},
-"https://www.ohk.co.jp/programs/weekly/": {
-"etag": "W/\"9511d5a9e6122b3e453756b174d7800f\"",
-"last_modified": "Mon, 16 Nov 2026 15:14:08 GMT"
-},
-"https://www.ohk.co.jp/event/": {
-"etag": "W/\"d360f6217a33ea842be46f5f3c9dd960\"",
-"last_modified": "Mon, 16 Nov 2026 15:13:53 GMT"
 },
 "https://www.ksb.co.jp/program/": {
 "etag": null,
@@ -927,18 +488,6 @@
 "etag": null,
 "last_modified": null
 },
-"https://www.itv6.jp/event/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.kutv.co.jp/program/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.kutv.co.jp/event/": {
-"etag": null,
-"last_modified": null
-},
 "https://rkb.jp/program/": {
 "etag": null,
 "last_modified": null
@@ -971,14 +520,6 @@
 "etag": null,
 "last_modified": null
 },
-"https://www.nbc-nagasaki.co.jp/tv/program/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.nbc-nagasaki.co.jp/event": {
-"etag": null,
-"last_modified": null
-},
 "https://www.ktn.co.jp/timetable/": {
 "etag": "\"3c8d-6605dcaa16845\"",
 "last_modified": "Mon, 16 Nov 2026 05:10:08 GMT"
@@ -988,7 +529,7 @@
 "last_modified": "Sat, 07 Nov 2026 09:00:18 GMT"
 },
 "https://www.ncctv.co.jp/events": {
-"etag": "\"xjvf9j2a9k2d8h\"",
+"etag": "\"198mueli7b2d8h\"",
 "last_modified": null
 },
 "https://www.ncctv.co.jp/events/soccer-ncc": {
@@ -1000,14 +541,6 @@
 "last_modified": null
 },
 "https://rkk.jp/radioprog/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.kab.co.jp/programtable/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.kab.co.jp/event/": {
 "etag": null,
 "last_modified": null
 },
@@ -1037,7 +570,7 @@
 },
 "https://www.kkb.co.jp/epgdata/Weekly1.php": {
 "etag": null,
-"last_modified": "Mon, 16 Nov 2026 22:37:48 GMT"
+"last_modified": "Mon, 16 Nov 2026 23:52:10 GMT"
 },
 "https://www.kyt-tv.com/program_list/": {
 "etag": "\"5be3-6600b8f59f118-gzip\"",
@@ -1055,33 +588,13 @@
 "etag": "\"47b1-65f0baf8411b8-gzip\"",
 "last_modified": "Fri, 30 Oct 2026 09:47:34 GMT"
 },
-"https://www.otv.co.jp/information/event/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.qab.co.jp/events/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.tfm.co.jp/timetable/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.j-wave.co.jp/contents/timetable/contents.html": {
-"etag": null,
-"last_modified": null
-},
-"https://www.j-wave.co.jp/event/": {
-"etag": null,
-"last_modified": null
-},
 "https://www.nack5.co.jp/timetable/time-table.pdf": {
 "etag": null,
 "last_modified": "Tue, 06 Oct 2026 05:44:15 GMT"
 },
 "https://www.nack5.co.jp/air-schedule/": {
 "etag": null,
-"last_modified": "Mon, 16 Nov 2026 22:39:09 GMT"
+"last_modified": "Mon, 16 Nov 2026 23:52:51 GMT"
 },
 "https://www.1242.com/timetable/": {
 "etag": null,
@@ -1093,38 +606,18 @@
 },
 "https://www.joqr.co.jp/qr/dailyprogram/": {
 "etag": null,
-"last_modified": "Mon, 16 Nov 2026 22:38:21 GMT"
+"last_modified": "Mon, 16 Nov 2026 23:53:01 GMT"
+},
+"https://www.joqr.co.jp/tag/%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88/": {
+"etag": null,
+"last_modified": null
 },
 "https://datefm.jp/timetable/": {
 "etag": null,
 "last_modified": "Wed, 07 Oct 2026 02:38:28 GMT"
 },
-"https://fma.co.jp/pc/01pro/tt/": {
-"etag": null,
-"last_modified": "Mon, 16 Nov 2026 22:40:11 GMT"
-},
-"https://fma.co.jp/f/event/": {
-"etag": null,
-"last_modified": "Mon, 16 Nov 2026 22:40:15 GMT"
-},
-"https://www.kiss-fm.co.jp/information/event/": {
-"etag": null,
-"last_modified": null
-},
 "https://fm-kyoto.jp/event": {
 "etag": null,
 "last_modified": "Mon, 16 Nov 2026 09:56:40 GMT"
-},
-"https://fmfukuoka.co.jp/guest/": {
-"etag": "\"2ec9-6606c75674c29-gzip\"",
-"last_modified": "Mon, 16 Nov 2026 22:40:02 GMT"
-},
-"https://fmfukuoka.co.jp/live/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.crossfm.co.jp/timetable/w_timetable.php": {
-"etag": null,
-"last_modified": null
 }
 }
