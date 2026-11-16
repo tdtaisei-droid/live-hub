@@ -297,3 +297,11 @@ def test_news_posts_dropped():
     s = src(id="t", category="theaters", name="劇場T", prefecture="東京都", genre_default="stage")
     assert to_event(RawItem("劇団X『Y』開幕コメント、舞台写真を公開しました 12月1日", "https://t/1"), s, REF, NOW) is None
     assert to_event(RawItem("劇団X『Y』追加公演決定 12月20日", "https://t/2"), s, REF, NOW) is not None
+
+
+def test_clean_title_and_past_range():
+    from livehub.textutil import clean_title
+    assert clean_title("2026-11-05 PARCO PRODUCE 2026 聖地X 東京 PARCO劇場 2026年11月5日(木) ~ 2026年11月29日(日) 公演ページ 作品ページ") == "聖地X 東京 PARCO劇場"
+    assert clean_title("一般 架空歌手 CONCERT TOUR 2026 詳細") == "架空歌手 CONCERT TOUR 2026"
+    x = extract_schedule("公演日:2026年7月17日(金)~8月9日(日)", REF)
+    assert (x.start_date, x.end_date) == (date(2026, 7, 17), date(2026, 8, 9))

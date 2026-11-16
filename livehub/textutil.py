@@ -42,6 +42,7 @@ class DateHit:
     has_time: bool
     start: int
     end: int
+    explicit_year: bool = False
 
 
 def _infer_year(m: int, d: int, ref: date) -> int:
@@ -72,7 +73,8 @@ def find_dates(text: str, ref: date) -> list[DateHit]:
             continue
         hh = int(mt.group("h")) if mt.group("h") else 0
         mi = int(mt.group("mi")) if mt.group("mi") else 0
-        hits.append(DateHit(datetime.combine(day, time(hh, mi)), mt.group("h") is not None, mt.start(), mt.end()))
+        hits.append(DateHit(datetime.combine(day, time(hh, mi)), mt.group("h") is not None, mt.start(), mt.end(),
+                            explicit_year=mt.group("y") is not None))
     return hits
 
 
@@ -100,9 +102,19 @@ def extract_schedule(text: str, ref: date) -> Extracted:
                 out.ticket_sale_label = (kw.group(1) if kw else "発売")
             continue
         show_days.append(h.value.date())
-        # 「1月10日〜2月3日」の範囲
+        # 「1月10日〜2月3日」の範囲。終わりの年が省略されていれば、始まりの年を基準にする
         if i + 1 < len(hits) and _RANGE_SEP.match(t[h.end:hits[i + 1].start]):
-            show_days.append(hits[i + 1].value.date())
+            nxt = hits[i + 1]
+            end_d = nxt.value.date()
+            if not nxt.explicit_year:
+                try:
+                    end_d = end_d.replace(year=h.value.year)
+                    if end_d < h.value.date():
+                        end_d = end_d.replace(year=h.value.year + 1)
+                except ValueError:
+                    pass
+                nxt.value = datetime.combine(end_d, nxt.value.time())
+            show_days.append(end_d)
     if show_days:
         out.start_date, out.end_date = min(show_days), max(show_days)
         if out.end_date == out.start_date:
@@ -129,12 +141,21 @@ _CUT_AT = re.compile(
     r"終了しました|詳細|※|TEL|全席|S席|A席)[\s:：/]")
 
 
+_DATE_IN_TITLE = re.compile(r"\s(20\d{2}\s*[年/.\-]\s*)?\d{1,2}\s*[月/.]\s*\d{1,2}\s*日?\s*[(（]")
+
+
 def clean_title(raw: str) -> str:
     """一覧ブロックの文字列から、公演名らしい部分だけを取り出す。"""
     t = clean_space(raw)
     t = _LEAD_NOISE.sub("", t).strip()
-    t = re.sub(r"^(一般|関係者|一般&関係者)\s+", "", t)
-    t = re.sub(r"\s+(詳細|詳しくはこちら|more|MORE)$", "", t)
+    t = re.sub(r"^((一般|関係者|一般&関係者|音楽・芸能|音楽|芸能|提携公演|主催公演|共催公演|発売中|販売中|受付中|上演中|"
+               r"シアタートラム|コンサート|演劇|ダンス|お笑い)\s+)+", "", t)
+    t = re.sub(r"(\s*(公演ページ|作品ページ|詳細|詳しくはこちら|more|MORE))+$", "", t)
+    # 公演名のあとに続く日付以降(会期・曜日など)は切り落とす
+    m = _DATE_IN_TITLE.search(t)
+    if m and m.start() >= 4:
+        t = t[:m.start()]
+    t = re.sub(r"\s*(公演日|日時|日程|会期)\s*[:：]?\s*$", "", t).strip()
     m = _CUT_AT.search(" " + t)
     if m and m.start() > 4:
         t = t[:m.start() - 1]

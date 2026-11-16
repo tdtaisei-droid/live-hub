@@ -67,7 +67,8 @@ def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[E
 
     title = item.title if item.structured else clean_title(item.title)
     # 「会員先行 抽選 〜」のように、公演名が無く販売期間だけのブロックは公演として扱わない
-    if len(normalize(title)) < 4 or re.match(r"^(\S*先行|一般発売|一般販売|抽選|受付|料金|チケット)", title):
+    if len(normalize(title)) < 4 or re.match(r"^(\S*先行|一般発売|一般販売|抽選|受付|料金|チケット)", title) \
+            or re.fullmatch(r"[【\[]?(公演詳細|公演情報|イベント情報|詳細|お知らせ|NEWS|INFORMATION)[】\]]?", normalize(title), re.I):
         return None
     ev = Event(
         title=title,
