@@ -28,6 +28,10 @@ TIMEOUT = 20
 MAX_BYTES = 3_000_000
 
 
+# 読み取り処理(collectors)を改良したら上げる
+CACHE_VERSION = "2"
+
+
 @dataclass
 class Response:
     url: str
@@ -50,6 +54,9 @@ class Fetcher:
         self.cache: dict[str, dict] = {}
         if cache_path and cache_path.exists():
             self.cache = json.loads(cache_path.read_text(encoding="utf-8"))
+        if self.cache.get("__version__") != CACHE_VERSION:
+            # 読み取り方を改良したら、変更のないページも一度は読み直す(改良を反映させるため)
+            self.cache = {"__version__": CACHE_VERSION}
 
     def save_cache(self) -> None:
         if self.cache_path:
@@ -88,6 +95,7 @@ class Fetcher:
     # --- 取得 ---
     def get(self, url: str, use_cache: bool = True) -> Response:
         """use_cache=False は差分取得をせず毎回本文を受け取る(トップページからの自動発見用)。"""
+        url = safe_url(url)
         if not self.allowed(url):
             raise BlockedByRobots(url)
         return self._raw_get(url, use_cache=use_cache)
@@ -139,3 +147,9 @@ def _decode(body: bytes, ctype: str) -> str:
         except (LookupError, UnicodeDecodeError):
             continue
     return body.decode("utf-8", "replace")
+
+
+def safe_url(url: str) -> str:
+    """日本語などを含むURLを、送信できる形(パーセントエンコード)にする。"""
+    from urllib.parse import quote
+    return quote(url, safe=":/?#[]@!$&'()*+,;=%~")

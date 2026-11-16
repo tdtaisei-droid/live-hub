@@ -8,6 +8,7 @@ from collections import Counter
 from datetime import date, datetime
 from pathlib import Path
 from typing import Optional
+from urllib.parse import urlsplit
 
 from .classify import ENDED, STORE_LIVE, is_news_post, is_special, classify_genre_with_default, classify_kind, is_venue_target, is_broadcast_target, is_free, is_hall_target, is_relevant
 from .collectors import RawItem
@@ -26,22 +27,36 @@ DATA = Path(__file__).resolve().parent.parent / "data"
 
 
 # ---------- RawItem → Event ----------
+# 取れなかった理由の記録(巡回ログに要約を残し、読み取りの改善に使う。ページ本文は保存しない)
+TRACE: list[str] = []
+DROPS: Counter = Counter()
+
+
+def _drop(reason: str):
+    DROPS[reason] += 1
+    return None
+
+
+def _trace(msg: str) -> None:
+    if len(TRACE) < 12:
+        TRACE.append(msg)
+
 def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[Event]:
     text = f"{item.title} {item.summary}"
     if ENDED.search(text):
-        return None  # 終了済みの公演
+        return _drop("終了")  # 終了済みの公演
     if not item.structured and is_news_post(item.title):
-        return None  # 写真公開・コメント到着などのお知らせ記事
+        return _drop("お知らせ記事")  # 写真公開・コメント到着などのお知らせ記事
     if not item.structured and not is_relevant(text):
-        return None
+        return _drop("対象外")
     if item.structured and not is_relevant(text + " 公演"):
-        return None  # 映画イベント等の除外は構造化データにも適用
+        return _drop("構造化対象外")  # 映画イベント等の除外は構造化データにも適用
     if src.category == "halls" and not is_hall_target(text):
-        return None  # 公立ホールは発表会・式典などが多いので、対象ジャンルの公演だけ残す
+        return _drop("会館の対象外")  # 公立ホールは発表会・式典などが多いので、対象ジャンルの公演だけ残す
     if src.category in ("venues_music", "theaters") and not item.structured and not is_venue_target(text):
-        return None  # 会場の一覧に混ざる展示会・スポーツ・フリマ等を除く
+        return _drop("会場の対象外")  # 会場の一覧に混ざる展示会・スポーツ・フリマ等を除く
     if src.category == "broadcasters" and not is_broadcast_target(text):
-        return None  # 放送局は物産展・スポーツ等が多いので、ライブ・公演・公開収録だけ残す
+        return _drop("放送局の対象外")  # 放送局は物産展・スポーツ等が多いので、ライブ・公演・公開収録だけ残す
     sched = extract_schedule(text, ref)
     start = item.start_date or sched.start_date
     end = item.end_date or sched.end_date
@@ -49,7 +64,7 @@ def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[E
     if src.category == "stores":
         # 店舗イベントはライブを含むものだけ。CDの発売日をチケット発売と誤認しないよう発売日は扱わない
         if not STORE_LIVE.search(text):
-            return None
+            return _drop("店舗ライブ以外")
         start, end, sale = _store_date(text, ref) or start, None, None
 
     # 場所: 会場・劇場の情報源ならその所在地が最優先
@@ -69,7 +84,7 @@ def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[E
     # 「会員先行 抽選 〜」のように、公演名が無く販売期間だけのブロックは公演として扱わない
     if len(normalize(title)) < 4 or re.match(r"^(\S*先行|一般発売|一般販売|抽選|受付|料金|チケット)", title) \
             or re.fullmatch(r"[【\[]?(公演詳細|公演情報|イベント情報|詳細|お知らせ|NEWS|INFORMATION)[】\]]?", normalize(title), re.I):
-        return None
+        return _drop("題名なし")
     ev = Event(
         title=title,
         url=item.url,
@@ -135,6 +150,7 @@ def _with_details(items: list[RawItem], fetcher: Fetcher, seen_urls: set[str]) -
 def _items_for(src: Source, fetcher: Fetcher, ref: date, seen_urls: Optional[set[str]] = None) -> list[RawItem]:
     if src.feed_url:
         r = fetcher.get(src.feed_url)
+        _trace(f"feed:{r.status}{'(304)' if r.not_modified else ''}")
         if r.not_modified or r.status >= 400:
             return []
         if src.method == "ics" or src.feed_url.endswith(".ics") or "calendar" in r.content_type:
@@ -146,13 +162,17 @@ def _items_for(src: Source, fetcher: Fetcher, ref: date, seen_urls: Optional[set
 
     # スケジュールページ未登録: トップページから 構造化データ / メニューの「スケジュール」等 / RSS を自動で探す
     r = fetcher.get(src.url, use_cache=False)
+    _trace(f"top:{r.status}")
     if r.status >= 400 or not r.text:
         return []
     items = parse_jsonld_events(r.text, r.url)
     if items:
+        _trace(f"top-jsonld:{len(items)}")
         return items
+    pages = find_schedule_pages(r.text, r.url)
+    _trace(f"pages:{len(pages)}")
     # 会場はスケジュールページを優先(サイト全体のRSSは他会場のニュースも混ざるため)
-    for page in find_schedule_pages(r.text, r.url):
+    for page in pages:
         found = _read_schedule_page(src, page, fetcher, ref, seen_urls)
         if found:
             return found
@@ -164,6 +184,7 @@ def _items_for(src: Source, fetcher: Fetcher, ref: date, seen_urls: Optional[set
             except Exception as exc:  # 壊れたフィードは無視
                 log.info("feed parse failed %s: %s", furl, exc)
                 continue
+            _trace(f"feed:{len(got)}")
             for it in got:
                 it.site_feed = True  # 会場の所在地を当てはめない(本文から判定する)
             return got
@@ -173,14 +194,19 @@ def _items_for(src: Source, fetcher: Fetcher, ref: date, seen_urls: Optional[set
 def _read_schedule_page(src: Source, page: str, fetcher: Fetcher, ref: date,
                         seen_urls: Optional[set[str]]) -> list[RawItem]:
     r = fetcher.get(page)
+    path = urlsplit(page).path[-30:] or "/"
     if r.not_modified or r.status >= 400:
+        _trace(f"{path}:{'304' if r.not_modified else r.status}")
         return []
     if src.method == "html_detail":
         return _with_details(parse_schedule_blocks(r.text, page, ref), fetcher, seen_urls or set())
     items = parse_jsonld_events(r.text, page)
     if items or src.method == "jsonld":
+        _trace(f"{path}:jsonld{len(items)}")
         return items
-    return parse_schedule_blocks(r.text, page, ref)
+    blocks = parse_schedule_blocks(r.text, page, ref)
+    _trace(f"{path}:blocks{len(blocks)}/dates{len(find_dates(page_text(r.text), ref))}/len{len(r.text)//1000}k")
+    return blocks
 
 
 def run(sources: Optional[list[Source]] = None, only: Optional[set[str]] = None,
@@ -201,11 +227,14 @@ def run(sources: Optional[list[Source]] = None, only: Optional[set[str]] = None,
         if not only and not src.due(ref):
             stats["not_today"] += 1  # 週1回巡回の情報源で、今日は担当日でない
             continue
+        TRACE.clear(); DROPS.clear()
         try:
             raw = _items_for(src, fetcher, ref, store.urls_for(src.id) if src.method == "html_detail" else None)
             events = [e for e in (to_event(i, src, ref, now) for i in raw) if e]
             new = store.upsert(events, now, baseline=not store.has_crawled(src.id))
-            store.log_run(src.id, now, "ok", len(events))
+            msg = " ".join(TRACE) + (f" raw{len(raw)}" if raw else "") + \
+                ("" if not DROPS else " drop:" + ",".join(f"{k}{v}" for k, v in DROPS.most_common()))
+            store.log_run(src.id, now, "ok", len(events), msg[:300])
             stats["ok"] += 1
             stats["new"] += new
             for e in events:

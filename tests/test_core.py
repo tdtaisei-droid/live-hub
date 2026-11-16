@@ -398,3 +398,30 @@ def test_site_data_split_by_prefecture(tmp_path):
     assert [e["title"] for e in json.loads((out / "data" / "p13.json").read_text(encoding="utf-8"))] == ["A"]
     assert idx["regionCounts"]["関東"] == 3 and idx["prefCounts"]["千葉県"] == 1
     assert not (out / "events.json").exists()
+
+
+def test_run_records_trace(tmp_path):
+    """巡回ログに「どこまで読めて、何件が何の理由で落ちたか」が残る。"""
+    from datetime import datetime
+    from livehub import pipeline
+    from livehub.fetch import Response
+    from livehub.sources import Source
+    html = (FX / "schedule.html").read_text(encoding="utf-8")
+
+    class FakeFetcher:
+        def __init__(self, *a, **k): pass
+        def get(self, url, use_cache=True):
+            return Response(url=url, status=200, text=html, content_type="text/html")
+        def save_cache(self): pass
+
+    src = Source(id="t", name="テスト会場", category="venues_music", url="https://example.jp/",
+                 schedule_url="https://example.jp/schedule/", prefecture="東京都")
+    orig = pipeline.Fetcher
+    pipeline.Fetcher = FakeFetcher
+    try:
+        pipeline.run([src], only={"t"}, db_path=tmp_path / "t.sqlite3", now=datetime(2026, 11, 1))
+    finally:
+        pipeline.Fetcher = orig
+    import sqlite3
+    msg = sqlite3.connect(tmp_path / "t.sqlite3").execute("select message from runs").fetchone()[0]
+    assert "blocks" in msg and "raw" in msg

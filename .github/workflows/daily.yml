@@ -12,6 +12,10 @@ on:
         type: choice
         options: [daily, verify]
         default: daily
+      only:
+        description: "巡回する情報源ID(カンマ区切り・空なら通常どおり)"
+        type: string
+        default: ""
 
 permissions:
   contents: write
@@ -37,7 +41,8 @@ jobs:
       - name: 巡回とサイト生成
         env:
           LIVEHUB_UA: ${{ vars.LIVEHUB_UA }}
-        run: python -m livehub daily
+          ONLY: ${{ inputs.only }}
+        run: python -m livehub daily ${ONLY:+--only "$ONLY"}
       - name: 蓄積データを保存(次回の差分・新着判定に使う)
         run: |
           git config user.name "livehub-bot"
