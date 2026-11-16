@@ -357,3 +357,13 @@ def test_site_does_not_publish_ticket_info(tmp_path):
     assert "ticket_sale_at" not in e and "ticket_sale_label" not in e and e["kind"] == "announce"
     html = (out / "index.html").read_text(encoding="utf-8")
     assert "まもなく発売" not in html and "最速先行" not in html
+
+
+def test_opening_variants_are_fictional_and_safe():
+    from livehub.opening import build_variants, LIGHTS
+    from livehub.textutil import normalize
+    v = build_variants()
+    assert len(v) == 500 and len({x[5] for x in v}) == 500        # 500通り、名前の重複なし
+    assert "strobe" not in LIGHTS                                     # 点滅照明は使わない
+    real = {normalize(n) for s in load_sources() for n in [s.name, *s.aliases] if len(normalize(n)) >= 4}
+    assert not [x[5] for x in v if normalize(x[5]) in real]           # 実在の名前と同じものはない

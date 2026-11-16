@@ -162,6 +162,7 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
   <footer>
     <p>掲載情報は各公式サイト(会場・イベンター・劇場・事務所・主催者)の公開情報をもとにしています。チケットの販売・先行情報は掲載していません。ファンクラブ先行などが最も早いことが多いため、必ず公式サイトでご確認ください。日時・出演者・発売情報は必ずリンク先の公式情報でご確認ください。</p>
     <p><a href="about.html">このサイトについて・情報源一覧・掲載停止のご依頼</a> ・ <span id="gen"></span></p>
+    <p><a href="#" id="replayOpening">🎭 オープニングをもう一度見る</a></p>
   </footer>
 </main>
 
@@ -395,6 +396,7 @@ document.addEventListener("keydown", ev => {
 if (store.get("mapClosed", false)) { $("#mapbox").classList.add("closed"); $("#mapToggle").textContent = "地図をひらく"; }
 $("#q").addEventListener("input", e => { st.q = e.target.value.trim(); render(); });
 if (meta.sample) $("#sample").innerHTML = `<p class="sample">これは画面確認用のプロトタイプです。表示中の公演はすべて架空のサンプルデータで、実在の公演ではありません。</p>`;
+$("#replayOpening").addEventListener("click", ev => { ev.preventDefault(); if (window.livehubOpening) window.livehubOpening(); });
 $("#gen").textContent = `最終更新 ${meta.generated_at.replace("T", " ")}・${meta.count}件`;
 renderChips(); render();
 })();

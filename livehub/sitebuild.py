@@ -44,7 +44,13 @@ def build(events: list[dict], out_dir: Path = ROOT / "site", today: date | None 
     html = (TEMPLATES / "index.html").read_text(encoding="utf-8").replace("<!--MAP-->", japan_map())
     # 初回表示を速くするため、データをページにも埋め込む(events.json は API 的に別途公開)
     payload = json.dumps({"meta": meta, "events": events}, ensure_ascii=False).replace("</", "<\\/")
-    (out_dir / "index.html").write_text(html.replace("/*__DATA__*/null", payload), encoding="utf-8")
+    html = html.replace("/*__DATA__*/null", payload)
+    # オープニング演出(架空の会場500種類)
+    from .opening import build_variants, compact
+    opening = (TEMPLATES / "opening.html").read_text(encoding="utf-8").replace(
+        "/*__OPENING__*/[]", json.dumps(compact(build_variants()), ensure_ascii=False, separators=(",", ":")))
+    html = html.replace("</body>", opening + "\n</body>", 1)
+    (out_dir / "index.html").write_text(html, encoding="utf-8")
 
     rows = "".join(
         f"<tr><td>{CATEGORIES[s.category]}</td><td>{s.name}</td><td>{s.prefecture or ''}</td>"
