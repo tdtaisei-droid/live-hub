@@ -16,6 +16,7 @@ CATEGORIES = {
     "theaters": "劇場",
     "agencies": "芸能事務所",
     "organizers": "主催者(アーティスト・劇団など)",
+    "stores": "店舗イベント(インストアライブ)",  # 店頭が会場のためキャパ条件なし
 }
 
 MIN_MUSIC_CAPACITY = 200   # 音楽ライブ会場

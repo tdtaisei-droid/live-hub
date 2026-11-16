@@ -167,3 +167,14 @@ def parse_schedule_blocks(html_text: str, base_url: str, ref: date) -> list[RawI
     for text, links in chosen:
         out.append(RawItem(title=text[:200], url=urljoin(base_url, links[0]), summary=text))
     return out
+
+
+_DROP = re.compile(r"<(script|style|noscript|nav|header|footer)\b.*?</\1>", re.S | re.I)
+_TAGS = re.compile(r"<[^>]+>")
+
+
+def page_text(html_text: str, limit: int = 4000) -> str:
+    """詳細ページの本文テキスト(ナビ・ヘッダ・スクリプトを除く)。判定にだけ使い、保存しない。"""
+    t = _DROP.sub(" ", html_text)
+    t = re.sub(r"<br\s*/?>|</(p|div|li|dt|dd|tr|h\d)>", "\n", t, flags=re.I)
+    return clean_space(unescape(_TAGS.sub(" ", t)))[:limit]

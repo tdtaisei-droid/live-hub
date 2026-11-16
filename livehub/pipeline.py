@@ -3,14 +3,15 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from collections import Counter
 from datetime import date, datetime
 from pathlib import Path
 from typing import Optional
 
-from .classify import classify_genre, classify_kind, is_relevant
+from .classify import STORE_LIVE, classify_genre, classify_kind, is_free, is_relevant
 from .collectors import RawItem
-from .collectors.html import find_feeds, parse_jsonld_events, parse_schedule_blocks
+from .collectors.html import find_feeds, page_text, parse_jsonld_events, parse_schedule_blocks
 from .collectors.ics import parse_ics
 from .collectors.rss import parse_feed
 from .fetch import BlockedByRobots, Fetcher
@@ -18,7 +19,7 @@ from .geo import detect_location, region_of
 from .models import Event
 from .sources import Source, load_sources
 from .store import Store
-from .textutil import extract_schedule, normalize, quoted_titles
+from .textutil import extract_schedule, find_dates, normalize, quoted_titles
 
 log = logging.getLogger("livehub")
 DATA = Path(__file__).resolve().parent.parent / "data"
@@ -35,13 +36,22 @@ def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[E
     start = item.start_date or sched.start_date
     end = item.end_date or sched.end_date
     sale = item.ticket_sale_at or sched.ticket_sale_at
+    if src.category == "stores":
+        # 店舗イベントはライブを含むものだけ。CDの発売日をチケット発売と誤認しないよう発売日は扱わない
+        if not STORE_LIVE.search(text):
+            return None
+        start, end, sale = _store_date(text, ref) or start, None, None
 
     # 場所: 会場・劇場の情報源ならその所在地が最優先
     venue, pref = item.venue, item.prefecture
     if src.is_location:
         venue, pref = venue or src.name, src.prefecture
+    if src.category == "stores" and not venue:
+        m = re.search(r"場所\s*([^\s]{1,20}店)", text)
+        if m:
+            venue = f"{src.operator or ''}{m.group(1)}".strip()
     if not pref:
-        v2, p2, _ = detect_location(f"{item.venue or ''} {text}")
+        v2, p2, _ = detect_location(f"{venue or ''} {text}")
         venue, pref = venue or v2, p2
     region = region_of(pref) if pref else detect_location(text)[2]
 
@@ -58,12 +68,22 @@ def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[E
         start_date=start,
         end_date=end,
         ticket_sale_at=sale,
-        ticket_sale_label=sched.ticket_sale_label if not item.ticket_sale_at else "発売",
+        ticket_sale_label=(sched.ticket_sale_label if not item.ticket_sale_at else "発売") if sale else None,
+        free=is_free(text),
         published_at=item.published_at,
         fetched_at=now,
     )
     ev.fingerprint = fingerprint(ev)
     return ev
+
+
+def _store_date(text: str, ref: date) -> Optional[date]:
+    """「開催日時」欄の直後の日付を開催日とする。"""
+    i = text.find("開催日")
+    if i < 0:
+        return None
+    hits = find_dates(text[i:i + 60], ref)
+    return hits[0].value.date() if hits else None
 
 
 def fingerprint(ev: Event) -> str:
@@ -76,7 +96,26 @@ def fingerprint(ev: Event) -> str:
 
 
 # ---------- 取得 ----------
-def _items_for(src: Source, fetcher: Fetcher, ref: date) -> list[RawItem]:
+MAX_DETAILS_PER_RUN = 60
+
+
+def _with_details(items: list[RawItem], fetcher: Fetcher, seen_urls: set[str]) -> list[RawItem]:
+    """一覧で見つけた各イベントの詳細ページを読む。読んだことのあるページは読まない(負担を減らす)。"""
+    out = []
+    for it in items:
+        if it.url in seen_urls or len(out) >= MAX_DETAILS_PER_RUN:
+            continue
+        try:
+            r = fetcher.get(it.url)
+        except BlockedByRobots:
+            continue
+        if r.status < 400 and r.text:
+            it.summary = page_text(r.text)
+        out.append(it)
+    return out
+
+
+def _items_for(src: Source, fetcher: Fetcher, ref: date, seen_urls: Optional[set[str]] = None) -> list[RawItem]:
     if src.feed_url:
         r = fetcher.get(src.feed_url)
         if r.not_modified or r.status >= 400:
@@ -89,6 +128,8 @@ def _items_for(src: Source, fetcher: Fetcher, ref: date) -> list[RawItem]:
     r = fetcher.get(page)
     if r.not_modified or r.status >= 400:
         return []
+    if src.method == "html_detail":
+        return _with_details(parse_schedule_blocks(r.text, page, ref), fetcher, seen_urls or set())
     items = parse_jsonld_events(r.text, page)
     if items or src.method == "jsonld":
         return items
@@ -114,7 +155,7 @@ def run(sources: Optional[list[Source]] = None, only: Optional[set[str]] = None,
             stats["skipped"] += 1
             continue
         try:
-            raw = _items_for(src, fetcher, ref)
+            raw = _items_for(src, fetcher, ref, store.urls_for(src.id) if src.method == "html_detail" else None)
             events = [e for e in (to_event(i, src, ref, now) for i in raw) if e]
             new = store.upsert(events, now)
             store.log_run(src.id, now, "ok", len(events))

@@ -10,6 +10,7 @@
 | theaters.csv | 劇場(演劇・ミュージカル・寄席・お笑い劇場)。**お笑いの会場はキャパ100以上のみ** |
 | agencies.csv | 芸能事務所(お笑い・音楽・俳優) |
 | organizers.csv | 主催者の公式サイト(アーティスト・劇団・芸人など) |
+| stores.csv | 店舗イベント(タワーレコードのインストアライブなど)。キャパ条件なし |
 
 ## 列の意味
 
@@ -22,7 +23,7 @@
 | url | 公式サイトのトップ |
 | schedule_url | 公演スケジュールのページ(分かれば) |
 | feed_url | RSS / Atom / iCal のURL(分かれば) |
-| method | `auto`(自動判別) / `rss` / `ics` / `jsonld` / `html` / `manual`(巡回しない) |
+| method | `auto`(自動判別) / `html_detail`(一覧から各詳細ページも読む) / `rss` / `ics` / `jsonld` / `html` / `manual`(巡回しない) |
 | genre_default | 記事からジャンルが判定できないときの既定値 music/comedy/musical/stage(映画舞台挨拶は対象外) |
 | notes | 補足(休館・改修・名称変更など) |
 | verified | `1` = 人が公式サイトを開いてURLとキャパを確認済み。初期値は `0` |

@@ -40,6 +40,8 @@ def sample_events(today: date) -> list[dict]:
         ("suehirotei", "〈架空〉十二月上席 夜の部", "", 14, 1),
         ("rohm-theatre", "架空ピアニスト・水無月ソラ リサイタル", "", 30, 0),
         ("okinawa-arena", "〈架空〉南風フェス2027 開催決定", "", 150, 0),
+        ("tower-records", "〈架空〉ガラスの金魚 新曲発売記念インストアイベント",
+         f"開催日時 {(today + timedelta(days=4)).year}年{md(4)} 19:00 場所 渋谷店 5Fイベントスペース ※ミニライブは観覧フリーです。", None, 0),
     ]
     out = []
     for sid, title, summary, offset, ago in specs:

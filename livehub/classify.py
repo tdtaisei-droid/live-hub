@@ -53,3 +53,12 @@ def classify_kind(text: str, has_ticket: bool, structured: bool) -> str:
     if ANNOUNCE.search(text):
         return "announce"
     return "event" if structured else "announce"
+
+
+FREE = re.compile(r"(観覧フリー|観覧無料|観覧自由|入場無料|入場フリー|フリーライブ|フリーライヴ|無料ライブ|参加無料|チャージフリー)")
+# 店舗イベントは「ライブ」を含むものだけ(サイン会・握手会のみは対象外)
+STORE_LIVE = re.compile(r"(ミニライブ|ミニ・ライブ|ミニライヴ|ミニ・ライヴ|ライブ|ライヴ|LIVE|アコースティック|演奏)", re.I)
+
+
+def is_free(text: str) -> bool:
+    return FREE.search(text) is not None

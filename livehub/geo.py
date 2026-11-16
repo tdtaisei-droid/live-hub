@@ -80,7 +80,7 @@ def detect_location(text: str) -> tuple[Optional[str], Optional[str], str]:
     return None, None, "不明"
 
 
-_PLACE_AFTER = r"(?:公演|会場|市|区|・|、|,|/|／|\)|）|\]|】|$|\s|で|にて|より|から|追加|編|ほか|他|ライブ|LIVE|初日|千秋楽|凱旋)"
+_PLACE_AFTER = r"(?:公演|会場|店|市|区|・|、|,|/|／|\)|）|\]|】|$|\s|で|にて|より|から|追加|編|ほか|他|ライブ|LIVE|初日|千秋楽|凱旋)"
 
 
 def _place_like(name: str, text: str) -> bool:

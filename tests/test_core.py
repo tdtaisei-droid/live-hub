@@ -157,3 +157,44 @@ def test_capacity_rules(tmp_path):
     (d / "theaters.csv").write_text(head + "c1,お笑い劇場A,,東京都,,120,,,,auto,comedy,,,0\nc2,お笑い劇場B,,東京都,,80,,,,auto,comedy,,,0\n", encoding="utf-8")
     ids = {s.id for s in load_sources(d)}
     assert ids == {"m1", "c1"}  # 音楽は200以上、お笑いは100以上
+
+
+# ---- 店舗イベント(タワーレコード) ----
+TOWER_DETAIL = """架空バンドX 新曲発売記念インストアイベント 開催日時 2026年12月05日(土) 18:30
+場所 渋谷店 5Fイベントスペース 出演 架空バンドX 参加方法 ※ミニライブは観覧フリーです。
+対象商品 入荷日:既発(12/2発売) イベント当日までに対象商品をご購入の方に特典券"""
+
+
+def _tower():
+    return src(id="tower-records", category="stores", name="タワーレコード 店舗イベント",
+               operator="タワーレコード", genre_default="music", method="html_detail")
+
+
+def test_store_live_event():
+    ev = to_event(RawItem("架空バンドX インストアイベント", "https://t/1", summary=TOWER_DETAIL), _tower(), REF, NOW)
+    assert ev.start_date == date(2026, 12, 5)
+    assert ev.ticket_sale_at is None          # CD発売日をチケット発売と誤認しない
+    assert ev.free is True
+    assert ev.venue == "タワーレコード渋谷店" and ev.prefecture == "東京都"
+    assert ev.genre == "music"
+
+
+def test_store_signing_only_is_excluded():
+    text = "架空歌手Y サイン会 開催日時 2026年12月06日(日) 14:00 場所 新宿店 参加方法 特典券"
+    assert to_event(RawItem("架空歌手Y サイン会", "https://t/2", summary=text), _tower(), REF, NOW) is None
+
+
+def test_details_fetched_once():
+    from livehub.pipeline import _with_details
+    from livehub.fetch import Response
+
+    class Stub:
+        calls = []
+        def get(self, url):
+            self.calls.append(url)
+            return Response(url, 200, "<html><body><p>" + TOWER_DETAIL + "</p></body></html>", "text/html")
+
+    f = Stub()
+    items = [RawItem("a", "https://t/1"), RawItem("b", "https://t/2")]
+    out = _with_details(items, f, seen_urls={"https://t/1"})
+    assert f.calls == ["https://t/2"] and "観覧フリー" in out[0].summary

@@ -41,6 +41,7 @@ class Event:
     end_date: Optional[date] = None        # 公演最終日(ツアー・ロングラン)
     ticket_sale_at: Optional[datetime] = None  # 発売開始(先行・一般)
     ticket_sale_label: Optional[str] = None    # "最速先行" "一般発売" など
+    free: bool = False                     # 観覧無料(フリーライブ)
     published_at: Optional[datetime] = None    # 情報源での公開日時
     fetched_at: Optional[datetime] = None
     fingerprint: str = ""                  # 重複判定キー(pipeline で付与)

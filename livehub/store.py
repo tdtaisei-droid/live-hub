@@ -52,6 +52,7 @@ class Store:
                     old[k] = d[k]
                     if k == "prefecture":
                         old["region"] = d.get("region", old.get("region"))
+            old["free"] = old.get("free") or d.get("free", False)
             if old.get("kind") != "ticket" and d.get("kind") == "ticket":
                 old["kind"] = "ticket"
             old["performers"] = list(dict.fromkeys(old.get("performers", []) + d.get("performers", [])))[:10]
@@ -63,6 +64,14 @@ class Store:
             )
         self.db.commit()
         return new
+
+    def urls_for(self, source_id: str) -> set[str]:
+        """その情報源から既に取り込んだ出典URL。"""
+        out = set()
+        for data, sources in self.db.execute("SELECT data, sources FROM events"):
+            if source_id in json.loads(sources):
+                out.add(json.loads(data).get("url"))
+        return out
 
     def log_run(self, source_id: str, now: datetime, status: str, items: int, message: str = "") -> None:
         self.db.execute("INSERT INTO runs VALUES (?,?,?,?,?)", (source_id, now.isoformat(), status, items, message[:300]))
