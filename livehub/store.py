@@ -31,17 +31,29 @@ class Store:
         path.parent.mkdir(parents=True, exist_ok=True)
         self.db = sqlite3.connect(path)
         self.db.executescript(SCHEMA)
+        cols = {r[1] for r in self.db.execute("PRAGMA table_info(events)")}
+        if "baseline" not in cols:
+            # baseline=1: 情報源を初めて巡回したときに見つけた公演(前から決まっていた可能性があるので「新着」にしない)
+            self.db.execute("ALTER TABLE events ADD COLUMN baseline INTEGER NOT NULL DEFAULT 0")
+            # この仕組みより前に集めたものは、すべて各情報源の初回巡回で見つけたもの
+            self.db.execute("UPDATE events SET baseline=1")
+            self.db.commit()
 
-    def upsert(self, events: Iterable[Event], now: datetime) -> int:
-        """新規件数を返す。"""
+    def has_crawled(self, source_id: str) -> bool:
+        """その情報源を、これまでに正常に巡回したことがあるか。"""
+        return self.db.execute("SELECT 1 FROM runs WHERE source_id=? AND status='ok' LIMIT 1", (source_id,)).fetchone() is not None
+
+    def upsert(self, events: Iterable[Event], now: datetime, baseline: bool = False) -> int:
+        """新規件数を返す。baseline=True は情報源の初回巡回(新着扱いにしない)。"""
         new = 0
         for ev in events:
             row = self.db.execute("SELECT data, sources FROM events WHERE fingerprint=?", (ev.fingerprint,)).fetchone()
             d = ev.to_dict()
             if row is None:
                 self.db.execute(
-                    "INSERT INTO events VALUES (?,?,?,?,?)",
-                    (ev.fingerprint, json.dumps(d, ensure_ascii=False), json.dumps([ev.source_id]), now.isoformat(), now.isoformat()),
+                    "INSERT INTO events (fingerprint, data, sources, first_seen, last_seen, baseline) VALUES (?,?,?,?,?,?)",
+                    (ev.fingerprint, json.dumps(d, ensure_ascii=False), json.dumps([ev.source_id]), now.isoformat(), now.isoformat(),
+                     1 if baseline else 0),
                 )
                 new += 1
                 continue
@@ -82,7 +94,7 @@ class Store:
     def export(self, today: date, keep_past_days: int = 3) -> list[dict]:
         """サイト用に、終了済み公演を除いた一覧を返す。"""
         out = []
-        for data, sources, first_seen in self.db.execute("SELECT data, sources, first_seen FROM events"):
+        for data, sources, first_seen, baseline in self.db.execute("SELECT data, sources, first_seen, baseline FROM events"):
             d = json.loads(data)
             last = d.get("end_date") or d.get("start_date")
             if last and date.fromisoformat(last[:10]) < date.fromordinal(today.toordinal() - keep_past_days):
@@ -92,5 +104,7 @@ class Store:
                 continue
             d["sources"] = json.loads(sources)
             d["first_seen"] = first_seen
+            if baseline:
+                d["baseline"] = True  # 初回巡回で見つけたもの: 新着には出さない
             out.append(d)
         return out

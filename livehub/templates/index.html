@@ -224,7 +224,8 @@ events.forEach(e => {
   e._first = d(e.first_seen); e._start = d(e.start_date); e._end = d(e.end_date); e._sale = d(e.ticket_sale_at);
   e._hay = [e.title, e.venue, e.prefecture, ...(e.performers||[]), ...(e.source_names||[])].join(" ").toLowerCase();
 });
-const isNew = e => e._first && e._first > since;
+// 新着 = 前回の訪問以降に見つかり、かつ情報源の初回巡回分ではないもの(前から決まっていた公演を新着にしない)
+const isNew = e => !e.baseline && e._first && e._first > since;
 const followed = e => [...st.follows].some(f => e._hay.includes(f.toLowerCase()));
 
 // 専用劇場(吉本・宝塚・四季・歌舞伎)の「日々の公演」は通常の一覧に出さず、劇場スケジュールにだけ出す
@@ -365,7 +366,7 @@ function render(){
     `<section class="group"><h2>${esc(k)}(${es.length})</h2>${es.map(card).join("")}</section>`).join("")
     : `<p class="empty">${emptyMsg}</p>`;
   $("#hint").textContent = st.tab === "new"
-    ? `新着 = ${lastVisit ? "前回の訪問(" + since.toLocaleString("ja-JP", {month:"numeric", day:"numeric", hour:"numeric", minute:"2-digit"}) + ")" : "直近3日"}以降に見つかった情報`
+    ? `新着 = ${lastVisit ? "前回の訪問(" + since.toLocaleString("ja-JP", {month:"numeric", day:"numeric", hour:"numeric", minute:"2-digit"}) + ")" : "直近3日"}以降に新しく見つかった公演(情報源を追加した日の分は含みません)`
     : "";
 }
 

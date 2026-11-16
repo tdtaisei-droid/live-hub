@@ -204,7 +204,7 @@ def run(sources: Optional[list[Source]] = None, only: Optional[set[str]] = None,
         try:
             raw = _items_for(src, fetcher, ref, store.urls_for(src.id) if src.method == "html_detail" else None)
             events = [e for e in (to_event(i, src, ref, now) for i in raw) if e]
-            new = store.upsert(events, now)
+            new = store.upsert(events, now, baseline=not store.has_crawled(src.id))
             store.log_run(src.id, now, "ok", len(events))
             stats["ok"] += 1
             stats["new"] += new

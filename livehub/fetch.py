@@ -21,7 +21,7 @@ from urllib.parse import urlsplit
 
 USER_AGENT = os.environ.get(
     "LIVEHUB_UA",
-    "LiveHubBot/0.1 (+https://example.com/about.html; live info aggregator; opt-out contact on about page)",  # ヘッダーはASCIIのみ
+    "LiveHubBot/0.1 (+https://tdtaisei-droid.github.io/live-hub/about.html; live info aggregator; opt-out contact on about page)",  # ヘッダーはASCIIのみ
 )
 DELAY = float(os.environ.get("LIVEHUB_DELAY", "3"))
 TIMEOUT = 20

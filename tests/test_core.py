@@ -367,3 +367,18 @@ def test_opening_variants_are_fictional_and_safe():
     assert "strobe" not in LIGHTS                                     # 点滅照明は使わない
     real = {normalize(n) for s in load_sources() for n in [s.name, *s.aliases] if len(normalize(n)) >= 4}
     assert not [x[5] for x in v if normalize(x[5]) in real]           # 実在の名前と同じものはない
+
+
+def test_first_crawl_is_baseline_not_new(tmp_path):
+    st = Store(tmp_path / "t.db")
+    s = src(id="v", category="venues_music", name="会場V", prefecture="東京都", genre_default="music")
+    old = to_event(RawItem("架空バンド ワンマン", "https://v/1", start_date=date(2027, 1, 5), structured=True), s, REF, NOW)
+    assert not st.has_crawled("v")
+    st.upsert([old], NOW, baseline=True)
+    st.log_run("v", NOW, "ok", 1)
+    later = datetime(2026, 11, 18, 6)
+    fresh = to_event(RawItem("架空歌手 リサイタル", "https://v/2", start_date=date(2027, 2, 1), structured=True), s, REF, later)
+    st.upsert([fresh], later, baseline=not st.has_crawled("v"))
+    rows = {r["title"]: r for r in st.export(REF)}
+    assert rows["架空バンド ワンマン"].get("baseline") is True
+    assert "baseline" not in rows["架空歌手 リサイタル"]
