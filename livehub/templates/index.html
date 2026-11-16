@@ -183,12 +183,12 @@ const PREF_REGION = {"北海道":"北海道","青森県":"東北","岩手県":"�
 const HOUSES = meta.houses || {};
 // ピクトグラム(24x24)。色は各ボタンのCSSで付ける
 const ICON = {
-  music: '<path d="M9 18.5a3 3 0 1 1-2-2.83V5.2l12-2.2v12.5a3 3 0 1 1-2-2.83V7.4L9 8.8z"/>',
-  comedy: '<rect x="7.4" y="1.6" width="9.2" height="9.6" rx="4.6"/><rect x="8.6" y="10.6" width="6.8" height="2.2" rx="1.1"/><rect x="10.6" y="12.2" width="2.8" height="7.4"/><path d="M5.5 22a6.5 3.4 0 0 1 13 0z"/>',
+  music: '<circle cx="10" cy="3.8" r="2.5"/><circle cx="14.6" cy="5.6" r="1.6"/><path class="st" d="M10 7.4v7M10 14.4 7.6 21.2M10 14.4l2.6 6.8M10 9.2l3.6 1.3.8-3.6M10 9.2 6.6 12.4"/>',
+  comedy: '<circle cx="5.2" cy="4.6" r="2.2"/><circle cx="18.8" cy="4.6" r="2.2"/><circle cx="12" cy="9.2" r="1.7"/><path class="st" style="stroke-width:2.2" d="M12 10.8v10.6M5.2 7.6v6.6M5.2 14.2l-1.8 7M5.2 14.2l1.8 7M5.2 9.4l4.6 1.2M18.8 7.6v6.6M18.8 14.2l-1.8 7M18.8 14.2l1.8 7M18.8 9.4l-3.6-3"/>',
   musical: '<circle cx="15.2" cy="3.4" r="2.5"/><path class="st" style="stroke-width:3.2" d="M14 7.2 11.4 13.6"/><path class="st" d="M13.5 8.6 19 5.6M13.5 8.6 7.6 7.4M11.4 13.6l3.4 3.6-1 4.6M11.4 13.6 6.6 17.8"/>',
-  stage: '<rect x="2" y="2.5" width="20" height="3.2" rx=".8"/><path d="M3 6h7.2C9.4 11 7.4 14.8 3 17.6z"/><path d="M21 6h-7.2c.8 5 2.8 8.8 7.2 11.6z"/><rect x="2" y="19.2" width="20" height="2.3" rx=".8"/>',
-  free: '<path fill-rule="evenodd" d="M2.5 6h19v4.2a1.8 1.8 0 0 0 0 3.6V18h-19v-4.2a1.8 1.8 0 0 0 0-3.6zM15 7.5v1.6h1.4V7.5zm0 3.4v1.6h1.4v-1.6zm0 3.4v1.6h1.4v-1.6z"/>',
-  follow: '<path d="M12 2.6l2.9 6 6.5.8-4.8 4.5 1.2 6.5L12 17.2l-5.8 3.2 1.2-6.5L2.6 9.4l6.5-.8z"/>',
+  stage: '<circle cx="11" cy="3.6" r="2.5"/><rect x="2" y="20.6" width="20" height="2.2" rx="1"/><path class="st" d="M11 7.2v6.8M11 14 8 19.4M11 14l3.4 5.4M11 9 18.6 6.4M11 9 7.4 11.8l2.6 1.6"/>',
+  free: '<circle cx="12" cy="6.4" r="2.5"/><path class="st" d="M12 10v6.4M12 16.4l-2.6 5.2M12 16.4l2.6 5.2M12 11 6.4 4.4M12 11l5.6-6.6"/>',
+  follow: '<circle cx="9" cy="5.2" r="2.5"/><path class="st" d="M9 8.8v6.6M9 15.4l-2.4 6M9 15.4l2.4 6M9 10.4 5.4 13.4M9 10.4l3.6 3"/><path d="M18.5 2.2l1.4 2.9 3.1.4-2.3 2.2.6 3.1-2.8-1.5-2.8 1.5.6-3.1-2.3-2.2 3.1-.4z"/>',
 };
 const pic = k => `<svg class="pic" viewBox="0 0 24 24" aria-hidden="true">${ICON[k] || ""}</svg>`;
 const st = {tab:"new", house:Object.keys(HOUSES)[0] || "", free:false, genres:new Set(), region:"", pref:"", q:"", follows:new Set(store.get("follows", []))};
