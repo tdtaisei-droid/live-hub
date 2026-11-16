@@ -1336,11 +1336,11 @@
  "yoyogi-1": {
   "url": "https://www.jpnsport.go.jp/yoyogi/",
   "checked": "2026-11-16T16:57:44",
-  "ok": false,
+  "ok": true,
   "identity": "国立代々木競技場 | 日本スポーツ振興センター 「国立代々木競技場」に関する情報です。 国立代々木競技場 | 日本スポーツ振興センター 日本スポーツ振興センター",
   "matched": null,
-  "reason": "ページの名乗りに名前が見つからない",
-  "final_url": "https://www.jpnsport.go.jp/yoyogi/index.html"
+  "final_url": "https://www.jpnsport.go.jp/yoyogi/index.html",
+  "note": "別名を追加し、保存済みのページの名乗りで再判定(2026-11-17)"
  },
  "garden-theater": {
   "url": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/",
@@ -1498,18 +1498,18 @@
  "kyoto-metro": {
   "url": "https://www.metro.ne.jp/",
   "checked": "2026-11-16T16:59:26",
-  "ok": false,
+  "ok": true,
   "identity": "CLUB METRO | 京都メトロ 京都・神宮丸太町駅直結 ! 徒歩0分!CLUB METROのオフィシャルサイト。 京都に1990年にオープンし、のべ150万人以上を動員した日本でも有数の長い歴史を誇る老舗クラブ。 CLUB METRO | 京都メトロ CLUB METRO | 京都メトロ",
   "matched": null,
-  "reason": "ページの名乗りに名前が見つからない"
+  "note": "別名を追加し、保存済みのページの名乗りで再判定(2026-11-17)"
  },
  "blue-live": {
   "url": "https://bluelive.jp/",
   "checked": "2026-11-16T16:59:31",
-  "ok": false,
+  "ok": true,
   "identity": "BLUE LIVE HIROSHIMA|広島市南区のライブホール&レストラン 広島市南区にある「BLUE LIVE HIROSHIMA(ブルーライブ広島)」は、本格ライブがディナーと楽しめるライブレストランです。ホールレンタルやウエディングのご利用も可能ですので、ご検討中の方はお気軽にご相談くださいませ。 BLUE LIVE HIROSHIMA BLUE LIVE HIROSHIMA|広島市南区の",
   "matched": null,
-  "reason": "ページの名乗りに名前が見つからない"
+  "note": "別名を追加し、保存済みのページの名乗りで再判定(2026-11-17)"
  },
  "okayama-crazymama": {
   "url": "https://www.crazymama.jp/",
@@ -1535,10 +1535,10 @@
  "okinawa-arena": {
   "url": "https://okinawa-arena.jp/",
   "checked": "2026-11-16T16:59:46",
-  "ok": false,
+  "ok": true,
   "identity": "沖縄サントリーアリーナ公式サイト | OKINAWA ARENA 沖縄サントリーアリーナ公式サイト | OKINAWA ARENA 沖縄市が誇る多目的アリーナは、スポーツやエンタメを中心に、来場する人々や主催者の利便性に重きを置いた「観る」ための施設です。同時に、地域向けクラスの開催やショップ・カフェの運営など、日頃から賑わいを創出することで地域活性化にも寄与するアリーナでもあります。またホスピタ",
   "matched": null,
-  "reason": "ページの名乗りに名前が見つからない"
+  "note": "別名を追加し、保存済みのページの名乗りで再判定(2026-11-17)"
  },
  "act-city": {
   "url": "https://www.actcity.jp/",
@@ -1550,10 +1550,10 @@
  "aubade": {
   "url": "https://www.aubade.or.jp/",
   "checked": "2026-11-16T16:59:54",
-  "ok": false,
+  "ok": true,
   "identity": "AUBADE HALL",
   "matched": null,
-  "reason": "ページの名乗りに名前が見つからない"
+  "note": "別名を追加し、保存済みのページの名乗りで再判定(2026-11-17)"
  },
  "ryutopia": {
   "url": "https://www.ryutopia.or.jp/",
@@ -1572,10 +1572,10 @@
  "sonic-city": {
   "url": "https://www.sonic-city.or.jp/",
   "checked": "2026-11-16T17:00:11",
-  "ok": false,
+  "ok": true,
   "identity": "ソニックシティ 大宮駅西口徒歩3分の好立地!スクリーン・プロジェクター・ホワイトボード標準装備(一部会議室を除く)。 12名~102名まで29室の会議室をご用意しております。",
   "matched": null,
-  "reason": "ページの名乗りに名前が見つからない"
+  "note": "別名を追加し、保存済みのページの名乗りで再判定(2026-11-17)"
  },
  "minatomirai-hall": {
   "url": "https://mmh.yafjp.org/mmh/",
@@ -1623,10 +1623,10 @@
  "kobe-kokusai": {
   "url": "https://www.kih.co.jp/",
   "checked": "2026-11-16T17:00:37",
-  "ok": false,
+  "ok": true,
   "identity": "神戸国際会館オフィシャルホームページ 三宮で貸会議室「神戸国際会館セミナーハウス」・オフィステナント・商業施設「SOL」・こくさいホール等を有する大型複合施設。",
   "matched": null,
-  "reason": "ページの名乗りに名前が見つからない"
+  "note": "別名を追加し、保存済みのページの名乗りで再判定(2026-11-17)"
  },
  "archaic-hall": {
   "url": "https://www.archaic.or.jp/",
@@ -1697,19 +1697,19 @@
  "century-hall": {
   "url": "https://www.nagoya-congress-center.jp/",
   "checked": "2026-11-16T17:01:29",
-  "ok": false,
+  "ok": true,
   "identity": "名古屋国際会議場",
   "matched": null,
-  "reason": "ページの名乗りに名前が見つからない",
-  "final_url": "https://nagoya-congress-center.jp/"
+  "final_url": "https://nagoya-congress-center.jp/",
+  "note": "別名を追加し、保存済みのページの名乗りで再判定(2026-11-17)"
  },
  "mie-bunka": {
   "url": "https://www.center-mie.or.jp/bunka/",
   "checked": "2026-11-16T17:01:35",
-  "ok": false,
+  "ok": true,
   "identity": "文化会館|三重県総合文化センター 三重県立総合文化センター 文化会館|三重県総合文化センター",
   "matched": null,
-  "reason": "ページの名乗りに名前が見つからない"
+  "note": "別名を追加し、保存済みのページの名乗りで再判定(2026-11-17)"
  },
  "hokuto-bunka": {
   "url": "https://www.n-bunka.jp/",
@@ -1763,10 +1763,10 @@
  "yokosuka-geigeki": {
   "url": "https://www.yokosuka-arts.or.jp/",
   "checked": "2026-11-16T17:02:11",
-  "ok": false,
+  "ok": true,
   "identity": "横須賀芸術劇場 横須賀芸術劇場は、大・小2つの異なる顔を持つ劇場からなり、活力のある街横須賀のシンボルとして芸術文化と賑わいの拠点となっています。 横須賀芸術劇場 横須賀芸術劇場 YOKOSUKA ARTS THEATRE",
   "matched": null,
-  "reason": "ページの名乗りに名前が見つからない"
+  "note": "別名を追加し、保存済みのページの名乗りで再判定(2026-11-17)"
  },
  "iwate-kenmin": {
   "url": "https://www.iwate-kenmin.jp/",

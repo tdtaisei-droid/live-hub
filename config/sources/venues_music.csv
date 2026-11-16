@@ -28,7 +28,7 @@ koriyama-hipshot,HIPSHOT JAPAN,郡山HIPSHOT JAPAN,福島県,郡山市,400,,,,au
 tokyo-dome,東京ドーム,,東京都,文京区,55000,https://www.tokyo-dome.co.jp/dome/,,,auto,music,東京ドーム,,0
 budokan,日本武道館,武道館,東京都,千代田区,14000,https://www.nipponbudokan.or.jp/,,,auto,music,日本武道館,,0
 ariake-arena,有明アリーナ,,東京都,江東区,15000,,,,auto,music,,,0
-yoyogi-1,国立代々木競技場第一体育館,代々木第一体育館,東京都,渋谷区,13000,,,,auto,music,,,0
+yoyogi-1,国立代々木競技場第一体育館,代々木第一体育館|国立代々木競技場,東京都,渋谷区,13000,,,,auto,music,,,0
 tokyo-taiikukan,東京体育館,,東京都,渋谷区,10000,,,,auto,music,,,0
 ryogoku-kokugikan,両国国技館,国技館,東京都,墨田区,10000,,,,auto,music,,,0
 garden-theater,東京ガーデンシアター,,東京都,江東区,8000,,,,auto,music,,,0
@@ -136,14 +136,14 @@ kobe-varit,神戸VARIT.,,兵庫県,神戸市,300,,,,auto,music,,,0
 rohm-theatre,ロームシアター京都,京都会館,京都府,京都市,2000,,,,auto,music,,,0
 kbs-hall,KBSホール,京都KBSホール,京都府,京都市,1000,,,,auto,music,,,0
 kyoto-muse,京都MUSE,,京都府,京都市,400,,,,auto,music,,,0
-kyoto-metro,京都METRO,,京都府,京都市,300,,,,auto,music,,,0
+kyoto-metro,京都METRO,京都メトロ|CLUB METRO,京都府,京都市,300,,,,auto,music,,,0
 takutaku,磔磔,京都磔磔,京都府,京都市,250,,,,auto,music,,,0
 nara-neverland,奈良NEVERLAND,,奈良県,奈良市,250,,,,auto,music,,,0
 wakayama-shelter,和歌山SHELTER,,和歌山県,和歌山市,250,,,,auto,music,,,0
 shiga-ustone,滋賀U☆STONE,U☆STONE,滋賀県,大津市,300,,,,auto,music,,,0
 hiroshima-green-arena,広島グリーンアリーナ,,広島県,広島市,10000,,,,auto,music,,,0
 ueno-gakuen-hall,上野学園ホール,広島文化学園HBGホール|広島上野学園ホール,広島県,広島市,2000,,,,auto,music,,名称変更あり。要確認,0
-blue-live,BLUE LIVE 広島,,広島県,広島市,1000,,,,auto,music,,,0
+blue-live,BLUE LIVE 広島,BLUE LIVE HIROSHIMA|ブルーライブ広島,広島県,広島市,1000,,,,auto,music,,,0
 hiroshima-quattro,広島CLUB QUATTRO,広島クアトロ|広島クラブクアトロ|HIROSHIMA CLUB QUATTRO,広島県,広島市,700,,,,auto,music,クラブクアトロ,,0
 hiroshima-vanquish,LIVE VANQUISH,広島LIVE VANQUISH,広島県,広島市,400,,,,auto,music,,,0
 hiroshima-second-clutch,セカンド・クラッチ,広島セカンド・クラッチ,広島県,広島市,300,,,,auto,music,,,0
@@ -181,6 +181,6 @@ oita-tops,T.O.P.S Bitts HALL,大分T.O.P.S Bitts HALL,大分県,大分市,400,,,
 miyazaki-srbox,SR BOX,宮崎SR BOX,宮崎県,宮崎市,350,,,,auto,music,,,0
 kagoshima-caparvo,CAPARVO HALL,鹿児島CAPARVO HALL,鹿児島県,鹿児島市,600,,,,auto,music,,,0
 kagoshima-srhall,SR HALL,鹿児島SR HALL,鹿児島県,鹿児島市,300,,,,auto,music,,,0
-okinawa-arena,沖縄アリーナ,,沖縄県,沖縄市,10000,,,,auto,music,,,0
+okinawa-arena,沖縄アリーナ,沖縄サントリーアリーナ|OKINAWA ARENA,沖縄県,沖縄市,10000,,,,auto,music,,,0
 sakurazaka-central,桜坂セントラル,,沖縄県,那覇市,300,,,,auto,music,,,0
 naha-output,output,那覇output,沖縄県,那覇市,250,,,,auto,music,,,0
