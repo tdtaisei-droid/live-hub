@@ -46,7 +46,7 @@ def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[E
 
     # 場所: 会場・劇場の情報源ならその所在地が最優先
     venue, pref = item.venue, item.prefecture
-    if src.is_location:
+    if src.is_location and not item.site_feed:
         venue, pref = venue or src.name, src.prefecture
     if src.category == "stores" and not venue:
         m = re.search(r"場所\s*([^\s]{1,20}店)", text)
@@ -129,24 +129,29 @@ def _items_for(src: Source, fetcher: Fetcher, ref: date, seen_urls: Optional[set
     if src.schedule_url:
         return _read_schedule_page(src, src.schedule_url, fetcher, ref, seen_urls)
 
-    # スケジュールページ未登録: トップページから RSS / 構造化データ / メニューの「スケジュール」等を自動で探す
+    # スケジュールページ未登録: トップページから 構造化データ / メニューの「スケジュール」等 / RSS を自動で探す
     r = fetcher.get(src.url, use_cache=False)
     if r.status >= 400 or not r.text:
         return []
     items = parse_jsonld_events(r.text, r.url)
     if items:
         return items
-    for ftype, furl in find_feeds(r.text, r.url):
-        fr = fetcher.get(furl)
-        if fr.status < 400 and fr.text:
-            try:
-                return parse_ics(fr.text, furl) if "calendar" in ftype else parse_feed(fr.text, furl)
-            except Exception as exc:  # 壊れたフィードは無視してメニュー探索へ
-                log.info("feed parse failed %s: %s", furl, exc)
+    # 会場はスケジュールページを優先(サイト全体のRSSは他会場のニュースも混ざるため)
     for page in find_schedule_pages(r.text, r.url):
         found = _read_schedule_page(src, page, fetcher, ref, seen_urls)
         if found:
             return found
+    for ftype, furl in find_feeds(r.text, r.url):
+        fr = fetcher.get(furl)
+        if fr.status < 400 and fr.text:
+            try:
+                got = parse_ics(fr.text, furl) if "calendar" in ftype else parse_feed(fr.text, furl)
+            except Exception as exc:  # 壊れたフィードは無視
+                log.info("feed parse failed %s: %s", furl, exc)
+                continue
+            for it in got:
+                it.site_feed = True  # 会場の所在地を当てはめない(本文から判定する)
+            return got
     return []
 
 

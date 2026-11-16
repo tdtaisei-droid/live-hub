@@ -21,3 +21,4 @@ class RawItem:
     performers: list[str] = field(default_factory=list)
     ticket_sale_at: Optional[datetime] = None
     structured: bool = False
+    site_feed: bool = False           # サイト全体のRSS(複数会場の情報が混ざる)から来た

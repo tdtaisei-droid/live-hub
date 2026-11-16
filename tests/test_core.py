@@ -250,3 +250,12 @@ def test_halls_load_weekly():
     halls = [s for s in load_sources() if s.category == "halls"]
     assert len(halls) >= 90
     assert all(s.interval_days == 7 and (s.capacity or 0) >= 1000 for s in halls)
+
+
+def test_shared_site_feed_does_not_force_venue():
+    item = RawItem("Zepp Nagoya 公演追加決定 1月10日", "https://z/1", site_feed=True)
+    item2 = RawItem("会場限定ワンマン 1月11日", "https://z/2", site_feed=True)
+    s = src(id="zepp-fukuoka", category="venues_music", name="Zepp Fukuoka", prefecture="福岡県", genre_default="music")
+    ev = to_event(item, s, REF, NOW)
+    assert ev.prefecture == "愛知県"            # 本文の会場名から判定(福岡にしない)
+    assert to_event(item2, s, REF, NOW).prefecture is None

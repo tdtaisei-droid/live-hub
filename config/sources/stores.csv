@@ -1,2 +1,2 @@
 id,name,aliases,prefecture,city,capacity,url,schedule_url,feed_url,method,genre_default,operator,notes,verified
-tower-records,タワーレコード 店舗イベント,タワレコ|TOWER RECORDS,,,,https://tower.jp/,https://tower.jp/store/event,,html_detail,music,タワーレコード,インストアライブ。観覧フリーのものは「無料」表示。サイン会・握手会のみのイベントは除外。一覧ページURLは要確認,0
+tower-records,タワーレコード 店舗イベント,タワレコ|TOWER RECORDS,,,,https://tower.jp/,,,html_detail,music,タワーレコード,インストアライブ。観覧フリーのものは「無料」表示。サイン会・握手会のみのイベントは除外。2026-11-16の調査で /store/event は403(拒否)。トップページから自動発見を試す。トップも拒否ならボットお断りと判断して巡回しない,0
