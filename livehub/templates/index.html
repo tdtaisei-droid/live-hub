@@ -117,6 +117,21 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 #prefchips{margin-top:10px}
 #prefchips .chip{font-size:12.5px;padding:5px 10px}
 #prefchips .chip .n{opacity:.6;margin-left:4px;font-size:11px}
+/* 押した瞬間に1回だけ動く。動きを減らす設定の人には動かさない */
+.pic{transform-origin:50% 90%}
+.pic.go-music{animation:sway .45s ease-in-out}
+.pic.go-comedy{animation:nudge .35s ease-out}
+.pic.go-musical{animation:hop .45s cubic-bezier(.3,1.6,.5,1)}
+.pic.go-stage{animation:pose .45s ease-out}
+.pic.go-free{animation:bounce2 .5s ease-out}
+.pic.go-follow{animation:spin .5s ease-in-out;transform-origin:50% 50%}
+@keyframes sway{25%{transform:rotate(-12deg)}75%{transform:rotate(12deg)}}
+@keyframes nudge{30%{transform:translateX(3px)}60%{transform:translateX(-2px)}}
+@keyframes hop{40%{transform:translateY(-5px) rotate(-8deg)}}
+@keyframes pose{40%{transform:scale(1.3)}}
+@keyframes bounce2{25%{transform:translateY(-4px)}50%{transform:none}75%{transform:translateY(-3px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.pic[class*="go-"]{animation:none}}
 @media (min-width:700px){.card{grid-template-columns:70px 1fr auto}.date .d{font-size:28px}}
 </style>
 </head>
@@ -190,7 +205,14 @@ const ICON = {
   free: '<circle cx="12" cy="6.4" r="2.5"/><path class="st" d="M12 10v6.4M12 16.4l-2.6 5.2M12 16.4l2.6 5.2M12 11 6.4 4.4M12 11l5.6-6.6"/>',
   follow: '<circle cx="9" cy="5.2" r="2.5"/><path class="st" d="M9 8.8v6.6M9 15.4l-2.4 6M9 15.4l2.4 6M9 10.4 5.4 13.4M9 10.4l3.6 3"/><path d="M18.5 2.2l1.4 2.9 3.1.4-2.3 2.2.6 3.1-2.8-1.5-2.8 1.5.6-3.1-2.3-2.2 3.1-.4z"/>',
 };
-const pic = k => `<svg class="pic" viewBox="0 0 24 24" aria-hidden="true">${ICON[k] || ""}</svg>`;
+const pic = k => `<svg class="pic" data-pic="${k}" viewBox="0 0 24 24" aria-hidden="true">${ICON[k] || ""}</svg>`;
+// 押したボタンのアイコンを1回だけ動かす(描き直したあとの新しいボタンを探して付ける)
+function wiggle(selector){
+  const svg = document.querySelector(selector + " .pic"); if (!svg) return;
+  const cls = "go-" + svg.dataset.pic;
+  svg.classList.remove(cls); void svg.getBoundingClientRect(); svg.classList.add(cls);
+  svg.addEventListener("animationend", () => svg.classList.remove(cls), {once: true});
+}
 const st = {tab:"new", house:Object.keys(HOUSES)[0] || "", free:false, genres:new Set(), region:"", pref:"", q:"", follows:new Set(store.get("follows", []))};
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -363,15 +385,15 @@ function render(){
 document.addEventListener("click", ev => {
   const t = ev.target.closest("button,.rg"); if (!t) return;
   if (t.dataset.tab) { st.tab = t.dataset.tab; }
-  else if (t.dataset.genre) { st.genres.has(t.dataset.genre) ? st.genres.delete(t.dataset.genre) : st.genres.add(t.dataset.genre); renderChips(); }
+  else if (t.dataset.genre) { st.genres.has(t.dataset.genre) ? st.genres.delete(t.dataset.genre) : st.genres.add(t.dataset.genre); renderChips(); wiggle(`[data-genre="${t.dataset.genre}"]`); }
   else if (t.dataset.region !== undefined) { st.region = (st.region === t.dataset.region ? "" : t.dataset.region); st.pref = ""; }
   else if (t.dataset.pref !== undefined) { st.pref = t.dataset.pref; }
   else if (t.dataset.house) { st.house = t.dataset.house; }
   else if (t.id === "allJapan") { st.region = ""; st.pref = ""; }
   else if (t.id === "mapToggle") { const c = $("#mapbox").classList.toggle("closed"); t.textContent = c ? "地図をひらく" : "地図をたたむ"; store.set("mapClosed", c); return; }
   else if (t.dataset.follow) { const k = t.dataset.follow; st.follows.has(k) ? st.follows.delete(k) : st.follows.add(k); store.set("follows", [...st.follows]); }
-  else if (t.id === "freeOnly") { st.free = !st.free; renderChips(); }
-  else if (t.id === "openFollow") { renderFollow(); $("#followDlg").showModal(); return; }
+  else if (t.id === "freeOnly") { st.free = !st.free; renderChips(); wiggle("#freeOnly"); }
+  else if (t.id === "openFollow") { wiggle("#openFollow"); renderFollow(); setTimeout(() => $("#followDlg").showModal(), 250); return; }
   else if (t.dataset.unfollow) { st.follows.delete(t.dataset.unfollow); store.set("follows", [...st.follows]); renderFollow(); }
   else if (t.id === "followAdd") { ev.preventDefault(); const v = $("#followInput").value.trim(); if (v) { st.follows.add(v); store.set("follows", [...st.follows]); $("#followInput").value = ""; renderFollow(); } }
   else return;
