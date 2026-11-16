@@ -21,6 +21,9 @@ a{color:inherit}
 .wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
 header.top{position:sticky;top:0;z-index:5;background:rgba(15,15,18,.92);backdrop-filter:blur(10px);
   border-bottom:1px solid var(--line)}
+.sky{height:0;pointer-events:none;overflow:hidden;transition:height .3s}
+.sky.on{height:26px}
+.sky svg{display:block;width:100%;height:26px}
 .brand{display:flex;align-items:baseline;gap:10px;padding:14px 0 8px}
 .logo{font-weight:900;letter-spacing:.06em;font-size:22px}
 .logo b{color:var(--accent)}
@@ -144,6 +147,7 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 <body>
 <header class="top">
   <div class="wrap" style="padding-bottom:0">
+    <div class="sky" id="sky" aria-hidden="true"></div>
     <div class="brand"><span class="logo">LIVE<b>HUB</b></span><span class="tagline">全国のライブ・お笑い・舞台を、見逃さない。</span></div>
     <nav class="tabs" role="tablist" id="tabs"></nav>
   </div>
@@ -471,6 +475,38 @@ $("#toggleOpening").addEventListener("click", ev => { ev.preventDefault(); try {
 labelOpening();
 $("#gen").textContent = `最終更新 ${meta.generated_at.replace("T", " ")}・全国${meta.count}件`;
 renderChips(); await refresh();
+})();
+
+// ---- 夜空の月:実際の月齢と、おおよその月の出入り・日の出入り(日本・東京付近の目安)から計算 ----
+(function(){
+  const sky=document.getElementById("sky"); if(!sky) return;
+  const SYN=29.530588853, NEW=Date.UTC(2000,0,6,18,14), BH=26;
+  function draw(){
+    const now=new Date();
+    const jst=new Date(now.getTime()+(9*60+now.getTimezoneOffset())*60000);
+    const h=jst.getHours()+jst.getMinutes()/60;
+    const doy=(Date.UTC(jst.getFullYear(),jst.getMonth(),jst.getDate())-Date.UTC(jst.getFullYear(),0,1))/864e5;
+    const season=Math.sin(2*Math.PI*(doy-80)/365);
+    const sunset=17.75+1.25*season, sunrise=5.65-1.2*season;
+    const night=h>=sunset+0.4||h<=sunrise-0.4;
+    const age=(((now-NEW)/864e5)%SYN+SYN)%SYN, p=age/SYN;
+    let H=h-(12+p*24); H=((H%24)+36)%24-12;          // 南中からの時間(東→西へ)
+    if(!night||Math.abs(H)>6.3){sky.classList.remove("on");sky.innerHTML="";return;}
+    const W=sky.clientWidth||document.body.clientWidth, r=8;
+    const x=W*(0.04+0.92*(H+6)/12), y=r+3+(BH-r-3)*Math.pow(Math.min(Math.abs(H)/6,1.05),2)*1.1;
+    const k=Math.cos(2*Math.PI*p), rx=(Math.abs(k)*r).toFixed(2), right=p<0.5;
+    const o=right?1:0, i=right?(k>0?0:1):(k>0?1:0);
+    const lit=`M0,${-r} A${r},${r} 0 0 ${o} 0,${r} A${rx},${r} 0 0 ${i} 0,${-r}Z`;
+    const name=age<1.5||age>28?"新月":age<5?"三日月":age<9?"上弦の月":age<13.5?"十三夜":age<16.5?"満月":age<21?"寝待月":age<24?"下弦の月":"有明の月";
+    let stars="";for(let n=0;n<16;n++){
+      stars+=`<circle cx="${(((n+1)*0.6180339)%1*W).toFixed(1)}" cy="${(3+((n*0.7548777)%1)*(BH-6)).toFixed(1)}" r="${n%3?0.6:0.9}" fill="#fff" opacity="${n%2?.22:.38}"/>`;}
+    sky.innerHTML=`<svg width="${W}" height="${BH}" viewBox="0 0 ${W} ${BH}">${stars}
+      <g transform="translate(${x.toFixed(1)},${y.toFixed(1)})"><title>${name}(月齢${age.toFixed(1)})</title>
+      <circle r="${r+5}" fill="#fff6cf" opacity=".06"/><circle r="${r}" fill="#26262c"/>
+      <path d="${lit}" fill="#fff3c4" opacity=".92"/></g></svg>`;
+    sky.classList.add("on");
+  }
+  draw(); setInterval(draw,5*60*1000); addEventListener("resize",draw);
 })();
 </script>
 </body>
