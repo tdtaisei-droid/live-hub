@@ -1,9 +1,9 @@
 <!-- オープニング演出:1日1回、架空の会場の幕が開く。タップで飛ばせる。動きを減らす設定では出さない -->
 <style>
-#opening{position:fixed;inset:0;z-index:100;overflow:hidden;background:#000;cursor:pointer;opacity:1;transition:opacity .35s ease}
+#opening{position:fixed;inset:0;z-index:100;overflow:hidden;background:#000;cursor:pointer;opacity:1;transition:opacity .25s ease}
 #opening.bye{opacity:0;pointer-events:none}
 #opening .scene{position:absolute;inset:0;width:100%;height:100%}
-#opening .cur{position:absolute;top:0;bottom:0;will-change:transform;transition:transform .85s cubic-bezier(.65,0,.35,1)}
+#opening .cur{position:absolute;top:0;bottom:0;will-change:transform;transition:transform .6s cubic-bezier(.65,0,.35,1)}
 #opening .cur-l{left:0;width:51%;transform-origin:0 0}
 #opening .cur-r{right:0;width:51%;transform-origin:100% 0}
 #opening .cur-1{left:0;right:0}
@@ -35,8 +35,8 @@
 #opening .pl{fill:none;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
 #opening .cast{opacity:.25;transition:opacity .5s .3s}
 #opening.open .cast{opacity:1}
-#opening.open .pop{animation:pop .5s .75s ease-out both;transform-box:fill-box;transform-origin:50% 100%}
-#opening.open .pop2{animation:pop .5s .95s ease-out both;transform-box:fill-box;transform-origin:50% 100%}
+#opening.open .pop{animation:pop .4s .45s ease-out both;transform-box:fill-box;transform-origin:50% 100%}
+#opening.open .pop2{animation:pop .4s .6s ease-out both;transform-box:fill-box;transform-origin:50% 100%}
 @keyframes pop{40%{transform:translateY(-6px)}}
 #opening .tw{animation:tw 1.6s ease-in-out infinite alternate}
 #opening .tw:nth-child(3n){animation-delay:.5s}
@@ -63,7 +63,9 @@
   let seen = null;
   try { seen = localStorage.getItem("livehub:opening"); } catch {}
   window.livehubOpening = play;  // フッターの「オープニングを見る」から呼ぶ
-  const autoplay = !(reduced || seen === today);
+  let off = false;
+  try { off = localStorage.getItem("livehub:openingOff") === "1"; } catch {}
+  const autoplay = !(reduced || off || seen === today);
 
   function play(){
     const box = document.getElementById("opening");
@@ -89,11 +91,11 @@
     box.hidden = false;
     box.classList.remove("bye", "open");
     try { localStorage.setItem("livehub:opening", today); } catch {}
-    const timers = [setTimeout(() => box.classList.add("open"), 650), setTimeout(end, 2300)];
+    const timers = [setTimeout(() => box.classList.add("open"), 300), setTimeout(end, 1250)];
     function end(){
       timers.forEach(clearTimeout);
       box.classList.add("bye");
-      setTimeout(() => { box.hidden = true; box.innerHTML = ""; }, 380);
+      setTimeout(() => { box.hidden = true; box.innerHTML = ""; }, 260);
     }
     box.onclick = end;
   }

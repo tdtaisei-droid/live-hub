@@ -37,10 +37,11 @@ def build(events: list[dict], out_dir: Path = ROOT / "site", today: date | None 
         "houses": {k: v["name"] for k, v in load_houses().items()},
         "count": len(events),
     }
-    write_split_data(events, meta, out_dir)
+    index = write_split_data(events, meta, out_dir)
 
     from .japanmap import svg as japan_map
     html = (TEMPLATES / "index.html").read_text(encoding="utf-8").replace("<!--MAP-->", japan_map())
+    html = html.replace("/*__INDEX__*/null", json.dumps(index, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
     # オープニング演出(架空の会場500種類)
     from .opening import build_variants, compact
     opening = (TEMPLATES / "opening.html").read_text(encoding="utf-8").replace(
@@ -95,8 +96,11 @@ def write_split_data(events: list[dict], meta: dict, out_dir: Path) -> None:
         region_counts[e.get("region") or "不明"] = region_counts.get(e.get("region") or "不明", 0) + 1
         if e.get("prefecture"):
             pref_counts[e["prefecture"]] = pref_counts.get(e["prefecture"], 0) + 1
-    index = {"meta": meta, "files": files, "prefCode": PREF_CODE, "regionCounts": region_counts, "prefCounts": pref_counts}
+    from .geo import PREF_REGION
+    index = {"meta": meta, "files": files, "prefCode": PREF_CODE, "prefRegion": PREF_REGION,
+             "regionCounts": region_counts, "prefCounts": pref_counts}
     (data_dir / "index.json").write_text(json.dumps(index, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     old = out_dir / "events.json"
     if old.exists():
         old.unlink()
+    return index

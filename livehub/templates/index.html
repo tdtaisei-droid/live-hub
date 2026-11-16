@@ -163,7 +163,7 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
   <footer>
     <p>掲載情報は各公式サイト(会場・イベンター・劇場・事務所・主催者)の公開情報をもとにしています。チケットの販売・先行情報は掲載していません。ファンクラブ先行などが最も早いことが多いため、必ず公式サイトでご確認ください。日時・出演者・発売情報は必ずリンク先の公式情報でご確認ください。</p>
     <p><a href="about.html">このサイトについて・情報源一覧・掲載停止のご依頼</a> ・ <span id="gen"></span></p>
-    <p><a href="#" id="replayOpening">🎭 オープニングをもう一度見る</a></p>
+    <p><a href="#" id="replayOpening">🎭 オープニングをもう一度見る</a> ・ <a href="#" id="toggleOpening"></a></p>
   </footer>
 </main>
 
@@ -181,9 +181,18 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 </dialog>
 
 <script>
+// 目次(件数とファイル名)はページに埋め込む。保存したエリアの公演ファイルは、ページの残りを処理する前に取りに行く
+const IDX = /*__INDEX__*/null;
+const EARLY = (() => {
+  try {
+    const a = JSON.parse(localStorage.getItem("livehub:area"));
+    if (!IDX || !a || (!a.pref && !a.region)) return {};
+    const codes = a.pref ? [IDX.prefCode[a.pref]] : Object.entries(IDX.prefRegion).filter(([p, r]) => r === a.region).map(([p]) => IDX.prefCode[p]);
+    return Object.fromEntries(codes.filter(c => IDX.files[c]).map(c => [c, fetch(`data/${c}.json`).then(r => r.json()).catch(() => [])]));
+  } catch { return {}; }
+})();
 (async () => {
-// 目次(件数とファイル名)だけ先に読み、公演データは選ばれたエリアの都道府県ファイルだけ読む
-const idx = await (await fetch("data/index.json")).json();
+const idx = IDX || await (await fetch("data/index.json")).json();
 const meta = idx.meta;
 const events = [];
 const loaded = new Set();
@@ -243,7 +252,7 @@ async function ensureLoaded(){
   if (!need.length) return;
   need.forEach(c => loaded.add(c));
   $("#list").innerHTML = `<p class="empty">${need.length > 8 ? "全国の公演を読み込み中…(少し時間がかかります)" : "読み込み中…"}</p>`;
-  const parts = await Promise.all(need.map(c => fetch(`data/${c}.json`).then(r => r.json()).catch(() => [])));
+  const parts = await Promise.all(need.map(c => EARLY[c] || fetch(`data/${c}.json`).then(r => r.json()).catch(() => [])));
   for (const part of parts) for (const e of part) events.push(prep(e));
 }
 async function refresh(){ await ensureLoaded(); render(); }
@@ -413,6 +422,10 @@ if (store.get("mapClosed", false)) { $("#mapbox").classList.add("closed"); $("#m
 $("#q").addEventListener("input", e => { st.q = e.target.value.trim(); render(); });
 if (meta.sample) $("#sample").innerHTML = `<p class="sample">これは画面確認用のプロトタイプです。表示中の公演はすべて架空のサンプルデータで、実在の公演ではありません。</p>`;
 $("#replayOpening").addEventListener("click", ev => { ev.preventDefault(); if (window.livehubOpening) window.livehubOpening(); });
+const openingOff = () => { try { return localStorage.getItem("livehub:openingOff") === "1"; } catch { return false; } };
+const labelOpening = () => $("#toggleOpening").textContent = openingOff() ? "オープニング: 表示しない(タップで表示する)" : "オープニング: 1日1回表示(タップで表示しない)";
+$("#toggleOpening").addEventListener("click", ev => { ev.preventDefault(); try { localStorage.setItem("livehub:openingOff", openingOff() ? "0" : "1"); } catch {} labelOpening(); });
+labelOpening();
 $("#gen").textContent = `最終更新 ${meta.generated_at.replace("T", " ")}・全国${meta.count}件`;
 renderChips(); await refresh();
 })();
