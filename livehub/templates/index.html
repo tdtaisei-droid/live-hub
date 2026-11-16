@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LIVEHUB — 全国のライブ・お笑い・舞台情報をひとつに</title>
+<meta name="description" content="全国の会場・イベンター・劇場・事務所・主催者の公式発表を横断して集約。新規発表とチケット発売を見逃さない。">
+<style>
+:root{
+  --bg:#0f0f12;--panel:#17171c;--line:#2a2a33;--text:#f1f0ea;--sub:#a3a2a8;--dim:#6f6e76;
+  --accent:#ff5a36;--accent-ink:#1a0a05;
+  --music:#ff5a36;--comedy:#ffc93c;--musical:#e86bd9;--stage:#5ab0ff;
+  --radius:14px;
+  font-synthesis:none;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Hiragino Sans","Noto Sans JP","Yu Gothic UI",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:inherit}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header.top{position:sticky;top:0;z-index:5;background:rgba(15,15,18,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:baseline;gap:10px;padding:14px 0 8px}
+.logo{font-weight:900;letter-spacing:.06em;font-size:22px}
+.logo b{color:var(--accent)}
+.tagline{color:var(--sub);font-size:12px}
+.sample{margin:10px 0 0;padding:8px 12px;border:1px dashed var(--comedy);color:var(--comedy);
+  border-radius:10px;font-size:12px}
+nav.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-bottom:10px}
+nav.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;border:1px solid var(--line);background:transparent;color:var(--sub);
+  padding:8px 14px;border-radius:999px;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.tab[aria-selected=true]{background:var(--text);color:var(--bg);border-color:var(--text)}
+.tab .n{font-weight:500;margin-left:6px;opacity:.7;font-size:12px}
+.filters{display:grid;gap:10px;padding:14px 0 6px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--panel);color:var(--sub);border-radius:999px;
+  padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
+.chip[aria-pressed=true]{color:var(--text);border-color:var(--text)}
+.chip .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
+.row{display:flex;gap:8px}
+input[type=search],select{flex:1;min-width:0;background:var(--panel);color:var(--text);border:1px solid var(--line);
+  border-radius:10px;padding:10px 12px;font:inherit;font-size:15px}
+.hint{color:var(--dim);font-size:12px;margin:6px 0 0}
+.group{margin-top:22px}
+.group h2{font-size:13px;color:var(--sub);font-weight:700;letter-spacing:.08em;margin:0 0 8px;
+  padding-bottom:6px;border-bottom:1px solid var(--line)}
+.card{position:relative;display:grid;grid-template-columns:58px 1fr auto;gap:12px;padding:14px 0;
+  border-bottom:1px solid var(--line)}
+.date{text-align:center;line-height:1.1}
+.date .m{font-size:11px;color:var(--sub)}
+.date .d{font-size:24px;font-weight:800;font-variant-numeric:tabular-nums}
+.date .w{font-size:11px;color:var(--sub)}
+.date.none .d{font-size:13px;color:var(--dim);font-weight:600;padding-top:6px}
+.title{font-weight:700;font-size:15px;text-decoration:none;display:block}
+.title:hover{text-decoration:underline}
+.meta{color:var(--sub);font-size:12.5px;margin-top:4px;display:flex;flex-wrap:wrap;gap:4px 10px}
+.badges{display:flex;gap:6px;margin-bottom:4px;flex-wrap:wrap}
+.badge{font-size:11px;font-weight:800;padding:2px 8px;border-radius:6px;letter-spacing:.04em}
+.g-music{background:var(--music);color:var(--accent-ink)}
+.g-comedy{background:var(--comedy);color:#1d1600}
+.g-musical{background:var(--musical);color:#20061d}
+.g-stage{background:var(--stage);color:#04162a}
+.k-new{border:1px solid var(--accent);color:var(--accent)}
+.k-ticket{background:#fff;color:#111}
+.sale{color:var(--text);font-weight:700}
+.sale.soon{color:var(--accent)}
+.star{background:none;border:0;color:var(--dim);font-size:20px;cursor:pointer;padding:0 4px;height:32px}
+.star[aria-pressed=true]{color:var(--comedy)}
+.src{color:var(--dim);font-size:11.5px;margin-top:4px}
+.empty{color:var(--sub);text-align:center;padding:60px 0;font-size:14px}
+.follow-list{display:flex;flex-wrap:wrap;gap:6px}
+footer{color:var(--dim);font-size:12px;padding:30px 0;border-top:1px solid var(--line);margin-top:30px}
+dialog{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:var(--radius);
+  max-width:420px;width:calc(100% - 32px)}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+.btn{background:var(--accent);color:var(--accent-ink);border:0;border-radius:10px;padding:10px 14px;
+  font:inherit;font-weight:800;cursor:pointer}
+.btn.ghost{background:none;color:var(--sub);border:1px solid var(--line)}
+@media (min-width:700px){.card{grid-template-columns:70px 1fr auto}.date .d{font-size:28px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap" style="padding-bottom:0">
+    <div class="brand"><span class="logo">LIVE<b>HUB</b></span><span class="tagline">全国のライブ・お笑い・舞台を、見逃さない。</span></div>
+    <nav class="tabs" role="tablist" id="tabs"></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="sample"></div>
+  <section class="filters">
+    <div class="chips" id="genres"></div>
+    <div class="chips" id="regions"></div>
+    <div class="row">
+      <select id="pref" aria-label="都道府県"><option value="">すべての都道府県</option></select>
+      <input type="search" id="q" placeholder="アーティスト・芸人・作品・会場で検索">
+    </div>
+    <p class="hint" id="hint"></p>
+  </section>
+  <div id="list"></div>
+  <footer>
+    <p>掲載情報は各公式サイト(会場・イベンター・劇場・事務所・主催者)の公開情報をもとにしています。日時・出演者・発売情報は必ずリンク先の公式情報でご確認ください。</p>
+    <p><a href="about.html">このサイトについて・情報源一覧・掲載停止のご依頼</a> ・ <span id="gen"></span></p>
+  </footer>
+</main>
+
+<dialog id="followDlg">
+  <form method="dialog">
+    <h3 style="margin-top:0">★ フォロー</h3>
+    <p style="color:var(--sub);font-size:13px">フォローしたアーティスト・会場・地域の情報だけを「フォロー中」タブで見られます。この端末にだけ保存されます。</p>
+    <div class="follow-list" id="followList"></div>
+    <div class="row" style="margin-top:12px">
+      <input type="search" id="followInput" placeholder="例: King Gnu / Zepp Nagoya / 福岡県">
+      <button class="btn" id="followAdd" value="add">追加</button>
+    </div>
+    <p style="text-align:right;margin-bottom:0"><button class="btn ghost" value="close">閉じる</button></p>
+  </form>
+</dialog>
+
+<script>
+const DATA = /*__DATA__*/null;
+(async () => {
+const data = DATA || await (await fetch("events.json")).json();
+const {meta, events} = data;
+const TODAY = new Date(meta.today + "T00:00:00");
+const store = {
+  get(k, d){ try { return JSON.parse(localStorage.getItem("livehub:"+k)) ?? d } catch { return d } },
+  set(k, v){ try { localStorage.setItem("livehub:"+k, JSON.stringify(v)) } catch {} }
+};
+// 「前回の訪問以降に見つかったもの」= 新着。初回は直近3日分。
+const lastVisit = store.get("lastVisit", null);
+const since = lastVisit ? new Date(lastVisit) : new Date(TODAY.getTime() - 3*864e5);
+addEventListener("pagehide", () => store.set("lastVisit", new Date().toISOString()));
+
+const PREF_REGION = {"北海道":"北海道","青森県":"東北","岩手県":"東北","宮城県":"東北","秋田県":"東北","山形県":"東北","福島県":"東北","茨城県":"関東","栃木県":"関東","群馬県":"関東","埼玉県":"関東","千葉県":"関東","東京都":"関東","神奈川県":"関東","新潟県":"中部","富山県":"中部","石川県":"中部","福井県":"中部","山梨県":"中部","長野県":"中部","岐阜県":"中部","静岡県":"中部","愛知県":"中部","三重県":"近畿","滋賀県":"近畿","京都府":"近畿","大阪府":"近畿","兵庫県":"近畿","奈良県":"近畿","和歌山県":"近畿","鳥取県":"中国","島根県":"中国","岡山県":"中国","広島県":"中国","山口県":"中国","徳島県":"四国","香川県":"四国","愛媛県":"四国","高知県":"四国","福岡県":"九州・沖縄","佐賀県":"九州・沖縄","長崎県":"九州・沖縄","熊本県":"九州・沖縄","大分県":"九州・沖縄","宮崎県":"九州・沖縄","鹿児島県":"九州・沖縄","沖縄県":"九州・沖縄"};
+const st = {tab:"new", genres:new Set(), region:"", pref:"", q:"", follows:new Set(store.get("follows", []))};
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const d = s => s ? new Date(s.length <= 10 ? s + "T00:00:00" : s) : null;
+const W = "日月火水木金土";
+const days = (a) => Math.round((a - TODAY) / 864e5);
+
+events.forEach(e => {
+  e._first = d(e.first_seen); e._start = d(e.start_date); e._end = d(e.end_date); e._sale = d(e.ticket_sale_at);
+  e._hay = [e.title, e.venue, e.prefecture, ...(e.performers||[]), ...(e.source_names||[])].join(" ").toLowerCase();
+});
+const isNew = e => e._first && e._first > since;
+const followed = e => [...st.follows].some(f => e._hay.includes(f.toLowerCase()));
+
+const TABS = [
+  ["new", "新着", e => isNew(e)],
+  ["sale", "まもなく発売", e => e._sale && days(e._sale) >= -1 && days(e._sale) <= 14],
+  ["upcoming", "開催予定", e => e._start && days(e._end || e._start) >= 0],
+  ["follow", "★ フォロー中", e => followed(e)],
+  ["all", "すべて", e => true],
+];
+
+function filtered(tabFn){
+  return events.filter(e =>
+    tabFn(e) &&
+    (!st.genres.size || st.genres.has(e.genre)) &&
+    (!st.region || e.region === st.region) &&
+    (!st.pref || e.prefecture === st.pref) &&
+    (!st.q || st.q.toLowerCase().split(/\s+/).every(w => e._hay.includes(w))));
+}
+
+function renderTabs(){
+  $("#tabs").innerHTML = TABS.map(([id, label, fn]) =>
+    `<button class="tab" role="tab" data-tab="${id}" aria-selected="${st.tab===id}">${label}<span class="n">${filtered(fn).length}</span></button>`).join("");
+}
+function renderChips(){
+  $("#genres").innerHTML = Object.entries(meta.genres).map(([k, v]) =>
+    `<button class="chip" data-genre="${k}" aria-pressed="${st.genres.has(k)}"><span class="dot g-${k}"></span>${v}</button>`).join("")
+    + `<button class="chip" id="openFollow">★ フォロー設定</button>`;
+  $("#regions").innerHTML = ["", ...meta.regions.filter(r => r !== "不明")].map(r =>
+    `<button class="chip" data-region="${r}" aria-pressed="${st.region===r}">${r || "全国"}</button>`).join("");
+  const prefs = Object.keys(PREF_REGION).filter(p => !st.region || PREF_REGION[p] === st.region);
+  $("#pref").innerHTML = `<option value="">${st.region ? st.region + "のすべて" : "すべての都道府県"}</option>` +
+    prefs.map(p => `<option ${p===st.pref?"selected":""}>${p}</option>`).join("");
+}
+
+function dateBox(e){
+  const x = e._start;
+  if (!x) return `<div class="date none"><div class="d">日程<br>未定</div></div>`;
+  return `<div class="date"><div class="m">${x.getFullYear()!==TODAY.getFullYear()? x.getFullYear()+"/":""}${x.getMonth()+1}月</div>
+    <div class="d">${x.getDate()}</div><div class="w">${W[x.getDay()]}${e._end ? "〜" + (e._end.getMonth()+1) + "/" + e._end.getDate() : ""}</div></div>`;
+}
+function saleText(e){
+  if (!e._sale) return "";
+  const n = days(e._sale);
+  const when = `${e._sale.getMonth()+1}/${e._sale.getDate()}(${W[e._sale.getDay()]})` + (e._sale.getHours() ? ` ${e._sale.getHours()}:${String(e._sale.getMinutes()).padStart(2,"0")}` : "");
+  const rel = n === 0 ? "今日" : n === 1 ? "明日" : n > 1 && n <= 14 ? `あと${n}日` : "";
+  return `<span class="sale ${n>=0&&n<=3?"soon":""}">🎫 ${esc(e.ticket_sale_label || "発売")} ${when}${rel ? "・" + rel : ""}</span>`;
+}
+function card(e){
+  const key = e.performers?.[0] || e.venue || "";
+  const on = key && st.follows.has(key);
+  return `<article class="card">
+    ${dateBox(e)}
+    <div>
+      <div class="badges"><span class="badge g-${e.genre||"music"}">${esc(meta.genres[e.genre] || "その他")}</span>
+        ${isNew(e) ? `<span class="badge k-new">NEW</span>` : ""}
+        ${e.kind === "ticket" ? `<span class="badge k-ticket">チケット</span>` : ""}</div>
+      <a class="title" href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.title)}</a>
+      <div class="meta">
+        ${e.venue || e.prefecture ? `<span>📍 ${esc(e.venue || "")}${e.prefecture ? `(${esc(e.prefecture)})` : ""}</span>` : (e.region !== "不明" ? `<span>📍 ${esc(e.region)}</span>` : "")}
+        ${saleText(e)}
+      </div>
+      <div class="src">出典: ${esc((e.source_names || []).join(" / "))}</div>
+    </div>
+    ${key ? `<button class="star" data-follow="${esc(key)}" aria-pressed="${on}" title="${esc(key)} をフォロー">${on ? "★" : "☆"}</button>` : "<span></span>"}
+  </article>`;
+}
+
+function render(){
+  renderTabs();
+  const tab = TABS.find(t => t[0] === st.tab);
+  let list = filtered(tab[2]);
+  const groups = new Map();
+  if (st.tab === "new") {
+    list.sort((a, b) => b._first - a._first);
+    groups.set("前回の訪問以降に見つかった情報", list);
+  } else if (st.tab === "sale") {
+    list.sort((a, b) => a._sale - b._sale);
+    for (const e of list) { const n = days(e._sale); const k = n <= 0 ? "今日・発売中" : n === 1 ? "明日" : n <= 7 ? "今週" : "来週以降";
+      (groups.get(k) || groups.set(k, []).get(k)).push(e); }
+  } else {
+    list.sort((a, b) => (a._start || 9e15) - (b._start || 9e15));
+    for (const e of list) { const k = e._start ? `${e._start.getFullYear()}年${e._start.getMonth()+1}月` : "日程未定・ニュース";
+      (groups.get(k) || groups.set(k, []).get(k)).push(e); }
+  }
+  const emptyMsg = st.tab === "follow" && !st.follows.size
+    ? "まだ何もフォローしていません。★を押すか「フォロー設定」から追加してください。"
+    : st.tab === "new" ? "前回の訪問以降の新着はありません。" : "条件に合う情報はありません。";
+  $("#list").innerHTML = list.length ? [...groups].map(([k, es]) =>
+    `<section class="group"><h2>${esc(k)}(${es.length})</h2>${es.map(card).join("")}</section>`).join("")
+    : `<p class="empty">${emptyMsg}</p>`;
+  $("#hint").textContent = st.tab === "new"
+    ? `新着 = ${lastVisit ? "前回の訪問(" + since.toLocaleString("ja-JP", {month:"numeric", day:"numeric", hour:"numeric", minute:"2-digit"}) + ")" : "直近3日"}以降に見つかった情報`
+    : "";
+}
+
+document.addEventListener("click", ev => {
+  const t = ev.target.closest("button"); if (!t) return;
+  if (t.dataset.tab) { st.tab = t.dataset.tab; }
+  else if (t.dataset.genre) { st.genres.has(t.dataset.genre) ? st.genres.delete(t.dataset.genre) : st.genres.add(t.dataset.genre); renderChips(); }
+  else if (t.dataset.region !== undefined) { st.region = t.dataset.region; st.pref = ""; renderChips(); }
+  else if (t.dataset.follow) { const k = t.dataset.follow; st.follows.has(k) ? st.follows.delete(k) : st.follows.add(k); store.set("follows", [...st.follows]); }
+  else if (t.id === "openFollow") { renderFollow(); $("#followDlg").showModal(); return; }
+  else if (t.dataset.unfollow) { st.follows.delete(t.dataset.unfollow); store.set("follows", [...st.follows]); renderFollow(); }
+  else if (t.id === "followAdd") { ev.preventDefault(); const v = $("#followInput").value.trim(); if (v) { st.follows.add(v); store.set("follows", [...st.follows]); $("#followInput").value = ""; renderFollow(); } }
+  else return;
+  render();
+});
+function renderFollow(){
+  $("#followList").innerHTML = [...st.follows].map(f => `<button class="chip" data-unfollow="${esc(f)}" aria-pressed="true">${esc(f)} ✕</button>`).join("") || `<span style="color:var(--dim);font-size:13px">なし</span>`;
+}
+$("#pref").addEventListener("change", e => { st.pref = e.target.value; render(); });
+$("#q").addEventListener("input", e => { st.q = e.target.value.trim(); render(); });
+if (meta.sample) $("#sample").innerHTML = `<p class="sample">これは画面確認用のプロトタイプです。表示中の公演はすべて架空のサンプルデータで、実在の公演ではありません。</p>`;
+$("#gen").textContent = `最終更新 ${meta.generated_at.replace("T", " ")}・${meta.count}件`;
+renderChips(); render();
+})();
+</script>
+</body>
+</html>

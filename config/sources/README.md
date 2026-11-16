@@ -1,0 +1,35 @@
+# 情報源リスト(sources)
+
+表計算ソフトで開いて編集できる CSV です。1行 = 1つの情報源。
+
+| ファイル | 内容 |
+|---|---|
+| venues_music.csv | 音楽ライブ会場(**キャパ200以上のみ**) |
+| promoters.csv | 主要イベンター(全国のプロモーター) |
+| stage_producers.csv | 舞台の制作・配給会社 |
+| theaters.csv | 劇場(演劇・ミュージカル・寄席・お笑い劇場) |
+| agencies.csv | 芸能事務所(お笑い・音楽・俳優) |
+| organizers.csv | 主催者の公式サイト(アーティスト・劇団・芸人など) |
+
+## 列の意味
+
+| 列 | 説明 |
+|---|---|
+| id | 英数字の一意なID(変えない) |
+| name / aliases | 正式名称 / 別名・旧名(`|`区切り) |
+| prefecture / city | 所在地(会場・劇場のみ) |
+| capacity | 最大収容人数の**目安**。音楽会場は200未満なら登録しない |
+| url | 公式サイトのトップ |
+| schedule_url | 公演スケジュールのページ(分かれば) |
+| feed_url | RSS / Atom / iCal のURL(分かれば) |
+| method | `auto`(自動判別) / `rss` / `ics` / `jsonld` / `html` / `manual`(巡回しない) |
+| genre_default | 記事からジャンルが判定できないときの既定値 music/comedy/musical/stage(映画舞台挨拶は対象外) |
+| notes | 補足(休館・改修・名称変更など) |
+| verified | `1` = 人が公式サイトを開いてURLとキャパを確認済み。初期値は `0` |
+
+## 運用ルール
+
+- 初期データは公開情報をもとに作った**たたき台**です。URL・キャパ・名称は `verified=0` のものから順に確認してください。
+- `python -m livehub discover` を実行すると、各サイトの robots.txt・RSS・iCal・構造化データ(schema.org Event)を自動で調べ、`data/source_status.json` に結果を書き出します。
+- 利用規約でクローリングを禁止しているサイトや、robots.txt で拒否されているページは `method=manual` にして巡回しません。
+- チケット販売サイト(ぴあ・イープラス・ローチケ等)は規約上クローリング対象にしません。公演ページへのリンクは出典経由、または提携(アフィリエイト等)で行います。

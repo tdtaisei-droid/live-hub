@@ -1,0 +1,186 @@
+id,name,aliases,prefecture,city,capacity,url,schedule_url,feed_url,method,genre_default,operator,notes,verified
+sapporo-dome,大和ハウス プレミストドーム,札幌ドーム,北海道,札幌市,41000,,,,auto,music,,,0
+makomanai-arena,真駒内セキスイハイムアイスアリーナ,真駒内アイスアリーナ,北海道,札幌市,10000,,,,auto,music,,,0
+kitaeru,北海きたえーる,北海道立総合体育センター,北海道,札幌市,8000,,,,auto,music,,,0
+zepp-sapporo,Zepp Sapporo,,北海道,札幌市,2009,https://www.zepp.co.jp/hall/sapporo/,,,auto,music,Zeppホールネットワーク,,0
+hitaru,札幌文化芸術劇場 hitaru,hitaru,北海道,札幌市,2302,,,,auto,stage,,,0
+kanamoto-hall,カナモトホール,札幌市民ホール,北海道,札幌市,1500,,,,auto,music,,,0
+sapporo-factory-hall,札幌ファクトリーホール,,北海道,札幌市,1000,,,,auto,music,,,0
+penny-lane24,PENNY LANE24,ペニーレーン24,北海道,札幌市,500,,,,auto,music,,,0
+kraps-hall,KRAPS HALL,,北海道,札幌市,400,,,,auto,music,,,0
+cube-garden,cube garden,キューブガーデン,北海道,札幌市,300,,,,auto,music,,,0
+bessie-hall,BESSIE HALL,ベッシーホール,北海道,札幌市,300,,,,auto,music,,,0
+sapporo-spice,SPiCE,札幌SPiCE,北海道,札幌市,250,,,,auto,music,,,0
+grande21,セキスイハイムスーパーアリーナ,グランディ・21,宮城県,宮城郡利府町,7000,,,,auto,music,,,0
+xebio-arena,ゼビオアリーナ仙台,,宮城県,仙台市,6000,,,,auto,music,,,0
+sendai-sunplaza,仙台サンプラザホール,,宮城県,仙台市,2000,,,,auto,music,,,0
+miyagi-tel-hall,東京エレクトロンホール宮城,宮城県民会館,宮城県,仙台市,1590,,,,auto,music,,,0
+sendai-gigs,SENDAI GIGS,仙台GIGS,宮城県,仙台市,1500,,,,auto,music,,,0
+sendai-pit,仙台PIT,,宮城県,仙台市,1500,,,,auto,music,,,0
+sendai-rensa,Rensa,仙台Rensa,宮城県,仙台市,700,,,,auto,music,,,0
+sendai-darwin,darwin,仙台darwin,宮城県,仙台市,300,,,,auto,music,,,0
+sendai-macana,仙台MACANA,,宮城県,仙台市,300,,,,auto,music,,,0
+morioka-change-wave,Club Change WAVE,盛岡Club Change WAVE,岩手県,盛岡市,300,,,,auto,music,,,0
+aomori-quarter,青森Quarter,,青森県,青森市,400,,,,auto,music,,,0
+akita-swindle,Club SWINDLE,秋田Club SWINDLE,秋田県,秋田市,250,,,,auto,music,,,0
+yamagata-session,ミュージック昭和Session,山形ミュージック昭和Session,山形県,山形市,250,,,,auto,music,,,0
+koriyama-hipshot,HIPSHOT JAPAN,郡山HIPSHOT JAPAN,福島県,郡山市,400,,,,auto,music,,,0
+tokyo-dome,東京ドーム,,東京都,文京区,55000,https://www.tokyo-dome.co.jp/dome/,,,auto,music,東京ドーム,,0
+budokan,日本武道館,武道館,東京都,千代田区,14000,https://www.nipponbudokan.or.jp/,,,auto,music,日本武道館,,0
+ariake-arena,有明アリーナ,,東京都,江東区,15000,,,,auto,music,,,0
+yoyogi-1,国立代々木競技場第一体育館,代々木第一体育館,東京都,渋谷区,13000,,,,auto,music,,,0
+tokyo-taiikukan,東京体育館,,東京都,渋谷区,10000,,,,auto,music,,,0
+ryogoku-kokugikan,両国国技館,国技館,東京都,墨田区,10000,,,,auto,music,,,0
+garden-theater,東京ガーデンシアター,,東京都,江東区,8000,,,,auto,music,,,0
+tif-hall-a,東京国際フォーラム ホールA,国際フォーラム,東京都,千代田区,5000,https://www.t-i-forum.co.jp/,,,auto,music,,,0
+nhk-hall,NHKホール,,東京都,渋谷区,3600,,,,auto,music,,,0
+toyosu-pit,豊洲PIT,,東京都,江東区,3100,,,,auto,music,,,0
+tdc-hall,TOKYO DOME CITY HALL,TDCホール,東京都,文京区,3000,,,,auto,music,東京ドーム,,0
+hibiya-yaon,日比谷公園大音楽堂,日比谷野音|日比谷野外大音楽堂,東京都,千代田区,3000,,,,auto,music,,改修予定の情報あり。要確認,0
+zepp-haneda,Zepp Haneda(TOKYO),Zepp Haneda,東京都,大田区,2900,https://www.zepp.co.jp/hall/haneda/,,,auto,music,Zeppホールネットワーク,,0
+stage-garden,立川ステージガーデン,,東京都,立川市,2500,,,,auto,music,,,0
+zepp-divercity,Zepp DiverCity(TOKYO),Zepp DiverCity,東京都,江東区,2400,https://www.zepp.co.jp/hall/divercity/,,,auto,music,Zeppホールネットワーク,,0
+line-cube,LINE CUBE SHIBUYA,渋谷公会堂,東京都,渋谷区,2000,,,,auto,music,,,0
+suntory-hall,サントリーホール,,東京都,港区,2000,,,,auto,music,,クラシック中心,0
+zepp-shinjuku,Zepp Shinjuku(TOKYO),Zepp Shinjuku,東京都,新宿区,1500,https://www.zepp.co.jp/hall/shinjuku/,,,auto,music,Zeppホールネットワーク,,0
+garden-hall,恵比寿ザ・ガーデンホール,ザ・ガーデンホール,東京都,渋谷区,1500,,,,auto,music,,,0
+o-east,Spotify O-EAST,O-EAST|渋谷O-EAST,東京都,渋谷区,1300,,,,auto,music,,,0
+liquidroom,LIQUIDROOM,リキッドルーム|恵比寿LIQUIDROOM,東京都,渋谷区,1000,,,,auto,music,,,0
+veats,Veats Shibuya,,東京都,渋谷区,1000,,,,auto,music,,,0
+shibuya-quattro,渋谷CLUB QUATTRO,渋谷クアトロ,東京都,渋谷区,800,,,,auto,music,クラブクアトロ,,0
+shinjuku-blaze,新宿BLAZE,,東京都,新宿区,800,,,,auto,music,,,0
+duo,duo MUSIC EXCHANGE,duo,東京都,渋谷区,700,,,,auto,music,,,0
+www-x,WWW X,,東京都,渋谷区,700,,,,auto,music,,,0
+kinema-club,東京キネマ倶楽部,,東京都,台東区,600,,,,auto,music,,,0
+o-west,Spotify O-WEST,O-WEST,東京都,渋谷区,600,,,,auto,music,,,0
+shinjuku-loft,新宿LOFT,,東京都,新宿区,550,,,,auto,music,LOFT PROJECT,,0
+www,WWW,渋谷WWW,東京都,渋谷区,400,,,,auto,music,,,0
+shimokita-garden,下北沢GARDEN,,東京都,世田谷区,400,,,,auto,music,,,0
+eggman,eggman,渋谷eggman,東京都,渋谷区,350,,,,auto,music,,,0
+billboard-tokyo,Billboard Live TOKYO,ビルボードライブ東京,東京都,港区,300,,,,auto,music,,,0
+bluenote-tokyo,BLUE NOTE TOKYO,ブルーノート東京,東京都,港区,300,,,,auto,music,,,0
+fever,新代田FEVER,FEVER,東京都,世田谷区,300,,,,auto,music,,,0
+shelter,下北沢SHELTER,,東京都,世田谷区,250,,,,auto,music,LOFT PROJECT,,0
+o-crest,Spotify O-Crest,O-Crest,東京都,渋谷区,250,,,,auto,music,,,0
+o-nest,Spotify O-nest,O-nest,東京都,渋谷区,250,,,,auto,music,,,0
+ssa,さいたまスーパーアリーナ,SSA,埼玉県,さいたま市,37000,https://www.saitama-arena.co.jp/,,,auto,music,,,0
+belluna-dome,ベルーナドーム,西武ドーム,埼玉県,所沢市,31000,,,,auto,music,,,0
+heavens-rock-saitama,HEAVEN'S ROCK さいたま新都心 VJ-3,,埼玉県,さいたま市,300,,,,auto,music,,,0
+makuhari-messe,幕張メッセ,,千葉県,千葉市,20000,,,,auto,music,,,0
+lala-arena,LaLa arena TOKYO-BAY,ららアリーナ東京ベイ,千葉県,船橋市,10000,,,,auto,music,,,0
+kashiwa-palooza,柏PALOOZA,,千葉県,柏市,350,,,,auto,music,,,0
+chiba-look,千葉LOOK,,千葉県,千葉市,250,,,,auto,music,,,0
+nissan-stadium,日産スタジアム,,神奈川県,横浜市,72000,,,,auto,music,,,0
+k-arena,Kアリーナ横浜,,神奈川県,横浜市,20000,,,,auto,music,,,0
+yokohama-arena,横浜アリーナ,,神奈川県,横浜市,17000,https://www.yokohama-arena.co.jp/,,,auto,music,,,0
+pia-arena,ぴあアリーナMM,,神奈川県,横浜市,12000,,,,auto,music,ぴあ,,0
+pacifico,パシフィコ横浜 国立大ホール,パシフィコ横浜,神奈川県,横浜市,5000,,,,auto,music,,,0
+kt-zepp-yokohama,KT Zepp Yokohama,,神奈川県,横浜市,2000,https://www.zepp.co.jp/hall/yokohama/,,,auto,music,Zeppホールネットワーク,,0
+club-citta,CLUB CITTA',クラブチッタ|川崎クラブチッタ,神奈川県,川崎市,1300,,,,auto,music,,,0
+yokohama-bayhall,横浜ベイホール,,神奈川県,横浜市,1000,,,,auto,music,,,0
+fad-yokohama,F.A.D YOKOHAMA,,神奈川県,横浜市,350,,,,auto,music,,,0
+utsunomiya-heavens,HEAVEN'S ROCK 宇都宮,,栃木県,宇都宮市,300,,,,auto,music,,,0
+mito-lighthouse,水戸LIGHT HOUSE,,茨城県,水戸市,300,,,,auto,music,,,0
+takasaki-fleez,高崎club FLEEZ,,群馬県,高崎市,400,,,,auto,music,,,0
+vantelin-dome,バンテリンドーム ナゴヤ,ナゴヤドーム,愛知県,名古屋市,40000,,,,auto,music,,,0
+ig-arena,IGアリーナ,愛知国際アリーナ,愛知県,名古屋市,17000,,,,auto,music,,2025年開業,0
+gaishi-hall,日本ガイシホール,,愛知県,名古屋市,10000,,,,auto,music,,,0
+aichi-arts,愛知県芸術劇場 大ホール,,愛知県,名古屋市,2500,,,,auto,stage,,,0
+forest-hall,Niterra日本特殊陶業市民会館 フォレストホール,名古屋市民会館,愛知県,名古屋市,2300,,,,auto,music,,,0
+zepp-nagoya,Zepp Nagoya,,愛知県,名古屋市,1800,https://www.zepp.co.jp/hall/nagoya/,,,auto,music,Zeppホールネットワーク,,0
+diamond-hall,DIAMOND HALL,名古屋ダイアモンドホール,愛知県,名古屋市,1000,,,,auto,music,,,0
+nagoya-quattro,名古屋CLUB QUATTRO,名古屋クアトロ,愛知県,名古屋市,700,,,,auto,music,クラブクアトロ,,0
+bottom-line,名古屋ボトムライン,THE BOTTOM LINE,愛知県,名古屋市,700,,,,auto,music,,,0
+electric-lady-land,ElectricLadyLand,名古屋ElectricLadyLand|ELL,愛知県,名古屋市,600,,,,auto,music,,,0
+spade-box,名古屋SPADE BOX,,愛知県,名古屋市,300,,,,auto,music,,,0
+rad-hall,RAD HALL,名古屋RAD HALL,愛知県,名古屋市,300,,,,auto,music,,,0
+club-upset,名古屋CLUB UPSET,,愛知県,名古屋市,300,,,,auto,music,,,0
+heartland,名古屋ハートランド,HeartLand,愛知県,名古屋市,250,,,,auto,music,,,0
+apollo-base,名古屋APOLLO BASE,,愛知県,名古屋市,250,,,,auto,music,,,0
+hamamatsu-madowaku,窓枠,浜松窓枠,静岡県,浜松市,800,,,,auto,music,,,0
+shizuoka-umber,Live House UMBER,静岡UMBER,静岡県,静岡市,300,,,,auto,music,,,0
+shizuoka-ark,SOUND SHOWER ark,静岡SOUND SHOWER ark,静岡県,静岡市,350,,,,auto,music,,,0
+niigata-lots,NIIGATA LOTS,新潟LOTS,新潟県,新潟市,700,,,,auto,music,,,0
+niigata-goldenpigs,GOLDEN PIGS RED STAGE,新潟GOLDEN PIGS,新潟県,新潟市,300,,,,auto,music,,,0
+kanazawa-eighthall,EIGHT HALL,金沢EIGHT HALL,石川県,金沢市,600,,,,auto,music,,,0
+kanazawa-az,金沢AZ,,石川県,金沢市,350,,,,auto,music,,,0
+toyama-mairo,富山MAIRO,,富山県,富山市,300,,,,auto,music,,,0
+nagano-junkbox,CLUB JUNK BOX,長野CLUB JUNK BOX,長野県,長野市,400,,,,auto,music,,,0
+matsumoto-alecx,松本ALECX,,長野県,松本市,400,,,,auto,music,,,0
+gifu-clubg,club-G,岐阜club-G,岐阜県,岐阜市,250,,,,auto,music,,,0
+kofu-conviction,甲府CONVICTION,,山梨県,甲府市,250,,,,auto,music,,,0
+fukui-chop,福井CHOP,,福井県,福井市,250,,,,auto,music,,,0
+kyocera-dome,京セラドーム大阪,,大阪府,大阪市,40000,,,,auto,music,,,0
+osakajo-hall,大阪城ホール,,大阪府,大阪市,16000,https://www.osaka-johall.com/,,,auto,music,,,0
+asue-arena,Asueアリーナ大阪,丸善インテックアリーナ大阪|大阪市中央体育館,大阪府,大阪市,10000,,,,auto,music,,名称変更あり。要確認,0
+festival-hall,フェスティバルホール,,大阪府,大阪市,2700,,,,auto,music,,,0
+grandcube,グランキューブ大阪,大阪国際会議場,大阪府,大阪市,2700,,,,auto,music,,,0
+zepp-osaka-bayside,Zepp Osaka Bayside,,大阪府,大阪市,2800,https://www.zepp.co.jp/hall/osakabayside/,,,auto,music,Zeppホールネットワーク,,0
+zepp-namba,Zepp Namba(OSAKA),Zepp Namba,大阪府,大阪市,2500,https://www.zepp.co.jp/hall/namba/,,,auto,music,Zeppホールネットワーク,,0
+orix-theater,オリックス劇場,,大阪府,大阪市,2400,,,,auto,music,,,0
+gorilla-hall,GORILLA HALL OSAKA,ゴリラホール,大阪府,大阪市,1500,,,,auto,music,,,0
+namba-hatch,なんばHatch,,大阪府,大阪市,1500,,,,auto,music,,,0
+bigcat,BIGCAT,心斎橋BIGCAT|大阪BIGCAT,大阪府,大阪市,800,,,,auto,music,,,0
+umeda-trad,umeda TRAD,梅田AKASO,大阪府,大阪市,800,,,,auto,music,,,0
+umeda-quattro,梅田CLUB QUATTRO,梅田クアトロ,大阪府,大阪市,700,,,,auto,music,クラブクアトロ,,0
+janus,Music Club JANUS,心斎橋JANUS,大阪府,大阪市,500,,,,auto,music,,,0
+shangri-la,梅田Shangri-La,シャングリラ,大阪府,大阪市,300,,,,auto,music,,,0
+bronze,心斎橋BRONZE,,大阪府,大阪市,300,,,,auto,music,,,0
+pangea,心斎橋Pangea,,大阪府,大阪市,250,,,,auto,music,,,0
+clapper,心斎橋CLAPPER,,大阪府,大阪市,250,,,,auto,music,,,0
+kobe-world,神戸ワールド記念ホール,ワールド記念ホール,兵庫県,神戸市,8000,,,,auto,music,,,0
+glion-arena,GLION ARENA KOBE,ジーライオンアリーナ神戸,兵庫県,神戸市,10000,,,,auto,music,,2025年開業,0
+kobe-chickengeorge,チキンジョージ,神戸チキンジョージ,兵庫県,神戸市,400,,,,auto,music,,,0
+kobe-taiyoutotora,太陽と虎,神戸太陽と虎,兵庫県,神戸市,300,,,,auto,music,,,0
+kobe-varit,神戸VARIT.,,兵庫県,神戸市,300,,,,auto,music,,,0
+rohm-theatre,ロームシアター京都,京都会館,京都府,京都市,2000,,,,auto,music,,,0
+kbs-hall,KBSホール,京都KBSホール,京都府,京都市,1000,,,,auto,music,,,0
+kyoto-muse,京都MUSE,,京都府,京都市,400,,,,auto,music,,,0
+kyoto-metro,京都METRO,,京都府,京都市,300,,,,auto,music,,,0
+takutaku,磔磔,京都磔磔,京都府,京都市,250,,,,auto,music,,,0
+nara-neverland,奈良NEVERLAND,,奈良県,奈良市,250,,,,auto,music,,,0
+wakayama-shelter,和歌山SHELTER,,和歌山県,和歌山市,250,,,,auto,music,,,0
+shiga-ustone,滋賀U☆STONE,U☆STONE,滋賀県,大津市,300,,,,auto,music,,,0
+hiroshima-green-arena,広島グリーンアリーナ,,広島県,広島市,10000,,,,auto,music,,,0
+ueno-gakuen-hall,上野学園ホール,広島文化学園HBGホール|広島上野学園ホール,広島県,広島市,2000,,,,auto,music,,名称変更あり。要確認,0
+blue-live,BLUE LIVE 広島,,広島県,広島市,1000,,,,auto,music,,,0
+hiroshima-quattro,広島CLUB QUATTRO,広島クアトロ,広島県,広島市,700,,,,auto,music,クラブクアトロ,,0
+hiroshima-vanquish,LIVE VANQUISH,広島LIVE VANQUISH,広島県,広島市,400,,,,auto,music,,,0
+hiroshima-second-clutch,セカンド・クラッチ,広島セカンド・クラッチ,広島県,広島市,300,,,,auto,music,,,0
+hiroshima-juke,Live Juke,広島Live Juke,広島県,広島市,300,,,,auto,music,,,0
+hiroshima-cavebe,広島CAVE-BE,,広島県,広島市,250,,,,auto,music,,,0
+okayama-crazymama,CRAZYMAMA KINGDOM,岡山CRAZYMAMA KINGDOM,岡山県,岡山市,700,,,,auto,music,,,0
+okayama-yebisuya,YEBISU YA PRO,岡山YEBISU YA PRO,岡山県,岡山市,350,,,,auto,music,,,0
+okayama-image,岡山IMAGE,,岡山県,岡山市,250,,,,auto,music,,,0
+yonago-aztic,AZTiC laughs,米子AZTiC laughs,鳥取県,米子市,250,,,,auto,music,,,0
+shunan-rising,周南RISING HALL,,山口県,周南市,300,,,,auto,music,,,0
+takamatsu-festhalle,高松festhalle,festhalle,香川県,高松市,600,,,,auto,music,,,0
+takamatsu-dime,高松DIME,,香川県,高松市,300,,,,auto,music,,,0
+takamatsu-monster,高松MONSTER,,香川県,高松市,300,,,,auto,music,,,0
+matsuyama-wstudio,W studio RED,松山W studio RED,愛媛県,松山市,300,,,,auto,music,,,0
+matsuyama-kitty,サロンキティ,松山サロンキティ,愛媛県,松山市,300,,,,auto,music,,,0
+kochi-xpt,高知X-pt.,,高知県,高知市,300,,,,auto,music,,,0
+tokushima-grindhouse,club GRINDHOUSE,徳島club GRINDHOUSE,徳島県,徳島市,300,,,,auto,music,,,0
+paypay-dome,みずほPayPayドーム福岡,福岡ドーム,福岡県,福岡市,40000,,,,auto,music,,,0
+marine-messe,マリンメッセ福岡 A館,マリンメッセ福岡,福岡県,福岡市,15000,,,,auto,music,,,0
+fukuoka-sunpalace,福岡サンパレス,,福岡県,福岡市,2300,,,,auto,music,,,0
+zepp-fukuoka,Zepp Fukuoka,,福岡県,福岡市,2000,https://www.zepp.co.jp/hall/fukuoka/,,,auto,music,Zeppホールネットワーク,,0
+drum-logos,DRUM LOGOS,福岡DRUM LOGOS,福岡県,福岡市,1000,,,,auto,music,,,0
+beat-station,BEAT STATION,福岡BEAT STATION,福岡県,福岡市,600,,,,auto,music,,,0
+drum-be1,DRUM Be-1,福岡DRUM Be-1,福岡県,福岡市,400,,,,auto,music,,,0
+fukuoka-cb,福岡CB,,福岡県,福岡市,350,,,,auto,music,,,0
+fukuoka-queblick,福岡Queblick,,福岡県,福岡市,250,,,,auto,music,,,0
+kitakyushu-fuse,小倉FUSE,北九州FUSE,福岡県,北九州市,300,,,,auto,music,,,0
+saga-geils,佐賀GEILS,,佐賀県,佐賀市,300,,,,auto,music,,,0
+nagasaki-be7,DRUM Be-7,長崎DRUM Be-7,長崎県,長崎市,400,,,,auto,music,,,0
+kumamoto-castle-hall,熊本城ホール,,熊本県,熊本市,2300,,,,auto,music,,,0
+kumamoto-b9v1,B.9 V1,熊本B.9 V1,熊本県,熊本市,800,,,,auto,music,,,0
+kumamoto-b9v2,B.9 V2,熊本B.9 V2,熊本県,熊本市,300,,,,auto,music,,,0
+oita-be0,DRUM Be-0,大分DRUM Be-0,大分県,大分市,400,,,,auto,music,,,0
+oita-tops,T.O.P.S Bitts HALL,大分T.O.P.S Bitts HALL,大分県,大分市,400,,,,auto,music,,,0
+miyazaki-srbox,SR BOX,宮崎SR BOX,宮崎県,宮崎市,350,,,,auto,music,,,0
+kagoshima-caparvo,CAPARVO HALL,鹿児島CAPARVO HALL,鹿児島県,鹿児島市,600,,,,auto,music,,,0
+kagoshima-srhall,SR HALL,鹿児島SR HALL,鹿児島県,鹿児島市,300,,,,auto,music,,,0
+okinawa-arena,沖縄アリーナ,,沖縄県,沖縄市,10000,,,,auto,music,,,0
+sakurazaka-central,桜坂セントラル,,沖縄県,那覇市,300,,,,auto,music,,,0
+naha-output,output,那覇output,沖縄県,那覇市,250,,,,auto,music,,,0

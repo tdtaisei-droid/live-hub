@@ -1,0 +1,68 @@
+id,name,aliases,prefecture,city,capacity,url,schedule_url,feed_url,method,genre_default,operator,notes,verified
+nitori-hall-sapporo,札幌文化芸術劇場 hitaru(演劇),,北海道,札幌市,2302,,,,manual,stage,,venues_music.csvのhitaruと同一。重複巡回しない,0
+sapporo-concert-kitara,札幌コンサートホール Kitara,Kitara,北海道,札幌市,2000,,,,auto,music,,クラシック中心,0
+sendai-izumity,日立システムズホール仙台,仙台市青年文化センター,宮城県,仙台市,800,,,,auto,stage,,,0
+imperial-theatre,帝国劇場,帝劇,東京都,千代田区,1900,,,,manual,musical,東宝,建て替えのため休館中(再開時に有効化),0
+nissay,日生劇場,,東京都,千代田区,1300,,,,auto,musical,,,0
+tokyo-takarazuka,東京宝塚劇場,,東京都,千代田区,2000,,,,auto,musical,阪急電鉄,,0
+theatre-creation,シアタークリエ,,東京都,千代田区,600,,,,auto,musical,東宝,,0
+kabukiza,歌舞伎座,,東京都,中央区,1800,,,,auto,stage,松竹,,0
+shinbashi-enbujo,新橋演舞場,,東京都,中央区,1400,,,,auto,stage,松竹,,0
+meijiza,明治座,,東京都,中央区,1300,,,,auto,stage,,,0
+orb,東急シアターオーブ,シアターオーブ,東京都,渋谷区,2000,,,,auto,musical,東急,,0
+brillia-hall,東京建物 Brillia HALL,ブリリアホール,東京都,豊島区,1300,,,,auto,musical,,,0
+sunshine-theater,サンシャイン劇場,,東京都,豊島区,800,,,,auto,stage,,,0
+parco-theater,PARCO劇場,パルコ劇場,東京都,渋谷区,630,,,,auto,stage,パルコ,,0
+honda-gekijo,本多劇場,下北沢本多劇場,東京都,世田谷区,390,,,,auto,stage,本多劇場グループ,,0
+kinokuniya-hall,紀伊國屋ホール,,東京都,新宿区,410,,,,auto,stage,,,0
+kinokuniya-southern,紀伊國屋サザンシアター,,東京都,渋谷区,460,,,,auto,stage,,,0
+tennozu-ginga,天王洲 銀河劇場,銀河劇場,東京都,品川区,750,,,,auto,stage,,,0
+akasaka-act,赤坂ACTシアター,,東京都,港区,1300,,,,auto,musical,TBS,,0
+shiki-haru,劇団四季 春劇場,四季劇場[春],東京都,港区,1200,,,,auto,musical,劇団四季,,0
+shiki-aki,劇団四季 秋劇場,四季劇場[秋],東京都,港区,1200,,,,auto,musical,劇団四季,,0
+shiki-umi,劇団四季 海劇場,電通四季劇場[海],東京都,港区,1200,,,,auto,musical,劇団四季,,0
+shiki-jr-east,JR東日本四季劇場,,東京都,港区,1200,,,,auto,musical,劇団四季,,0
+kanadevia-hall,KANADEVIA HALL,,東京都,江東区,1200,,,,auto,musical,,名称要確認,0
+theater-milano-za,THEATER MILANO-Za,,東京都,新宿区,900,,,,auto,stage,東急,,0
+hulic-hall,ヒューリックホール東京,,東京都,千代田区,880,,,,auto,stage,,,0
+tokyo-geigeki-play,東京芸術劇場 プレイハウス,,東京都,豊島区,830,,,,auto,stage,,,0
+setagaya-pt-hall,世田谷パブリックシアター(劇場),,東京都,世田谷区,600,,,,manual,stage,,stage_producers.csvと同一,0
+nntt-playhouse,新国立劇場 中劇場,,東京都,渋谷区,1000,,,,manual,stage,,stage_producers.csvと同一,0
+haiyuza,俳優座劇場,,東京都,港区,300,,,,manual,stage,,閉館(2025年)の情報あり。要確認,0
+theater-sun-mall,シアターサンモール,,東京都,新宿区,300,,,,auto,stage,,,0
+cbgk,CBGKシブゲキ!!,シブゲキ,東京都,渋谷区,240,,,,auto,stage,,,0
+zenrosai,全労済ホール/スペース・ゼロ,スペース・ゼロ,東京都,渋谷区,500,,,,auto,stage,,,0
+kaat-hall,KAAT 神奈川芸術劇場 ホール,,神奈川県,横浜市,1300,,,,manual,stage,,stage_producers.csvと同一,0
+kanagawa-kenmin,神奈川県民ホール,,神奈川県,横浜市,2400,,,,manual,music,,休館中(要確認),0
+misonoza,御園座,,愛知県,名古屋市,1300,,,,auto,stage,,,0
+aichi-theater,愛知県芸術劇場,,愛知県,名古屋市,2500,,,,manual,stage,,venues_music.csvと同一,0
+shiki-nagoya,名古屋四季劇場,,愛知県,名古屋市,1200,,,,auto,musical,劇団四季,,0
+umeda-arts-main,梅田芸術劇場 メインホール,梅芸,大阪府,大阪市,1900,,,,auto,musical,,,0
+umeda-arts-dramacity,梅田芸術劇場 シアター・ドラマシティ,ドラマシティ,大阪府,大阪市,900,,,,auto,stage,,,0
+shinkabukiza,新歌舞伎座,,大阪府,大阪市,1450,,,,auto,stage,,,0
+shochikuza,大阪松竹座,,大阪府,大阪市,1000,,,,auto,stage,松竹,,0
+shiki-osaka,大阪四季劇場,,大阪府,大阪市,1200,,,,auto,musical,劇団四季,,0
+cool-japan-park,COOL JAPAN PARK OSAKA,クールジャパンパーク大阪,大阪府,大阪市,1100,,,,auto,stage,,WWホール/TTホール/SSホール,0
+morinomiya-piloti,森ノ宮ピロティホール,,大阪府,大阪市,1000,,,,auto,stage,,,0
+sankei-breeze,サンケイホールブリーゼ,,大阪府,大阪市,900,,,,auto,stage,,,0
+takarazuka-grand,宝塚大劇場,,兵庫県,宝塚市,2500,,,,auto,musical,阪急電鉄,,0
+hyogo-pac-hall,兵庫県立芸術文化センター(劇場),,兵庫県,西宮市,2000,,,,manual,stage,,stage_producers.csvと同一,0
+minamiza,南座,京都南座,京都府,京都市,1000,,,,auto,stage,松竹,,0
+kyoto-art-theater,京都芸術劇場 春秋座,春秋座,京都府,京都市,800,,,,auto,stage,,,0
+hiroshima-jms,JMSアステールプラザ,,広島県,広島市,1200,,,,auto,stage,,,0
+hakataza,博多座,,福岡県,福岡市,1450,,,,auto,stage,,,0
+fukuoka-shiki,キャナルシティ劇場,福岡四季劇場,福岡県,福岡市,1100,,,,auto,musical,,,0
+kitakyushu-geigeki,北九州芸術劇場,,福岡県,北九州市,1200,,,,auto,stage,,,0
+lumine-yoshimoto,ルミネtheよしもと,,東京都,新宿区,450,,,,auto,comedy,吉本興業,,0
+shibuya-yoshimoto,渋谷よしもと漫才劇場,,東京都,渋谷区,250,,,,auto,comedy,吉本興業,名称要確認,0
+jimbocho-yoshimoto,神保町よしもと漫才劇場,,東京都,千代田区,200,,,,auto,comedy,吉本興業,,0
+omiya-raccoon,大宮ラクーンよしもと劇場,,埼玉県,さいたま市,200,,,,auto,comedy,吉本興業,,0
+ngk,なんばグランド花月,NGK,大阪府,大阪市,850,,,,auto,comedy,吉本興業,,0
+manzai-gekijo,よしもと漫才劇場,マンゲキ,大阪府,大阪市,350,,,,auto,comedy,吉本興業,,0
+yoshimoto-gion-kagetsu,よしもと祇園花月,祇園花月,京都府,京都市,500,,,,auto,comedy,吉本興業,,0
+fukuoka-yoshimoto,よしもと福岡劇場,,福岡県,福岡市,200,,,,auto,comedy,吉本興業,名称・所在要確認,0
+suehirotei,新宿末廣亭,末廣亭,東京都,新宿区,300,,,,auto,comedy,,寄席,0
+suzumoto,鈴本演芸場,,東京都,台東区,280,,,,auto,comedy,,寄席,0
+asakusa-engei,浅草演芸ホール,,東京都,台東区,340,,,,auto,comedy,,寄席,0
+toyokan,浅草東洋館,東洋館,東京都,台東区,200,,,,auto,comedy,,漫才・コント中心,0
+hanjotei,天満天神繁昌亭,繁昌亭,大阪府,大阪市,220,,,,auto,comedy,上方落語協会,,0

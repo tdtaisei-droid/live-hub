@@ -1,0 +1,60 @@
+# 毎日 自動で巡回 → サイト生成 → GitHub Pages に公開する
+name: daily
+
+on:
+  schedule:
+    - cron: "17 21 * * *"   # 毎日 06:17 JST(UTCで21:17)
+    - cron: "47 21 * * 0"   # 毎週月曜 06:47 JST: 情報源サイトの再調査
+  workflow_dispatch: {}      # 手動実行ボタン
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: daily
+  cancel-in-progress: false
+
+jobs:
+  run:
+    if: github.event.schedule != '47 21 * * 0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 情報源リストの確認
+        run: python -m livehub check
+      - name: 巡回とサイト生成
+        env:
+          LIVEHUB_UA: ${{ vars.LIVEHUB_UA }}
+        run: python -m livehub daily
+      - name: 蓄積データを保存(次回の差分・新着判定に使う)
+        run: |
+          git config user.name "livehub-bot"
+          git config user.email "livehub-bot@users.noreply.github.com"
+          git add data/livehub.sqlite3 data/http_cache.json data/organizer_candidates.csv 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "data: daily update $(date +%F)"
+          git push
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - uses: actions/deploy-pages@v4
+
+  discover:
+    # 毎週月曜に情報源サイトの構造(RSS/構造化データ/robots.txt)を再調査
+    if: github.event.schedule == '47 21 * * 0' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m livehub discover > /dev/null
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-status
+          path: data/source_status.json

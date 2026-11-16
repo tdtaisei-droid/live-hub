@@ -1,0 +1,26 @@
+id,name,aliases,prefecture,city,capacity,url,schedule_url,feed_url,method,genre_default,operator,notes,verified
+toho-stage,東宝 演劇部,東宝演劇,東京都,,,https://www.tohostage.com/,,,auto,musical,東宝,,0
+horipro-stage,ホリプロ ステージ,ホリプロ,東京都,,,https://horipro-stage.jp/,,,auto,musical,ホリプロ,,0
+shiki,劇団四季,四季,神奈川県,,,https://www.shiki.jp/,,,auto,musical,四季株式会社,,0
+takarazuka,宝塚歌劇団,宝塚,兵庫県,,,https://kageki.hankyu.co.jp/,,,auto,musical,阪急電鉄,,0
+umegei,梅田芸術劇場(制作),梅芸,大阪府,,,https://www.umegei.com/,,,auto,musical,,劇場運営と制作の両方,0
+shochiku-stage,松竹 演劇,松竹,東京都,,,,,,auto,stage,松竹,歌舞伎・新派・松竹新喜劇など,0
+kabuki-bito,歌舞伎美人,,東京都,,,https://www.kabuki-bito.jp/,,,auto,stage,松竹,歌舞伎公演情報,0
+bunkamura,Bunkamura,シアターコクーン,東京都,,,https://www.bunkamura.co.jp/,,,auto,stage,東急,シアターコクーン休館中(要確認),0
+parco-stage,PARCO STAGE,パルコ・プロデュース,東京都,,,https://stage.parco.jp/,,,auto,stage,パルコ,,0
+nelke,ネルケプランニング,,東京都,,,https://www.nelke.co.jp/,,,auto,musical,,2.5次元舞台,0
+marvelous,マーベラス(舞台),,東京都,,,,,,auto,musical,,2.5次元舞台,0
+siscompany,シス・カンパニー,,東京都,,,https://www.siscompany.com/,,,auto,stage,,,0
+mo-plays,M&Oplays,,東京都,,,,,,auto,stage,,,0
+cubes,キューブ(演劇),CUBE,東京都,,,,,,auto,stage,,,0
+gorch-brothers,ゴーチ・ブラザーズ,,東京都,,,,,,auto,stage,,,0
+tbs-act,TBS ACT/赤坂ACTシアター制作,TBS,東京都,,,,,,auto,musical,TBS,,0
+nippon-tv-stage,日本テレビ 舞台,,東京都,,,,,,auto,stage,日本テレビ,,0
+fuji-stage,フジテレビ 舞台,,東京都,,,,,,auto,stage,フジテレビ,,0
+kyodo-musical,キョードー東京(ミュージカル招聘),,東京都,,,,,,auto,musical,,来日ミュージカル,0
+nntt,新国立劇場,,東京都,渋谷区,,https://www.nntt.jac.go.jp/,,,auto,stage,,演劇・オペラ・バレエ,0
+setagaya-pt,世田谷パブリックシアター,,東京都,世田谷区,,https://setagaya-pt.jp/,,,auto,stage,,,0
+geigeki,東京芸術劇場,,東京都,豊島区,,https://www.geigeki.jp/,,,auto,stage,,,0
+kaat,KAAT 神奈川芸術劇場,KAAT,神奈川県,横浜市,,https://www.kaat.jp/,,,auto,stage,,,0
+hyogo-pac,兵庫県立芸術文化センター,,兵庫県,西宮市,,,,,auto,stage,,,0
+ttk,TTKエンタテインメント,,東京都,,,,,,auto,stage,,社名・実在を要確認,0

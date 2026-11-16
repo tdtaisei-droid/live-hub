@@ -1,0 +1,25 @@
+id,name,aliases,prefecture,city,capacity,url,schedule_url,feed_url,method,genre_default,operator,notes,verified
+yoshimoto,吉本興業,よしもと,大阪府,,,https://www.yoshimoto.co.jp/,,,auto,comedy,,公演情報は劇場サイト・FANYチケットにも,0
+shochiku-geino,松竹芸能,,大阪府,,,https://www.shochikugeino.co.jp/,,,auto,comedy,,,0
+ohtapro,太田プロダクション,太田プロ,東京都,,,https://www.ohtapro.co.jp/,,,auto,comedy,,,0
+watanabe-ent,ワタナベエンターテインメント,ワタナベ,東京都,,,,,,auto,comedy,,,0
+jinrikisha,プロダクション人力舎,人力舎,東京都,,,,,,auto,comedy,,,0
+horipro-com,ホリプロコム,,東京都,,,,,,auto,comedy,,,0
+maseki,マセキ芸能社,,東京都,,,,,,auto,comedy,,,0
+kdash-stage,ケイダッシュステージ,,東京都,,,,,,auto,comedy,,,0
+grape,グレープカンパニー,,東京都,,,,,,auto,comedy,,,0
+sunmusic,サンミュージックプロダクション,サンミュージック,東京都,,,,,,auto,comedy,,,0
+asai-kikaku,浅井企画,,東京都,,,,,,auto,comedy,,,0
+titan,タイタン,,東京都,,,,,,auto,comedy,,,0
+sma,ソニー・ミュージックアーティスツ,SMA,東京都,,,,,,auto,comedy,,お笑い・音楽の両方,0
+amuse,アミューズ,,東京都,,,https://www.amuse.co.jp/,,,auto,music,,,0
+starto,STARTO ENTERTAINMENT,,東京都,,,,,,auto,music,,,0
+ldh,LDH JAPAN,LDH,東京都,,,,,,auto,music,,,0
+avex,エイベックス,avex,東京都,,,,,,auto,music,,,0
+upfront,アップフロントグループ,ハロー!プロジェクト,東京都,,,,,,auto,music,,,0
+stardust,スターダストプロモーション,,東京都,,,,,,auto,music,,音楽・俳優,0
+horipro,ホリプロ,,東京都,,,,,,auto,stage,,俳優・舞台。stage_producersのホリプロ ステージも参照,0
+watanabe-pro,ワタナベプロダクション,ナベプロ,東京都,,,,,,auto,music,,,0
+kenon,研音,,東京都,,,,,,auto,stage,,俳優,0
+toho-geino,東宝芸能,,東京都,,,,,,auto,stage,,俳優,0
+ten-carat,テンカラット,,東京都,,,,,,auto,stage,,俳優,0

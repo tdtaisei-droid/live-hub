@@ -1,0 +1,24 @@
+id,name,aliases,prefecture,city,capacity,url,schedule_url,feed_url,method,genre_default,operator,notes,verified
+shinkansen,劇団☆新感線,新感線,東京都,,,https://www.vi-shinkansen.co.jp/,,,auto,stage,ヴィレッヂ,劇団,0
+otona-keikaku,大人計画,,東京都,,,,,,auto,stage,,劇団,0
+nylon100,ナイロン100℃,,東京都,,,,,,auto,stage,,劇団,0
+europe-kikaku,ヨーロッパ企画,,京都府,,,,,,auto,stage,,劇団,0
+haiyu-za-gekidan,劇団俳優座,俳優座,東京都,,,,,,auto,stage,,劇団,0
+bungakuza,文学座,,東京都,,,,,,auto,stage,,劇団,0
+mingei,劇団民藝,,東京都,,,,,,auto,stage,,劇団,0
+caramel-box,演劇集団キャラメルボックス,キャラメルボックス,東京都,,,,,,auto,stage,,劇団,0
+ishinha,維新派,,大阪府,,,,,,manual,stage,,解散済み。参考,0
+gekidan-shiki-org,劇団四季(主催),,神奈川県,,,,,,manual,musical,,stage_producers.csvと同一,0
+takarazuka-org,宝塚歌劇団(主催),,兵庫県,,,,,,manual,musical,,stage_producers.csvと同一,0
+shochiku-shinkigeki,松竹新喜劇,,大阪府,,,,,,auto,comedy,松竹,,0
+yoshimoto-shinkigeki,吉本新喜劇,,大阪府,,,,,,auto,comedy,吉本興業,,0
+mrchildren,Mr.Children,ミスチル,,,,,,,auto,music,,アーティスト例,0
+southern,サザンオールスターズ,サザン,,,,,,,auto,music,,アーティスト例,0
+bz,B'z,,,,,,,,auto,music,,アーティスト例,0
+mrs-green-apple,Mrs. GREEN APPLE,ミセス,,,,,,,auto,music,,アーティスト例,0
+kinggnu,King Gnu,,,,,,,,auto,music,,アーティスト例,0
+yoasobi,YOASOBI,,,,,,,,auto,music,,アーティスト例,0
+official-hige,Official髭男dism,ヒゲダン,,,,,,,auto,music,,アーティスト例,0
+vaundy,Vaundy,,,,,,,,auto,music,,アーティスト例,0
+aimyon,あいみょん,,,,,,,,auto,music,,アーティスト例,0
+sakanaction,サカナクション,,,,,,,,auto,music,,アーティスト例,0

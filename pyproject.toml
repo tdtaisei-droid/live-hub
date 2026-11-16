@@ -1,0 +1,8 @@
+[project]
+name = "livehub"
+version = "0.1.0"
+description = "全国ライブ情報集約サイト"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
