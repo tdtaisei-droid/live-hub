@@ -1,0 +1,351 @@
+{
+ "zepp-sapporo": {
+  "checked": "2026-11-16T15:19:11",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.zepp.co.jp/feed/"
+   ],
+   [
+    "application/rss+xml",
+    "https://www.zepp.co.jp/comments/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "suggested_method": "rss"
+ },
+ "tokyo-dome": {
+  "checked": "2026-11-16T15:19:16",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "budokan": {
+  "checked": "2026-11-16T15:19:20",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.nipponbudokan.or.jp/feed"
+   ],
+   [
+    "application/rss+xml",
+    "https://www.nipponbudokan.or.jp/comments/feed"
+   ]
+  ],
+  "jsonld_events": 0,
+  "suggested_method": "rss"
+ },
+ "tif-hall-a": {
+  "checked": "2026-11-16T15:19:24",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "zepp-haneda": {
+  "checked": "2026-11-16T15:19:28",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.zepp.co.jp/feed/"
+   ],
+   [
+    "application/rss+xml",
+    "https://www.zepp.co.jp/comments/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "suggested_method": "rss"
+ },
+ "zepp-divercity": {
+  "checked": "2026-11-16T15:19:29",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.zepp.co.jp/feed/"
+   ],
+   [
+    "application/rss+xml",
+    "https://www.zepp.co.jp/comments/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "suggested_method": "rss"
+ },
+ "zepp-shinjuku": {
+  "checked": "2026-11-16T15:19:34",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.zepp.co.jp/feed/"
+   ],
+   [
+    "application/rss+xml",
+    "https://www.zepp.co.jp/comments/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "suggested_method": "rss"
+ },
+ "ssa": {
+  "checked": "2026-11-16T15:19:38",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "yokohama-arena": {
+  "checked": "2026-11-16T15:19:42",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "kt-zepp-yokohama": {
+  "checked": "2026-11-16T15:19:48",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.zepp.co.jp/feed/"
+   ],
+   [
+    "application/rss+xml",
+    "https://www.zepp.co.jp/comments/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "suggested_method": "rss"
+ },
+ "zepp-nagoya": {
+  "checked": "2026-11-16T15:19:49",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.zepp.co.jp/feed/"
+   ],
+   [
+    "application/rss+xml",
+    "https://www.zepp.co.jp/comments/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "suggested_method": "rss"
+ },
+ "osakajo-hall": {
+  "checked": "2026-11-16T15:19:53",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "zepp-osaka-bayside": {
+  "checked": "2026-11-16T15:19:58",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.zepp.co.jp/feed/"
+   ],
+   [
+    "application/rss+xml",
+    "https://www.zepp.co.jp/comments/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "suggested_method": "rss"
+ },
+ "zepp-namba": {
+  "checked": "2026-11-16T15:20:00",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.zepp.co.jp/feed/"
+   ],
+   [
+    "application/rss+xml",
+    "https://www.zepp.co.jp/comments/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "suggested_method": "rss"
+ },
+ "zepp-fukuoka": {
+  "checked": "2026-11-16T15:20:03",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.zepp.co.jp/feed/"
+   ],
+   [
+    "application/rss+xml",
+    "https://www.zepp.co.jp/comments/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "suggested_method": "rss"
+ },
+ "kyodo-tokyo": {
+  "checked": "2026-11-16T15:20:07",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "diskgarage": {
+  "checked": "2026-11-16T15:20:11",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "toho-stage": {
+  "checked": "2026-11-16T15:20:18",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "horipro-stage": {
+  "checked": "2026-11-16T15:20:22",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "shiki": {
+  "checked": "2026-11-16T15:20:29",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "takarazuka": {
+  "checked": "2026-11-16T15:20:33",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "umegei": {
+  "checked": "2026-11-16T15:20:37",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "kabuki-bito": {
+  "checked": "2026-11-16T15:20:43",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "bunkamura": {
+  "checked": "2026-11-16T15:20:47",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "parco-stage": {
+  "checked": "2026-11-16T15:20:51",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "nelke": {
+  "checked": "2026-11-16T15:20:56",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "siscompany": {
+  "checked": "2026-11-16T15:20:59",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "nntt": {
+  "checked": "2026-11-16T15:21:03",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "setagaya-pt": {
+  "checked": "2026-11-16T15:21:08",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "geigeki": {
+  "checked": "2026-11-16T15:21:13",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "kaat": {
+  "checked": "2026-11-16T15:21:17",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "yoshimoto": {
+  "checked": "2026-11-16T15:21:21",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "shochiku-geino": {
+  "checked": "2026-11-16T15:21:25",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "ohtapro": {
+  "checked": "2026-11-16T15:21:29",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "amuse": {
+  "checked": "2026-11-16T15:21:34",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "shinkansen": {
+  "checked": "2026-11-16T15:21:38",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ },
+ "tower-records": {
+  "checked": "2026-11-16T15:21:42",
+  "status": 403,
+  "feeds": [],
+  "jsonld_events": 0,
+  "suggested_method": "html"
+ }
+}
