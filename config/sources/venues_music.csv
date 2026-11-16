@@ -47,7 +47,7 @@ garden-hall,恵比寿ザ・ガーデンホール,ザ・ガーデンホール,東
 o-east,Spotify O-EAST,O-EAST|渋谷O-EAST,東京都,渋谷区,1300,,,,auto,music,,,0
 liquidroom,LIQUIDROOM,リキッドルーム|恵比寿LIQUIDROOM,東京都,渋谷区,1000,,,,auto,music,,,0
 veats,Veats Shibuya,,東京都,渋谷区,1000,,,,auto,music,,,0
-shibuya-quattro,渋谷CLUB QUATTRO,渋谷クアトロ,東京都,渋谷区,800,,,,auto,music,クラブクアトロ,,0
+shibuya-quattro,渋谷CLUB QUATTRO,渋谷クアトロ|渋谷クラブクアトロ|SHIBUYA CLUB QUATTRO,東京都,渋谷区,800,,,,auto,music,クラブクアトロ,,0
 shinjuku-blaze,新宿BLAZE,,東京都,新宿区,800,,,,auto,music,,,0
 duo,duo MUSIC EXCHANGE,duo,東京都,渋谷区,700,,,,auto,music,,,0
 www-x,WWW X,,東京都,渋谷区,700,,,,auto,music,,,0
@@ -89,8 +89,8 @@ aichi-arts,愛知県芸術劇場 大ホール,,愛知県,名古屋市,2500,,,,au
 forest-hall,Niterra日本特殊陶業市民会館 フォレストホール,名古屋市民会館,愛知県,名古屋市,2300,,,,auto,music,,,0
 zepp-nagoya,Zepp Nagoya,,愛知県,名古屋市,1800,https://www.zepp.co.jp/hall/nagoya/,,,auto,music,Zeppホールネットワーク,,0
 diamond-hall,DIAMOND HALL,名古屋ダイアモンドホール,愛知県,名古屋市,1000,,,,auto,music,,,0
-nagoya-quattro,名古屋CLUB QUATTRO,名古屋クアトロ,愛知県,名古屋市,700,,,,auto,music,クラブクアトロ,,0
-bottom-line,名古屋ボトムライン,THE BOTTOM LINE,愛知県,名古屋市,700,,,,auto,music,,,0
+nagoya-quattro,名古屋CLUB QUATTRO,名古屋クアトロ|名古屋クラブクアトロ|NAGOYA CLUB QUATTRO,愛知県,名古屋市,700,,,,auto,music,クラブクアトロ,,0
+bottom-line,名古屋ボトムライン,THE BOTTOM LINE|Bottom Line,愛知県,名古屋市,700,,,,auto,music,,,0
 electric-lady-land,ElectricLadyLand,名古屋ElectricLadyLand|ELL,愛知県,名古屋市,600,,,,auto,music,,,0
 spade-box,名古屋SPADE BOX,,愛知県,名古屋市,300,,,,auto,music,,,0
 rad-hall,RAD HALL,名古屋RAD HALL,愛知県,名古屋市,300,,,,auto,music,,,0
@@ -122,7 +122,7 @@ gorilla-hall,GORILLA HALL OSAKA,ゴリラホール,大阪府,大阪市,1500,,,,a
 namba-hatch,なんばHatch,,大阪府,大阪市,1500,,,,auto,music,,,0
 bigcat,BIGCAT,心斎橋BIGCAT|大阪BIGCAT,大阪府,大阪市,800,,,,auto,music,,,0
 umeda-trad,umeda TRAD,梅田AKASO,大阪府,大阪市,800,,,,auto,music,,,0
-umeda-quattro,梅田CLUB QUATTRO,梅田クアトロ,大阪府,大阪市,700,,,,auto,music,クラブクアトロ,,0
+umeda-quattro,梅田CLUB QUATTRO,梅田クアトロ|梅田クラブクアトロ|UMEDA CLUB QUATTRO,大阪府,大阪市,700,,,,auto,music,クラブクアトロ,,0
 janus,Music Club JANUS,心斎橋JANUS,大阪府,大阪市,500,,,,auto,music,,,0
 shangri-la,梅田Shangri-La,シャングリラ,大阪府,大阪市,300,,,,auto,music,,,0
 bronze,心斎橋BRONZE,,大阪府,大阪市,300,,,,auto,music,,,0
@@ -144,7 +144,7 @@ shiga-ustone,滋賀U☆STONE,U☆STONE,滋賀県,大津市,300,,,,auto,music,,,0
 hiroshima-green-arena,広島グリーンアリーナ,,広島県,広島市,10000,,,,auto,music,,,0
 ueno-gakuen-hall,上野学園ホール,広島文化学園HBGホール|広島上野学園ホール,広島県,広島市,2000,,,,auto,music,,名称変更あり。要確認,0
 blue-live,BLUE LIVE 広島,,広島県,広島市,1000,,,,auto,music,,,0
-hiroshima-quattro,広島CLUB QUATTRO,広島クアトロ,広島県,広島市,700,,,,auto,music,クラブクアトロ,,0
+hiroshima-quattro,広島CLUB QUATTRO,広島クアトロ|広島クラブクアトロ|HIROSHIMA CLUB QUATTRO,広島県,広島市,700,,,,auto,music,クラブクアトロ,,0
 hiroshima-vanquish,LIVE VANQUISH,広島LIVE VANQUISH,広島県,広島市,400,,,,auto,music,,,0
 hiroshima-second-clutch,セカンド・クラッチ,広島セカンド・クラッチ,広島県,広島市,300,,,,auto,music,,,0
 hiroshima-juke,Live Juke,広島Live Juke,広島県,広島市,300,,,,auto,music,,,0

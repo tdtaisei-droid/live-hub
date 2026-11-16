@@ -9,10 +9,10 @@
  "sunday-folk": {
   "url": "https://www.sundayfolk.com/",
   "checked": "2026-11-16T16:33:57",
-  "ok": false,
+  "ok": true,
   "identity": "TOP - SUNDAY FOLK PROMOTION|名古屋・静岡エリアのライブ・コンサート情報サイト",
   "matched": null,
-  "reason": "ページの名乗りに名前が見つからない"
+  "note": "別名を追加し、保存済みのページの名乗りで再判定(2026-11-17)"
  },
  "bea": {
   "url": "https://www.bea-net.com/",
@@ -201,34 +201,34 @@
  "shibuya-quattro": {
   "url": "https://www.club-quattro.com/shibuya/",
   "checked": "2026-11-16T16:36:05",
-  "ok": false,
+  "ok": true,
   "identity": "SHIBUYA CLUB QUATTRO(渋谷クラブクアトロ)公式サイト 渋谷クラブクアトロの公式サイトです。渋谷クラブクアトロの公演スケジュールやイチオシの公演情報、QUATTRO WEB 先行予約情報、ホールインフォメーションをご覧いただけます。 SHIBUYA CLUB QUATTRO(渋谷クラブクアトロ)公式サイト CLUB QUATTRO(クラブクアトロ) SHIBUYA CLUB QU",
   "matched": null,
-  "reason": "ページの名乗りに名前が見つからない"
+  "note": "別名を追加し、保存済みのページの名乗りで再判定(2026-11-17)"
  },
  "nagoya-quattro": {
   "url": "https://www.club-quattro.com/nagoya/",
   "checked": "2026-11-16T16:36:11",
-  "ok": false,
+  "ok": true,
   "identity": "NAGOYA CLUB QUATTRO(名古屋クラブクアトロ)公式サイト 名古屋クラブクアトロの公式サイトです。名古屋クラブクアトロの公演スケジュールやイチオシの公演情報、QUATTRO WEB 先行予約情報、ホールインフォメーションをご覧いただけます。 NAGOYA CLUB QUATTRO(名古屋クラブクアトロ)公式サイト CLUB QUATTRO(クラブクアトロ) NAGOYA CLUB Q",
   "matched": null,
-  "reason": "ページの名乗りに名前が見つからない"
+  "note": "別名を追加し、保存済みのページの名乗りで再判定(2026-11-17)"
  },
  "umeda-quattro": {
   "url": "https://www.club-quattro.com/umeda/",
   "checked": "2026-11-16T16:36:16",
-  "ok": false,
+  "ok": true,
   "identity": "UMEDA CLUB QUATTRO(梅田クラブクアトロ)公式サイト 梅田クラブクアトロの公式サイトです。梅田クラブクアトロの公演スケジュールやイチオシの公演情報、QUATTRO WEB 先行予約情報、ホールインフォメーションをご覧いただけます。 UMEDA CLUB QUATTRO(梅田クラブクアトロ)公式サイト CLUB QUATTRO(クラブクアトロ) UMEDA CLUB QUATTRO",
   "matched": null,
-  "reason": "ページの名乗りに名前が見つからない"
+  "note": "別名を追加し、保存済みのページの名乗りで再判定(2026-11-17)"
  },
  "hiroshima-quattro": {
   "url": "https://www.club-quattro.com/hiroshima/",
   "checked": "2026-11-16T16:36:21",
-  "ok": false,
+  "ok": true,
   "identity": "HIROSHIMA CLUB QUATTRO(広島クラブクアトロ)公式サイト 広島クラブクアトロの公式サイトです。広島クラブクアトロの公演スケジュールやイチオシの公演情報、QUATTRO WEB 先行予約情報、ホールインフォメーションをご覧いただけます。 HIROSHIMA CLUB QUATTRO(広島クラブクアトロ)公式サイト CLUB QUATTRO(クラブクアトロ) HIROSHIMA C",
   "matched": null,
-  "reason": "ページの名乗りに名前が見つからない"
+  "note": "別名を追加し、保存済みのページの名乗りで再判定(2026-11-17)"
  },
  "shinjuku-loft": {
   "url": "https://www.loft-prj.co.jp/schedule/loft",
@@ -260,10 +260,10 @@
  "bottom-line": {
   "url": "https://www.bottomline.co.jp/",
   "checked": "2026-11-16T16:36:40",
-  "ok": false,
+  "ok": true,
   "identity": "Bottom Line 名古屋・今池のライブハウス Bottom Line の公式サイト。ライブスケジュールや各種ご案内を掲載。 Bottom Line Bottom Line Schedule",
   "matched": null,
-  "reason": "ページの名乗りに名前が見つからない"
+  "note": "別名を追加し、保存済みのページの名乗りで再判定(2026-11-17)"
  },
  "electric-lady-land": {
   "url": "https://www.ell.co.jp/",
@@ -414,10 +414,10 @@
  "minamiza": {
   "url": "https://www.shochiku.co.jp/play/theater/minamiza/",
   "checked": "2026-11-16T16:37:52",
-  "ok": false,
+  "ok": true,
   "identity": "南座 松竹株式会社の公式サイトです。歌舞伎や演劇の公演情報をご紹介しています。 南座",
   "matched": null,
-  "reason": "ページの名乗りに名前が見つからない"
+  "note": "別名を追加し、保存済みのページの名乗りで再判定(2026-11-17)"
  },
  "shochikuza": {
   "url": "https://www.shochiku.co.jp/play/theater/shochikuza/",
@@ -518,14 +518,6 @@
   "identity": "天満天神繁昌亭|上方落語専門の定席 戦後60年ぶりに復活を遂げた上方落語唯一の寄席「天満天神繁昌亭」。 2006年9月の誕生以来、大阪の新名所として、落語を中心に、漫才、俗曲などの色物芸の興行が連日執り行っております。昼は週替わり、夜は日替わりでベテランから若手までが登場し、連日バラエティに富んだ内容の寄席をおとどけ。楽しく笑える魅力の“繁昌亭”をご堪能あれ。 天満天神繁昌亭|上方落語専門の定席",
   "matched": "天満天神繁昌亭"
  },
- "umeda-arts-main": {
-  "url": "https://www.umegei.com/",
-  "checked": "2026-11-16T16:39:19",
-  "ok": false,
-  "identity": "梅田芸術劇場 梅田芸術劇場は、メインホールとシアター・ドラマシティの2つの劇場があり、演劇・ミュージカルからクラシック・オペラ・バレエまで様々な演目をお楽しみいただけます。",
-  "matched": null,
-  "reason": "ページの名乗りに名前が見つからない"
- },
  "jinrikisha": {
   "url": "https://p-jinriki.com/",
   "checked": "2026-11-16T16:39:25",
@@ -564,11 +556,11 @@
  "titan": {
   "url": "https://titan-net.co.jp/",
   "checked": "2026-11-16T16:40:12",
-  "ok": false,
+  "ok": true,
   "identity": "TITAN | 爆笑問題やウエストランドなどの所属事務所 TITAN | 爆笑問題やウエストランドなどの所属事務所",
   "matched": null,
-  "reason": "ページの名乗りに名前が見つからない",
-  "final_url": "https://www.titan-net.co.jp/"
+  "final_url": "https://www.titan-net.co.jp/",
+  "note": "別名を追加し、保存済みのページの名乗りで再判定(2026-11-17)"
  },
  "sma": {
   "url": "https://www.sma.co.jp/",

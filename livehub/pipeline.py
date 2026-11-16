@@ -275,7 +275,7 @@ def name_keys(src: Source) -> list[str]:
     for n in [src.name, *src.aliases]:
         for v in (n, _GENERIC.sub("", n)):
             k = normalize(v)
-            if len(k) >= 3 and k not in keys:
+            if (len(k) >= 3 or (len(k) == 2 and not k.isascii())) and k not in keys:
                 keys.append(k)
     return keys
 
@@ -285,7 +285,10 @@ def check_candidate(src: Source, url: str, fetcher: Fetcher) -> dict:
     info = {"url": url, "checked": datetime.now().isoformat(timespec="seconds"), "ok": False}
     try:
         if not fetcher.allowed(url):
-            info["reason"] = "robots.txtで拒否"
+            from urllib.parse import urlsplit
+            state = getattr(fetcher, "robots_state", {}).get("{0.scheme}://{0.netloc}".format(urlsplit(url)), "")
+            info["reason"] = "robots.txtを確認できず(安全のため見送り)" if state.startswith("unreachable") else "robots.txtで拒否"
+            info["robots"] = state
             return info
         r = fetcher.get(url, use_cache=False)
         if r.status >= 400 or not r.text:

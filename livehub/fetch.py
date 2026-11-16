@@ -44,6 +44,7 @@ class BlockedByRobots(Exception):
 class Fetcher:
     def __init__(self, cache_path: Optional[Path] = None):
         self._robots: dict[str, Optional[urllib.robotparser.RobotFileParser]] = {}
+        self.robots_state: dict[str, str] = {}  # ホスト → "ok" / "none"(無い) / "unreachable"(確認できず)
         self._last_hit: dict[str, float] = {}
         self.cache_path = cache_path
         self.cache: dict[str, dict] = {}
@@ -65,12 +66,16 @@ class Fetcher:
                 r = self._raw_get(base + "/robots.txt", use_cache=False)
                 if 400 <= r.status < 500:
                     rp = None  # robots.txt が無い = 制限なし
+                    self.robots_state[base] = "none"
                 elif r.status >= 500:
                     rp.parse(["User-agent: *", "Disallow: /"])  # サーバー不調時は巡回しない
+                    self.robots_state[base] = f"unreachable (HTTP {r.status})"
                 else:
                     rp.parse(r.text.splitlines())
-            except Exception:
+                    self.robots_state[base] = "ok"
+            except Exception as exc:
                 rp.parse(["User-agent: *", "Disallow: /"])  # 確認できないときは巡回しない(安全側)
+                self.robots_state[base] = f"unreachable ({type(exc).__name__})"
             self._robots[base] = rp
         rp = self._robots[base]
         return True if rp is None else rp.can_fetch(USER_AGENT.split("/")[0], url)
