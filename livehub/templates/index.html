@@ -79,6 +79,25 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 .btn{background:var(--accent);color:var(--accent-ink);border:0;border-radius:10px;padding:10px 14px;
   font:inherit;font-weight:800;cursor:pointer}
 .btn.ghost{background:none;color:var(--sub);border:1px solid var(--line)}
+.mapbox{background:#1c1c23;border:1px solid var(--line);border-radius:var(--radius);padding:10px 12px 12px}
+.maphead{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--sub)}
+.maphead b{color:var(--text);font-size:15px}
+.maphead button{background:none;border:1px solid var(--line);color:var(--sub);border-radius:999px;padding:4px 10px;font:inherit;font-size:12px;cursor:pointer}
+.jmap{display:block;width:100%;max-width:340px;margin:4px auto 0}
+.mapbox.closed .jmap,.mapbox.closed #prefchips{display:none}
+.rg{cursor:pointer;outline:none}
+.rg polygon{fill:#000;stroke:#5a5a66;stroke-width:2.5;stroke-linejoin:round;transition:fill .15s}
+.rg:hover polygon,.rg:focus-visible polygon{fill:#2b2b33}
+.rg.on polygon{fill:var(--accent);stroke:#ffb59f}
+.rg.dim polygon{fill:#0b0b0e;stroke:#33333b}
+.rg text{fill:#f1f0ea;font:700 24px "Hiragino Sans","Noto Sans JP",sans-serif;text-anchor:middle;pointer-events:none;paint-order:stroke;stroke:#000;stroke-width:5px}
+.rg.on text{fill:#fff;stroke:#7a2410}
+.rg text.cnt{font-size:18px;font-weight:600;fill:#c9c8c2}
+.inset{fill:none;stroke:#4a4a55;stroke-dasharray:6 5}
+.insetlabel{fill:#8c8b92;font:15px sans-serif}
+#prefchips{margin-top:10px}
+#prefchips .chip{font-size:12.5px;padding:5px 10px}
+#prefchips .chip .n{opacity:.6;margin-left:4px;font-size:11px}
 @media (min-width:700px){.card{grid-template-columns:70px 1fr auto}.date .d{font-size:28px}}
 </style>
 </head>
@@ -94,9 +113,13 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
   <div id="sample"></div>
   <section class="filters">
     <div class="chips" id="genres"></div>
-    <div class="chips" id="regions"></div>
+    <div class="mapbox" id="mapbox">
+      <div class="maphead"><span>エリア：<b id="areaLabel">全国</b></span>
+        <span><button id="allJapan">全国に戻す</button> <button id="mapToggle">地図をたたむ</button></span></div>
+      <!--MAP-->
+      <div class="chips" id="prefchips"></div>
+    </div>
     <div class="row">
-      <select id="pref" aria-label="都道府県"><option value="">すべての都道府県</option></select>
       <input type="search" id="q" placeholder="キーワード(出演者・会場など)">
     </div>
     <p class="hint" id="hint"></p>
@@ -178,11 +201,37 @@ function renderChips(){
     `<button class="chip" data-genre="${k}" aria-pressed="${st.genres.has(k)}"><span class="dot g-${k}"></span>${v}</button>`).join("")
     + `<button class="chip" id="freeOnly" aria-pressed="${st.free}"><span class="dot k-free"></span>無料ライブ</button>`
     + `<button class="chip" id="openFollow">★ フォロー設定</button>`;
-  $("#regions").innerHTML = ["", ...meta.regions.filter(r => r !== "不明")].map(r =>
-    `<button class="chip" data-region="${r}" aria-pressed="${st.region===r}">${r || "全国"}</button>`).join("");
-  const prefs = Object.keys(PREF_REGION).filter(p => !st.region || PREF_REGION[p] === st.region);
-  $("#pref").innerHTML = `<option value="">${st.region ? st.region + "のすべて" : "すべての都道府県"}</option>` +
-    prefs.map(p => `<option ${p===st.pref?"selected":""}>${p}</option>`).join("");
+  renderMap();
+}
+
+function renderMap(){
+  // 地方・都道府県ごとの件数は、エリア以外の条件(タブ・ジャンル・無料・キーワード)で数える
+  const tab = TABS.find(t => t[0] === st.tab);
+  const keep = {region: st.region, pref: st.pref};
+  st.region = ""; st.pref = "";
+  const base = filtered(tab[2]);
+  Object.assign(st, keep);
+  const byRegion = {}, byPref = {};
+  for (const e of base) {
+    byRegion[e.region] = (byRegion[e.region] || 0) + 1;
+    if (e.prefecture) byPref[e.prefecture] = (byPref[e.prefecture] || 0) + 1;
+  }
+  document.querySelectorAll(".rg").forEach(g => {
+    const r = g.dataset.region;
+    g.classList.toggle("on", st.region === r);
+    g.classList.toggle("dim", !!st.region && st.region !== r);
+    g.setAttribute("aria-pressed", st.region === r);
+  });
+  document.querySelectorAll("[data-count]").forEach(t => {
+    const n = byRegion[t.dataset.count] || 0;
+    t.textContent = n ? n + "件" : "";
+  });
+  $("#areaLabel").textContent = st.pref || st.region || "全国";
+  const prefs = st.region ? Object.keys(PREF_REGION).filter(p => PREF_REGION[p] === st.region) : [];
+  $("#prefchips").innerHTML = prefs.length
+    ? `<button class="chip" data-pref="" aria-pressed="${!st.pref}">${st.region}すべて</button>` +
+      prefs.map(p => `<button class="chip" data-pref="${p}" aria-pressed="${st.pref===p}">${p.replace(/[都府県]$/,"")}${byPref[p] ? `<span class="n">${byPref[p]}</span>` : ""}</button>`).join("")
+    : `<p class="hint" style="margin:0">地図の地方をタップすると、都道府県で絞り込めます。${byRegion["オンライン"] ? `<button class="chip" data-region="オンライン" style="margin-left:6px">オンライン ${byRegion["オンライン"]}件</button>` : ""}</p>`;
 }
 
 function dateBox(e){
@@ -221,6 +270,7 @@ function card(e){
 
 function render(){
   renderTabs();
+  renderMap();
   const tab = TABS.find(t => t[0] === st.tab);
   let list = filtered(tab[2]);
   const groups = new Map();
@@ -248,10 +298,13 @@ function render(){
 }
 
 document.addEventListener("click", ev => {
-  const t = ev.target.closest("button"); if (!t) return;
+  const t = ev.target.closest("button,.rg"); if (!t) return;
   if (t.dataset.tab) { st.tab = t.dataset.tab; }
   else if (t.dataset.genre) { st.genres.has(t.dataset.genre) ? st.genres.delete(t.dataset.genre) : st.genres.add(t.dataset.genre); renderChips(); }
-  else if (t.dataset.region !== undefined) { st.region = t.dataset.region; st.pref = ""; renderChips(); }
+  else if (t.dataset.region !== undefined) { st.region = (st.region === t.dataset.region ? "" : t.dataset.region); st.pref = ""; }
+  else if (t.dataset.pref !== undefined) { st.pref = t.dataset.pref; }
+  else if (t.id === "allJapan") { st.region = ""; st.pref = ""; }
+  else if (t.id === "mapToggle") { const c = $("#mapbox").classList.toggle("closed"); t.textContent = c ? "地図をひらく" : "地図をたたむ"; store.set("mapClosed", c); return; }
   else if (t.dataset.follow) { const k = t.dataset.follow; st.follows.has(k) ? st.follows.delete(k) : st.follows.add(k); store.set("follows", [...st.follows]); }
   else if (t.id === "freeOnly") { st.free = !st.free; renderChips(); }
   else if (t.id === "openFollow") { renderFollow(); $("#followDlg").showModal(); return; }
@@ -263,7 +316,11 @@ document.addEventListener("click", ev => {
 function renderFollow(){
   $("#followList").innerHTML = [...st.follows].map(f => `<button class="chip" data-unfollow="${esc(f)}" aria-pressed="true">${esc(f)} ✕</button>`).join("") || `<span style="color:var(--dim);font-size:13px">なし</span>`;
 }
-$("#pref").addEventListener("change", e => { st.pref = e.target.value; render(); });
+document.addEventListener("keydown", ev => {
+  const g = ev.target.closest && ev.target.closest(".rg");
+  if (g && (ev.key === "Enter" || ev.key === " ")) { ev.preventDefault(); g.dispatchEvent(new MouseEvent("click", {bubbles: true})); }
+});
+if (store.get("mapClosed", false)) { $("#mapbox").classList.add("closed"); $("#mapToggle").textContent = "地図をひらく"; }
 $("#q").addEventListener("input", e => { st.q = e.target.value.trim(); render(); });
 if (meta.sample) $("#sample").innerHTML = `<p class="sample">これは画面確認用のプロトタイプです。表示中の公演はすべて架空のサンプルデータで、実在の公演ではありません。</p>`;
 $("#gen").textContent = `最終更新 ${meta.generated_at.replace("T", " ")}・${meta.count}件`;

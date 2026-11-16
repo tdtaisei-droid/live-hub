@@ -33,7 +33,8 @@ def build(events: list[dict], out_dir: Path = ROOT / "site", today: date | None 
     (out_dir / "events.json").write_text(
         json.dumps({"meta": meta, "events": events}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
-    html = (TEMPLATES / "index.html").read_text(encoding="utf-8")
+    from .japanmap import svg as japan_map
+    html = (TEMPLATES / "index.html").read_text(encoding="utf-8").replace("<!--MAP-->", japan_map())
     # 初回表示を速くするため、データをページにも埋め込む(events.json は API 的に別途公開)
     payload = json.dumps({"meta": meta, "events": events}, ensure_ascii=False).replace("</", "<\\/")
     (out_dir / "index.html").write_text(html.replace("/*__DATA__*/null", payload), encoding="utf-8")
