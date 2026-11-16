@@ -305,3 +305,9 @@ def test_clean_title_and_past_range():
     assert clean_title("一般 架空歌手 CONCERT TOUR 2026 詳細") == "架空歌手 CONCERT TOUR 2026"
     x = extract_schedule("公演日:2026年7月17日(金)~8月9日(日)", REF)
     assert (x.start_date, x.end_date) == (date(2026, 7, 17), date(2026, 8, 9))
+
+
+def test_house_sources():
+    by = {s.id: s.house for s in load_sources()}
+    assert by["ngk"] == "yoshimoto" and by["kabukiza"] == "kabuki" and by["shiki-haru"] == "shiki"
+    assert by["takarazuka"] == "takarazuka" and by["zepp-haneda"] is None

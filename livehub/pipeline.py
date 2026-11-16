@@ -85,6 +85,7 @@ def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[E
         ticket_sale_at=sale,
         ticket_sale_label=(sched.ticket_sale_label if not item.ticket_sale_at else "発売") if sale else None,
         free=is_free(text),
+        house=src.house,
         published_at=item.published_at,
         fetched_at=now,
     )

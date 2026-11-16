@@ -63,6 +63,7 @@ class Source:
     notes: str = ""
     verified: bool = False
     interval_days: int = 1
+    house: Optional[str] = None   # 専用劇場を持つ劇団・事務所(config/houses.json)
 
     @property
     def is_location(self) -> bool:
@@ -85,7 +86,19 @@ def _opt(v: str) -> Optional[str]:
     return v or None
 
 
+HOUSES_PATH = ROOT / "config" / "houses.json"
+
+
+def load_houses(path: Path = HOUSES_PATH) -> dict[str, dict]:
+    """{"yoshimoto": {"name": "吉本の劇場", "sources": [...]}, ...}"""
+    import json
+    if not path.exists():
+        return {}
+    return {k: v for k, v in json.loads(path.read_text(encoding="utf-8")).items() if not k.startswith("_")}
+
+
 def load_sources(directory: Path = SOURCES_DIR) -> list[Source]:
+    house_of = {sid: h for h, v in load_houses().items() for sid in v["sources"]}
     out: list[Source] = []
     seen: set[str] = set()
     for cat in CATEGORIES:
@@ -119,6 +132,7 @@ def load_sources(directory: Path = SOURCES_DIR) -> list[Source]:
                     verified=(row.get("verified") or "").strip() == "1",
                     interval_days=int(row["interval_days"]) if (row.get("interval_days") or "").strip().isdigit()
                     else DEFAULT_INTERVAL.get(cat, 1),
+                    house=house_of.get(sid),
                 )
                 # 音楽会場は200以上、お笑いの会場は100以上のみ(不明は確認待ちとして残す)
                 low = min_capacity(cat, s.genre_default)

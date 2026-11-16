@@ -1,0 +1,20 @@
+{
+  "_説明": "専用劇場で日々公演している劇団・事務所。ここに入れた情報源の『日々の公演』は通常の一覧ではなく『劇場スケジュール』タブに出る。新作発表・チケット発売は通常の一覧にも出す。",
+  "yoshimoto": {
+    "name": "吉本の劇場",
+    "sources": ["lumine-yoshimoto", "shibuya-yoshimoto", "jimbocho-yoshimoto", "omiya-raccoon", "ngk", "manzai-gekijo",
+                "yoshimoto-gion-kagetsu", "fukuoka-yoshimoto", "yoshimoto-shinkigeki"]
+  },
+  "takarazuka": {
+    "name": "宝塚",
+    "sources": ["takarazuka", "takarazuka-grand", "tokyo-takarazuka", "takarazuka-org"]
+  },
+  "shiki": {
+    "name": "劇団四季",
+    "sources": ["shiki", "shiki-haru", "shiki-aki", "shiki-umi", "shiki-jr-east", "shiki-nagoya", "shiki-osaka", "gekidan-shiki-org"]
+  },
+  "kabuki": {
+    "name": "歌舞伎",
+    "sources": ["kabuki-bito", "kabukiza", "shinbashi-enbujo", "minamiza", "shochikuza"]
+  }
+}

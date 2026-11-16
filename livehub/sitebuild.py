@@ -7,7 +7,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 from .models import GENRES, KINDS, REGIONS
-from .sources import CATEGORIES, load_sources
+from .sources import CATEGORIES, load_houses, load_sources
 
 ROOT = Path(__file__).resolve().parent.parent
 TEMPLATES = Path(__file__).resolve().parent / "templates"
@@ -28,6 +28,7 @@ def build(events: list[dict], out_dir: Path = ROOT / "site", today: date | None 
         "kinds": KINDS,
         "regions": REGIONS,
         "sample": sample,
+        "houses": {k: v["name"] for k, v in load_houses().items()},
         "count": len(events),
     }
     (out_dir / "events.json").write_text(

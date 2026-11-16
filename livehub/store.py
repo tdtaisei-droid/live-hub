@@ -53,6 +53,7 @@ class Store:
                     if k == "prefecture":
                         old["region"] = d.get("region", old.get("region"))
             old["free"] = old.get("free") or d.get("free", False)
+            old["house"] = old.get("house") or d.get("house")
             if old.get("kind") != "ticket" and d.get("kind") == "ticket":
                 old["kind"] = "ticket"
             old["performers"] = list(dict.fromkeys(old.get("performers", []) + d.get("performers", [])))[:10]

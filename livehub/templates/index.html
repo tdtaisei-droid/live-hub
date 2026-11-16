@@ -65,6 +65,12 @@ input[type=search],select{flex:1;min-width:0;width:0;background:var(--panel);col
 .k-new{border:1px solid var(--accent);color:var(--accent)}
 .k-ticket{background:#fff;color:#111}
 .k-free{background:#3ddc97;color:#04210f}
+.k-house{border:1px solid #c9b27a;color:#e8d6a6}
+#houses{display:none}
+body.theater #houses{display:flex}
+body.theater #genres{display:none}
+.daygroup h2{display:flex;justify-content:space-between}
+.today{color:var(--accent)}
 .sale{color:var(--text);font-weight:700}
 .sale.soon{color:var(--accent)}
 .star{background:none;border:0;color:var(--dim);font-size:20px;cursor:pointer;padding:0 4px;height:32px}
@@ -112,6 +118,7 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 <main class="wrap">
   <div id="sample"></div>
   <section class="filters">
+    <div class="chips" id="houses"></div>
     <div class="chips" id="genres"></div>
     <div class="mapbox" id="mapbox">
       <div class="maphead"><span>エリア：<b id="areaLabel">全国</b></span>
@@ -160,7 +167,8 @@ const since = lastVisit ? new Date(lastVisit) : new Date(TODAY.getTime() - 3*864
 addEventListener("pagehide", () => store.set("lastVisit", new Date().toISOString()));
 
 const PREF_REGION = {"北海道":"北海道","青森県":"東北","岩手県":"東北","宮城県":"東北","秋田県":"東北","山形県":"東北","福島県":"東北","茨城県":"関東","栃木県":"関東","群馬県":"関東","埼玉県":"関東","千葉県":"関東","東京都":"関東","神奈川県":"関東","新潟県":"中部","富山県":"中部","石川県":"中部","福井県":"中部","山梨県":"中部","長野県":"中部","岐阜県":"中部","静岡県":"中部","愛知県":"中部","三重県":"近畿","滋賀県":"近畿","京都府":"近畿","大阪府":"近畿","兵庫県":"近畿","奈良県":"近畿","和歌山県":"近畿","鳥取県":"中国","島根県":"中国","岡山県":"中国","広島県":"中国","山口県":"中国","徳島県":"四国","香川県":"四国","愛媛県":"四国","高知県":"四国","福岡県":"九州・沖縄","佐賀県":"九州・沖縄","長崎県":"九州・沖縄","熊本県":"九州・沖縄","大分県":"九州・沖縄","宮崎県":"九州・沖縄","鹿児島県":"九州・沖縄","沖縄県":"九州・沖縄"};
-const st = {tab:"new", free:false, genres:new Set(), region:"", pref:"", q:"", follows:new Set(store.get("follows", []))};
+const HOUSES = meta.houses || {};
+const st = {tab:"new", house:Object.keys(HOUSES)[0] || "", free:false, genres:new Set(), region:"", pref:"", q:"", follows:new Set(store.get("follows", []))};
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const d = s => s ? new Date(s.length <= 10 ? s + "T00:00:00" : s) : null;
@@ -174,18 +182,21 @@ events.forEach(e => {
 const isNew = e => e._first && e._first > since;
 const followed = e => [...st.follows].some(f => e._hay.includes(f.toLowerCase()));
 
+// 専用劇場(吉本・宝塚・四季・歌舞伎)の「日々の公演」は通常の一覧に出さず、劇場スケジュールにだけ出す
+const isDaily = e => !!e.house && e.kind === "event";
 const TABS = [
-  ["new", "新着", e => isNew(e)],
-  ["sale", "まもなく発売", e => e._sale && days(e._sale) >= -1 && days(e._sale) <= 14],
-  ["upcoming", "開催予定", e => e._start && days(e._end || e._start) >= 0],
-  ["follow", "★ フォロー中", e => followed(e)],
-  ["all", "すべて", e => true],
+  ["new", "新着", e => !isDaily(e) && isNew(e)],
+  ["sale", "まもなく発売", e => !isDaily(e) && e._sale && days(e._sale) >= -1 && days(e._sale) <= 14],
+  ["upcoming", "開催予定", e => !isDaily(e) && e._start && days(e._end || e._start) >= 0],
+  ["theater", "劇場スケジュール", e => e.house === st.house && (!e._start || days(e._end || e._start) >= 0)],
+  ["follow", "★ フォロー中", e => !isDaily(e) && followed(e)],
+  ["all", "すべて", e => !isDaily(e)],
 ];
 
 function filtered(tabFn){
   return events.filter(e =>
     tabFn(e) &&
-    (!st.genres.size || st.genres.has(e.genre)) &&
+    (st.tab === "theater" || !st.genres.size || st.genres.has(e.genre)) &&
     (!st.free || e.free) &&
     (!st.region || e.region === st.region) &&
     (!st.pref || e.prefecture === st.pref) &&
@@ -195,6 +206,10 @@ function filtered(tabFn){
 function renderTabs(){
   $("#tabs").innerHTML = TABS.map(([id, label, fn]) =>
     `<button class="tab" role="tab" data-tab="${id}" aria-selected="${st.tab===id}">${label}<span class="n">${filtered(fn).length}</span></button>`).join("");
+}
+function renderHouses(){
+  $("#houses").innerHTML = Object.entries(HOUSES).map(([k, v]) =>
+    `<button class="chip" data-house="${k}" aria-pressed="${st.house===k}">${v}</button>`).join("");
 }
 function renderChips(){
   $("#genres").innerHTML = Object.entries(meta.genres).map(([k, v]) =>
@@ -256,7 +271,8 @@ function card(e){
       <div class="badges"><span class="badge g-${e.genre||"music"}">${esc(meta.genres[e.genre] || "その他")}</span>
         ${isNew(e) ? `<span class="badge k-new">NEW</span>` : ""}
         ${e.kind === "ticket" ? `<span class="badge k-ticket">チケット</span>` : ""}
-        ${e.free ? `<span class="badge k-free">無料</span>` : ""}</div>
+        ${e.free ? `<span class="badge k-free">無料</span>` : ""}
+        ${e.house && st.tab !== "theater" ? `<span class="badge k-house">${esc(HOUSES[e.house] || "")}</span>` : ""}</div>
       <a class="title" href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.title)}</a>
       <div class="meta">
         ${e.venue || e.prefecture ? `<span>📍 ${esc(e.venue || "")}${e.prefecture ? `(${esc(e.prefecture)})` : ""}</span>` : (e.region !== "不明" ? `<span>📍 ${esc(e.region)}</span>` : "")}
@@ -273,10 +289,23 @@ function render(){
   renderMap();
   const tab = TABS.find(t => t[0] === st.tab);
   let list = filtered(tab[2]);
-  const groups = new Map();
+  let groups = new Map();
+  document.body.classList.toggle("theater", st.tab === "theater");
+  renderHouses();
   if (st.tab === "new") {
     list.sort((a, b) => b._first - a._first);
     groups.set("前回の訪問以降に見つかった情報", list);
+  } else if (st.tab === "theater") {
+    // 日ごと。会期のある公演は初日に並べる。日付の無いお知らせは最後
+    list.sort((a, b) => (a._start || 9e15) - (b._start || 9e15));
+    for (const e of list) {
+      const x = e._start;
+      const k = !x ? "お知らせ・日程未定"
+        : days(e._end || x) >= 0 && days(x) < 0 ? "上演中"
+        : `${x.getMonth()+1}月${x.getDate()}日(${W[x.getDay()]})${days(x) === 0 ? "・今日" : days(x) === 1 ? "・明日" : ""}`;
+      (groups.get(k) || groups.set(k, []).get(k)).push(e);
+    }
+    if (groups.has("上演中")) { const v = groups.get("上演中"); groups.delete("上演中"); groups = new Map([["上演中", v], ...groups]); }
   } else if (st.tab === "sale") {
     list.sort((a, b) => a._sale - b._sale);
     for (const e of list) { const n = days(e._sale); const k = n <= 0 ? "今日・発売中" : n === 1 ? "明日" : n <= 7 ? "今週" : "来週以降";
@@ -288,7 +317,9 @@ function render(){
   }
   const emptyMsg = st.tab === "follow" && !st.follows.size
     ? "まだ何もフォローしていません。★を押すか「フォロー設定」から追加してください。"
-    : st.tab === "new" ? "前回の訪問以降の新着はありません。" : "条件に合う情報はありません。";
+    : st.tab === "new" ? "前回の訪問以降の新着はありません。"
+    : st.tab === "theater" ? `${esc(HOUSES[st.house] || "")}の公演情報はまだありません(巡回の準備中です)。`
+    : "条件に合う情報はありません。";
   $("#list").innerHTML = list.length ? [...groups].map(([k, es]) =>
     `<section class="group"><h2>${esc(k)}(${es.length})</h2>${es.map(card).join("")}</section>`).join("")
     : `<p class="empty">${emptyMsg}</p>`;
@@ -303,6 +334,7 @@ document.addEventListener("click", ev => {
   else if (t.dataset.genre) { st.genres.has(t.dataset.genre) ? st.genres.delete(t.dataset.genre) : st.genres.add(t.dataset.genre); renderChips(); }
   else if (t.dataset.region !== undefined) { st.region = (st.region === t.dataset.region ? "" : t.dataset.region); st.pref = ""; }
   else if (t.dataset.pref !== undefined) { st.pref = t.dataset.pref; }
+  else if (t.dataset.house) { st.house = t.dataset.house; }
   else if (t.id === "allJapan") { st.region = ""; st.pref = ""; }
   else if (t.id === "mapToggle") { const c = $("#mapbox").classList.toggle("closed"); t.textContent = c ? "地図をひらく" : "地図をたたむ"; store.set("mapClosed", c); return; }
   else if (t.dataset.follow) { const k = t.dataset.follow; st.follows.has(k) ? st.follows.delete(k) : st.follows.add(k); store.set("follows", [...st.follows]); }
