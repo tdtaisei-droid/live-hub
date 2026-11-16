@@ -116,6 +116,11 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 .inset{fill:none;stroke:#4a4a55;stroke-dasharray:6 5}
 .insetlabel{fill:#8c8b92;font:15px sans-serif}
 #prefchips{margin-top:10px}
+#months{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+#months::-webkit-scrollbar{display:none}
+#months .chip{flex:none}
+#months .chip .n{opacity:.6;margin-left:4px;font-size:11px}
+#months .mlabel{flex:none;align-self:center;color:var(--dim);font-size:12px;margin-right:2px}
 #prefchips .chip{font-size:12.5px;padding:5px 10px}
 #prefchips .chip .n{opacity:.6;margin-left:4px;font-size:11px}
 /* 押した瞬間に1回だけ動く。動きを減らす設定の人には動かさない */
@@ -149,6 +154,7 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
   <section class="filters">
     <div class="chips" id="houses"></div>
     <div class="chips" id="genres"></div>
+    <div class="chips" id="months" aria-label="月で絞り込む"></div>
     <div class="mapbox" id="mapbox">
       <div class="maphead"><span>エリア：<b id="areaLabel">全国</b></span>
         <span><button id="allJapan">全国に戻す</button> <button id="mapToggle">地図をたたむ</button></span></div>
@@ -230,7 +236,15 @@ function wiggle(selector){
 const firstTime = store.get("area", null) === null;
 const myArea = store.get("area", {region: "", pref: ""});
 const PAGE = 30;  // 1回に並べる公演の数。「さらに見る」で30件ずつ増える
-const st = {limit: PAGE, tab:"new", house:Object.keys(HOUSES)[0] || "", free:false, genres:new Set(), region:myArea.region || "", pref:myArea.pref || "", q:"", follows:new Set(store.get("follows", []))};
+// 月の絞り込み: "" = すべて / "2026-12" = その月 / "later" = 7か月目以降
+const MONTHS = (() => { const out = []; const y = TODAY.getFullYear(), m = TODAY.getMonth();
+  for (let i = 0; i < 6; i++) { const a = new Date(y, m + i, 1), b = new Date(y, m + i + 1, 0);
+    out.push({key: `${a.getFullYear()}-${String(a.getMonth()+1).padStart(2,"0")}`, label: (i === 0 ? "今月 " : "") + (a.getFullYear() !== y ? `${a.getFullYear()}年` : "") + `${a.getMonth()+1}月`, from: a, to: b}); }
+  out.push({key: "later", label: "それ以降", from: new Date(y, m + 6, 1), to: new Date(9999, 0, 1)});
+  return out; })();
+// 会期がその月にかかっていれば、その月の公演とみなす
+const inMonth = (e, mo) => e._start && e._start <= mo.to && (e._end || e._start) >= mo.from;
+const st = {month: "", limit: PAGE, tab:"new", house:Object.keys(HOUSES)[0] || "", free:false, genres:new Set(), region:myArea.region || "", pref:myArea.pref || "", q:"", follows:new Set(store.get("follows", []))};
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const d = s => s ? new Date(s.length <= 10 ? s + "T00:00:00" : s) : null;
@@ -277,6 +291,7 @@ function filtered(tabFn){
   return events.filter(e =>
     tabFn(e) &&
     (st.tab === "theater" || !st.genres.size || st.genres.has(e.genre)) &&
+    (!st.month || inMonth(e, MONTHS.find(m => m.key === st.month))) &&
     (!st.free || e.free) &&
     (!st.region || e.region === st.region) &&
     (!st.pref || e.prefecture === st.pref) &&
@@ -286,6 +301,17 @@ function filtered(tabFn){
 function renderTabs(){
   $("#tabs").innerHTML = TABS.map(([id, label, fn]) =>
     `<button class="tab" role="tab" data-tab="${id}" aria-selected="${st.tab===id}">${label}<span class="n">${filtered(fn).length}</span></button>`).join("");
+}
+function renderMonths(){
+  // 件数は、月以外の条件(タブ・ジャンル・エリアなど)で数える
+  const tab = TABS.find(t => t[0] === st.tab);
+  const keep = st.month; st.month = "";
+  const base = filtered(tab[2]);
+  st.month = keep;
+  $("#months").innerHTML = `<span class="mlabel">月</span>` + MONTHS.map(mo => {
+    const n = base.filter(e => inMonth(e, mo)).length;
+    return `<button class="chip" data-month="${mo.key}" aria-pressed="${st.month===mo.key}">${mo.label}${n ? `<span class="n">${n}</span>` : ""}</button>`;
+  }).join("");
 }
 function renderHouses(){
   $("#houses").innerHTML = Object.entries(HOUSES).map(([k, v]) =>
@@ -360,6 +386,7 @@ function card(e){
 function render(){
   renderTabs();
   renderMap();
+  renderMonths();
   const tab = TABS.find(t => t[0] === st.tab);
   let list = filtered(tab[2]);
   let groups = new Map();
@@ -410,12 +437,13 @@ document.addEventListener("click", ev => {
   const t = ev.target.closest("button,.rg"); if (!t) return;
   if (t.id === "more") { st.limit += PAGE; render(); return; }
   if (t.dataset.tab || t.dataset.genre || t.dataset.region !== undefined || t.dataset.pref !== undefined
-      || t.dataset.house || t.id === "allJapan" || t.id === "freeOnly") st.limit = PAGE;
+      || t.dataset.house || t.id === "allJapan" || t.id === "freeOnly" || t.dataset.month !== undefined) st.limit = PAGE;
   if (t.dataset.tab) { st.tab = t.dataset.tab; }
   else if (t.dataset.genre) { st.genres.has(t.dataset.genre) ? st.genres.delete(t.dataset.genre) : st.genres.add(t.dataset.genre); renderChips(); wiggle(`[data-genre="${t.dataset.genre}"]`); }
   else if (t.dataset.region !== undefined) { st.region = (st.region === t.dataset.region ? "" : t.dataset.region); st.pref = ""; store.set("area", {region: st.region, pref: ""}); }
   else if (t.dataset.pref !== undefined) { st.pref = t.dataset.pref; store.set("area", {region: st.region, pref: st.pref}); }
   else if (t.dataset.house) { st.house = t.dataset.house; }
+  else if (t.dataset.month !== undefined) { st.month = st.month === t.dataset.month ? "" : t.dataset.month; }
   else if (t.id === "allJapan") { st.region = ""; st.pref = ""; store.set("area", {region: "", pref: ""}); }
   else if (t.id === "mapToggle") { const c = $("#mapbox").classList.toggle("closed"); t.textContent = c ? "地図をひらく" : "地図をたたむ"; store.set("mapClosed", c); return; }
   else if (t.dataset.follow) { const k = t.dataset.follow; st.follows.has(k) ? st.follows.delete(k) : st.follows.add(k); store.set("follows", [...st.follows]); }
