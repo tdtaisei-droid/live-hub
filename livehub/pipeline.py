@@ -9,7 +9,7 @@ from datetime import date, datetime
 from pathlib import Path
 from typing import Optional
 
-from .classify import STORE_LIVE, classify_genre, classify_kind, is_broadcast_target, is_free, is_hall_target, is_relevant
+from .classify import ENDED, STORE_LIVE, is_news_post, classify_genre_with_default, classify_kind, is_venue_target, is_broadcast_target, is_free, is_hall_target, is_relevant
 from .collectors import RawItem
 from .collectors.html import find_feeds, find_schedule_pages, page_text, parse_jsonld_events, parse_schedule_blocks
 from .collectors.ics import parse_ics
@@ -19,7 +19,7 @@ from .geo import detect_location, region_of
 from .models import Event
 from .sources import Source, load_sources
 from .store import Store
-from .textutil import extract_schedule, find_dates, normalize, quoted_titles
+from .textutil import clean_title, extract_schedule, find_dates, normalize, quoted_titles
 
 log = logging.getLogger("livehub")
 DATA = Path(__file__).resolve().parent.parent / "data"
@@ -28,12 +28,18 @@ DATA = Path(__file__).resolve().parent.parent / "data"
 # ---------- RawItem → Event ----------
 def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[Event]:
     text = f"{item.title} {item.summary}"
+    if ENDED.search(text):
+        return None  # 終了済みの公演
+    if not item.structured and is_news_post(item.title):
+        return None  # 写真公開・コメント到着などのお知らせ記事
     if not item.structured and not is_relevant(text):
         return None
     if item.structured and not is_relevant(text + " 公演"):
         return None  # 映画イベント等の除外は構造化データにも適用
     if src.category == "halls" and not is_hall_target(text):
         return None  # 公立ホールは発表会・式典などが多いので、対象ジャンルの公演だけ残す
+    if src.category in ("venues_music", "theaters") and not item.structured and not is_venue_target(text):
+        return None  # 会場の一覧に混ざる展示会・スポーツ・フリマ等を除く
     if src.category == "broadcasters" and not is_broadcast_target(text):
         return None  # 放送局は物産展・スポーツ等が多いので、ライブ・公演・公開収録だけ残す
     sched = extract_schedule(text, ref)
@@ -59,11 +65,15 @@ def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[E
         venue, pref = venue or v2, p2
     region = region_of(pref) if pref else detect_location(text)[2]
 
+    title = item.title if item.structured else clean_title(item.title)
+    # 「会員先行 抽選 〜」のように、公演名が無く販売期間だけのブロックは公演として扱わない
+    if len(normalize(title)) < 4 or re.match(r"^(\S*先行|一般発売|一般販売|抽選|受付|料金|チケット)", title):
+        return None
     ev = Event(
-        title=item.title,
+        title=title,
         url=item.url,
         source_id=src.id,
-        genre=classify_genre(text, src.genre_default),
+        genre=classify_genre_with_default(text, src.genre_default),
         kind=classify_kind(text, sale is not None, item.structured),
         performers=item.performers,
         venue=venue,

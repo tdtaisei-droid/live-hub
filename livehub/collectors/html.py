@@ -111,8 +111,11 @@ class _Scanner(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.feeds: list[tuple[str, str]] = []
         self.blocks: list[tuple[str, list[str]]] = []
+        self.link_texts: dict[str, str] = {}
         self._stack: list[tuple[list[str], list[str]]] = []
         self._skip = 0
+        self._a: Optional[str] = None
+        self._abuf: list[str] = []
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -128,8 +131,15 @@ class _Scanner(HTMLParser):
             self._stack.append(([], []))
         if tag == "a" and a.get("href") and self._stack:
             self._stack[-1][1].append(a["href"])
+        if tag == "a" and a.get("href"):
+            self._a, self._abuf = a["href"], []
 
     def handle_endtag(self, tag):
+        if tag == "a" and self._a is not None:
+            txt = clean_space(" ".join(self._abuf))
+            if len(txt) > len(self.link_texts.get(self._a, "")):
+                self.link_texts[self._a] = txt
+            self._a = None
         if tag in self.SKIP and self._skip:
             self._skip -= 1
         if tag in self.BLOCK and self._stack:
@@ -141,6 +151,8 @@ class _Scanner(HTMLParser):
             self.blocks.append((text, links))
 
     def handle_data(self, data):
+        if self._a is not None and data.strip():
+            self._abuf.append(data.strip())
         if not self._skip and self._stack and data.strip():
             self._stack[-1][0].append(data.strip())
 
@@ -165,9 +177,23 @@ def parse_schedule_blocks(html_text: str, base_url: str, ref: date) -> list[RawI
         chosen.append((text, links))
     out = []
     for text, links in chosen:
-        out.append(RawItem(title=text[:200], url=urljoin(base_url, links[0]), summary=text))
+        # 1つの枠(カレンダーの1日など)に複数の公演リンクがある場合は、リンクごとに分ける
+        named = []
+        for h in dict.fromkeys(links):
+            lt = sc.link_texts.get(h, "")
+            if len(lt) >= 4 and not _GENERIC_LINK.search(lt):
+                named.append((h, lt))
+        if len(named) >= 2:
+            hits = find_dates(text, ref)
+            head = text[:hits[0].end] if hits else ""  # 枠の共通部分は日付だけ(他の催しの語を混ぜない)
+            for h, lt in named:
+                out.append(RawItem(title=lt[:200], url=urljoin(base_url, h), summary=f"{head} {lt}"))
+        else:
+            out.append(RawItem(title=text[:200], url=urljoin(base_url, links[0]), summary=text))
     return out
 
+
+_GENERIC_LINK = re.compile(r"^(詳細|詳しく|more|MORE|もっと見る|チケット|購入|予約|公演ページ|作品ページ|一覧|次へ|前へ|>|＞|»|TOP|HOME|PAGE ?TOP)", re.I)
 
 _DROP = re.compile(r"<(script|style|noscript|nav|header|footer)\b.*?</\1>", re.S | re.I)
 _TAGS = re.compile(r"<[^>]+>")

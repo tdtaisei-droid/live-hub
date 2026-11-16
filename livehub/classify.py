@@ -13,7 +13,7 @@ CINEMA_EVENT = re.compile(r"(舞台挨拶|舞台あいさつ|初日挨拶|公開
 
 GENRE_RULES: list[tuple[str, re.Pattern]] = [
     ("musical", re.compile(r"(ミュージカル|musical|宝塚|劇団四季|2\.5次元|ミューステ)", re.I)),
-    ("comedy", re.compile(r"(お笑い|漫才|コント|落語|独演会|単独ライブ|ルミネtheよしもと|なんばグランド花月|NGK|芸人|M-1|キングオブコント|R-1)", re.I)),
+    ("comedy", re.compile(r"(お笑い|漫才|コント|落語|トークライブ|独演会|単独ライブ|ルミネtheよしもと|なんばグランド花月|NGK|芸人|M-1|キングオブコント|R-1)", re.I)),
     ("stage", re.compile(r"(舞台|演劇|公演.*(劇場|座)|劇団|朗読劇|ストレートプレイ|歌舞伎|バレエ|オペラ|戯曲|上演)")),
     ("music", re.compile(r"(ライブ|LIVE|ツアー|TOUR|コンサート|フェス|ワンマン|対バン|リサイタル|アリーナ|ドーム公演|ホール公演|歌唱)", re.I)),
 ]
@@ -94,3 +94,41 @@ def is_broadcast_target(text: str) -> bool:
     if BROADCAST_NOISE.search(text):
         return False
     return HALL_TARGET.search(text) is not None or BROADCAST_TARGET.search(text) is not None
+
+
+# 会場(アリーナ・ホール)で開かれる、公演ではない催し
+VENUE_NOISE = re.compile(
+    r"(フリーマーケット|フリマ|見本市|展示会|展覧会|博覧会|スタンプラリー|自由見学|見学会|物産|即売会|"
+    r"説明会|就職|入学試験|試験|式典|総会|スポーツ|大会|競技|プロレス|格闘|ボクシング|バスケ|バレーボール|"
+    r"フィギュアスケート|ゴルフ|eスポーツ|マルシェ|フェア|グルメ|ビアガーデン|イベントカレンダーは)"
+)
+ENDED = re.compile(r"(終了しました|公演終了|終演しました|販売終了しました|受付は全て終了)")
+# 会場の告知に多い、対象ジャンルの公演であることを示す語
+VENUE_TARGET = re.compile(
+    r"(コンサート|ライブ|LIVE|ライヴ|ツアー|TOUR|公演|ワンマン|フェス|リサイタル|ミュージカル|舞台|演劇|"
+    r"お笑い|漫才|落語|寄席|開演|OPEN|START)", re.I)
+
+
+def is_venue_target(text: str) -> bool:
+    return VENUE_TARGET.search(text) is not None and VENUE_NOISE.search(text) is None
+
+
+# 「ライブ」「LIVE」だけで音楽と判定された場合は、情報源の既定ジャンル(お笑い事務所ならお笑い)を優先
+_GENERIC_MUSIC = re.compile(r"(ライブ|LIVE)", re.I)
+_STRONG_MUSIC = re.compile(r"(ツアー|TOUR|コンサート|フェス|ワンマン|対バン|リサイタル|アリーナ|ドーム公演|ホール公演|歌唱|バンド)", re.I)
+
+
+def classify_genre_with_default(text: str, default: Optional[str]) -> Optional[str]:
+    g = classify_genre(text, default)
+    if g == "music" and default and default != "music" and not _STRONG_MUSIC.search(text):
+        return default
+    return g
+
+
+# 公演そのものではない「お知らせ記事」(写真公開・コメント到着・情報追記など)
+NEWS_POST = re.compile(r"(公開しました|公開!|を公開|更新しました|追記|掲載しました|コメント到着|コメントが到着|レポート|インタビュー|舞台写真|ゲネプロ|動画公開|ビジュアル解禁|チラシ更新)")
+NEWS_KEEP = re.compile(r"(決定|追加公演|発売|先行|開催|上演)")
+
+
+def is_news_post(text: str) -> bool:
+    return NEWS_POST.search(text) is not None and NEWS_KEEP.search(text) is None

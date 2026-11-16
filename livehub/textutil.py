@@ -115,3 +115,27 @@ _QUOTED = re.compile(r"[「『]([^」』]{2,60})[」』]")
 
 def quoted_titles(text: str) -> list[str]:
     return _QUOTED.findall(text or "")
+
+
+# ---------- タイトルの整形 ----------
+_LEAD_NOISE = re.compile(
+    r"^(\s|上演中|公演中|開催中|NEW|new|New|PICK ?UP|[0-9０-９]{1,2}\.[0-9]{1,2}\s*\[[A-Z]{3}\]|"
+    r"(開催日|公演日|日時|日程)\s*[:：]?|20\d{2}[-/.]\d{1,2}[-/.]\d{1,2}|"
+    r"(20\d{2}\s*年\s*)?\d{1,2}\s*月\s*\d{1,2}\s*日|\d{1,2}/\d{1,2}|"
+    r"[(（][^)）]{1,4}[)）]|[~〜～\-–]|℗|・|\||｜|コンサート|演劇|ダンス|主催公演|PARCO PRODUCE( 20\d{2})?)+"
+)
+_CUT_AT = re.compile(
+    r"\s(出演|料金|開場|開演|OPEN|START|入場料|お問い?合わせ|問合せ|会場|チケット|一般発売|発売日|主催|"
+    r"終了しました|詳細|※|TEL|全席|S席|A席)[\s:：/]")
+
+
+def clean_title(raw: str) -> str:
+    """一覧ブロックの文字列から、公演名らしい部分だけを取り出す。"""
+    t = clean_space(raw)
+    t = _LEAD_NOISE.sub("", t).strip()
+    t = re.sub(r"^(一般|関係者|一般&関係者)\s+", "", t)
+    t = re.sub(r"\s+(詳細|詳しくはこちら|more|MORE)$", "", t)
+    m = _CUT_AT.search(" " + t)
+    if m and m.start() > 4:
+        t = t[:m.start() - 1]
+    return t[:90].strip(" ・-|｜")

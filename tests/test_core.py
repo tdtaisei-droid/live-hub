@@ -278,3 +278,22 @@ def test_broadcaster_filter():
     assert not is_broadcast_target("映画『X』試写会プレゼント")
     s = src(id="fm802", category="broadcasters", name="FM802", genre_default="music")
     assert to_event(RawItem("番組の公開収録 12月20日 観覧無料", "https://f/1"), s, REF, NOW).free
+
+
+def test_calendar_cell_with_multiple_events_is_split():
+    html = (FX / "calendar_multi.html").read_text(encoding="utf-8")
+    items = parse_schedule_blocks(html, "https://h.example.com/cal/", REF)
+    titles = [i.title for i in items]
+    assert "架空歌手 CONCERT TOUR 2026" in titles and "架空学会 学術大会" in titles
+    s = src(id="hall", category="venues_music", name="会場H", prefecture="東京都", genre_default="music")
+    kept = [to_event(i, s, REF, NOW) for i in items]
+    names = [e.title for e in kept if e]
+    assert "架空歌手 CONCERT TOUR 2026" in names        # 同じ枠の学会と一緒に消えない
+    assert all("学会" not in n for n in names)
+    assert "架空バンド ワンマンライブ" in names
+
+
+def test_news_posts_dropped():
+    s = src(id="t", category="theaters", name="劇場T", prefecture="東京都", genre_default="stage")
+    assert to_event(RawItem("劇団X『Y』開幕コメント、舞台写真を公開しました 12月1日", "https://t/1"), s, REF, NOW) is None
+    assert to_event(RawItem("劇団X『Y』追加公演決定 12月20日", "https://t/2"), s, REF, NOW) is not None
