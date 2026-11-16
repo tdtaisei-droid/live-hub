@@ -9,7 +9,7 @@ from datetime import date, datetime
 from pathlib import Path
 from typing import Optional
 
-from .classify import ENDED, STORE_LIVE, is_news_post, classify_genre_with_default, classify_kind, is_venue_target, is_broadcast_target, is_free, is_hall_target, is_relevant
+from .classify import ENDED, STORE_LIVE, is_news_post, is_special, classify_genre_with_default, classify_kind, is_venue_target, is_broadcast_target, is_free, is_hall_target, is_relevant
 from .collectors import RawItem
 from .collectors.html import find_feeds, find_schedule_pages, page_text, parse_jsonld_events, parse_schedule_blocks
 from .collectors.ics import parse_ics
@@ -19,7 +19,7 @@ from .geo import detect_location, region_of
 from .models import Event
 from .sources import Source, load_sources
 from .store import Store
-from .textutil import clean_title, extract_schedule, find_dates, normalize, quoted_titles
+from .textutil import clean_title, extract_performers, extract_schedule, find_dates, normalize, quoted_titles
 
 log = logging.getLogger("livehub")
 DATA = Path(__file__).resolve().parent.parent / "data"
@@ -76,7 +76,7 @@ def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[E
         source_id=src.id,
         genre=classify_genre_with_default(text, src.genre_default),
         kind=classify_kind(text, sale is not None, item.structured),
-        performers=item.performers,
+        performers=item.performers or extract_performers(text),
         venue=venue,
         prefecture=pref,
         region=region,
@@ -86,6 +86,7 @@ def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[E
         ticket_sale_label=(sched.ticket_sale_label if not item.ticket_sale_at else "発売") if sale else None,
         free=is_free(text),
         house=src.house,
+        special=bool(src.house) and is_special(text),
         published_at=item.published_at,
         fetched_at=now,
     )

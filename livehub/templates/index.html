@@ -66,6 +66,11 @@ input[type=search],select{flex:1;min-width:0;width:0;background:var(--panel);col
 .k-ticket{background:#fff;color:#111}
 .k-free{background:#3ddc97;color:#04210f}
 .k-house{border:1px solid #c9b27a;color:#e8d6a6}
+.k-special{background:#c9b27a;color:#1f1704}
+.perf{color:var(--sub);font-size:12.5px;margin-top:4px;line-height:1.9}
+.pf{background:none;border:0;padding:0 2px;font:inherit;color:var(--text);text-decoration:underline dotted #6f6e76;text-underline-offset:3px;cursor:pointer}
+.pf.on{color:var(--comedy);text-decoration-color:var(--comedy)}
+.pf.on::before{content:"★"}
 #houses{display:none}
 body.theater #houses{display:flex}
 body.theater #genres{display:none}
@@ -183,13 +188,13 @@ const isNew = e => e._first && e._first > since;
 const followed = e => [...st.follows].some(f => e._hay.includes(f.toLowerCase()));
 
 // 専用劇場(吉本・宝塚・四季・歌舞伎)の「日々の公演」は通常の一覧に出さず、劇場スケジュールにだけ出す
-const isDaily = e => !!e.house && e.kind === "event";
+const isDaily = e => !!e.house && e.kind === "event" && !e.special;
 const TABS = [
   ["new", "新着", e => !isDaily(e) && isNew(e)],
   ["sale", "まもなく発売", e => !isDaily(e) && e._sale && days(e._sale) >= -1 && days(e._sale) <= 14],
   ["upcoming", "開催予定", e => !isDaily(e) && e._start && days(e._end || e._start) >= 0],
   ["theater", "劇場スケジュール", e => e.house === st.house && (!e._start || days(e._end || e._start) >= 0)],
-  ["follow", "★ フォロー中", e => !isDaily(e) && followed(e)],
+  ["follow", "★ フォロー中", e => followed(e)],  // フォローした人が出る劇場の定期公演もここに出す
   ["all", "すべて", e => !isDaily(e)],
 ];
 
@@ -262,6 +267,13 @@ function saleText(e){
   const rel = n === 0 ? "今日" : n === 1 ? "明日" : n > 1 && n <= 14 ? `あと${n}日` : "";
   return `<span class="sale ${n>=0&&n<=3?"soon":""}">🎫 ${esc(e.ticket_sale_label || "発売")} ${when}${rel ? "・" + rel : ""}</span>`;
 }
+function perfLine(e){
+  const ps = e.performers || [];
+  if (!ps.length) return "";
+  const show = ps.slice(0, 8).map(p =>
+    `<button class="pf ${st.follows.has(p) ? "on" : ""}" data-follow="${esc(p)}" title="${esc(p)}をフォロー">${esc(p)}</button>`).join("、");
+  return `<div class="perf">🎤 出演: ${show}${ps.length > 8 ? ` ほか${ps.length - 8}組` : ""}</div>`;
+}
 function card(e){
   const key = e.performers?.[0] || e.venue || "";
   const on = key && st.follows.has(key);
@@ -272,12 +284,14 @@ function card(e){
         ${isNew(e) ? `<span class="badge k-new">NEW</span>` : ""}
         ${e.kind === "ticket" ? `<span class="badge k-ticket">チケット</span>` : ""}
         ${e.free ? `<span class="badge k-free">無料</span>` : ""}
-        ${e.house && st.tab !== "theater" ? `<span class="badge k-house">${esc(HOUSES[e.house] || "")}</span>` : ""}</div>
+        ${e.house && st.tab !== "theater" ? `<span class="badge k-house">${esc(HOUSES[e.house] || "")}</span>` : ""}
+        ${e.special ? `<span class="badge k-special">特別公演</span>` : ""}</div>
       <a class="title" href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.title)}</a>
       <div class="meta">
         ${e.venue || e.prefecture ? `<span>📍 ${esc(e.venue || "")}${e.prefecture ? `(${esc(e.prefecture)})` : ""}</span>` : (e.region !== "不明" ? `<span>📍 ${esc(e.region)}</span>` : "")}
         ${saleText(e)}
       </div>
+      ${perfLine(e)}
       <div class="src">出典: ${esc((e.source_names || []).join(" / "))}</div>
     </div>
     ${key ? `<button class="star" data-follow="${esc(key)}" aria-pressed="${on}" title="${esc(key)} をフォロー">${on ? "★" : "☆"}</button>` : "<span></span>"}

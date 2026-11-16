@@ -56,7 +56,8 @@ class Store:
             old["house"] = old.get("house") or d.get("house")
             if old.get("kind") != "ticket" and d.get("kind") == "ticket":
                 old["kind"] = "ticket"
-            old["performers"] = list(dict.fromkeys(old.get("performers", []) + d.get("performers", [])))[:10]
+            old["performers"] = list(dict.fromkeys(old.get("performers", []) + d.get("performers", [])))[:30]
+            old["special"] = old.get("special") or d.get("special", False)
             if ev.source_id not in sources:
                 sources.append(ev.source_id)
             self.db.execute(

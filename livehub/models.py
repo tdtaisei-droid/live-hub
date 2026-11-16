@@ -43,6 +43,7 @@ class Event:
     ticket_sale_label: Optional[str] = None    # "最速先行" "一般発売" など
     free: bool = False                     # 観覧無料(フリーライブ)
     house: Optional[str] = None            # 専用劇場の公演(吉本・宝塚・四季・歌舞伎)。劇場スケジュールに出す
+    special: bool = False                  # 専用劇場でも特別な公演(単独・独演会など)。通常の一覧にも出す
     published_at: Optional[datetime] = None    # 情報源での公開日時
     fetched_at: Optional[datetime] = None
     fingerprint: str = ""                  # 重複判定キー(pipeline で付与)

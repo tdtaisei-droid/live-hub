@@ -132,3 +132,11 @@ NEWS_KEEP = re.compile(r"(決定|追加公演|発売|先行|開催|上演)")
 
 def is_news_post(text: str) -> bool:
     return NEWS_POST.search(text) is not None and NEWS_KEEP.search(text) is None
+
+
+# 専用劇場でも「特別な公演」は通常の一覧にも出す
+SPECIAL = re.compile(r"(単独ライブ|単独公演|独演会|特別公演|記念公演|周年|凱旋|追善|襲名|スペシャルライブ|生誕祭|卒業公演|お披露目)")
+
+
+def is_special(text: str) -> bool:
+    return SPECIAL.search(text) is not None

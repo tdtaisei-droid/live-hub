@@ -160,3 +160,26 @@ def clean_title(raw: str) -> str:
     if m and m.start() > 4:
         t = t[:m.start() - 1]
     return t[:90].strip(" ・-|｜")
+
+
+# ---------- 出演者 ----------
+_PERFORMERS = re.compile(
+    r"(?:出演者?|出\s*演|キャスト|CAST|ゲスト|MC)\s*[:：／/]?\s*(.+?)"
+    r"(?=\s*(?:料金|入場料|開場|開演|OPEN|START|チケット|前売|当日|※|お問|問合|会場|日時|公演日|主催|詳細|$))",
+    re.I)
+_SPLIT = re.compile(r"\s*[、,，/／\n]\s*|\s{2,}|　")
+_NOT_NAME = re.compile(r"(ほか|他|など|予定|未定|順不同|五十音順|変更|日替わり|調整中|後日|発表|^\d|^[(（])")
+
+
+def extract_performers(text: str, limit: int = 30) -> list[str]:
+    """「出演: A、B、C ほか」から名前を取り出す。名前の中の「・」は区切りにしない(コンビ名に使われるため)。"""
+    out: list[str] = []
+    for m in _PERFORMERS.finditer(clean_space(text)):
+        for raw in _SPLIT.split(m.group(1)):
+            name = re.sub(r"[(（][^)）]*[)）]", "", raw).strip(" ・:：「」『』")
+            name = re.sub(r"\s*(ほか|他|など)$", "", name).strip()
+            if 2 <= len(name) <= 24 and not _NOT_NAME.search(name) and name not in out:
+                out.append(name)
+            if len(out) >= limit:
+                return out
+    return out

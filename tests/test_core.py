@@ -311,3 +311,19 @@ def test_house_sources():
     by = {s.id: s.house for s in load_sources()}
     assert by["ngk"] == "yoshimoto" and by["kabukiza"] == "kabuki" and by["shiki-haru"] == "shiki"
     assert by["takarazuka"] == "takarazuka" and by["zepp-haneda"] is None
+
+
+def test_extract_performers():
+    from livehub.textutil import extract_performers
+    t = "12月1日 ルミネ 夜公演 出演:架空コンビA、架空トリオB、架空ピンC(ゲスト) ほか 料金 4,500円"
+    assert extract_performers(t) == ["架空コンビA", "架空トリオB", "架空ピンC"]
+    assert extract_performers("出演者 架空・ペア / 架空ズ 開演 19:00") == ["架空・ペア", "架空ズ"]
+    assert extract_performers("出演:後日発表") == []
+
+
+def test_house_special_and_performers():
+    s = next(x for x in load_sources() if x.id == "lumine-yoshimoto")
+    reg = to_event(RawItem("ルミネ 夜公演 12月1日 出演:架空コンビA、架空トリオB", "https://l/1"), s, REF, NOW)
+    sp = to_event(RawItem("架空コンビA 単独ライブ 12月2日", "https://l/2"), s, REF, NOW)
+    assert reg.house == "yoshimoto" and not reg.special and reg.performers == ["架空コンビA", "架空トリオB"]
+    assert sp.special
