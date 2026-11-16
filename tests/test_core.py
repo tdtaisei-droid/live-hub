@@ -352,8 +352,8 @@ def test_site_does_not_publish_ticket_info(tmp_path):
            "kind": "ticket", "ticket_sale_at": "2026-12-01T10:00:00", "ticket_sale_label": "最速先行",
            "start_date": "2027-01-10", "region": "関東", "first_seen": "2026-11-16T06:00:00"}]
     out = sitebuild.build(ev, out_dir=tmp_path, today=REF)
-    data = json.loads((out / "events.json").read_text(encoding="utf-8"))
-    e = data["events"][0]
+    data = json.loads((out / "data" / "other.json").read_text(encoding="utf-8"))
+    e = data[0]
     assert "ticket_sale_at" not in e and "ticket_sale_label" not in e and e["kind"] == "announce"
     html = (out / "index.html").read_text(encoding="utf-8")
     assert "まもなく発売" not in html and "最速先行" not in html
@@ -382,3 +382,19 @@ def test_first_crawl_is_baseline_not_new(tmp_path):
     rows = {r["title"]: r for r in st.export(REF)}
     assert rows["架空バンド ワンマン"].get("baseline") is True
     assert "baseline" not in rows["架空歌手 リサイタル"]
+
+
+def test_site_data_split_by_prefecture(tmp_path):
+    import json
+    from livehub import sitebuild
+    mk = lambda t, pref, region: {"title": t, "url": "https://x/" + t, "source_id": "kyodo-tokyo", "sources": ["kyodo-tokyo"],
+                                   "genre": "music", "kind": "event", "prefecture": pref, "region": region,
+                                   "start_date": "2027-01-10", "first_seen": "2026-11-16T06:00:00"}
+    ev = [mk("A", "東京都", "関東"), mk("B", "千葉県", "関東"), mk("C", "神奈川県", "関東"), mk("D", None, "オンライン")]
+    out = sitebuild.build(ev, out_dir=tmp_path, today=REF)
+    idx = json.loads((out / "data" / "index.json").read_text(encoding="utf-8"))
+    assert idx["prefCode"]["東京都"] == "p13" and idx["prefCode"]["千葉県"] == "p12" and idx["prefCode"]["神奈川県"] == "p14"
+    assert set(idx["files"]) == {"p13", "p12", "p14", "online"}
+    assert [e["title"] for e in json.loads((out / "data" / "p13.json").read_text(encoding="utf-8"))] == ["A"]
+    assert idx["regionCounts"]["関東"] == 3 and idx["prefCounts"]["千葉県"] == 1
+    assert not (out / "events.json").exists()

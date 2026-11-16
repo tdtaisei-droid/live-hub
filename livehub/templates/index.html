@@ -150,6 +150,7 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
     <div class="mapbox" id="mapbox">
       <div class="maphead"><span>エリア：<b id="areaLabel">全国</b></span>
         <span><button id="allJapan">全国に戻す</button> <button id="mapToggle">地図をたたむ</button></span></div>
+      <p class="hint" id="areaTip" hidden style="margin:6px 0 0;color:var(--comedy)">よく行くエリアを地図で選ぶと、次からそのエリアで速く開きます(いつでも変えられます)</p>
       <!--MAP-->
       <div class="chips" id="prefchips"></div>
     </div>
@@ -180,10 +181,12 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 </dialog>
 
 <script>
-const DATA = /*__DATA__*/null;
 (async () => {
-const data = DATA || await (await fetch("events.json")).json();
-const {meta, events} = data;
+// 目次(件数とファイル名)だけ先に読み、公演データは選ばれたエリアの都道府県ファイルだけ読む
+const idx = await (await fetch("data/index.json")).json();
+const meta = idx.meta;
+const events = [];
+const loaded = new Set();
 const TODAY = new Date(meta.today + "T00:00:00");
 const store = {
   get(k, d){ try { return JSON.parse(localStorage.getItem("livehub:"+k)) ?? d } catch { return d } },
@@ -213,17 +216,37 @@ function wiggle(selector){
   svg.classList.remove(cls); void svg.getBoundingClientRect(); svg.classList.add(cls);
   svg.addEventListener("animationend", () => svg.classList.remove(cls), {once: true});
 }
-const st = {tab:"new", house:Object.keys(HOUSES)[0] || "", free:false, genres:new Set(), region:"", pref:"", q:"", follows:new Set(store.get("follows", []))};
+const firstTime = store.get("area", null) === null;
+const myArea = store.get("area", {region: "", pref: ""});
+const st = {tab:"new", house:Object.keys(HOUSES)[0] || "", free:false, genres:new Set(), region:myArea.region || "", pref:myArea.pref || "", q:"", follows:new Set(store.get("follows", []))};
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const d = s => s ? new Date(s.length <= 10 ? s + "T00:00:00" : s) : null;
 const W = "日月火水木金土";
 const days = (a) => Math.round((a - TODAY) / 864e5);
 
-events.forEach(e => {
-  e._first = d(e.first_seen); e._start = d(e.start_date); e._end = d(e.end_date); e._sale = d(e.ticket_sale_at);
+function prep(e){
+  e._first = d(e.first_seen); e._start = d(e.start_date); e._end = d(e.end_date);
   e._hay = [e.title, e.venue, e.prefecture, ...(e.performers||[]), ...(e.source_names||[])].join(" ").toLowerCase();
-});
+  return e;
+}
+const ALL_FILES = Object.keys(idx.files);
+// エリアに必要なファイル。全国やフォロー中のときは全部
+function filesFor(){
+  if (st.tab === "follow" || (!st.region && !st.pref)) return ALL_FILES;
+  if (st.pref) return [idx.prefCode[st.pref]];
+  if (st.region === "オンライン") return ["online"];
+  return Object.keys(PREF_REGION).filter(p => PREF_REGION[p] === st.region).map(p => idx.prefCode[p]);
+}
+async function ensureLoaded(){
+  const need = filesFor().filter(c => idx.files[c] && !loaded.has(c));
+  if (!need.length) return;
+  need.forEach(c => loaded.add(c));
+  $("#list").innerHTML = `<p class="empty">${need.length > 8 ? "全国の公演を読み込み中…(少し時間がかかります)" : "読み込み中…"}</p>`;
+  const parts = await Promise.all(need.map(c => fetch(`data/${c}.json`).then(r => r.json()).catch(() => [])));
+  for (const part of parts) for (const e of part) events.push(prep(e));
+}
+async function refresh(){ await ensureLoaded(); render(); }
 // 新着 = 前回の訪問以降に見つかり、かつ情報源の初回巡回分ではないもの(前から決まっていた公演を新着にしない)
 const isNew = e => !e.baseline && e._first && e._first > since;
 const followed = e => [...st.follows].some(f => e._hay.includes(f.toLowerCase()));
@@ -266,16 +289,7 @@ function renderChips(){
 
 function renderMap(){
   // 地方・都道府県ごとの件数は、エリア以外の条件(タブ・ジャンル・無料・キーワード)で数える
-  const tab = TABS.find(t => t[0] === st.tab);
-  const keep = {region: st.region, pref: st.pref};
-  st.region = ""; st.pref = "";
-  const base = filtered(tab[2]);
-  Object.assign(st, keep);
-  const byRegion = {}, byPref = {};
-  for (const e of base) {
-    byRegion[e.region] = (byRegion[e.region] || 0) + 1;
-    if (e.prefecture) byPref[e.prefecture] = (byPref[e.prefecture] || 0) + 1;
-  }
+  const byRegion = idx.regionCounts || {}, byPref = idx.prefCounts || {};
   document.querySelectorAll(".rg").forEach(g => {
     const r = g.dataset.region;
     g.classList.toggle("on", st.region === r);
@@ -287,6 +301,7 @@ function renderMap(){
     t.textContent = n ? n + "件" : "";
   });
   $("#areaLabel").textContent = st.pref || st.region || "全国";
+  $("#areaTip").hidden = !firstTime || !!st.region || !!st.pref;
   const prefs = st.region ? Object.keys(PREF_REGION).filter(p => PREF_REGION[p] === st.region) : [];
   $("#prefchips").innerHTML = prefs.length
     ? `<button class="chip" data-pref="" aria-pressed="${!st.pref}">${st.region}すべて</button>` +
@@ -374,10 +389,10 @@ document.addEventListener("click", ev => {
   const t = ev.target.closest("button,.rg"); if (!t) return;
   if (t.dataset.tab) { st.tab = t.dataset.tab; }
   else if (t.dataset.genre) { st.genres.has(t.dataset.genre) ? st.genres.delete(t.dataset.genre) : st.genres.add(t.dataset.genre); renderChips(); wiggle(`[data-genre="${t.dataset.genre}"]`); }
-  else if (t.dataset.region !== undefined) { st.region = (st.region === t.dataset.region ? "" : t.dataset.region); st.pref = ""; }
-  else if (t.dataset.pref !== undefined) { st.pref = t.dataset.pref; }
+  else if (t.dataset.region !== undefined) { st.region = (st.region === t.dataset.region ? "" : t.dataset.region); st.pref = ""; store.set("area", {region: st.region, pref: ""}); }
+  else if (t.dataset.pref !== undefined) { st.pref = t.dataset.pref; store.set("area", {region: st.region, pref: st.pref}); }
   else if (t.dataset.house) { st.house = t.dataset.house; }
-  else if (t.id === "allJapan") { st.region = ""; st.pref = ""; }
+  else if (t.id === "allJapan") { st.region = ""; st.pref = ""; store.set("area", {region: "", pref: ""}); }
   else if (t.id === "mapToggle") { const c = $("#mapbox").classList.toggle("closed"); t.textContent = c ? "地図をひらく" : "地図をたたむ"; store.set("mapClosed", c); return; }
   else if (t.dataset.follow) { const k = t.dataset.follow; st.follows.has(k) ? st.follows.delete(k) : st.follows.add(k); store.set("follows", [...st.follows]); }
   else if (t.id === "freeOnly") { st.free = !st.free; renderChips(); wiggle("#freeOnly"); }
@@ -385,7 +400,7 @@ document.addEventListener("click", ev => {
   else if (t.dataset.unfollow) { st.follows.delete(t.dataset.unfollow); store.set("follows", [...st.follows]); renderFollow(); }
   else if (t.id === "followAdd") { ev.preventDefault(); const v = $("#followInput").value.trim(); if (v) { st.follows.add(v); store.set("follows", [...st.follows]); $("#followInput").value = ""; renderFollow(); } }
   else return;
-  render();
+  refresh();  // エリアやタブが変わったら、必要な都道府県のファイルだけ読んでから描く
 });
 function renderFollow(){
   $("#followList").innerHTML = [...st.follows].map(f => `<button class="chip" data-unfollow="${esc(f)}" aria-pressed="true">${esc(f)} ✕</button>`).join("") || `<span style="color:var(--dim);font-size:13px">なし</span>`;
@@ -398,8 +413,8 @@ if (store.get("mapClosed", false)) { $("#mapbox").classList.add("closed"); $("#m
 $("#q").addEventListener("input", e => { st.q = e.target.value.trim(); render(); });
 if (meta.sample) $("#sample").innerHTML = `<p class="sample">これは画面確認用のプロトタイプです。表示中の公演はすべて架空のサンプルデータで、実在の公演ではありません。</p>`;
 $("#replayOpening").addEventListener("click", ev => { ev.preventDefault(); if (window.livehubOpening) window.livehubOpening(); });
-$("#gen").textContent = `最終更新 ${meta.generated_at.replace("T", " ")}・${meta.count}件`;
-renderChips(); render();
+$("#gen").textContent = `最終更新 ${meta.generated_at.replace("T", " ")}・全国${meta.count}件`;
+renderChips(); await refresh();
 })();
 </script>
 </body>
