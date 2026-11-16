@@ -1,0 +1,616 @@
+{
+ "kyodo-tokai": {
+  "url": "https://www.kyodotokai.co.jp/",
+  "checked": "2026-11-16T16:33:52",
+  "ok": true,
+  "identity": "キョードー東海オフィシャルウェブサイト [KYODO TOKAI OFFICIAL WEB SITE] 愛知/岐阜/三重/静岡/名古屋を中心としたコンサート、演劇、ミュージカルはこちら キョードー東海オフィシャルウェブサイト [KYODO TOKAI OFFICIAL WEB SITE] 東海地区のコンサート、演劇、ミュージカル、イベントの開催情報、チケット予約、プレイガイド案内の総合サイト。 愛",
+  "matched": "キョド東海"
+ },
+ "sunday-folk": {
+  "url": "https://www.sundayfolk.com/",
+  "checked": "2026-11-16T16:33:57",
+  "ok": false,
+  "identity": "TOP - SUNDAY FOLK PROMOTION|名古屋・静岡エリアのライブ・コンサート情報サイト",
+  "matched": null,
+  "reason": "ページの名乗りに名前が見つからない"
+ },
+ "bea": {
+  "url": "https://www.bea-net.com/",
+  "checked": "2026-11-16T16:34:03",
+  "ok": true,
+  "identity": "【公式】BEA 九州地区のライブ・コンサート・イベントを主催するイベンター・株式会社ビッグイヤーアンツの公式サイトです。コンサート、イベントの情報やチケット発売情報をお知らせします。 【公式】BEA 【公式】BEA",
+  "matched": "bea"
+ },
+ "hotstuff": {
+  "url": "https://www.hotstuff.co.jp/",
+  "checked": "2026-11-16T16:34:09",
+  "ok": false,
+  "identity": "ホットスタッフ ■パソコン販売・修理・データレスキュー(データ復旧・データ修復・データ復元) 浜松市を中心にパソコン販売・修理、データ復旧、ネットワーク構築等、パソコンの導入からサポートまで法人・個人問わず対応しております。",
+  "matched": null,
+  "reason": "ページの名乗りに名前が見つからない"
+ },
+ "creativeman": {
+  "url": "https://www.creativeman.co.jp/",
+  "checked": "2026-11-16T16:34:14",
+  "ok": true,
+  "identity": "CREATIVEMAN PRODUCTIONS - CREATIVEMAN PRODUCTIONS サマーソニックを始めとするロック・フェス、国内外アーティストのライヴを企画制作するプロモーター、クリエイティブマンのオフィシャルサイト。 サマーソニックを始めとするロック・フェス、国内外アーティストのライヴを企画制作するプロモーター、クリエイティブ CREATIVEMAN PRODUCTIONS -",
+  "matched": "クリエイティブマンプロダクション"
+ },
+ "smash": {
+  "url": "https://smash-jpn.com/",
+  "checked": "2026-11-16T16:34:19",
+  "ok": true,
+  "identity": "HOME|SMASH [スマッシュ] Official Site",
+  "matched": "smash"
+ },
+ "hip": {
+  "url": "https://www.hipjpn.co.jp/",
+  "checked": "2026-11-16T16:34:23",
+  "ok": false,
+  "reason": "robots.txtで拒否"
+ },
+ "vintage-rock": {
+  "url": "https://www.vintage-rock.com/",
+  "checked": "2026-11-16T16:34:43",
+  "ok": true,
+  "identity": "VINTAGE ROCK 全国のコンサート情報・チケット先行予約情報等多数掲載中!",
+  "matched": "vintagerock",
+  "final_url": "https://vintage-rock.com/"
+ },
+ "sunrise-tokyo": {
+  "url": "https://www.sunrisetokyo.com/",
+  "checked": "2026-11-16T16:34:50",
+  "ok": false,
+  "reason": "robots.txtで拒否"
+ },
+ "red-hot": {
+  "url": "https://www.red-hot.ne.jp/",
+  "checked": "2026-11-16T16:34:51",
+  "ok": false,
+  "reason": "robots.txtで拒否"
+ },
+ "kyodo-osaka": {
+  "url": "https://www.kyodo-osaka.co.jp/",
+  "checked": "2026-11-16T16:34:51",
+  "ok": false,
+  "reason": "robots.txtで拒否"
+ },
+ "greens": {
+  "url": "https://www.greens-corp.co.jp/",
+  "checked": "2026-11-16T16:34:52",
+  "ok": true,
+  "identity": "GREENS CORPORATION 大阪市北区にあるコンサート等の企画・製作会社 株式会社グリーンズコーポレーションのウェブサイト GREENS CORPORATION GREENS CORPORATION",
+  "matched": "greens"
+ },
+ "sound-creator": {
+  "url": "https://www.sound-c.co.jp/",
+  "checked": "2026-11-16T16:34:57",
+  "ok": true,
+  "identity": "サウンドクリエーター[SOUND CREATOR] 関西を中心にライブ・イベントを企画制作するイベントプロモーター サウンドクリエーター[SOUND CREATOR] サウンドクリエーター[SOUND CREATOR]",
+  "matched": "サウンドクリエタ"
+ },
+ "kyodo-sapporo": {
+  "url": "https://www.kyodo-sapporo.co.jp/",
+  "checked": "2026-11-16T16:35:03",
+  "ok": false,
+  "reason": "robots.txtで拒否"
+ },
+ "kyodo-hokuriku": {
+  "url": "https://www.kyodo-hokuriku.co.jp/",
+  "checked": "2026-11-16T16:35:03",
+  "ok": true,
+  "identity": "HOME | キョードー北陸 home description キョードー北陸のオフィシャルサイトでは、新潟・長野・富山・石川・福井エリアで行われるコンサートや演劇、イベント等の最新情報をご案内しています。チケットの発売情報等お調べいただけます!",
+  "matched": "キョド北陸"
+ },
+ "kyodo-tohoku": {
+  "url": "https://www.kyodo-tohoku.co.jp/",
+  "checked": "2026-11-16T16:35:07",
+  "ok": false,
+  "reason": "robots.txtで拒否"
+ },
+ "north-road": {
+  "url": "https://www.north-road.co.jp/",
+  "checked": "2026-11-16T16:35:08",
+  "ok": true,
+  "identity": "ノースロード・ミュージック:NorthRoadMusic【コンサート・イベント・ライブ】 ポップス・ロックからクラシック音楽まで、魅力的な【コンサート・イベント・ライブ】を提供します。",
+  "matched": "ノスロドミュジック"
+ },
+ "fob-niigata": {
+  "url": "https://www.fob-net.co.jp/",
+  "checked": "2026-11-16T16:35:12",
+  "ok": false,
+  "reason": "robots.txtで拒否"
+ },
+ "k-arena": {
+  "url": "https://k-arena.com/",
+  "checked": "2026-11-16T16:35:12",
+  "ok": true,
+  "identity": "Kアリーナ横浜 Kアリーナ横浜 Kアリーナ横浜 Kアリーナ横浜の公式サイトです。国際都市・横浜に、世界最大級の音楽に特化したアリーナが誕生します。過去と現在、そして未来を結び、音楽を起点として歴史と文化を世界に発信していきます。",
+  "matched": "kアリナ横浜"
+ },
+ "pia-arena": {
+  "url": "https://pia-arena-mm.jp/",
+  "checked": "2026-11-16T16:35:16",
+  "ok": true,
+  "identity": "ぴあアリーナMM ぴあアリーナMM公式サイト。ぴあ株式会社が運営する1万人規模のイベント会場「ぴあアリーナMM(エムエム)」。2020年4月25日、横浜・みなとみらいにオープン! ぴあアリーナMM - PIA ARENA MM ぴあアリーナMM - PIA ARENA MM その1日が、もっと楽しい。",
+  "matched": "ぴあアリナmm"
+ },
+ "ariake-arena": {
+  "url": "https://ariake-arena.tokyo/",
+  "checked": "2026-11-16T16:35:20",
+  "ok": true,
+  "identity": "TOKYO ARIAKE ARENA | 「東京有明アリーナ」オフィシャルサイト 「東京有明アリーナ」オフィシャルサイト TOKYO ARIAKE ARENA|「東京有明アリーナ」オフィシャルサイト TOKYO ARIAKE ARENA|「東京有明アリーナ」オフィシャルサイト",
+  "matched": "有明アリナ"
+ },
+ "line-cube": {
+  "url": "https://linecubeshibuya.com/",
+  "checked": "2026-11-16T16:35:26",
+  "ok": true,
+  "identity": "LINE CUBE SHIBUYA(渋谷公会堂) LINE CUBE SHIBUYA(渋谷公会堂) - 渋谷カルチャーの継承と発信の場。次世代のエンターテインメントを創造するホールを目指しています。2019年10月に新しくLINE CUBE SHIBUYAとして生まれ変わる渋谷公会堂です。 LINE CUBE SHIBUYA(渋谷公会堂) トップページ",
+  "matched": "linecubeshibuya"
+ },
+ "o-east": {
+  "url": "https://shibuya-o.com/east/",
+  "checked": "2026-11-16T16:35:30",
+  "ok": true,
+  "identity": "Spotify O-EAST(オーイースト) Spotify O-EASTは、渋谷で1,300名のキャパシティを持つ大型ライブスペースです。 Spotify O-EAST・O-WEST・O-Crest・O-nest | キャパシティーの異なる複数店舗を持つシナプスを活かし、今後も音楽を中心としたすべてのエンターテイメントを応援していきます。 Spotify O-EAST(オーイースト)",
+  "matched": "spotifyoeast"
+ },
+ "o-west": {
+  "url": "https://shibuya-o.com/west/",
+  "checked": "2026-11-16T16:35:37",
+  "ok": true,
+  "identity": "Spotify O-WEST(オーウェスト) Spotify O-WESTは、フューチャーからキャリアアーティストまでジャンルレスで幅広い体系のライブハウスです。 Spotify O-EAST・O-WEST・O-Crest・O-nest | キャパシティーの異なる複数店舗を持つシナプスを活かし、今後も音楽を中心としたすべてのエンターテイメントを応援していきます。 Spotify O-WEST(オー",
+  "matched": "spotifyowest"
+ },
+ "o-crest": {
+  "url": "https://shibuya-o.com/crest/",
+  "checked": "2026-11-16T16:35:42",
+  "ok": true,
+  "identity": "Spotify O-Crest(オークレスト) Spotify O-Crestは、ムロフェスを始めとする店舗発信型のイベントも多数企画。次世代を担うバンドたちが集うライブハウスです。 Spotify O-EAST・O-WEST・O-Crest・O-nest | キャパシティーの異なる複数店舗を持つシナプスを活かし、今後も音楽を中心としたすべてのエンターテイメントを応援していきます。 Spotify",
+  "matched": "spotifyocrest"
+ },
+ "o-nest": {
+  "url": "https://shibuya-o.com/nest/",
+  "checked": "2026-11-16T16:35:47",
+  "ok": true,
+  "identity": "Spotify O-nest(オーネスト) 【2021年3月OPEN25周年】Spotify O-nestは、オールジャンルのライブイベントが楽しめるライブハウスです。 Spotify O-EAST・O-WEST・O-Crest・O-nest | キャパシティーの異なる複数店舗を持つシナプスを活かし、今後も音楽を中心としたすべてのエンターテイメントを応援していきます。 Spotify O-nest",
+  "matched": "spotifyonest"
+ },
+ "liquidroom": {
+  "url": "https://www.liquidroom.net/",
+  "checked": "2026-11-16T16:35:52",
+  "ok": true,
+  "identity": "LIQUIDROOM [リキッドルーム] LIQUIDROOM [リキッドルーム] LIQUIDROOM [リキッドルーム] 東京を代表するライブハウス、LIQUIDROOM [リキッドルーム]のオフィシャルサイト。メイン・ホールの他にLOFT、Time out Cafe & Diner、KATAといった3つのエリアをプラスした複合施設としてさまざな催事/用途にご利用頂けます。",
+  "matched": "liquidroom"
+ },
+ "www": {
+  "url": "https://www-shibuya.jp/",
+  "checked": "2026-11-16T16:35:57",
+  "ok": true,
+  "identity": "渋谷WWW / WWW X オフィシャルサイト 東京渋谷・スペイン坂のライブスペース「WWW」「WWW X」オフィシャルサイト。 渋谷WWW / WWW X オフィシャルサイト 渋谷WWW / WWW X オフィシャルサイト",
+  "matched": "www"
+ },
+ "duo": {
+  "url": "https://www.duomusicexchange.com/",
+  "checked": "2026-11-16T16:36:01",
+  "ok": true,
+  "identity": "duo MUSIC EXCHANGE オフィシャルサイト|東京・渋谷 東京渋谷・道玄坂のライブスペース「duo MUSIC EXCHANGE」オフィシャルサイト。 duo MUSIC EXCHANGE オフィシャルサイト|東京・渋谷 duo MUSIC EXCHANGE オフィシャルサイト",
+  "matched": "duomusicexchange"
+ },
+ "shibuya-quattro": {
+  "url": "https://www.club-quattro.com/shibuya/",
+  "checked": "2026-11-16T16:36:05",
+  "ok": false,
+  "identity": "SHIBUYA CLUB QUATTRO(渋谷クラブクアトロ)公式サイト 渋谷クラブクアトロの公式サイトです。渋谷クラブクアトロの公演スケジュールやイチオシの公演情報、QUATTRO WEB 先行予約情報、ホールインフォメーションをご覧いただけます。 SHIBUYA CLUB QUATTRO(渋谷クラブクアトロ)公式サイト CLUB QUATTRO(クラブクアトロ) SHIBUYA CLUB QU",
+  "matched": null,
+  "reason": "ページの名乗りに名前が見つからない"
+ },
+ "nagoya-quattro": {
+  "url": "https://www.club-quattro.com/nagoya/",
+  "checked": "2026-11-16T16:36:11",
+  "ok": false,
+  "identity": "NAGOYA CLUB QUATTRO(名古屋クラブクアトロ)公式サイト 名古屋クラブクアトロの公式サイトです。名古屋クラブクアトロの公演スケジュールやイチオシの公演情報、QUATTRO WEB 先行予約情報、ホールインフォメーションをご覧いただけます。 NAGOYA CLUB QUATTRO(名古屋クラブクアトロ)公式サイト CLUB QUATTRO(クラブクアトロ) NAGOYA CLUB Q",
+  "matched": null,
+  "reason": "ページの名乗りに名前が見つからない"
+ },
+ "umeda-quattro": {
+  "url": "https://www.club-quattro.com/umeda/",
+  "checked": "2026-11-16T16:36:16",
+  "ok": false,
+  "identity": "UMEDA CLUB QUATTRO(梅田クラブクアトロ)公式サイト 梅田クラブクアトロの公式サイトです。梅田クラブクアトロの公演スケジュールやイチオシの公演情報、QUATTRO WEB 先行予約情報、ホールインフォメーションをご覧いただけます。 UMEDA CLUB QUATTRO(梅田クラブクアトロ)公式サイト CLUB QUATTRO(クラブクアトロ) UMEDA CLUB QUATTRO",
+  "matched": null,
+  "reason": "ページの名乗りに名前が見つからない"
+ },
+ "hiroshima-quattro": {
+  "url": "https://www.club-quattro.com/hiroshima/",
+  "checked": "2026-11-16T16:36:21",
+  "ok": false,
+  "identity": "HIROSHIMA CLUB QUATTRO(広島クラブクアトロ)公式サイト 広島クラブクアトロの公式サイトです。広島クラブクアトロの公演スケジュールやイチオシの公演情報、QUATTRO WEB 先行予約情報、ホールインフォメーションをご覧いただけます。 HIROSHIMA CLUB QUATTRO(広島クラブクアトロ)公式サイト CLUB QUATTRO(クラブクアトロ) HIROSHIMA C",
+  "matched": null,
+  "reason": "ページの名乗りに名前が見つからない"
+ },
+ "shinjuku-loft": {
+  "url": "https://www.loft-prj.co.jp/schedule/loft",
+  "checked": "2026-11-16T16:36:25",
+  "ok": true,
+  "identity": "ROCKIN’ COMMUNICATION 新宿LOFT 1976年10月1日にオープン。1999年4月1日新宿区歌舞伎町に移転。 2006年には30周年を迎え、あらゆるROCKから生まれるコミュニケーションを発信している。 ROCKIN' COMMUNICATION 新宿LOFT LOFT PROJECT",
+  "matched": "新宿loft"
+ },
+ "shelter": {
+  "url": "https://www.loft-prj.co.jp/schedule/shelter",
+  "checked": "2026-11-16T16:36:32",
+  "ok": true,
+  "identity": "下北沢SHELTER|音楽の街下北沢にあるライブハウス「下北沢シェルター」 下北沢SHELTER|意外とロフトの姉妹店とは思われていないシェルターですが、音楽の街下北沢で、古くから店を構えたくさんのミュージシャンを輩出し、日々新しい音楽を発信しています。 下北沢SHELTER|音楽の街下北沢にあるライブハウス「下北沢シェルター」 LOFT PROJECT",
+  "matched": "下北沢shelter"
+ },
+ "club-citta": {
+  "url": "https://clubcitta.co.jp/",
+  "checked": "2026-11-16T16:36:36",
+  "ok": true,
+  "identity": "CLUB CITTA'(クラブチッタ) | 川崎駅東口から徒歩5分、1,300人収容の大型ライブホール 川崎駅から徒歩5分、エンタテイメントの街「ラ チッタデッラ」内の大型ライブホール、クラブチッタ。1988年に大型ライブホールの先駆けとしてオープン、国内外の錚々たるアーティストが出演する歴史あるライブホール。スケジュール、チケット情報を掲載。 CLUB CITTA'(クラブチッタ) | 川崎駅東",
+  "matched": "clubcitta"
+ },
+ "diamond-hall": {
+  "url": "https://www.diamond-hall.jp/",
+  "checked": "2026-11-16T16:36:40",
+  "ok": false,
+  "reason": "robots.txtで拒否"
+ },
+ "bottom-line": {
+  "url": "https://www.bottomline.co.jp/",
+  "checked": "2026-11-16T16:36:40",
+  "ok": false,
+  "identity": "Bottom Line 名古屋・今池のライブハウス Bottom Line の公式サイト。ライブスケジュールや各種ご案内を掲載。 Bottom Line Bottom Line Schedule",
+  "matched": null,
+  "reason": "ページの名乗りに名前が見つからない"
+ },
+ "electric-lady-land": {
+  "url": "https://www.ell.co.jp/",
+  "checked": "2026-11-16T16:36:44",
+  "ok": true,
+  "identity": "E.L.L. on the Web E.L.L. on the Web",
+  "matched": "ell"
+ },
+ "bigcat": {
+  "url": "https://www.bigcat-live.com/",
+  "checked": "2026-11-16T16:36:48",
+  "ok": true,
+  "identity": "BIGCAT BIGCAT - SHINSAIBASHI LIVE HOUSE BIGCAT",
+  "matched": "bigcat",
+  "final_url": "https://bigcat-live.com/"
+ },
+ "namba-hatch": {
+  "url": "https://www.namba-hatch.com/",
+  "checked": "2026-11-16T16:36:54",
+  "ok": false,
+  "reason": "robots.txtで拒否"
+ },
+ "kyocera-dome": {
+  "url": "https://www.kyoceradome-osaka.jp/",
+  "checked": "2026-11-16T16:36:55",
+  "ok": true,
+  "identity": "京セラドーム大阪 興奮と感動のスタジアム京セラドーム大阪の公式サイトです。 京セラドーム大阪 京セラドーム大阪 SEAT",
+  "matched": "京セラドム大阪"
+ },
+ "festival-hall": {
+  "url": "https://www.festivalhall.jp/",
+  "checked": "2026-11-16T16:36:59",
+  "ok": true,
+  "identity": "フェスティバルホール 1958年、芸術性の高い演奏会、国際的な音楽祭を開催できるホールとして大阪・中之島に誕生しました。アクセスや公演情報、チケット購入や座席表などについてご紹介します。 フェスティバルホール フェスティバルホール | 大阪・中之島にある文化施設",
+  "matched": "フェスティバルホル"
+ },
+ "orix-theater": {
+  "url": "https://www.orixtheater.jp/",
+  "checked": "2026-11-16T16:37:04",
+  "ok": true,
+  "identity": "オリックス劇場 ORIX THEATER オリックス劇場 ~旧大阪厚生年金会館をリノベーション、大阪文化発信の拠点として運営~ オリックス劇場 ORIX THEATER オリックス劇場 ORIX THEATER オリックス劇場",
+  "matched": "オリックス劇場"
+ },
+ "drum-logos": {
+  "url": "https://www.drumlogos.jp/",
+  "checked": "2026-11-16T16:37:08",
+  "ok": false,
+  "reason": "robots.txtで拒否"
+ },
+ "marine-messe": {
+  "url": "https://www.marinemesse.or.jp/",
+  "checked": "2026-11-16T16:37:08",
+  "ok": true,
+  "identity": "一般財団法人 福岡コンベンションセンター|FUKUOKA CONVENTION CENTER 一般財団法人 福岡コンベンションセンター|FUKUOKA CONVENTION CENTER 一般財団法人 福岡コンベンションセンター 福岡国際会議場、マリンメッセ福岡、福岡国際センター、福岡サンパレスの4施設からなる九州最大規模の複合コンベンションゾーンです。",
+  "matched": "マリンメッセ福岡"
+ },
+ "tdc-hall": {
+  "url": "https://www.tokyo-dome.co.jp/hall/",
+  "checked": "2026-11-16T16:37:13",
+  "ok": false,
+  "identity": "後楽園ホール | 東京ドームシティ 数々の名勝負が生まれた、格闘技の聖地ともいわれる後楽園ホール。多目的ホールとして新商品発表会やダンス競技など様々なイベントに利用いただけます。 東京ドームシティ公式サイト 後楽園ホール | 東京ドームシティ",
+  "matched": null,
+  "reason": "ページの名乗りに名前が見つからない",
+  "final_url": "https://www.tokyo-dome.co.jp/hall"
+ },
+ "garden-hall": {
+  "url": "https://www.gardenplace.jp/",
+  "checked": "2026-11-16T16:37:17",
+  "ok": false,
+  "identity": "恵比寿ガーデンプレイス公式WEBサイト 東京都渋谷区および目黒区に跨る複合施設、恵比寿ガーデンプレイスの公式ホームページです。JR山手線地下鉄日比谷線恵比寿駅徒歩5分。緑あふれる施設内ではレストラン、映画、写真美術館、ビール博物館、ショッピングが楽しめます。 恵比寿ガーデンプレイス 恵比寿ガーデンプレイス",
+  "matched": null,
+  "reason": "ページの名乗りに名前が見つからない",
+  "final_url": "https://gardenplace.jp/"
+ },
+ "lumine-yoshimoto": {
+  "url": "https://lumine.yoshimoto.co.jp/",
+  "checked": "2026-11-16T16:37:23",
+  "ok": true,
+  "identity": "ルミネtheよしもと 東京・新宿駅南口「LUMINE2」の7Fにある、吉本興業が運営する劇場サイト。漫才やコント、スペシャルコメディなどを豪華な出演者が年中無休で笑いを届けます! ルミネtheよしもと ルミネtheよしもと",
+  "matched": "ルミネtheよしもと"
+ },
+ "ngk": {
+  "url": "https://ngk.yoshimoto.co.jp/",
+  "checked": "2026-11-16T16:37:27",
+  "ok": true,
+  "identity": "なんばグランド花月 大阪・難波にある吉本興業が運営する劇場サイト。漫才・落語・新喜劇を年中無休で笑いを届けます! なんばグランド花月 なんばグランド花月",
+  "matched": "なんばグランド花月"
+ },
+ "manzai-gekijo": {
+  "url": "https://manzaigekijyo.yoshimoto.co.jp/",
+  "checked": "2026-11-16T16:37:31",
+  "ok": true,
+  "identity": "よしもと漫才劇場 お笑い界の未来を担う若手芸人のための劇場「よしもと漫才劇場」公式サイト。大阪の若手芸人を見るならココ!テレビでお馴染の人気者から売り出し中の若手まで様々な芸人が出演するお笑いステージを365日毎日開催中! よしもと漫才劇場 よしもと漫才劇場",
+  "matched": "よしもと漫才劇場"
+ },
+ "jimbocho-yoshimoto": {
+  "url": "https://jimbocho.yoshimoto.co.jp/",
+  "checked": "2026-11-16T16:37:35",
+  "ok": false,
+  "reason": "robots.txtで拒否"
+ },
+ "shibuya-yoshimoto": {
+  "url": "https://shibuya.yoshimoto.co.jp/",
+  "checked": "2026-11-16T16:37:35",
+  "ok": false,
+  "reason": "robots.txtで拒否"
+ },
+ "omiya-raccoon": {
+  "url": "https://omiya.yoshimoto.co.jp/",
+  "checked": "2026-11-16T16:37:35",
+  "ok": true,
+  "identity": "大宮ラクーンよしもと劇場(埼玉) 埼玉県・大宮駅東口徒歩1分「大宮ラクーン」の6Fにある、吉本興業が運営する劇場サイト。実力を持つ芸人が漫才やコント、コーナーを通して笑いを届けます! 大宮ラクーンよしもと劇場(埼玉) 大宮ラクーンよしもと劇場(埼玉)",
+  "matched": "大宮ラクンよしもと劇場"
+ },
+ "yoshimoto-gion-kagetsu": {
+  "url": "https://gion.yoshimoto.co.jp/",
+  "checked": "2026-11-16T16:37:39",
+  "ok": false,
+  "reason": "robots.txtで拒否"
+ },
+ "fukuoka-yoshimoto": {
+  "url": "https://fukuoka.yoshimoto.co.jp/",
+  "checked": "2026-11-16T16:37:39",
+  "ok": false,
+  "reason": "robots.txtで拒否"
+ },
+ "yoshimoto-shinkigeki": {
+  "url": "https://shinkigeki.yoshimoto.co.jp/",
+  "checked": "2026-11-16T16:37:39",
+  "ok": true,
+  "identity": "吉本新喜劇 吉本新喜劇オフィシャルサイト - 吉本新喜劇の最新情報をお伝えします! 吉本新喜劇 吉本新喜劇",
+  "matched": "吉本新喜劇"
+ },
+ "kabukiza": {
+  "url": "https://www.kabuki-za.co.jp/",
+  "checked": "2026-11-16T16:37:43",
+  "ok": true,
+  "identity": "歌舞伎座 東銀座駅直結、歌舞伎座の公式情報サイト。威風堂々たる和風建築の美しさ、名物の幕間のお食事やお弁当、地下「木挽町広場」で買える人気のお土産・和菓子情報を満載。銀座の歴史ある建築美と食文化を堪能する、観光・お散歩に役立つ情報をお届けします。",
+  "matched": "歌舞伎座"
+ },
+ "shinbashi-enbujo": {
+  "url": "https://www.shinbashi-enbujo.co.jp/",
+  "checked": "2026-11-16T16:37:48",
+  "ok": true,
+  "identity": "新橋演舞場 公式ホームページ 新橋演舞場 公式ホームページ 新橋演舞場 公式ホームページ",
+  "matched": "新橋演舞場"
+ },
+ "minamiza": {
+  "url": "https://www.shochiku.co.jp/play/theater/minamiza/",
+  "checked": "2026-11-16T16:37:52",
+  "ok": false,
+  "identity": "南座 松竹株式会社の公式サイトです。歌舞伎や演劇の公演情報をご紹介しています。 南座",
+  "matched": null,
+  "reason": "ページの名乗りに名前が見つからない"
+ },
+ "shochikuza": {
+  "url": "https://www.shochiku.co.jp/play/theater/shochikuza/",
+  "checked": "2026-11-16T16:37:59",
+  "ok": true,
+  "identity": "大阪松竹座 松竹株式会社の公式サイトです。歌舞伎や演劇の公演情報をご紹介しています。 大阪松竹座",
+  "matched": "大阪松竹座"
+ },
+ "misonoza": {
+  "url": "https://www.misonoza.co.jp/",
+  "checked": "2026-11-16T16:38:05",
+  "ok": true,
+  "identity": "御園座 名古屋市中区。演劇興行・貸しビル運営等。企業・IR情報、上演情報。 御園座 御園座 名古屋市中区栄 1−6−14 4月公演",
+  "matched": "御園座"
+ },
+ "meijiza": {
+  "url": "https://www.meijiza.co.jp/",
+  "checked": "2026-11-16T16:38:10",
+  "ok": true,
+  "identity": "明治座 公式サイト 各月の公演案内、座席表、交通案内などの劇場詳細。中央区。 明治座 公式サイト - 各月の公演案内、座席表、交通案内などの劇場詳細。中央区。 明治座 公式サイト",
+  "matched": "明治座"
+ },
+ "nissay": {
+  "url": "https://www.nissaytheatre.or.jp/",
+  "checked": "2026-11-16T16:38:14",
+  "ok": true,
+  "identity": "日生劇場 NISSAY THEATRE | 東京・日比谷 Tokyo Hibiya 東京日比谷の日生劇場公式ホームページです。オペラ、ミュージカル、演劇など様々な舞台芸術を上演しています。 The NISSAY THEATRE is A performing arts theater in Japan Tokyo. 日生劇場 | 日生劇場公式サイト 日生劇場 NISSAY THEATRE | 東京",
+  "matched": "日生劇場"
+ },
+ "orb": {
+  "url": "https://theatre-orb.com/",
+  "checked": "2026-11-16T16:38:19",
+  "ok": true,
+  "identity": "東急シアターオーブ|TOKYU THEATRE Orb 渋谷駅直結、宙空に浮かぶ大劇場、東急シアターオーブ。 東急シアターオーブ",
+  "matched": "東急シアタオブ"
+ },
+ "brillia-hall": {
+  "url": "https://brillia-hall.jp/",
+  "checked": "2026-11-16T16:38:22",
+  "ok": false,
+  "reason": "robots.txtで拒否"
+ },
+ "sunshine-theater": {
+  "url": "https://www.sunshine-theatre.co.jp/",
+  "checked": "2026-11-16T16:38:23",
+  "ok": true,
+  "identity": "トップページ | サンシャイン劇場 オフィシャルサイト サンシャイン劇場オフィシャルサイト:公演情報のほか、座席表や劇場利用案内、アクセスマップ、採用情報などを随時更新、公開しています",
+  "matched": "サンシャイン劇場",
+  "final_url": "https://sunshine-theatre.co.jp/"
+ },
+ "honda-gekijo": {
+  "url": "https://www.honda-geki.com/",
+  "checked": "2026-11-16T16:38:29",
+  "ok": false,
+  "reason": "robots.txtで拒否"
+ },
+ "shinkabukiza": {
+  "url": "https://www.shinkabukiza.co.jp/",
+  "checked": "2026-11-16T16:38:49",
+  "ok": true,
+  "identity": "新歌舞伎座 大阪上本町にある新歌舞伎座は歌舞伎、演劇、ミュージカル、歌謡ショーなど数多くの舞台を楽しめる大衆劇場です。",
+  "matched": "新歌舞伎座"
+ },
+ "hakataza": {
+  "url": "https://www.hakataza.co.jp/",
+  "checked": "2026-11-16T16:38:54",
+  "ok": true,
+  "identity": "福岡の演劇専用劇場 博多座 福岡の演劇専用劇場 博多座の公式ウェブサイトです。歌舞伎・演劇の公演情報、観劇チケットのお買い求め情報を紹介しています。 福岡の演劇専用劇場 博多座 福岡の演劇専用劇場 博多座",
+  "matched": "博多座"
+ },
+ "suehirotei": {
+  "url": "https://www.suehirotei.com/",
+  "checked": "2026-11-16T16:38:58",
+  "ok": true,
+  "identity": "新宿末廣亭",
+  "matched": "新宿末廣亭",
+  "final_url": "http://suehirotei.com/"
+ },
+ "suzumoto": {
+  "url": "https://www.rakugo.or.jp/",
+  "checked": "2026-11-16T16:39:03",
+  "ok": true,
+  "identity": "鈴本演芸場",
+  "matched": "鈴本演芸場",
+  "final_url": "https://rakugo.or.jp/"
+ },
+ "asakusa-engei": {
+  "url": "https://www.asakusaengei.com/",
+  "checked": "2026-11-16T16:39:08",
+  "ok": true,
+  "identity": "浅草観光なら寄席(落語)に行こう - 浅草演芸ホール 1年365日、落語のほかにも、漫才、漫談、コント、マジック、紙切り、曲芸、ものまねなど、実力派の噺家からナイツなど活躍している芸人さんを間近で見れる寄席です。萩本欽一やビートたけしなどを生み出したお笑いの殿堂「浅草演芸ホール」に、是非一度お越しください 浅草観光なら浅草演芸ホール。落語を中心に漫才、マジック、曲芸などバラエティに富んだ演目を上演",
+  "matched": "浅草演芸ホル"
+ },
+ "hanjotei": {
+  "url": "https://www.hanjotei.jp/",
+  "checked": "2026-11-16T16:39:12",
+  "ok": true,
+  "identity": "天満天神繁昌亭|上方落語専門の定席 戦後60年ぶりに復活を遂げた上方落語唯一の寄席「天満天神繁昌亭」。 2006年9月の誕生以来、大阪の新名所として、落語を中心に、漫才、俗曲などの色物芸の興行が連日執り行っております。昼は週替わり、夜は日替わりでベテランから若手までが登場し、連日バラエティに富んだ内容の寄席をおとどけ。楽しく笑える魅力の“繁昌亭”をご堪能あれ。 天満天神繁昌亭|上方落語専門の定席",
+  "matched": "天満天神繁昌亭"
+ },
+ "umeda-arts-main": {
+  "url": "https://www.umegei.com/",
+  "checked": "2026-11-16T16:39:19",
+  "ok": false,
+  "identity": "梅田芸術劇場 梅田芸術劇場は、メインホールとシアター・ドラマシティの2つの劇場があり、演劇・ミュージカルからクラシック・オペラ・バレエまで様々な演目をお楽しみいただけます。",
+  "matched": null,
+  "reason": "ページの名乗りに名前が見つからない"
+ },
+ "jinrikisha": {
+  "url": "https://p-jinriki.com/",
+  "checked": "2026-11-16T16:39:25",
+  "ok": true,
+  "identity": "JINRIKISHA OFFICIAL WEBSITE プロダクション人力舎オフィシャルウェブサイト プロダクション人力舎オフィシャルウェブサイト。株式会社プロダクション人力舎は玉川善治が1977年設立したお笑い芸人専門の芸能事務所です。所属お笑い芸人の情報をはじめ、様々なコンテンツを幅広く発信中。 プロダクション人力舎オフィシャルウェブサイト プロダクション人力舎オフィシャルウェブサイト JIN",
+  "matched": "プロダクション人力舎"
+ },
+ "maseki": {
+  "url": "https://www.maseki.co.jp/",
+  "checked": "2026-11-16T16:39:56",
+  "ok": true,
+  "identity": "マセキ芸能社 MASEKI GEINOSHA Official Site マセキ芸能社 MASEKI GEINOSHA Official Site マセキ芸能社 MASEKI GEINOSHA Official Site",
+  "matched": "マセキ芸能社"
+ },
+ "grape": {
+  "url": "https://grapecom.jp/",
+  "checked": "2026-11-16T16:40:00",
+  "ok": true,
+  "identity": "GRAPE COMPANY- 株式会社グレープカンパニー GRAPE COMPANY- 株式会社グレープカンパニー 芸能プロダクション、株式会社グレープカンパニーの公式サイト。サンドウィッチマン・永野・カミナリ・高橋英樹・高橋真麻などが所属。ライブ情報、チケット情報、グッズ情報、スケジュールなどを紹介。",
+  "matched": "グレプカンパニ"
+ },
+ "sunmusic": {
+  "url": "https://www.sunmusic.org/",
+  "checked": "2026-11-16T16:40:06",
+  "ok": false,
+  "reason": "robots.txtで拒否"
+ },
+ "asai-kikaku": {
+  "url": "https://www.asaikikaku.co.jp/",
+  "checked": "2026-11-16T16:40:06",
+  "ok": true,
+  "identity": "浅井企画|タレント・芸人・文化人 芸能プロダクション 浅井企画 オフィシャルWEBサイト。芸能プロダクション。萩本欽一、関根勤、小堺一機をはじめ芸人・俳優・文化人・構成作家などのマネージメントを行う。所属タレントのニュース、出演・ライブ情報、スペシャルコンテンツなどを掲載。出演依頼も受付中 浅井企画|タレント・芸人・文化人 芸能プロダクション 浅井企画|タレント・芸人・文化人 芸能プロダクション",
+  "matched": "浅井企画",
+  "final_url": "https://asaikikaku.co.jp/"
+ },
+ "titan": {
+  "url": "https://titan-net.co.jp/",
+  "checked": "2026-11-16T16:40:12",
+  "ok": false,
+  "identity": "TITAN | 爆笑問題やウエストランドなどの所属事務所 TITAN | 爆笑問題やウエストランドなどの所属事務所",
+  "matched": null,
+  "reason": "ページの名乗りに名前が見つからない",
+  "final_url": "https://www.titan-net.co.jp/"
+ },
+ "sma": {
+  "url": "https://www.sma.co.jp/",
+  "checked": "2026-11-16T16:40:18",
+  "ok": true,
+  "identity": "トップ | Sony Music Artists 株式会社ソニー・ミュージックアーティスツのオフィシャルサイトです。 所属アーティストのプロフィールや最新情報などをお届けします。 Sony Music Artists NEWS",
+  "matched": "ソニミュジックアティスツ",
+  "final_url": "https://www.sma.co.jp/s/sma/?ima=0000"
+ },
+ "ldh": {
+  "url": "https://www.ldh.co.jp/",
+  "checked": "2026-11-16T16:40:24",
+  "ok": true,
+  "identity": "LDH - LOVE + DREAM + HAPPINESS TO THE WORLD - LDHオフィシャルサイト。私たちは、Love, Dream, Happinessをテーマにエンタテインメントを創造し、世界中のすべての人たちに届けます。 LDH - LOVE + DREAM + HAPPINESS TO THE WORLD - LDH - LOVE + DREAM + HAPPINESS ",
+  "matched": "ldh"
+ },
+ "stardust": {
+  "url": "https://www.stardust.co.jp/",
+  "checked": "2026-11-16T16:40:28",
+  "ok": true,
+  "identity": "【公式】スターダストプロモーション 株式会社スターダストプロモーション(Stardust Promotion)のオフィシャルサイトです。 タレント・アーティストのプロモーションをはじめ、映像・音楽・グッズ制作など多角的かつ広域にわたったクリエイティブ活動に取り組んでいます。 東京のほか、大阪、仙台、名古屋、福岡、沖縄に営業所を持ち、総勢1000人を超えるタレント所属。 スターダストプロモーション ",
+  "matched": "スタダストプロモション"
+ },
+ "starto": {
+  "url": "https://starto.jp/",
+  "checked": "2026-11-16T16:40:32",
+  "ok": true,
+  "identity": "STARTO ENTERTAINMENT STARTO ENTERTAINMENT STARTO ENTERTAINMENT STARTO ENTERTAINMENT 公式サイト|アーティストの最新情報、関連サービス情報を掲載しています。",
+  "matched": "startoentertainment"
+ },
+ "horipro": {
+  "url": "https://www.horipro.co.jp/",
+  "checked": "2026-11-16T16:40:37",
+  "ok": true,
+  "identity": "ホリプロオフィシャルサイト ホリプロは、昭和35年(1960年)の創業以降、「文化をプロモートする人間産業」という企業理念のもと、タレントの発掘・育成を強みとするマネージメント事業を中心として、番組やCMを制作する映像事業、ミュージカルなどの演劇をプロデュースする公演事業など、さまざまな事業を複合的に展開する総合エンターテイメント企業です。 ホリプロオフィシャルサイト HORIPRO",
+  "matched": "ホリプロ"
+ },
+ "watanabe-ent": {
+  "url": "https://www.watanabepro.co.jp/",
+  "checked": "2026-11-16T16:40:43",
+  "ok": true,
+  "identity": "ワタナベエンターテインメント ワタナベエンターテインメント公式サイト。お笑い芸人から俳優、ミュージシャン、文化人まで幅広い所属アーティストのプロフィールや最新情報などをお届けします。 ワタナベエンターテインメント",
+  "matched": "ワタナベエンタテインメント"
+ }
+}
