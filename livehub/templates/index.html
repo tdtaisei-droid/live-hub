@@ -39,6 +39,14 @@ nav.tabs::-webkit-scrollbar{display:none}
   padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
 .chip[aria-pressed=true]{color:var(--text);border-color:var(--text)}
 .chip .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
+.pic{width:18px;height:18px;margin-right:6px;vertical-align:-4px;fill:currentColor;flex:none}
+.pic .st{fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.chip[data-genre=music] .pic{color:var(--music)}
+.chip[data-genre=comedy] .pic{color:var(--comedy)}
+.chip[data-genre=musical] .pic{color:var(--musical)}
+.chip[data-genre=stage] .pic{color:var(--stage)}
+#freeOnly .pic{color:#3ddc97}
+#openFollow .pic{color:var(--comedy)}
 .row{display:flex;gap:8px}
 input[type=search],select{flex:1;min-width:0;width:0;background:var(--panel);color:var(--text);border:1px solid var(--line);
   border-radius:10px;padding:10px 12px;font:inherit;font-size:15px}
@@ -173,6 +181,16 @@ addEventListener("pagehide", () => store.set("lastVisit", new Date().toISOString
 
 const PREF_REGION = {"北海道":"北海道","青森県":"東北","岩手県":"東北","宮城県":"東北","秋田県":"東北","山形県":"東北","福島県":"東北","茨城県":"関東","栃木県":"関東","群馬県":"関東","埼玉県":"関東","千葉県":"関東","東京都":"関東","神奈川県":"関東","新潟県":"中部","富山県":"中部","石川県":"中部","福井県":"中部","山梨県":"中部","長野県":"中部","岐阜県":"中部","静岡県":"中部","愛知県":"中部","三重県":"近畿","滋賀県":"近畿","京都府":"近畿","大阪府":"近畿","兵庫県":"近畿","奈良県":"近畿","和歌山県":"近畿","鳥取県":"中国","島根県":"中国","岡山県":"中国","広島県":"中国","山口県":"中国","徳島県":"四国","香川県":"四国","愛媛県":"四国","高知県":"四国","福岡県":"九州・沖縄","佐賀県":"九州・沖縄","長崎県":"九州・沖縄","熊本県":"九州・沖縄","大分県":"九州・沖縄","宮崎県":"九州・沖縄","鹿児島県":"九州・沖縄","沖縄県":"九州・沖縄"};
 const HOUSES = meta.houses || {};
+// ピクトグラム(24x24)。色は各ボタンのCSSで付ける
+const ICON = {
+  music: '<path d="M9 18.5a3 3 0 1 1-2-2.83V5.2l12-2.2v12.5a3 3 0 1 1-2-2.83V7.4L9 8.8z"/>',
+  comedy: '<rect x="7.4" y="1.6" width="9.2" height="9.6" rx="4.6"/><rect x="8.6" y="10.6" width="6.8" height="2.2" rx="1.1"/><rect x="10.6" y="12.2" width="2.8" height="7.4"/><path d="M5.5 22a6.5 3.4 0 0 1 13 0z"/>',
+  musical: '<circle cx="15.2" cy="3.4" r="2.5"/><path class="st" style="stroke-width:3.2" d="M14 7.2 11.4 13.6"/><path class="st" d="M13.5 8.6 19 5.6M13.5 8.6 7.6 7.4M11.4 13.6l3.4 3.6-1 4.6M11.4 13.6 6.6 17.8"/>',
+  stage: '<rect x="2" y="2.5" width="20" height="3.2" rx=".8"/><path d="M3 6h7.2C9.4 11 7.4 14.8 3 17.6z"/><path d="M21 6h-7.2c.8 5 2.8 8.8 7.2 11.6z"/><rect x="2" y="19.2" width="20" height="2.3" rx=".8"/>',
+  free: '<path fill-rule="evenodd" d="M2.5 6h19v4.2a1.8 1.8 0 0 0 0 3.6V18h-19v-4.2a1.8 1.8 0 0 0 0-3.6zM15 7.5v1.6h1.4V7.5zm0 3.4v1.6h1.4v-1.6zm0 3.4v1.6h1.4v-1.6z"/>',
+  follow: '<path d="M12 2.6l2.9 6 6.5.8-4.8 4.5 1.2 6.5L12 17.2l-5.8 3.2 1.2-6.5L2.6 9.4l6.5-.8z"/>',
+};
+const pic = k => `<svg class="pic" viewBox="0 0 24 24" aria-hidden="true">${ICON[k] || ""}</svg>`;
 const st = {tab:"new", house:Object.keys(HOUSES)[0] || "", free:false, genres:new Set(), region:"", pref:"", q:"", follows:new Set(store.get("follows", []))};
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -218,9 +236,9 @@ function renderHouses(){
 }
 function renderChips(){
   $("#genres").innerHTML = Object.entries(meta.genres).map(([k, v]) =>
-    `<button class="chip" data-genre="${k}" aria-pressed="${st.genres.has(k)}"><span class="dot g-${k}"></span>${v}</button>`).join("")
-    + `<button class="chip" id="freeOnly" aria-pressed="${st.free}"><span class="dot k-free"></span>無料ライブ</button>`
-    + `<button class="chip" id="openFollow">★ フォロー設定</button>`;
+    `<button class="chip" data-genre="${k}" aria-pressed="${st.genres.has(k)}">${pic(k)}${v}</button>`).join("")
+    + `<button class="chip" id="freeOnly" aria-pressed="${st.free}">${pic("free")}無料ライブ</button>`
+    + `<button class="chip" id="openFollow">${pic("follow")}フォロー設定</button>`;
   renderMap();
 }
 
