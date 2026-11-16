@@ -81,10 +81,11 @@ class Fetcher:
         return max(DELAY, float(d or 0))
 
     # --- 取得 ---
-    def get(self, url: str) -> Response:
+    def get(self, url: str, use_cache: bool = True) -> Response:
+        """use_cache=False は差分取得をせず毎回本文を受け取る(トップページからの自動発見用)。"""
         if not self.allowed(url):
             raise BlockedByRobots(url)
-        return self._raw_get(url)
+        return self._raw_get(url, use_cache=use_cache)
 
     def _raw_get(self, url: str, use_cache: bool = True) -> Response:
         host = urlsplit(url).netloc

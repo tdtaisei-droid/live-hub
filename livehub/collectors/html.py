@@ -178,3 +178,59 @@ def page_text(html_text: str, limit: int = 4000) -> str:
     t = _DROP.sub(" ", html_text)
     t = re.sub(r"<br\s*/?>|</(p|div|li|dt|dd|tr|h\d)>", "\n", t, flags=re.I)
     return clean_space(unescape(_TAGS.sub(" ", t)))[:limit]
+
+
+# ---------- スケジュールページの自動発見 ----------
+# メニューの文字(またはURL)に含まれる語と、その優先度(小さいほど優先)
+_SCHEDULE_WORDS = [
+    (0, re.compile(r"(スケジュール|schedule|公演情報|公演スケジュール|公演一覧|イベントスケジュール|ライブスケジュール)", re.I)),
+    (1, re.compile(r"(ライブ情報|live\s*info|ライブ・イベント|イベント情報|event\s*info|ツアー情報|tour\s*info|上演情報|番組表)", re.I)),
+    (2, re.compile(r"^(live|ライブ|ライヴ|event|events|イベント|tour|ツアー|公演|calendar|カレンダー|stage|ステージ)$", re.I)),
+]
+_SCHEDULE_PATH = re.compile(r"/(schedule|live|lives|event|events|tour|calendar|stage|performance|kouen)(/|\.html?|$|\?)", re.I)
+_NOT_SCHEDULE = re.compile(r"(配信|アーカイブ|archive|report|レポート|過去|past|goods|グッズ|ticket\.|fc|fanclub)", re.I)
+
+
+class _Links(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.links: list[tuple[str, str]] = []
+        self._href: Optional[str] = None
+        self._buf: list[str] = []
+
+    def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
+        if tag == "a" and a.get("href"):
+            self._href, self._buf = a["href"], []
+        elif tag == "img" and self._href is not None and a.get("alt"):
+            self._buf.append(a["alt"])  # 画像メニューの代替テキスト
+
+    def handle_data(self, data):
+        if self._href is not None:
+            self._buf.append(data)
+
+    def handle_endtag(self, tag):
+        if tag == "a" and self._href is not None:
+            self.links.append((self._href, clean_space(" ".join(self._buf))))
+            self._href = None
+
+
+def find_schedule_pages(html_text: str, base_url: str, limit: int = 2) -> list[str]:
+    """トップページのリンクから、公演スケジュールらしいページを優先度順に返す(同じサイト内のみ)。"""
+    from urllib.parse import urlsplit
+    host = urlsplit(base_url).netloc.removeprefix("www.")
+    p = _Links()
+    p.feed(html_text)
+    scored: dict[str, tuple[int, int]] = {}
+    for order, (href, text) in enumerate(p.links):
+        url = urljoin(base_url, href).split("#")[0]
+        if not url.startswith("http") or urlsplit(url).netloc.removeprefix("www.") != host:
+            continue
+        if url.rstrip("/") == base_url.rstrip("/") or _NOT_SCHEDULE.search(text + " " + url):
+            continue
+        rank = next((r for r, pat in _SCHEDULE_WORDS if pat.search(text.strip())), None)
+        if rank is None and _SCHEDULE_PATH.search(urlsplit(url).path + ("?" + urlsplit(url).query if urlsplit(url).query else "")):
+            rank = 3
+        if rank is not None and (url not in scored or scored[url] > (rank, order)):
+            scored[url] = (rank, order)
+    return [u for u, _ in sorted(scored.items(), key=lambda kv: kv[1])][:limit]

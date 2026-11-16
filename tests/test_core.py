@@ -198,3 +198,30 @@ def test_details_fetched_once():
     items = [RawItem("a", "https://t/1"), RawItem("b", "https://t/2")]
     out = _with_details(items, f, seen_urls={"https://t/1"})
     assert f.calls == ["https://t/2"] and "観覧フリー" in out[0].summary
+
+
+# ---- スケジュールページの自動発見 ----
+def test_find_schedule_pages():
+    from livehub.collectors.html import find_schedule_pages
+    html = """<nav><a href="/">HOME</a><a href="/news/">NEWS</a><a href="/live/">LIVE</a>
+    <a href="/schedule/">SCHEDULE</a><a href="https://other.example.org/schedule">外部</a>
+    <a href="/live/report/">ライブレポート</a><a href="/goods/">GOODS</a></nav>"""
+    assert find_schedule_pages(html, "https://www.example.com/") == [
+        "https://www.example.com/schedule/", "https://www.example.com/live/"]
+
+
+def test_collect_via_top_page_menu():
+    from livehub.fetch import Response
+    from livehub.pipeline import _items_for
+    pages = {
+        "https://v.example.com/": '<a href="/schedule/">スケジュール</a>',
+        "https://v.example.com/schedule/": (FX / "schedule.html").read_text(encoding="utf-8"),
+    }
+
+    class Stub:
+        def get(self, url, use_cache=True):
+            return Response(url, 200, pages.get(url, ""), "text/html")
+
+    s = src(id="v", category="venues_music", name="会場V", prefecture="東京都", url="https://v.example.com/")
+    items = _items_for(s, Stub(), REF)
+    assert len(items) == 2 and items[0].url.startswith("https://v.example.com/schedule/detail/")

@@ -11,7 +11,7 @@ from typing import Optional
 
 from .classify import STORE_LIVE, classify_genre, classify_kind, is_free, is_relevant
 from .collectors import RawItem
-from .collectors.html import find_feeds, page_text, parse_jsonld_events, parse_schedule_blocks
+from .collectors.html import find_feeds, find_schedule_pages, page_text, parse_jsonld_events, parse_schedule_blocks
 from .collectors.ics import parse_ics
 from .collectors.rss import parse_feed
 from .fetch import BlockedByRobots, Fetcher
@@ -124,7 +124,32 @@ def _items_for(src: Source, fetcher: Fetcher, ref: date, seen_urls: Optional[set
             return parse_ics(r.text, src.feed_url)
         return parse_feed(r.text, src.feed_url)
 
-    page = src.schedule_url or src.url
+    if src.schedule_url:
+        return _read_schedule_page(src, src.schedule_url, fetcher, ref, seen_urls)
+
+    # スケジュールページ未登録: トップページから RSS / 構造化データ / メニューの「スケジュール」等を自動で探す
+    r = fetcher.get(src.url, use_cache=False)
+    if r.status >= 400 or not r.text:
+        return []
+    items = parse_jsonld_events(r.text, r.url)
+    if items:
+        return items
+    for ftype, furl in find_feeds(r.text, r.url):
+        fr = fetcher.get(furl)
+        if fr.status < 400 and fr.text:
+            try:
+                return parse_ics(fr.text, furl) if "calendar" in ftype else parse_feed(fr.text, furl)
+            except Exception as exc:  # 壊れたフィードは無視してメニュー探索へ
+                log.info("feed parse failed %s: %s", furl, exc)
+    for page in find_schedule_pages(r.text, r.url):
+        found = _read_schedule_page(src, page, fetcher, ref, seen_urls)
+        if found:
+            return found
+    return []
+
+
+def _read_schedule_page(src: Source, page: str, fetcher: Fetcher, ref: date,
+                        seen_urls: Optional[set[str]]) -> list[RawItem]:
     r = fetcher.get(page)
     if r.not_modified or r.status >= 400:
         return []
@@ -133,10 +158,7 @@ def _items_for(src: Source, fetcher: Fetcher, ref: date, seen_urls: Optional[set
     items = parse_jsonld_events(r.text, page)
     if items or src.method == "jsonld":
         return items
-    # ページ内でフィードが見つかったら次回以降はそちらを使うよう status に残す(discover)
-    if src.method in ("auto", "html") and src.schedule_url:
-        return parse_schedule_blocks(r.text, page, ref)
-    return []
+    return parse_schedule_blocks(r.text, page, ref)
 
 
 def run(sources: Optional[list[Source]] = None, only: Optional[set[str]] = None,
@@ -205,6 +227,7 @@ def discover(sources: Optional[list[Source]] = None, out: Path = DATA / "source_
                 info["status"] = r.status
                 info["feeds"] = find_feeds(r.text, r.url)
                 info["jsonld_events"] = len(parse_jsonld_events(r.text, r.url))
+                info["schedule_pages"] = [] if src.schedule_url else find_schedule_pages(r.text, r.url)
                 info["suggested_method"] = (
                     "rss" if any("rss" in t or "atom" in t for t, _ in info["feeds"]) else
                     "ics" if info["feeds"] else
