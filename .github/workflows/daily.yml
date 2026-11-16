@@ -36,9 +36,11 @@ jobs:
         run: |
           git config user.name "livehub-bot"
           git config user.email "livehub-bot@users.noreply.github.com"
-          git add data/livehub.sqlite3 data/http_cache.json data/organizer_candidates.csv 2>/dev/null || true
+          for f in data/livehub.sqlite3 data/http_cache.json data/organizer_candidates.csv; do
+            [ -f "$f" ] && git add "$f"
+          done
           git diff --cached --quiet || git commit -m "data: daily update $(date +%F)"
-          git push
+          git pull --rebase origin main && git push
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
@@ -46,15 +48,20 @@ jobs:
 
   discover:
     # 毎週月曜に情報源サイトの構造(RSS/構造化データ/robots.txt)を再調査
-    if: github.event.schedule == '47 21 * * 0' || github.event_name == 'workflow_dispatch'
+    if: always() && (github.event.schedule == '47 21 * * 0' || github.event_name == 'workflow_dispatch')
+    needs: run
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python -m livehub discover > /dev/null
-      - uses: actions/upload-artifact@v4
-        with:
-          name: source-status
-          path: data/source_status.json
+      - name: 情報源サイトの調査
+        run: python -m livehub discover
+      - name: 調査結果をリポジトリに保存
+        run: |
+          git config user.name "livehub-bot"
+          git config user.email "livehub-bot@users.noreply.github.com"
+          git add -f data/source_status.json
+          git diff --cached --quiet || git commit -m "data: source status $(date +%F)"
+          git pull --rebase origin main && git push
