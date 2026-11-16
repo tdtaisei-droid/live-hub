@@ -9,7 +9,7 @@ from datetime import date, datetime
 from pathlib import Path
 from typing import Optional
 
-from .classify import STORE_LIVE, classify_genre, classify_kind, is_free, is_hall_target, is_relevant
+from .classify import STORE_LIVE, classify_genre, classify_kind, is_broadcast_target, is_free, is_hall_target, is_relevant
 from .collectors import RawItem
 from .collectors.html import find_feeds, find_schedule_pages, page_text, parse_jsonld_events, parse_schedule_blocks
 from .collectors.ics import parse_ics
@@ -34,6 +34,8 @@ def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[E
         return None  # 映画イベント等の除外は構造化データにも適用
     if src.category == "halls" and not is_hall_target(text):
         return None  # 公立ホールは発表会・式典などが多いので、対象ジャンルの公演だけ残す
+    if src.category == "broadcasters" and not is_broadcast_target(text):
+        return None  # 放送局は物産展・スポーツ等が多いので、ライブ・公演・公開収録だけ残す
     sched = extract_schedule(text, ref)
     start = item.start_date or sched.start_date
     end = item.end_date or sched.end_date

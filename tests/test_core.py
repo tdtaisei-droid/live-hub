@@ -267,3 +267,14 @@ def test_crawl_frequency_by_category():
         by.setdefault(s.category, set()).add(s.interval_days)
     assert by["promoters"] == {1} and by["agencies"] == {1} and by["organizers"] == {1}
     assert by["venues_music"] == {3} and by["theaters"] == {3} and by["halls"] == {7}
+
+
+def test_broadcaster_filter():
+    from livehub.classify import is_broadcast_target
+    assert is_broadcast_target("FM802主催 年末ライブイベント 開催決定")
+    assert is_broadcast_target("人気番組の公開収録 観覧募集")
+    assert not is_broadcast_target("北海道物産展 開催")
+    assert not is_broadcast_target("○○マラソン 中継")
+    assert not is_broadcast_target("映画『X』試写会プレゼント")
+    s = src(id="fm802", category="broadcasters", name="FM802", genre_default="music")
+    assert to_event(RawItem("番組の公開収録 12月20日 観覧無料", "https://f/1"), s, REF, NOW).free

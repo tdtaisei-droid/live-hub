@@ -20,7 +20,7 @@ GENRE_RULES: list[tuple[str, re.Pattern]] = [
 
 RELEVANT = re.compile(
     r"(ライブ|LIVE|ツアー|TOUR|公演|コンサート|フェス|ワンマン|開催|上演|独演会|単独|"
-    r"チケット|先行|一般発売|追加公演|再演|初演|開幕|千秋楽|全国ツアー|主催)",
+    r"チケット|先行|一般発売|追加公演|再演|初演|開幕|千秋楽|全国ツアー|主催|公開収録|公開放送)",
     re.I,
 )
 # 公演情報ではない記事(配信・TV出演・円盤・レポートのみ等)
@@ -80,3 +80,17 @@ HALL_TARGET = re.compile(
 
 def is_hall_target(text: str) -> bool:
     return HALL_TARGET.search(text) is not None and HALL_NOISE.search(text) is None
+
+
+# 放送局のイベントで多い、対象外のもの
+BROADCAST_NOISE = re.compile(
+    r"(物産展|展示|展覧会|美術展|博覧会|スポーツ|マラソン|ゴルフ|野球|サッカー|駅伝|プレゼント|キャンペーン|"
+    r"採用|求人|番組審議|お詫び|訂正|天気|防災|セミナー|講演|フェア|グルメ|マルシェ|花火|映画|試写会|舞台挨拶)"
+)
+BROADCAST_TARGET = re.compile(r"(公開収録|公開放送|公開生放送)")
+
+
+def is_broadcast_target(text: str) -> bool:
+    if BROADCAST_NOISE.search(text):
+        return False
+    return HALL_TARGET.search(text) is not None or BROADCAST_TARGET.search(text) is not None
