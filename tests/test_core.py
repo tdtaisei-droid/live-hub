@@ -496,3 +496,12 @@ def test_ticket_words_removed_from_titles():
     assert clean_title("先行抽選 架空バンド ライブ") == "架空バンド ライブ"
     s = src(id="u", category="theaters", name="梅田芸術劇場", prefecture="大阪府", genre_default="musical")
     assert to_event(RawItem("梅田芸術劇場ネット会員先行 半館貸切", "https://x/1", summary="2026年12月3日"), s, REF, NOW) is None
+
+
+def test_time_only_block_is_not_title():
+    """「18:30 ~ 20:40 (終演後、臨時バス有り)」のような時刻だけの枠を公演名にしない(新潟県民会館の作り)。"""
+    from livehub.collectors.html import parse_schedule_blocks
+    html = """<div class="ev"><a href="/event/1/"><p class="d">2026.11.17</p><p class="t">18:30 ~ 20:40 (終演後、臨時バス有り)</p>
+      <h3>CANDY TUNE JAPAN TOUR 2026 - AUTUMN -</h3></a></div>"""
+    items = parse_schedule_blocks(html, "https://hall.example.jp/event/", date(2026, 11, 1))
+    assert len(items) == 1 and "CANDY TUNE" in items[0].title
