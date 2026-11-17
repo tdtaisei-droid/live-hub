@@ -132,7 +132,10 @@ def test_dedupe_across_sources(tmp_path):
 
 def test_past_events_dropped(tmp_path):
     s = src(id="x", category="theaters", name="本多劇場", prefecture="東京都", genre_default="stage")
-    old = to_event(RawItem("劇団A 公演", "https://x/1", start_date=date(2026, 10, 1), structured=True), s, REF, NOW)
+    # 今月より前に始まった公演は取り込まない(運営方針)
+    assert to_event(RawItem("劇団A 公演", "https://x/1", start_date=date(2026, 10, 1), structured=True), s, REF, NOW) is None
+    # 今月中でも終わった公演はサイトに出さない
+    old = to_event(RawItem("劇団B 公演", "https://x/2", start_date=date(2026, 11, 2), structured=True), s, REF, NOW)
     st = Store(tmp_path / "t.db")
     st.upsert([old], NOW)
     assert st.export(REF) == []
@@ -459,3 +462,29 @@ def test_nav_and_generic_titles_dropped():
         assert to_event(RawItem(t, "https://x/1", summary=f"{t} 2026年12月5日"), s, REF, NOW) is None, t
     ok = to_event(RawItem("開場15:30 開演16:00 架空シンガーコンサート2027", "https://x/2", summary="2027年1月10日"), s, REF, NOW)
     assert ok and ok.title.startswith("架空シンガー")
+
+
+def test_titles_without_dates():
+    from livehub.textutil import clean_title
+    assert clean_title("開催日: 2026/04/24(金) ~ 2027/03/31(水) TSQ presents 「MYSTERY GATE」 入場料: 有料") == "TSQ presents 「MYSTERY GATE」"
+    assert clean_title("香西かおりコンサート 好評発売中! 2027年2月28日 詳細はこちら") == "香西かおりコンサート"
+    assert clean_title("2026年11月23日(月・祝) 開場15:00 開演16:00 ワハハ本舗特別公演") == "ワハハ本舗特別公演"
+    assert clean_title("ASKA CONCERT TOUR 2026-2027 Lock-on") == "ASKA CONCERT TOUR 2026-2027 Lock-on"
+
+
+def test_before_this_month_removed(tmp_path):
+    import json
+    from livehub.pipeline import reclean
+    s = src(id="v", category="venues_music", name="テスト会場", prefecture="東京都", genre_default="music")
+    assert to_event(RawItem("架空バンド ワンマンライブ", "https://x/1", start_date=date(2026, 10, 30), structured=True), s, REF, NOW) is None
+    st = Store(tmp_path / "t.db")
+    ok = to_event(RawItem("架空バンド ワンマンライブ", "https://x/2", start_date=date(2026, 12, 5), structured=True), s, REF, NOW)
+    st.upsert([ok], NOW)
+    d = ok.to_dict(); d["title"] = "2026年12月5日(土) 架空バンド ワンマンライブ"
+    st.db.execute("UPDATE events SET data=?", (json.dumps(d, ensure_ascii=False),)); st.db.commit()
+    old = to_event(RawItem("昔の公演 ライブ", "https://x/3", start_date=date(2026, 12, 1), structured=True), s, REF, NOW)
+    st.upsert([old], NOW)
+    st.db.execute("UPDATE events SET data=json_set(data,'$.start_date','2026-09-01') WHERE fingerprint=?", (old.fingerprint,)); st.db.commit()
+    res = reclean(tmp_path / "t.db", REF)
+    titles = [json.loads(r[0])["title"] for r in Store(tmp_path / "t.db").db.execute("SELECT data FROM events")]
+    assert titles == ["架空バンド ワンマンライブ"] and res.get("先月以前") == 1

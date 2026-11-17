@@ -160,7 +160,31 @@ def clean_title(raw: str) -> str:
     m = _CUT_AT.search(" " + t)
     if m and m.start() > 4:
         t = t[:m.start() - 1]
+    t = strip_dates(t)
     return t[:90].strip(" ・-|｜")
+
+
+# 公演名の中に残った日付・曜日・日付の見出し(「公演日:」など)
+_DATE_TOKEN = re.compile(
+    r"((開催日|公演日|日時|日程|会期|期間)\s*[:：]\s*)?"
+    r"((20\d{2}\s*年\s*)?\d{1,2}\s*月\s*\d{1,2}\s*日|20\d{2}\s*[/.\-]\s*\d{1,2}\s*[/.\-]\s*\d{1,2}|"
+    r"(?<![\d/])\d{1,2}/\d{1,2}(?=\s*[(（]))"
+    r"(\s*[(（][^)）]{1,5}[)）])?"
+    r"(\s*[~〜～\-–]\s*(?=[\d(（]))?")
+# 一覧で同じ日の別公演が続くときの区切り(東京国際フォーラムなどの「一般」「一般&関係者」)
+_NEXT_ITEM = re.compile(r"\s(一般&関係者|一般|関係者)\s")
+_TAIL_NOISE = re.compile(r"(\s*(好評発売中|発売中|完売御礼|SOLD ?OUT|詳細はこちら|開催|前売券販売中|\[開催日\]|#ステージ)!*)+$", re.I)
+
+
+def strip_dates(t: str) -> str:
+    """公演名から日付を取り除く(日付は別の欄で表示するため)。"""
+    t = _DATE_TOKEN.sub(" ", t)
+    m = _NEXT_ITEM.search(" " + t)
+    if m and m.start() > 4:
+        t = t[:m.start() - 1]
+    t = re.sub(r"\s{2,}", " ", t).strip(" ~〜～-–・、,")
+    t = _TAIL_NOISE.sub("", t).strip()
+    return t
 
 
 # ---------- 出演者 ----------

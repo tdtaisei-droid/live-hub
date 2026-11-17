@@ -54,6 +54,7 @@ def main(argv=None) -> int:
         return 0
     if args.command in ("collect", "daily"):
         print(pipeline.run(only=only))
+        print("再整理:", pipeline.reclean())
     if args.command in ("build", "daily"):
         events = Store(pipeline.DATA / "livehub.sqlite3").export(date.today())
         out = sitebuild.build(events)

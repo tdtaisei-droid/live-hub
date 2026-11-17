@@ -96,6 +96,9 @@ class Store:
         out = []
         for data, sources, first_seen, baseline in self.db.execute("SELECT data, sources, first_seen, baseline FROM events"):
             d = json.loads(data)
+            # 今月より前に始まった公演は載せない(運営方針)
+            if d.get("start_date") and date.fromisoformat(d["start_date"][:10]) < today.replace(day=1):
+                continue
             last = d.get("end_date") or d.get("start_date")
             if last and date.fromisoformat(last[:10]) < date.fromordinal(today.toordinal() - keep_past_days):
                 continue

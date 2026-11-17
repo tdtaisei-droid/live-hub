@@ -29,12 +29,17 @@ DATA = Path(__file__).resolve().parent.parent / "data"
 # 公演スケジュール専用の情報源(ページ上の日付つき項目は基本的に公演)
 SCHEDULE_CATEGORIES = {"venues_music", "theaters", "promoters", "stage_producers"}
 
+def month_start(d: date) -> date:
+    """その月の1日。これより前に始まる公演は掲載しない(運営方針)。"""
+    return d.replace(day=1)
+
+
 # 月送りのリンク(「2026年 11月」「10月 11月 12月」)など、年月だけの見出し
 NAV_ONLY = re.compile(r"[\d\s年月/.\-〜~・|｜<>＜＞«»前次へ]+")
 # 公演名ではない一語だけの見出し・販売所名
 GENERIC_TITLE = re.compile(
     r"(EVENING|NIGHT|DAY|AFTERNOON|CLUB|LIVE|OPEN|START|SCHEDULE|カレンダー形式|リスト形式|一覧|窓口.*|"
-    r"イープラス|eplus|ローソンチケット|セブンチケット|チケットぴあ|ぴあ|楽天チケット|LINEチケット|PassMarket)", re.I)
+    r"【?公演詳細】?|【?公演情報】?|【?イベント情報】?|イープラス|eplus|ローソンチケット|セブンチケット|チケットぴあ|ぴあ|楽天チケット|LINEチケット|PassMarket)", re.I)
 
 # ---------- RawItem → Event ----------
 # 取れなかった理由の記録(巡回ログに要約を残し、読み取りの改善に使う。ページ本文は保存しない)
@@ -106,6 +111,8 @@ def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[E
     if len(normalize(title)) < 4 or re.match(r"^(\S*先行|一般発売|一般販売|抽選|受付|料金|チケット)", title) \
             or re.fullmatch(r"[【\[]?(公演詳細|公演情報|イベント情報|詳細|お知らせ|NEWS|INFORMATION)[】\]]?", normalize(title), re.I):
         return _drop("題名なし")
+    if start and start < month_start(ref):
+        return _drop("先月以前")  # 今月より前に始まった公演は載せない
     if NAV_ONLY.fullmatch(normalize(title)) or GENERIC_TITLE.fullmatch(title.strip()):
         return _drop("見出しだけ")  # 「2026年 11月」などの月送りや、「CLUB」「イープラス」などの見出し・販売所名
     ev = Event(
@@ -380,3 +387,49 @@ def verify_candidates(out: Path = URL_CHECK_PATH) -> dict:
     out.parent.mkdir(exist_ok=True)
     out.write_text(json.dumps(result, ensure_ascii=False, indent=1), encoding="utf-8")
     return result
+
+
+# ---------- 蓄積データの再整理 ----------
+def reclean(db_path: Path = DATA / "livehub.sqlite3", today: Optional[date] = None) -> dict:
+    """読み取りルールを改良したときに、蓄積済みの公演にも同じルールを当て直す。
+    公演名の整え直し・ノイズ除去・今月より前の公演の削除をし、同一公演は1件にまとめる。"""
+    import json
+    from .classify import CINEMA_EVENT, NOT_EVENT, SITE_NOISE, VENUE_NOISE
+    today = today or date.today()
+    store = Store(db_path)
+    db = store.db
+    rows = db.execute("SELECT fingerprint, data, sources, first_seen, last_seen, baseline FROM events").fetchall()
+    stats = Counter()
+    for fp, data, sources, first_seen, last_seen, baseline in rows:
+        d = json.loads(data)
+        start = date.fromisoformat(d["start_date"][:10]) if d.get("start_date") else None
+        title = clean_title(d.get("title") or "")
+        bad = (
+            (start and start < month_start(today)) and "先月以前" or
+            (len(title) < 2) and "題名なし" or
+            (NAV_ONLY.fullmatch(normalize(title)) or GENERIC_TITLE.fullmatch(title)) and "見出しだけ" or
+            (CINEMA_EVENT.search(title) or NOT_EVENT.search(title) or VENUE_NOISE.search(title)
+             or SITE_NOISE.search(title)) and "公演以外" or None
+        )
+        if bad:
+            db.execute("DELETE FROM events WHERE fingerprint=?", (fp,))
+            stats[bad] += 1
+            continue
+        if title == d.get("title"):
+            continue
+        d["title"] = title
+        ev = Event(title=title, url=d.get("url", ""), source_id="", start_date=start, prefecture=d.get("prefecture"))
+        new_fp = fingerprint(ev)
+        db.execute("DELETE FROM events WHERE fingerprint=?", (fp,))
+        row = db.execute("SELECT sources, first_seen FROM events WHERE fingerprint=?", (new_fp,)).fetchone()
+        if row:  # 整え直した結果、同じ公演がすでにある → 出典をまとめる
+            merged = list(dict.fromkeys(json.loads(row[0]) + json.loads(sources)))
+            db.execute("UPDATE events SET sources=?, first_seen=min(first_seen, ?) WHERE fingerprint=?",
+                       (json.dumps(merged), first_seen, new_fp))
+            stats["統合"] += 1
+        else:
+            db.execute("INSERT INTO events (fingerprint, data, sources, first_seen, last_seen, baseline) VALUES (?,?,?,?,?,?)",
+                       (new_fp, json.dumps(d, ensure_ascii=False), sources, first_seen, last_seen, baseline))
+            stats["公演名を整えた"] += 1
+    db.commit()
+    return dict(stats)
