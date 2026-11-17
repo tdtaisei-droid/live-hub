@@ -488,3 +488,11 @@ def test_before_this_month_removed(tmp_path):
     res = reclean(tmp_path / "t.db", REF)
     titles = [json.loads(r[0])["title"] for r in Store(tmp_path / "t.db").db.execute("SELECT data FROM events")]
     assert titles == ["架空バンド ワンマンライブ"] and res.get("先月以前") == 1
+
+
+def test_ticket_words_removed_from_titles():
+    from livehub.textutil import clean_title
+    assert clean_title("16:00開演 堺正章 to MAGNETS 最速先行予約/インターネット予約") == "堺正章 to MAGNETS"
+    assert clean_title("先行抽選 架空バンド ライブ") == "架空バンド ライブ"
+    s = src(id="u", category="theaters", name="梅田芸術劇場", prefecture="大阪府", genre_default="musical")
+    assert to_event(RawItem("梅田芸術劇場ネット会員先行 半館貸切", "https://x/1", summary="2026年12月3日"), s, REF, NOW) is None

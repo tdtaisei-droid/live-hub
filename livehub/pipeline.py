@@ -20,7 +20,7 @@ from .geo import detect_location, region_of
 from .models import Event
 from .sources import URL_CHECK_PATH, Source, load_candidates, load_sources
 from .store import Store
-from .textutil import clean_title, extract_performers, extract_schedule, find_dates, normalize, quoted_titles
+from .textutil import strip_ticket_words, clean_title, extract_performers, extract_schedule, find_dates, normalize, quoted_titles
 
 log = logging.getLogger("livehub")
 DATA = Path(__file__).resolve().parent.parent / "data"
@@ -113,6 +113,8 @@ def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[E
         return _drop("題名なし")
     if start and start < month_start(ref):
         return _drop("先月以前")  # 今月より前に始まった公演は載せない
+    if len(title) < 2 or any(normalize(title) in normalize(n) for n in (src.name, item.venue or "") if n):
+        return _drop("題名なし")  # チケット文言などを外したら会場名しか残らない
     if NAV_ONLY.fullmatch(normalize(title)) or GENERIC_TITLE.fullmatch(title.strip()):
         return _drop("見出しだけ")  # 「2026年 11月」などの月送りや、「CLUB」「イープラス」などの見出し・販売所名
     ev = Event(
@@ -121,7 +123,7 @@ def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[E
         source_id=src.id,
         genre=classify_genre_with_default(text, src.genre_default),
         kind=classify_kind(text, sale is not None, item.structured),
-        performers=item.performers or extract_performers(text),
+        performers=[p for p in (strip_ticket_words(x) for x in (item.performers or extract_performers(text))) if len(p) >= 2],
         venue=venue,
         prefecture=pref,
         region=region,
@@ -396,6 +398,7 @@ def reclean(db_path: Path = DATA / "livehub.sqlite3", today: Optional[date] = No
     import json
     from .classify import CINEMA_EVENT, NOT_EVENT, SITE_NOISE, VENUE_NOISE
     today = today or date.today()
+    SRC_NAMES = {x.id: x.name for x in load_sources()}
     store = Store(db_path)
     db = store.db
     rows = db.execute("SELECT fingerprint, data, sources, first_seen, last_seen, baseline FROM events").fetchall()
@@ -404,9 +407,15 @@ def reclean(db_path: Path = DATA / "livehub.sqlite3", today: Optional[date] = No
         d = json.loads(data)
         start = date.fromisoformat(d["start_date"][:10]) if d.get("start_date") else None
         title = clean_title(d.get("title") or "")
+        names = {normalize(n) for n in (d.get("venue") or "", *(SRC_NAMES.get(x, "") for x in json.loads(sources)))} - {""}
+        perf = [strip_ticket_words(p) for p in d.get("performers", [])]
+        perf = [p for p in perf if len(p) >= 2]
+        if perf != d.get("performers", []):
+            d["performers"] = perf
+            d["title"] = None  # 下で書き戻させる
         bad = (
             (start and start < month_start(today)) and "先月以前" or
-            (len(title) < 2) and "題名なし" or
+            (len(title) < 2 or any(normalize(title) in n for n in names)) and "題名なし" or
             (NAV_ONLY.fullmatch(normalize(title)) or GENERIC_TITLE.fullmatch(title)) and "見出しだけ" or
             (CINEMA_EVENT.search(title) or NOT_EVENT.search(title) or VENUE_NOISE.search(title)
              or SITE_NOISE.search(title)) and "公演以外" or None
