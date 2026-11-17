@@ -59,7 +59,7 @@ jobs:
 
   discover:
     # 毎週月曜に情報源サイトの構造(RSS/構造化データ/robots.txt)を再調査
-    if: always() && (github.event.schedule == '47 21 * * 0' || github.event_name == 'workflow_dispatch')
+    if: always() && (github.event.schedule == '47 21 * * 0' || (github.event_name == 'workflow_dispatch' && inputs.job == 'verify'))
     needs: run
     runs-on: ubuntu-latest
     steps:
