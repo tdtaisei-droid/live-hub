@@ -281,13 +281,29 @@ function filesFor(){
   if (st.region === "オンライン") return ["online"];
   return Object.keys(PREF_REGION).filter(p => PREF_REGION[p] === st.region).map(p => idx.prefCode[p]);
 }
+// 読み込み中のファイル(同時に何度呼ばれても、全部そろうまで待ってから描く)
+const pending = new Map();
+let loading = 0;
 async function ensureLoaded(){
-  const need = filesFor().filter(c => idx.files[c] && !loaded.has(c));
-  if (!need.length) return;
-  need.forEach(c => loaded.add(c));
-  $("#list").innerHTML = `<p class="empty">${need.length > 8 ? "全国の公演を読み込み中…(少し時間がかかります)" : "読み込み中…"}</p>`;
-  const parts = await Promise.all(need.map(c => EARLY[c] || fetch(`data/${c}.json`).then(r => r.json()).catch(() => [])));
-  for (const part of parts) for (const e of part) events.push(prep(e));
+  const files = filesFor().filter(c => idx.files[c]);
+  const need = files.filter(c => !loaded.has(c) && !pending.has(c));
+  if (need.length) {
+    $("#list").innerHTML = `<p class="empty">${need.length > 8 ? "全国の公演を読み込み中…" : "読み込み中…"}</p>`;
+    if (need.length > 8) {
+      // 全国: まとめファイル1つで読む(通信1回で済む)
+      const all = fetch("data/all.json").then(r => { if (!r.ok) throw r.status; return r.json(); }).catch(() => null);
+      for (const c of need) {
+        pending.set(c, all.then(g => g ? (g[c] || []) : (EARLY[c] || fetch(`data/${c}.json`).then(r => r.json())).catch(() => []))
+          .then(part => { for (const e of part) events.push(prep(e)); loaded.add(c); pending.delete(c); }));
+      }
+    } else for (const c of need) {
+      pending.set(c, (EARLY[c] || fetch(`data/${c}.json`).then(r => { if (!r.ok) throw r.status; return r.json(); }))
+        .catch(() => new Promise(res => setTimeout(res, 800)).then(() => fetch(`data/${c}.json`, {cache: "reload"}).then(r => r.json())).catch(() => []))
+        .then(part => { for (const e of part) events.push(prep(e)); loaded.add(c); pending.delete(c); }));
+    }
+  }
+  const waits = files.filter(c => pending.has(c)).map(c => pending.get(c));
+  if (waits.length) { loading++; try { await Promise.all(waits); } finally { loading--; } }
 }
 async function refresh(){ await ensureLoaded(); render(); }
 // 新着 = 前回の訪問以降に見つかり、かつ情報源の初回巡回分ではないもの(前から決まっていた公演を新着にしない)
@@ -430,7 +446,7 @@ function render(){
   }
   const emptyMsg = st.tab === "follow" && !st.follows.size
     ? "まだ何もフォローしていません。★を押すか「フォロー設定」から追加してください。"
-    : st.tab === "new" ? "前回の訪問以降の新着はありません。"
+    : st.tab === "new" ? "前回見たあとに新しく見つかった公演はありません。"
     : st.tab === "theater" ? `${esc(HOUSES[st.house] || "")}の公演情報はまだありません(巡回の準備中です)。`
     : "条件に合う情報はありません。";
   // 並べるのは先頭から st.limit 件まで(見出しの件数は全体の数)
@@ -444,7 +460,10 @@ function render(){
   }
   const rest = list.length - Math.min(list.length, st.limit);
   if (rest > 0) html.push(`<button class="more" id="more">さらに${Math.min(PAGE, rest)}件見る(残り${rest}件)</button>`);
-  $("#list").innerHTML = list.length ? html.join("") : `<p class="empty">${emptyMsg}</p>`;
+  if (!list.length && loading) { $("#list").innerHTML = `<p class="empty">読み込み中…</p>`; return; }
+  const upCount = st.tab === "new" ? filtered(TABS.find(t => t[0] === "upcoming")[2]).length : 0;
+  const emptyHtml = `<p class="empty">${emptyMsg}</p>` + (upCount ? `<p class="empty"><button class="more" data-tab="upcoming">開催予定の${upCount}件を見る</button></p>` : "");
+  $("#list").innerHTML = list.length ? html.join("") : emptyHtml;
   $("#hint").textContent = st.tab === "new"
     ? `新着 = ${lastVisit ? "前回の訪問(" + since.toLocaleString("ja-JP", {month:"numeric", day:"numeric", hour:"numeric", minute:"2-digit"}) + ")" : "直近3日"}以降に新しく見つかった公演(情報源を追加した日の分は含みません)`
     : "";

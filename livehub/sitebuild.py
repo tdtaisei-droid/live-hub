@@ -90,6 +90,8 @@ def write_split_data(events: list[dict], meta: dict, out_dir: Path) -> None:
     for code, evs in groups.items():
         (data_dir / f"{code}.json").write_text(json.dumps(evs, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
         files[code] = {"count": len(evs), "pref": next((p for p, c in PREF_CODE.items() if c == code), None)}
+    # 全国を見るときは、ファイルを1つずつ取らずに、まとめた1ファイル(all.json)を1回で読む
+    (data_dir / "all.json").write_text(json.dumps(groups, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     region_counts: dict[str, int] = {}
     pref_counts: dict[str, int] = {}
     for e in events:
