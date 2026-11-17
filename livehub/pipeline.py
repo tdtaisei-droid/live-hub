@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Optional
 from urllib.parse import urlsplit
 
-from .classify import is_schedule_item, ENDED, STORE_LIVE, is_news_post, is_special, classify_genre_with_default, classify_kind, is_venue_target, is_broadcast_target, is_free, is_hall_target, is_relevant
+from .classify import HALL_NOISE, is_schedule_item, ENDED, STORE_LIVE, is_news_post, is_special, classify_genre_with_default, classify_kind, is_venue_target, is_broadcast_target, is_free, is_hall_target, is_relevant
 from .collectors import RawItem
 from .collectors.html import page_identity, find_feeds, find_schedule_pages, page_text, parse_jsonld_events, parse_schedule_blocks
 from .collectors.ics import parse_ics
@@ -27,7 +27,7 @@ DATA = Path(__file__).resolve().parent.parent / "data"
 
 
 # 公演スケジュール専用の情報源(ページ上の日付つき項目は基本的に公演)
-SCHEDULE_CATEGORIES = {"venues_music", "theaters", "promoters", "stage_producers"}
+SCHEDULE_CATEGORIES = {"venues_music", "theaters", "promoters", "stage_producers", "halls"}
 
 def month_start(d: date) -> date:
     """その月の1日。これより前に始まる公演は掲載しない(運営方針)。"""
@@ -53,8 +53,14 @@ class HttpRefused(Exception):
         self.status = status
 
 
+DROP_SAMPLES: list[str] = []
+_CUR_TITLE = [""]
+
+
 def _drop(reason: str):
     DROPS[reason] += 1
+    if len(DROP_SAMPLES) < 4 and _CUR_TITLE[0]:
+        DROP_SAMPLES.append(f"{reason}:{_CUR_TITLE[0][:24]}")  # 除外の例(公演名の頭だけ。読み取り改善用)
     return None
 
 
@@ -63,6 +69,7 @@ def _trace(msg: str) -> None:
         TRACE.append(msg)
 
 def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[Event]:
+    _CUR_TITLE[0] = clean_title(item.title) if item.title else ""
     text = f"{item.title} {item.summary}"
     if ENDED.search(text):
         return _drop("終了")  # 終了済みの公演
@@ -76,7 +83,9 @@ def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[E
         return _drop("対象外")
     if item.structured and not is_relevant(text + " 公演"):
         return _drop("構造化対象外")  # 映画イベント等の除外は構造化データにも適用
-    if src.category == "halls" and not is_hall_target(text):
+    if src.category == "halls" and schedule_src and HALL_NOISE.search(text):
+        return _drop("会館の対象外")  # 発表会・式典など
+    if src.category == "halls" and not schedule_src and not is_hall_target(text):
         return _drop("会館の対象外")  # 公立ホールは発表会・式典などが多いので、対象ジャンルの公演だけ残す
     if src.category in ("venues_music", "theaters") and not item.structured and not schedule_src \
             and not is_venue_target(text):
@@ -263,14 +272,15 @@ def run(sources: Optional[list[Source]] = None, only: Optional[set[str]] = None,
         if not only and not src.due(ref):
             stats["not_today"] += 1  # 週1回巡回の情報源で、今日は担当日でない
             continue
-        TRACE.clear(); DROPS.clear()
+        TRACE.clear(); DROPS.clear(); DROP_SAMPLES.clear()
         try:
             raw = _items_for(src, fetcher, ref, store.urls_for(src.id) if src.method == "html_detail" else None)
             events = [e for e in (to_event(i, src, ref, now) for i in raw) if e]
             new = store.upsert(events, now, baseline=not store.has_crawled(src.id))
             msg = " ".join(TRACE) + (f" raw{len(raw)}" if raw else "") + \
-                ("" if not DROPS else " drop:" + ",".join(f"{k}{v}" for k, v in DROPS.most_common()))
-            store.log_run(src.id, now, "ok", len(events), msg[:300])
+                ("" if not DROPS else " drop:" + ",".join(f"{k}{v}" for k, v in DROPS.most_common())) + \
+                ("" if not DROP_SAMPLES else " ex:" + " / ".join(DROP_SAMPLES))
+            store.log_run(src.id, now, "ok", len(events), msg[:500])
             stats["ok"] += 1
             stats["new"] += new
             for e in events:

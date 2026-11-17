@@ -88,7 +88,7 @@ class Store:
         return out
 
     def log_run(self, source_id: str, now: datetime, status: str, items: int, message: str = "") -> None:
-        self.db.execute("INSERT INTO runs VALUES (?,?,?,?,?)", (source_id, now.isoformat(), status, items, message[:300]))
+        self.db.execute("INSERT INTO runs VALUES (?,?,?,?,?)", (source_id, now.isoformat(), status, items, message[:500]))
         self.db.commit()
 
     def export(self, today: date, keep_past_days: int = 3) -> list[dict]:
