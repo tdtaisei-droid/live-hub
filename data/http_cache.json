@@ -67,5 +67,33 @@
 "https://okayama-pat.jp/event_info/": {
 "etag": null,
 "last_modified": null
+},
+"https://www.sapporo-dome.co.jp/schedule/": {
+"etag": null,
+"last_modified": null
+},
+"https://www.nipponbudokan.or.jp/feed": {
+"etag": "\"0bdcb0b51f740c9e69411cd47e219ff8\"",
+"last_modified": "Tue, 17 Nov 2026 02:19:04 GMT"
+},
+"https://k-arena.com/schedule/": {
+"etag": null,
+"last_modified": null
+},
+"https://www.nagoya-dome.co.jp/newstopics/event/": {
+"etag": null,
+"last_modified": null
+},
+"https://www.kyoceradome-osaka.jp/schedule/": {
+"etag": null,
+"last_modified": null
+},
+"https://okinawa-arena.jp/events": {
+"etag": "W/\"3ce35ce844bfb0bef7e3114d66b289b4\"",
+"last_modified": "Tue, 17 Nov 2026 04:08:33 GMT"
+},
+"https://www.aimyong.net/news/3/?range=future_event_end_time&sort=asc": {
+"etag": null,
+"last_modified": null
 }
 }
