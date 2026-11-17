@@ -280,13 +280,13 @@ async function refresh(){ await ensureLoaded(); render(); }
 const isNew = e => !e.baseline && e._first && e._first > since;
 const followed = e => [...st.follows].some(f => e._hay.includes(f.toLowerCase()));
 
-// 専用劇場(吉本・宝塚・四季・歌舞伎)の公演も通常の一覧に出す(劇場スケジュールのタブは廃止 2026-11-17)
-const isDaily = e => false;
+// 専用劇場(吉本・宝塚・四季・歌舞伎)の日々の公演は、開催予定・すべてには出すが、新着には出さない(毎日の公演で新着が埋まるため)
+const isDaily = e => !!e.house && e.kind === "event" && !e.special;
 const TABS = [
   ["new", "新着", e => !isDaily(e) && isNew(e)],
-  ["upcoming", "開催予定", e => !isDaily(e) && e._start && days(e._end || e._start) >= 0],
+  ["upcoming", "開催予定", e => e._start && days(e._end || e._start) >= 0],
   ["follow", "★ フォロー中", e => followed(e)],  // フォローした人が出る劇場の定期公演もここに出す
-  ["all", "すべて", e => !isDaily(e)],
+  ["all", "すべて", e => true],
 ];
 
 function filtered(tabFn){
