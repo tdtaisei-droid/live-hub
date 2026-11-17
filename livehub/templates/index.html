@@ -227,7 +227,12 @@ const store = {
   set(k, v){ try { localStorage.setItem("livehub:"+k, JSON.stringify(v)) } catch {} }
 };
 // 「前回の訪問以降に見つかったもの」= 新着。初回は直近3日分。
-const lastVisit = store.get("lastVisit", null);
+// 3時間以内の開き直し(再読み込みなど)は同じ訪問とみなし、新着の基準を変えない
+const NOW = Date.now();
+const sess = store.get("session", null);
+let lastVisit;
+if (sess && NOW - sess.start < 3*36e5) lastVisit = sess.base;
+else { lastVisit = store.get("lastVisit", null); store.set("session", {start: NOW, base: lastVisit}); }
 const since = lastVisit ? new Date(lastVisit) : new Date(TODAY.getTime() - 3*864e5);
 addEventListener("pagehide", () => store.set("lastVisit", new Date().toISOString()));
 
@@ -507,6 +512,8 @@ $("#toggleOpening").addEventListener("click", ev => { ev.preventDefault(); try {
 labelOpening();
 $("#gen").textContent = `最終更新 ${meta.generated_at.replace("T", " ")}・全国${meta.count}件`;
 renderChips(); await refresh();
+// 新着が0件なら、最初から「開催予定」を開く(「情報がない」画面から始めない)
+if (st.tab === "new" && !filtered(TABS[0][2]).length) { st.tab = "upcoming"; render(); }
 })();
 
 // ---- 夜空の月:実際の月齢と、おおよその月の出入り・日の出入り(日本・東京付近の目安)から計算 ----

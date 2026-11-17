@@ -114,7 +114,7 @@ VENUE_TARGET = re.compile(
 SITE_NOISE = re.compile(
     r"(休館|臨時休業|メンテナンス|営業時間|駐車場|アクセス|募集|求人|採用|プレゼント|キャンペーン|"
     r"プライバシー|利用規約|会員登録|ログイン|お問い合わせ|よくある質問|FAQ|定休日|学会|学術|骨董市|農業祭|"
-    r"スタンプラリー|見学|SUMMIT|サミット|Conference|カンファレンス|ファンフェスタ|野球)", re.I)
+    r"スタンプラリー|見学|出発式|式典|入学式|卒業式|成人式|入社式|SUMMIT|サミット|Conference|カンファレンス|ファンフェスタ|野球)", re.I)
 
 
 def is_schedule_item(text: str) -> bool:
