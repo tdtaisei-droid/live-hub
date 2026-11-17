@@ -95,6 +95,12 @@ body.theater #genres{display:none}
 .more{display:block;width:100%;margin:18px 0 0;padding:14px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--text);font:inherit;font-weight:700;cursor:pointer}
 .card{content-visibility:auto;contain-intrinsic-size:auto 150px}
 .follow-list{display:flex;flex-wrap:wrap;gap:6px}
+.theaterlinks{margin-top:28px;border-top:1px solid var(--line);padding-top:18px}
+.theaterlinks h2{font-size:15px;margin:0 0 6px}
+.theaterlinks details{border:1px solid var(--line);border-radius:10px;margin:8px 0;padding:10px 12px}
+.theaterlinks summary{cursor:pointer;font-weight:700}
+.theaterlinks ul{margin:8px 0 2px;padding-left:18px;line-height:1.9}
+.theaterlinks a{color:inherit}
 footer{color:var(--dim);font-size:12px;padding:30px 0;border-top:1px solid var(--line);margin-top:30px}
 dialog{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:var(--radius);
   max-width:420px;width:calc(100% - 32px)}
@@ -171,6 +177,14 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
     <p class="hint" id="hint"></p>
   </section>
   <div id="list"></div>
+  <section class="theaterlinks" aria-labelledby="tl-h">
+    <h2 id="tl-h">専用劇場の公演は公式サイトで</h2>
+    <p class="hint">毎日公演がある専用劇場は、このサイトでは載せきれないため、公式サイトのスケジュールをご覧ください。</p>
+    <details><summary>吉本興業の劇場</summary><ul><li><a href="https://ngk.yoshimoto.co.jp/" target="_blank" rel="noopener">なんばグランド花月 ↗</a></li><li><a href="https://manzaigekijyo.yoshimoto.co.jp/" target="_blank" rel="noopener">よしもと漫才劇場 ↗</a></li><li><a href="https://lumine.yoshimoto.co.jp/" target="_blank" rel="noopener">ルミネtheよしもと ↗</a></li><li><a href="https://jimbocho-manzaigekijyo.yoshimoto.co.jp/" target="_blank" rel="noopener">神保町よしもと漫才劇場 ↗</a></li><li><a href="https://omiya.yoshimoto.co.jp/" target="_blank" rel="noopener">大宮ラクーンよしもと劇場 ↗</a></li><li><a href="https://shinkigeki.yoshimoto.co.jp/" target="_blank" rel="noopener">吉本新喜劇 ↗</a></li></ul></details>
+    <details><summary>劇団四季</summary><ul><li><a href="https://www.shiki.jp/" target="_blank" rel="noopener">劇団四季 公式サイト(各劇場の上演作品) ↗</a></li><li><a href="https://www.shiki.jp/theatres/4024/" target="_blank" rel="noopener">JR東日本四季劇場[秋] ↗</a></li></ul></details>
+    <details><summary>宝塚歌劇</summary><ul><li><a href="https://kageki.hankyu.co.jp/" target="_blank" rel="noopener">宝塚歌劇 公式サイト(宝塚大劇場ほか) ↗</a></li><li><a href="https://kageki.hankyu.co.jp/theater/tokyo/index.html" target="_blank" rel="noopener">東京宝塚劇場 ↗</a></li></ul></details>
+    <details><summary>歌舞伎</summary><ul><li><a href="https://www.kabuki-bito.jp/" target="_blank" rel="noopener">歌舞伎美人(松竹 歌舞伎公式・全劇場の公演) ↗</a></li><li><a href="https://www.kabuki-za.co.jp/" target="_blank" rel="noopener">歌舞伎座 ↗</a></li><li><a href="https://www.shinbashi-enbujo.co.jp/" target="_blank" rel="noopener">新橋演舞場 ↗</a></li><li><a href="https://www.shochiku.co.jp/play/theater/minamiza/" target="_blank" rel="noopener">南座 ↗</a></li><li><a href="https://www.shochiku.co.jp/play/theater/shochikuza/" target="_blank" rel="noopener">大阪松竹座 ↗</a></li></ul></details>
+  </section>
   <footer>
     <p>掲載情報は各公式サイト(会場・イベンター・劇場・事務所・主催者)の公開情報をもとにしています。チケットの販売・先行情報は掲載していません。ファンクラブ先行などが最も早いことが多いため、必ず公式サイトでご確認ください。日時・出演者・発売情報は必ずリンク先の公式情報でご確認ください。</p>
     <p><a href="about.html">このサイトについて・情報源一覧・掲載停止のご依頼</a> ・ <span id="gen"></span></p>
