@@ -11,7 +11,7 @@ kraps-hall,KRAPS HALL,,北海道,札幌市,400,,,,auto,music,,,0
 cube-garden,cube garden,キューブガーデン,北海道,札幌市,300,,,,auto,music,,,0
 bessie-hall,BESSIE HALL,ベッシーホール,北海道,札幌市,300,,,,auto,music,,,0
 sapporo-spice,SPiCE,札幌SPiCE,北海道,札幌市,250,,,,auto,music,,,0
-grande21,セキスイハイムスーパーアリーナ,グランディ・21,宮城県,宮城郡利府町,7000,,,,auto,music,,,0
+grande21,セキスイハイムスーパーアリーナ,グランディ・21|宮城県総合運動公園,宮城県,宮城郡利府町,7000,,,,auto,music,,,0
 xebio-arena,ゼビオアリーナ仙台,,宮城県,仙台市,6000,,,,auto,music,,,0
 sendai-sunplaza,仙台サンプラザホール,,宮城県,仙台市,2000,,,,auto,music,,,0
 miyagi-tel-hall,東京エレクトロンホール宮城,宮城県民会館,宮城県,仙台市,1590,,,,auto,music,,,0
@@ -88,7 +88,7 @@ gaishi-hall,日本ガイシホール,,愛知県,名古屋市,10000,,,,auto,music
 aichi-arts,愛知県芸術劇場 大ホール,,愛知県,名古屋市,2500,,,,auto,stage,,,0
 forest-hall,Niterra日本特殊陶業市民会館 フォレストホール,名古屋市民会館,愛知県,名古屋市,2300,,,,auto,music,,,0
 zepp-nagoya,Zepp Nagoya,,愛知県,名古屋市,1800,https://www.zepp.co.jp/hall/nagoya/,,,auto,music,Zeppホールネットワーク,,0
-diamond-hall,DIAMOND HALL,名古屋ダイアモンドホール,愛知県,名古屋市,1000,,,,auto,music,,,0
+diamond-hall,DIAMOND HALL,名古屋ダイアモンドホール|ダイアモンドホール,愛知県,名古屋市,1000,,,,auto,music,,,0
 nagoya-quattro,名古屋CLUB QUATTRO,名古屋クアトロ|名古屋クラブクアトロ|NAGOYA CLUB QUATTRO,愛知県,名古屋市,700,,,,auto,music,クラブクアトロ,,0
 bottom-line,名古屋ボトムライン,THE BOTTOM LINE|Bottom Line,愛知県,名古屋市,700,,,,auto,music,,,0
 electric-lady-land,ElectricLadyLand,名古屋ElectricLadyLand|ELL,愛知県,名古屋市,600,,,,auto,music,,,0
@@ -129,7 +129,7 @@ bronze,心斎橋BRONZE,,大阪府,大阪市,300,,,,auto,music,,,0
 pangea,心斎橋Pangea,,大阪府,大阪市,250,,,,auto,music,,,0
 clapper,心斎橋CLAPPER,,大阪府,大阪市,250,,,,auto,music,,,0
 kobe-world,神戸ワールド記念ホール,ワールド記念ホール,兵庫県,神戸市,8000,,,,auto,music,,,0
-glion-arena,GLION ARENA KOBE,ジーライオンアリーナ神戸,兵庫県,神戸市,10000,,,,auto,music,,2025年開業,0
+glion-arena,GLION ARENA KOBE,ジーライオンアリーナ神戸|TOTTEI,兵庫県,神戸市,10000,,,,auto,music,,2025年開業,0
 kobe-chickengeorge,チキンジョージ,神戸チキンジョージ,兵庫県,神戸市,400,,,,auto,music,,,0
 kobe-taiyoutotora,太陽と虎,神戸太陽と虎,兵庫県,神戸市,300,,,,auto,music,,,0
 kobe-varit,神戸VARIT.,,兵庫県,神戸市,300,,,,auto,music,,,0

@@ -10,6 +10,7 @@
 from __future__ import annotations
 
 import argparse
+from pathlib import Path
 import json
 import logging
 import sys
@@ -22,8 +23,9 @@ from .store import Store
 
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(prog="livehub")
-    p.add_argument("command", choices=["check", "discover", "verify", "collect", "build", "daily", "sample"])
+    p.add_argument("command", choices=["check", "discover", "verify", "collect", "build", "daily", "sample", "merge-checks"])
     p.add_argument("--only", help="カンマ区切りの情報源IDだけを対象にする")
+    p.add_argument("rest", nargs="*")
     args = p.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     only = set(args.only.split(",")) if args.only else None
@@ -51,6 +53,18 @@ def main(argv=None) -> int:
         print(f"合格 {len(ok)}件 / 確認 {len(res)}件")
         for k, v in res.items():
             print(("OK " if v.get("ok") else "NG ") + k, v.get("url"), v.get("matched") or v.get("reason", ""))
+        return 0
+    if args.command == "merge-checks":
+        # 別の実行で保存された確認結果と、この実行の結果をまとめる(確認日時の新しい方を採用)
+        import json
+        from .sources import URL_CHECK_PATH
+        mine = json.loads(Path(args.rest[0]).read_text(encoding="utf-8"))
+        cur = json.loads(URL_CHECK_PATH.read_text(encoding="utf-8")) if URL_CHECK_PATH.exists() else {}
+        for k, v in mine.items():
+            if k not in cur or (v.get("checked") or "") >= (cur[k].get("checked") or ""):
+                cur[k] = v
+        URL_CHECK_PATH.write_text(json.dumps(cur, ensure_ascii=False, indent=1), encoding="utf-8")
+        print(f"確認結果 {len(cur)}件")
         return 0
     if args.command in ("collect", "daily"):
         print(pipeline.run(only=only))

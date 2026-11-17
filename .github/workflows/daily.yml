@@ -76,7 +76,13 @@ jobs:
         run: |
           git config user.name "livehub-bot"
           git config user.email "livehub-bot@users.noreply.github.com"
+          # 他の実行と同時に保存しても結果を失わないよう、最新を取り込んでから確認日時の新しい方を残してまとめる
+          cp data/url_check.json /tmp/url_check.mine.json
+          [ -f data/source_status.json ] && cp data/source_status.json /tmp/source_status.mine.json || true
+          git fetch origin main && git reset --hard origin/main
+          python -m livehub merge-checks /tmp/url_check.mine.json
+          [ -f /tmp/source_status.mine.json ] && cp /tmp/source_status.mine.json data/source_status.json || true
           git add -f data/url_check.json
           [ -f data/source_status.json ] && git add -f data/source_status.json
           git diff --cached --quiet || git commit -m "data: source status $(date +%F)"
-          git pull --rebase origin main && git push
+          git push || (sleep 20; git fetch origin main && git rebase -X theirs origin/main && git push)
