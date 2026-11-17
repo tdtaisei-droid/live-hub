@@ -113,6 +113,8 @@ def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[E
         return _drop("題名なし")
     if start and start < month_start(ref):
         return _drop("先月以前")  # 今月より前に始まった公演は載せない
+    if re.match(r"https?://", title):
+        return _drop("題名なし")  # 公演名の代わりにURLが入っている
     if len(title) < 2 or any(normalize(title) in normalize(n) for n in (src.name, item.venue or "") if n):
         return _drop("題名なし")  # チケット文言などを外したら会場名しか残らない
     if NAV_ONLY.fullmatch(normalize(title)) or GENERIC_TITLE.fullmatch(title.strip()):
@@ -415,7 +417,7 @@ def reclean(db_path: Path = DATA / "livehub.sqlite3", today: Optional[date] = No
             d["title"] = None  # 下で書き戻させる
         bad = (
             (start and start < month_start(today)) and "先月以前" or
-            (len(title) < 2 or any(normalize(title) in n for n in names)) and "題名なし" or
+            (len(title) < 2 or title.startswith("http") or any(normalize(title) in n for n in names)) and "題名なし" or
             (NAV_ONLY.fullmatch(normalize(title)) or GENERIC_TITLE.fullmatch(title)) and "見出しだけ" or
             (CINEMA_EVENT.search(title) or NOT_EVENT.search(title) or VENUE_NOISE.search(title)
              or SITE_NOISE.search(title)) and "公演以外" or None
