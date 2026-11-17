@@ -29,7 +29,7 @@ MAX_BYTES = 3_000_000
 
 
 # 読み取り処理(collectors)を改良したら上げる
-CACHE_VERSION = "6"
+CACHE_VERSION = "7"
 
 
 @dataclass

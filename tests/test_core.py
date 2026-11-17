@@ -505,3 +505,12 @@ def test_time_only_block_is_not_title():
       <h3>CANDY TUNE JAPAN TOUR 2026 - AUTUMN -</h3></a></div>"""
     items = parse_schedule_blocks(html, "https://hall.example.jp/event/", date(2026, 11, 1))
     assert len(items) == 1 and "CANDY TUNE" in items[0].title
+
+
+def test_genre_label_block_is_not_title():
+    from livehub.collectors.html import parse_schedule_blocks
+    from livehub.textutil import clean_title
+    html = """<li><a href="/event/9/"><span>2026.11.17</span><span>18:30 ~ 20:40 (終演後、臨時バス有り)</span><span>ジャンル:音楽</span>
+      <strong>CANDY TUNE JAPAN TOUR 2026 - AUTUMN -</strong></a></li>"""
+    items = parse_schedule_blocks(html, "https://hall.example.jp/event/", date(2026, 11, 1))
+    assert len(items) == 1 and clean_title(items[0].title).startswith("CANDY TUNE")

@@ -177,6 +177,7 @@ def _has_date_and_name(text: str, ref: date) -> bool:
         rest = rest[:h.start] + " " + rest[h.end:]
     # 時刻・開場/開演・会期の見出し・括弧書き(臨時バスの案内など)だけの枠は、公演名がない
     rest = re.sub(r"[(（][^)）]*[)）]", " ", rest)
+    rest = re.sub(r"(ジャンル|カテゴリー?|会場|場所|ホール)\s*[:：]\s*\S+", " ", rest)
     rest = re.sub(r"\d{1,2}\s*[:：]\s*\d{2}|開場|開演|終演|開始|終了|会期中|初日|最終日|時間|OPEN|START|CLOSE|予定", " ", rest, flags=re.I)
     return len(_WEEKDAY.sub("", rest)) >= 2
 
