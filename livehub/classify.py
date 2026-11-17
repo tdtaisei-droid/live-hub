@@ -109,6 +109,18 @@ VENUE_TARGET = re.compile(
     r"お笑い|漫才|落語|寄席|開演|OPEN|START)", re.I)
 
 
+# 公演スケジュール専用ページ(会場・主催社・劇場)の項目は、公演名が出演者名だけのことが多い。
+# そのため「ライブ」等の語を必須にせず、明らかな公演以外(お知らせ・休館・募集など)だけを除く
+SITE_NOISE = re.compile(
+    r"(休館|臨時休業|メンテナンス|営業時間|駐車場|アクセス|募集|求人|採用|プレゼント|キャンペーン|"
+    r"プライバシー|利用規約|会員登録|ログイン|お問い合わせ|よくある質問|FAQ|定休日)", re.I)
+
+
+def is_schedule_item(text: str) -> bool:
+    return not (CINEMA_EVENT.search(text) or NOT_EVENT.search(text) or VENUE_NOISE.search(text)
+                or SITE_NOISE.search(text))
+
+
 def is_venue_target(text: str) -> bool:
     return VENUE_TARGET.search(text) is not None and VENUE_NOISE.search(text) is None
 

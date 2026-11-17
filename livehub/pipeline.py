@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Optional
 from urllib.parse import urlsplit
 
-from .classify import ENDED, STORE_LIVE, is_news_post, is_special, classify_genre_with_default, classify_kind, is_venue_target, is_broadcast_target, is_free, is_hall_target, is_relevant
+from .classify import is_schedule_item, ENDED, STORE_LIVE, is_news_post, is_special, classify_genre_with_default, classify_kind, is_venue_target, is_broadcast_target, is_free, is_hall_target, is_relevant
 from .collectors import RawItem
 from .collectors.html import page_identity, find_feeds, find_schedule_pages, page_text, parse_jsonld_events, parse_schedule_blocks
 from .collectors.ics import parse_ics
@@ -26,10 +26,19 @@ log = logging.getLogger("livehub")
 DATA = Path(__file__).resolve().parent.parent / "data"
 
 
+# 公演スケジュール専用の情報源(ページ上の日付つき項目は基本的に公演)
+SCHEDULE_CATEGORIES = {"venues_music", "theaters", "promoters", "stage_producers"}
+
 # ---------- RawItem → Event ----------
 # 取れなかった理由の記録(巡回ログに要約を残し、読み取りの改善に使う。ページ本文は保存しない)
 TRACE: list[str] = []
 DROPS: Counter = Counter()
+
+
+class HttpRefused(Exception):
+    def __init__(self, status: int):
+        super().__init__(status)
+        self.status = status
 
 
 def _drop(reason: str):
@@ -47,13 +56,18 @@ def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[E
         return _drop("終了")  # 終了済みの公演
     if not item.structured and is_news_post(item.title):
         return _drop("お知らせ記事")  # 写真公開・コメント到着などのお知らせ記事
-    if not item.structured and not is_relevant(text):
+    schedule_src = src.category in SCHEDULE_CATEGORIES and not item.site_feed
+    if not item.structured and schedule_src:
+        if not is_schedule_item(text):
+            return _drop("公演以外")
+    elif not item.structured and not is_relevant(text):
         return _drop("対象外")
     if item.structured and not is_relevant(text + " 公演"):
         return _drop("構造化対象外")  # 映画イベント等の除外は構造化データにも適用
     if src.category == "halls" and not is_hall_target(text):
         return _drop("会館の対象外")  # 公立ホールは発表会・式典などが多いので、対象ジャンルの公演だけ残す
-    if src.category in ("venues_music", "theaters") and not item.structured and not is_venue_target(text):
+    if src.category in ("venues_music", "theaters") and not item.structured and not schedule_src \
+            and not is_venue_target(text):
         return _drop("会場の対象外")  # 会場の一覧に混ざる展示会・スポーツ・フリマ等を除く
     if src.category == "broadcasters" and not is_broadcast_target(text):
         return _drop("放送局の対象外")  # 放送局は物産展・スポーツ等が多いので、ライブ・公演・公開収録だけ残す
@@ -163,7 +177,9 @@ def _items_for(src: Source, fetcher: Fetcher, ref: date, seen_urls: Optional[set
     # スケジュールページ未登録: トップページから 構造化データ / メニューの「スケジュール」等 / RSS を自動で探す
     r = fetcher.get(src.url, use_cache=False)
     _trace(f"top:{r.status}")
-    if r.status >= 400 or not r.text:
+    if r.status >= 400:
+        raise HttpRefused(r.status)
+    if not r.text:
         return []
     items = parse_jsonld_events(r.text, r.url)
     if items:
@@ -242,6 +258,10 @@ def run(sources: Optional[list[Source]] = None, only: Optional[set[str]] = None,
         except BlockedByRobots:
             store.log_run(src.id, now, "robots", 0, "robots.txt で拒否")
             stats["robots"] += 1
+        except HttpRefused as exc:
+            # 403等: こちらからのアクセスを受け付けていない。回避はせず記録だけ残す
+            store.log_run(src.id, now, f"http{exc.status}", 0, f"HTTP {exc.status}(アクセス拒否)")
+            stats["refused"] += 1
         except Exception as exc:  # 1つの情報源の失敗で全体を止めない
             log.warning("source %s failed: %s", src.id, exc)
             store.log_run(src.id, now, "error", 0, repr(exc))

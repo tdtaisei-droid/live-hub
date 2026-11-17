@@ -128,7 +128,8 @@ class _Scanner(HTMLParser):
         if tag in self.SKIP:
             self._skip += 1
         if tag in self.BLOCK:
-            self._stack.append(([], []))
+            # カード型レイアウト(<a href><div>日付</div><div>公演名</div></a>)では、外側のリンクを内側の枠にも持たせる
+            self._stack.append(([], [self._a] if self._a else []))
         if tag == "a" and a.get("href") and self._stack:
             self._stack[-1][1].append(a["href"])
         if tag == "a" and a.get("href"):
@@ -163,12 +164,26 @@ def find_feeds(html_text: str, base_url: str) -> list[tuple[str, str]]:
     return [(t, urljoin(base_url, h)) for t, h in sc.feeds]
 
 
+_WEEKDAY = re.compile(r"[\s()（）\[\]・.〜~\-/:：]|[月火水木金土日祝]|SUN|MON|TUE|WED|THU|FRI|SAT", re.I)
+
+
+def _has_date_and_name(text: str, ref: date) -> bool:
+    """日付があり、かつ日付・曜日以外の文字(公演名など)もある枠か。"""
+    hits = find_dates(text, ref)
+    if not hits:
+        return False
+    rest = text
+    for h in sorted(hits, key=lambda h: -h.start):
+        rest = rest[:h.start] + " " + rest[h.end:]
+    return len(_WEEKDAY.sub("", rest)) >= 2
+
+
 def parse_schedule_blocks(html_text: str, base_url: str, ref: date) -> list[RawItem]:
     """日付を1つ以上含み、リンクを持つ、適度な長さのブロックを公演とみなす。
     入れ子の場合は最も内側(短い)ブロックを採用する。"""
     sc = _Scanner()
     sc.feed(html_text)
-    cands = [(t, l) for t, l in sc.blocks if 8 <= len(t) <= 400 and l and find_dates(t, ref)]
+    cands = [(t, l) for t, l in sc.blocks if 8 <= len(t) <= 400 and l and _has_date_and_name(t, ref)]
     cands.sort(key=lambda b: len(b[0]))
     chosen: list[tuple[str, list[str]]] = []
     for text, links in cands:
@@ -210,11 +225,12 @@ def page_text(html_text: str, limit: int = 4000) -> str:
 # メニューの文字(またはURL)に含まれる語と、その優先度(小さいほど優先)
 _SCHEDULE_WORDS = [
     (0, re.compile(r"(スケジュール|schedule|公演情報|公演スケジュール|公演一覧|イベントスケジュール|ライブスケジュール)", re.I)),
-    (1, re.compile(r"(ライブ情報|live\s*info|ライブ・イベント|イベント情報|event\s*info|ツアー情報|tour\s*info|上演情報|番組表)", re.I)),
+    (1, re.compile(r"(ライブ情報|live\s*info|ライブ・イベント|イベント情報|event\s*info|ツアー情報|tour\s*info|上演情報)", re.I)),
     (2, re.compile(r"^(live|ライブ|ライヴ|event|events|イベント|tour|ツアー|公演|calendar|カレンダー|stage|ステージ)$", re.I)),
 ]
 _SCHEDULE_PATH = re.compile(r"/(schedule|live|lives|event|events|tour|calendar|stage|performance|kouen)(/|\.html?|$|\?)", re.I)
-_NOT_SCHEDULE = re.compile(r"(配信|アーカイブ|archive|report|レポート|過去|past|goods|グッズ|ticket\.|fc|fanclub)", re.I)
+_NOT_SCHEDULE = re.compile(r"(配信|アーカイブ|archive|report|レポート|過去|past|goods|グッズ|ticket\.|fc|fanclub|"
+                           r"番組|timetable|time-table|program_?table|programtable|weeklyprogram|tv-prog|bangumi|epg|\.pdf$)", re.I)
 
 
 class _Links(HTMLParser):

@@ -425,3 +425,28 @@ def test_run_records_trace(tmp_path):
     import sqlite3
     msg = sqlite3.connect(tmp_path / "t.sqlite3").execute("select message from runs").fetchone()[0]
     assert "blocks" in msg and "raw" in msg
+
+
+def test_card_layout_and_artist_only_titles():
+    """<a>で囲んだカード型の一覧と、出演者名だけの公演名(会場・主催社のスケジュール)を読める。"""
+    from datetime import date, datetime
+    from livehub.collectors.html import parse_schedule_blocks
+    from livehub.pipeline import to_event
+    from livehub.sources import Source
+    html = """<ul>
+      <li><a href="/ev/1"><div class="d">2026.12.05 (土)</div><div class="t">Mrs. Sample Band</div><div>OPEN 17:00</div></a></li>
+      <li><a href="/ev/2"><div class="d">2026.12.06 (日)</div><div class="t">架空シンガー 弾き語り</div></a></li>
+      <li><a href="/info/3"><div class="d">2026.12.01</div><div class="t">年末年始の休館日のお知らせ</div></a></li>
+    </ul>"""
+    items = parse_schedule_blocks(html, "https://venue.example.jp/schedule/", date(2026, 11, 1))
+    assert {i.url for i in items} == {"https://venue.example.jp/ev/1", "https://venue.example.jp/ev/2", "https://venue.example.jp/info/3"}
+    src = Source(id="v", name="テスト会場", category="venues_music", url="https://venue.example.jp/", prefecture="東京都")
+    evs = [to_event(i, src, date(2026, 11, 1), datetime(2026, 11, 1)) for i in items]
+    kept = sorted(e.url for e in evs if e)
+    assert kept == ["https://venue.example.jp/ev/1", "https://venue.example.jp/ev/2"]
+
+
+def test_timetable_not_schedule_page():
+    from livehub.collectors.html import find_schedule_pages
+    html = '<a href="/timetable/">番組表</a><a href="/event/">イベント</a>'
+    assert find_schedule_pages(html, "https://tv.example.jp/") == ["https://tv.example.jp/event/"]
