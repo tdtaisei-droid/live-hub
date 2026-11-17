@@ -450,3 +450,12 @@ def test_timetable_not_schedule_page():
     from livehub.collectors.html import find_schedule_pages
     html = '<a href="/timetable/">番組表</a><a href="/event/">イベント</a>'
     assert find_schedule_pages(html, "https://tv.example.jp/") == ["https://tv.example.jp/event/"]
+
+
+def test_nav_and_generic_titles_dropped():
+    from livehub.pipeline import to_event
+    s = src(id="v", category="venues_music", name="テスト会場", prefecture="東京都", genre_default="music")
+    for t in ["2026 11月", "10月 11月 12月", "2027年 1月", "EVENING", "イープラス", "カレンダー形式"]:
+        assert to_event(RawItem(t, "https://x/1", summary=f"{t} 2026年12月5日"), s, REF, NOW) is None, t
+    ok = to_event(RawItem("開場15:30 開演16:00 架空シンガーコンサート2027", "https://x/2", summary="2027年1月10日"), s, REF, NOW)
+    assert ok and ok.title.startswith("架空シンガー")

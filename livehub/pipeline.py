@@ -29,6 +29,13 @@ DATA = Path(__file__).resolve().parent.parent / "data"
 # 公演スケジュール専用の情報源(ページ上の日付つき項目は基本的に公演)
 SCHEDULE_CATEGORIES = {"venues_music", "theaters", "promoters", "stage_producers"}
 
+# 月送りのリンク(「2026年 11月」「10月 11月 12月」)など、年月だけの見出し
+NAV_ONLY = re.compile(r"[\d\s年月/.\-〜~・|｜<>＜＞«»前次へ]+")
+# 公演名ではない一語だけの見出し・販売所名
+GENERIC_TITLE = re.compile(
+    r"(EVENING|NIGHT|DAY|AFTERNOON|CLUB|LIVE|OPEN|START|SCHEDULE|カレンダー形式|リスト形式|一覧|窓口.*|"
+    r"イープラス|eplus|ローソンチケット|セブンチケット|チケットぴあ|ぴあ|楽天チケット|LINEチケット|PassMarket)", re.I)
+
 # ---------- RawItem → Event ----------
 # 取れなかった理由の記録(巡回ログに要約を残し、読み取りの改善に使う。ページ本文は保存しない)
 TRACE: list[str] = []
@@ -99,6 +106,8 @@ def to_event(item: RawItem, src: Source, ref: date, now: datetime) -> Optional[E
     if len(normalize(title)) < 4 or re.match(r"^(\S*先行|一般発売|一般販売|抽選|受付|料金|チケット)", title) \
             or re.fullmatch(r"[【\[]?(公演詳細|公演情報|イベント情報|詳細|お知らせ|NEWS|INFORMATION)[】\]]?", normalize(title), re.I):
         return _drop("題名なし")
+    if NAV_ONLY.fullmatch(normalize(title)) or GENERIC_TITLE.fullmatch(title.strip()):
+        return _drop("見出しだけ")  # 「2026年 11月」などの月送りや、「CLUB」「イープラス」などの見出し・販売所名
     ev = Event(
         title=title,
         url=item.url,
