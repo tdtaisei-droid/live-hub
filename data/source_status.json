@@ -1,6 +1,17 @@
 {
+ "sapporo-dome": {
+  "checked": "2026-11-16T23:57:57",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.sapporo-dome.co.jp/schedule/",
+   "https://www.sapporo-dome.co.jp/facility/enjoy/event/"
+  ],
+  "suggested_method": "html"
+ },
  "zepp-sapporo": {
-  "checked": "2026-11-16T15:33:41",
+  "checked": "2026-11-16T23:58:02",
   "status": 200,
   "feeds": [
    [
@@ -19,8 +30,29 @@
   ],
   "suggested_method": "rss"
  },
+ "kanamoto-hall": {
+  "checked": "2026-11-16T23:58:07",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.sapporo-shiminhall.org/event/",
+   "https://www.sapporo-shiminhall.org/event/?ymd=2026/11/16"
+  ],
+  "suggested_method": "html"
+ },
+ "penny-lane24": {
+  "checked": "2026-11-16T23:58:12",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.pl24.jp/schedule.html"
+  ],
+  "suggested_method": "html"
+ },
  "tokyo-dome": {
-  "checked": "2026-11-16T15:33:46",
+  "checked": "2026-11-16T23:58:16",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -31,7 +63,7 @@
   "suggested_method": "html"
  },
  "budokan": {
-  "checked": "2026-11-16T15:33:49",
+  "checked": "2026-11-16T23:58:19",
   "status": 200,
   "feeds": [
    [
@@ -47,8 +79,41 @@
   "schedule_pages": [],
   "suggested_method": "rss"
  },
+ "ariake-arena": {
+  "checked": "2026-11-16T23:58:23",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://ariake-arena.tokyo/event/",
+   "https://ariake-arena.tokyo/event/next/"
+  ],
+  "suggested_method": "html"
+ },
+ "yoyogi-1": {
+  "checked": "2026-11-16T23:58:29",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.jpnsport.go.jp/yoyogi/event/index.html",
+   "https://www.jpnsport.go.jp/yoyogi/event/1st.html"
+  ],
+  "suggested_method": "html"
+ },
+ "garden-theater": {
+  "checked": "2026-11-16T23:58:33",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/",
+   "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/org/facilities/events/"
+  ],
+  "suggested_method": "html"
+ },
  "tif-hall-a": {
-  "checked": "2026-11-16T15:33:54",
+  "checked": "2026-11-16T23:58:37",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -59,7 +124,7 @@
   "suggested_method": "html"
  },
  "zepp-haneda": {
-  "checked": "2026-11-16T15:33:58",
+  "checked": "2026-11-16T23:58:40",
   "status": 200,
   "feeds": [
    [
@@ -79,7 +144,7 @@
   "suggested_method": "rss"
  },
  "zepp-divercity": {
-  "checked": "2026-11-16T15:33:59",
+  "checked": "2026-11-16T23:58:42",
   "status": 200,
   "feeds": [
    [
@@ -98,8 +163,28 @@
   ],
   "suggested_method": "rss"
  },
+ "line-cube": {
+  "checked": "2026-11-16T23:58:46",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://linecubeshibuya.com/feed"
+   ],
+   [
+    "application/atom+xml",
+    "https://linecubeshibuya.com/feed/atom"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://linecubeshibuya.com/category/event/event202611",
+   "https://linecubeshibuya.com/event/18421"
+  ],
+  "suggested_method": "rss"
+ },
  "zepp-shinjuku": {
-  "checked": "2026-11-16T15:34:03",
+  "checked": "2026-11-16T23:58:51",
   "status": 200,
   "feeds": [
    [
@@ -118,8 +203,166 @@
   ],
   "suggested_method": "rss"
  },
+ "o-east": {
+  "checked": "2026-11-16T23:58:51",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://shibuya-o.com/east/schedule/",
+   "https://shibuya-o.com/east/club/"
+  ],
+  "suggested_method": "html"
+ },
+ "liquidroom": {
+  "checked": "2026-11-16T23:58:59",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.liquidroom.net/schedule",
+   "https://www.liquidroom.net/schedule/okamotos_20261119"
+  ],
+  "suggested_method": "html"
+ },
+ "shibuya-quattro": {
+  "checked": "2026-11-16T23:59:04",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.club-quattro.com/shibuya/schedule/",
+   "https://www.club-quattro.com/nagoya/schedule/"
+  ],
+  "suggested_method": "html"
+ },
+ "duo": {
+  "checked": "2026-11-16T23:59:09",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "http://www.duomusicexchange.com/schedule/2026/index_2026-01.html",
+   "http://www.duomusicexchange.com/schedule/2026/index_2026-02.html"
+  ],
+  "suggested_method": "html"
+ },
+ "o-west": {
+  "checked": "2026-11-16T23:59:13",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://shibuya-o.com/west/schedule/",
+   "https://shibuya-o.com/west/schedule/loloet-one-man-show-%e3%80%8c%e5%b0%8f%e6%98%a5%e6%97%a5%e5%92%8c%e3%80%8d/"
+  ],
+  "suggested_method": "html"
+ },
+ "shinjuku-loft": {
+  "checked": "2026-11-16T23:59:15",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.loft-prj.co.jp/schedule/loft/schedule/",
+   "https://www.loft-prj.co.jp/schedule/loft/schedule"
+  ],
+  "suggested_method": "html"
+ },
+ "www": {
+  "checked": "2026-11-16T23:59:21",
+  "status": 200,
+  "feeds": [
+   [
+    "application/atom+xml",
+    "https://www-shibuya.jp/atom.xml"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www-shibuya.jp/schedule",
+   "https://www-shibuya.jp/schedule/"
+  ],
+  "suggested_method": "rss"
+ },
+ "eggman": {
+  "checked": "2026-11-16T23:59:25",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "billboard-tokyo": {
+  "checked": "2026-11-16T23:59:30",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.billboard-live.com/tokyo/schedules",
+   "https://www.billboard-live.com/osaka/schedules"
+  ],
+  "suggested_method": "html"
+ },
+ "bluenote-tokyo": {
+  "checked": "2026-11-16T23:59:34",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "fever": {
+  "checked": "2026-11-16T23:59:39",
+  "status": 200,
+  "feeds": [
+   [
+    "application/atom+xml",
+    "https://www.fever-popo.com/atom.xml"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.fever-popo.com/schedule/2026/11/",
+   "https://www.fever-popo.com/schedule/2026/11/23/"
+  ],
+  "suggested_method": "rss"
+ },
+ "shelter": {
+  "checked": "2026-11-16T23:59:43",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.loft-prj.co.jp/schedule/shelter/schedule/",
+   "https://www.loft-prj.co.jp/schedule/shelter/schedule"
+  ],
+  "suggested_method": "html"
+ },
+ "o-crest": {
+  "checked": "2026-11-16T23:59:44",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://shibuya-o.com/crest/schedule/",
+   "https://shibuya-o.com/crest/schedule/tigers-jaw-japan-2026-with-country-yard/"
+  ],
+  "suggested_method": "html"
+ },
+ "o-nest": {
+  "checked": "2026-11-16T23:59:46",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://shibuya-o.com/nest/schedule/",
+   "https://shibuya-o.com/nest/schedule/bahamas-fest-2026-extra-show/"
+  ],
+  "suggested_method": "html"
+ },
  "ssa": {
-  "checked": "2026-11-16T15:34:07",
+  "checked": "2026-11-16T23:59:52",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -129,8 +372,41 @@
   ],
   "suggested_method": "html"
  },
+ "makuhari-messe": {
+  "checked": "2026-11-16T23:59:56",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.m-messe.co.jp/event/",
+   "https://www.m-messe.co.jp/event/detail/8956"
+  ],
+  "suggested_method": "html"
+ },
+ "nissan-stadium": {
+  "checked": "2026-11-17T00:00:00",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.nissan-stadium.jp/calendar/",
+   "https://www.nissan-stadium.jp/tour/"
+  ],
+  "suggested_method": "html"
+ },
+ "k-arena": {
+  "checked": "2026-11-17T00:00:04",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://k-arena.com/schedule/",
+   "https://k-arena.com/schedule"
+  ],
+  "suggested_method": "html"
+ },
  "yokohama-arena": {
-  "checked": "2026-11-16T15:34:11",
+  "checked": "2026-11-17T00:00:08",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -140,8 +416,27 @@
   ],
   "suggested_method": "html"
  },
+ "pia-arena": {
+  "checked": "2026-11-17T00:00:13",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://pia-arena-mm.jp/event/index.html",
+   "https://pia-arena-mm.jp/event/6558.html"
+  ],
+  "suggested_method": "html"
+ },
+ "pacifico": {
+  "checked": "2026-11-17T00:00:17",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
  "kt-zepp-yokohama": {
-  "checked": "2026-11-16T15:34:17",
+  "checked": "2026-11-17T00:00:21",
   "status": 200,
   "feeds": [
    [
@@ -160,8 +455,29 @@
   ],
   "suggested_method": "rss"
  },
+ "club-citta": {
+  "checked": "2026-11-17T00:00:22",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://clubcitta.co.jp/schedule",
+   "https://clubcitta.co.jp/information/446"
+  ],
+  "suggested_method": "html"
+ },
+ "vantelin-dome": {
+  "checked": "2026-11-17T00:00:26",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.nagoya-dome.co.jp/newstopics/event/"
+  ],
+  "suggested_method": "html"
+ },
  "zepp-nagoya": {
-  "checked": "2026-11-16T15:34:19",
+  "checked": "2026-11-17T00:00:30",
   "status": 200,
   "feeds": [
    [
@@ -180,8 +496,49 @@
   ],
   "suggested_method": "rss"
  },
+ "nagoya-quattro": {
+  "checked": "2026-11-17T00:00:32",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.club-quattro.com/shibuya/schedule/",
+   "https://www.club-quattro.com/nagoya/schedule/"
+  ],
+  "suggested_method": "html"
+ },
+ "bottom-line": {
+  "checked": "2026-11-17T00:00:33",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.bottomline.co.jp/schedule/4619",
+   "https://www.bottomline.co.jp/schedule/5225"
+  ],
+  "suggested_method": "html"
+ },
+ "electric-lady-land": {
+  "checked": "2026-11-17T00:00:38",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "kyocera-dome": {
+  "checked": "2026-11-17T00:00:42",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.kyoceradome-osaka.jp/schedule/",
+   "https://www.kyoceradome-osaka.jp/events/"
+  ],
+  "suggested_method": "html"
+ },
  "osakajo-hall": {
-  "checked": "2026-11-16T15:34:23",
+  "checked": "2026-11-17T00:00:46",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -191,8 +548,30 @@
   ],
   "suggested_method": "html"
  },
+ "festival-hall": {
+  "checked": "2026-11-17T00:00:50",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.festivalhall.jp/events/calendar/",
+   "https://www.festivalhall.jp/events/list/"
+  ],
+  "suggested_method": "html"
+ },
+ "grandcube": {
+  "checked": "2026-11-17T00:00:55",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.gco.co.jp/topics/%e9%96%a2%e8%a5%bf%e3%83%9f%e3%83%8d%e3%83%a9%e3%83%ab%e3%83%9e%e3%83%ab%e3%82%b7%e3%82%a7%e3%81%8c%e9%96%8b%e5%82%ac%e3%81%95%e3%82%8c%e3%81%be%e3%81%99%ef%bc%81/",
+   "https://www.gco.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
  "zepp-osaka-bayside": {
-  "checked": "2026-11-16T15:34:28",
+  "checked": "2026-11-17T00:01:00",
   "status": 200,
   "feeds": [
    [
@@ -212,7 +591,7 @@
   "suggested_method": "rss"
  },
  "zepp-namba": {
-  "checked": "2026-11-16T15:34:29",
+  "checked": "2026-11-17T00:01:01",
   "status": 200,
   "feeds": [
    [
@@ -231,8 +610,138 @@
   ],
   "suggested_method": "rss"
  },
+ "orix-theater": {
+  "checked": "2026-11-17T00:01:05",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.orixtheater.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "bigcat": {
+  "checked": "2026-11-17T00:01:09",
+  "status": 200,
+  "feeds": [
+   [
+    "application/atom+xml",
+    "https://bigcat-live.com/feed/atom"
+   ],
+   [
+    "application/rss+xml",
+    "https://bigcat-live.com/feed"
+   ],
+   [
+    "application/rss+xml",
+    "https://bigcat-live.com/sample-page/feed"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://bigcat-live.com/schedule/"
+  ],
+  "suggested_method": "rss"
+ },
+ "umeda-quattro": {
+  "checked": "2026-11-17T00:01:15",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.club-quattro.com/shibuya/schedule/",
+   "https://www.club-quattro.com/nagoya/schedule/"
+  ],
+  "suggested_method": "html"
+ },
+ "janus": {
+  "checked": "2026-11-17T00:01:16",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://janusosaka.com/schedule"
+  ],
+  "suggested_method": "html"
+ },
+ "shangri-la": {
+  "checked": "2026-11-17T00:01:20",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "rohm-theatre": {
+  "checked": "2026-11-17T00:01:24",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://rohmtheatrekyoto.jp/program/",
+   "https://rohmtheatrekyoto.jp/event/156315/"
+  ],
+  "suggested_method": "html"
+ },
+ "kyoto-metro": {
+  "checked": "2026-11-17T00:01:29",
+  "status": 200,
+  "feeds": [
+   [
+    "text/calendar",
+    "https://www.metro.ne.jp/schedule/?ical=1"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.metro.ne.jp/schedule/",
+   "https://www.metro.ne.jp/schedule"
+  ],
+  "suggested_method": "ics"
+ },
+ "blue-live": {
+  "checked": "2026-11-17T00:01:33",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://bluelive.jp/schedule",
+   "https://bluelive.jp/schedule/20261120"
+  ],
+  "suggested_method": "html"
+ },
+ "hiroshima-quattro": {
+  "checked": "2026-11-17T00:01:38",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.club-quattro.com/shibuya/schedule/",
+   "https://www.club-quattro.com/nagoya/schedule/"
+  ],
+  "suggested_method": "html"
+ },
+ "marine-messe": {
+  "checked": "2026-11-17T00:01:39",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "fukuoka-sunpalace": {
+  "checked": "2026-11-17T00:01:42",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.f-sunpalace.com/hall/",
+   "https://www.f-sunpalace.com/event/wine-kai/"
+  ],
+  "suggested_method": "html"
+ },
  "zepp-fukuoka": {
-  "checked": "2026-11-16T15:34:34",
+  "checked": "2026-11-17T00:01:47",
   "status": 200,
   "feeds": [
    [
@@ -251,8 +760,61 @@
   ],
   "suggested_method": "rss"
  },
+ "kumamoto-castle-hall": {
+  "checked": "2026-11-17T00:01:49",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.kumamoto-jo-hall.jp/event/",
+   "https://www.kumamoto-jo-hall.jp/event/index.html"
+  ],
+  "suggested_method": "html"
+ },
+ "okinawa-arena": {
+  "checked": "2026-11-17T00:01:53",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://okinawa-arena.jp/events"
+  ],
+  "suggested_method": "html"
+ },
+ "wess": {
+  "checked": "2026-11-17T00:01:56",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://wess.jp/concert-schedule/"
+  ],
+  "suggested_method": "html"
+ },
+ "north-road": {
+  "checked": "2026-11-17T00:02:00",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.north-road.co.jp/schedule/index.php",
+   "https://www.north-road.co.jp/event/index.php"
+  ],
+  "suggested_method": "html"
+ },
+ "gip": {
+  "checked": "2026-11-17T00:02:04",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.gip-web.co.jp/schedule/",
+   "https://www.gip-web.co.jp/schedule/detail/8623"
+  ],
+  "suggested_method": "html"
+ },
  "kyodo-tokyo": {
-  "checked": "2026-11-16T15:34:38",
+  "checked": "2026-11-17T00:02:11",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -263,15 +825,162 @@
   "suggested_method": "html"
  },
  "diskgarage": {
-  "checked": "2026-11-16T15:34:42",
+  "checked": "2026-11-17T00:02:15",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
   "schedule_pages": [],
   "suggested_method": "html"
  },
+ "creativeman": {
+  "checked": "2026-11-17T00:02:21",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.creativeman.co.jp/event/",
+   "https://www.creativeman.co.jp/news/"
+  ],
+  "suggested_method": "html"
+ },
+ "smash": {
+  "checked": "2026-11-17T00:02:26",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://smash-jpn.com/calendar/",
+   "https://smash-jpn.com/live/?id=4784"
+  ],
+  "suggested_method": "html"
+ },
+ "vintage-rock": {
+  "checked": "2026-11-17T00:02:30",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://vintage-rock.com/live/"
+  ],
+  "suggested_method": "html"
+ },
+ "kyodo-hokuriku": {
+  "checked": "2026-11-17T00:02:37",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.kyodo-hokuriku.co.jp/schedule",
+   "https://www.kyodo-hokuriku.co.jp/schedule/action/tiku/1"
+  ],
+  "suggested_method": "html"
+ },
+ "kyodo-tokai": {
+  "checked": "2026-11-17T00:02:42",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.kyodotokai.co.jp/events/index/",
+   "https://www.kyodotokai.co.jp/informations/detail/2330"
+  ],
+  "suggested_method": "html"
+ },
+ "sunday-folk": {
+  "checked": "2026-11-17T00:02:48",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.sundayfolk.com/articles/detail/34333"
+  ],
+  "suggested_method": "html"
+ },
+ "jailhouse": {
+  "checked": "2026-11-17T00:02:53",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.jailhouse.jp/live/tatsuyakitanidekaipure/",
+   "https://www.jailhouse.jp/live/tspo-arena-tour-2027-ska-showdown-episode2/"
+  ],
+  "suggested_method": "html"
+ },
+ "yumebanchi": {
+  "checked": "2026-11-17T00:03:00",
+  "status": 403,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "shimizu-onsen": {
+  "checked": "2026-11-17T00:03:04",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "http://www.shimizuonsen.com/schedule",
+   "http://www.shimizuonsen.com/schedule/detail/4639"
+  ],
+  "suggested_method": "html"
+ },
+ "greens": {
+  "checked": "2026-11-17T00:03:08",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.greens-corp.co.jp/schedule/cal/",
+   "https://www.greens-corp.co.jp/schedule/info/index.php?event_id=13728"
+  ],
+  "suggested_method": "html"
+ },
+ "sound-creator": {
+  "checked": "2026-11-17T00:03:13",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.sound-c.co.jp/schedule/",
+   "https://www.sound-c.co.jp/news/detail/1688/"
+  ],
+  "suggested_method": "html"
+ },
+ "kyodo-west": {
+  "checked": "2026-11-17T00:03:19",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.kyodo-west.co.jp/schedule.php",
+   "https://www.kyodo-west.co.jp/schedule.php?type=C"
+  ],
+  "suggested_method": "html"
+ },
+ "bea": {
+  "checked": "2026-11-17T00:03:24",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.bea-net.com/mimiyori.html"
+  ],
+  "suggested_method": "html"
+ },
+ "duke": {
+  "checked": "2026-11-17T00:03:29",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.duke.co.jp/calendar/"
+  ],
+  "suggested_method": "html"
+ },
  "toho-stage": {
-  "checked": "2026-11-16T15:34:49",
+  "checked": "2026-11-17T00:03:35",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -279,7 +988,7 @@
   "suggested_method": "html"
  },
  "horipro-stage": {
-  "checked": "2026-11-16T15:34:53",
+  "checked": "2026-11-17T00:03:38",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -290,7 +999,7 @@
   "suggested_method": "html"
  },
  "shiki": {
-  "checked": "2026-11-16T15:34:59",
+  "checked": "2026-11-17T00:03:42",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -301,7 +1010,7 @@
   "suggested_method": "html"
  },
  "takarazuka": {
-  "checked": "2026-11-16T15:35:04",
+  "checked": "2026-11-17T00:03:46",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -311,7 +1020,7 @@
   "suggested_method": "html"
  },
  "umegei": {
-  "checked": "2026-11-16T15:35:08",
+  "checked": "2026-11-17T00:03:51",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -322,7 +1031,7 @@
   "suggested_method": "html"
  },
  "kabuki-bito": {
-  "checked": "2026-11-16T15:35:14",
+  "checked": "2026-11-17T00:03:56",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -333,7 +1042,7 @@
   "suggested_method": "html"
  },
  "bunkamura": {
-  "checked": "2026-11-16T15:35:19",
+  "checked": "2026-11-17T00:03:59",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -344,7 +1053,7 @@
   "suggested_method": "html"
  },
  "parco-stage": {
-  "checked": "2026-11-16T15:35:24",
+  "checked": "2026-11-17T00:04:04",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -355,7 +1064,7 @@
   "suggested_method": "html"
  },
  "nelke": {
-  "checked": "2026-11-16T15:35:28",
+  "checked": "2026-11-17T00:04:07",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -366,7 +1075,7 @@
   "suggested_method": "html"
  },
  "siscompany": {
-  "checked": "2026-11-16T15:35:32",
+  "checked": "2026-11-17T00:04:11",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -374,7 +1083,7 @@
   "suggested_method": "html"
  },
  "nntt": {
-  "checked": "2026-11-16T15:35:37",
+  "checked": "2026-11-17T00:04:15",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -385,7 +1094,7 @@
   "suggested_method": "html"
  },
  "setagaya-pt": {
-  "checked": "2026-11-16T15:35:42",
+  "checked": "2026-11-17T00:04:19",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -396,7 +1105,7 @@
   "suggested_method": "html"
  },
  "geigeki": {
-  "checked": "2026-11-16T15:35:47",
+  "checked": "2026-11-17T00:04:23",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -407,7 +1116,7 @@
   "suggested_method": "html"
  },
  "kaat": {
-  "checked": "2026-11-16T15:35:51",
+  "checked": "2026-11-17T00:04:27",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -417,8 +1126,233 @@
   ],
   "suggested_method": "html"
  },
+ "nissay": {
+  "checked": "2026-11-17T00:04:31",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.nissaytheatre.or.jp/feed/"
+   ],
+   [
+    "application/rss+xml",
+    "https://www.nissaytheatre.or.jp/comments/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.nissaytheatre.or.jp/schedule/"
+  ],
+  "suggested_method": "rss"
+ },
+ "kabukiza": {
+  "checked": "2026-11-17T00:04:36",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.kabuki-za.co.jp/event/",
+   "https://www.kabuki-za.co.jp/event/kabukiza_asaichi.html"
+  ],
+  "suggested_method": "html"
+ },
+ "shinbashi-enbujo": {
+  "checked": "2026-11-17T00:04:41",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "meijiza": {
+  "checked": "2026-11-17T00:04:45",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.meijiza.co.jp/feed/"
+   ],
+   [
+    "application/rss+xml",
+    "https://www.meijiza.co.jp/comments/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.meijiza.co.jp/news/category/performance/"
+  ],
+  "suggested_method": "rss"
+ },
+ "orb": {
+  "checked": "2026-11-17T00:04:49",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://theatre-orb.com/lineup/calendar/"
+  ],
+  "suggested_method": "html"
+ },
+ "sunshine-theater": {
+  "checked": "2026-11-17T00:04:53",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://sunshine-theatre.co.jp/lineup/"
+  ],
+  "suggested_method": "html"
+ },
+ "misonoza": {
+  "checked": "2026-11-17T00:04:59",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.misonoza.co.jp/new/wp-content/uploads/2025/09/251226spyfamily-cast-henkou250917.pdf",
+   "https://www.misonoza.co.jp/lineup/month250607.html"
+  ],
+  "suggested_method": "html"
+ },
+ "shinkabukiza": {
+  "checked": "2026-11-17T00:05:03",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.shinkabukiza.co.jp/perf_info/"
+  ],
+  "suggested_method": "html"
+ },
+ "shochikuza": {
+  "checked": "2026-11-17T00:05:07",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.shochiku.co.jp/play/schedules/",
+   "https://www.shochiku.co.jp/entertainment/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "minamiza": {
+  "checked": "2026-11-17T00:05:13",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.shochiku.co.jp/play/schedules/",
+   "https://www.shochiku.co.jp/entertainment/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "hakataza": {
+  "checked": "2026-11-17T00:05:17",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.hakataza.co.jp/lineup/"
+  ],
+  "suggested_method": "html"
+ },
+ "lumine-yoshimoto": {
+  "checked": "2026-11-17T00:05:22",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://lumine.yoshimoto.co.jp/schedule/",
+   "https://lumine.yoshimoto.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "omiya-raccoon": {
+  "checked": "2026-11-17T00:05:25",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://omiya.yoshimoto.co.jp/schedule/",
+   "https://omiya.yoshimoto.co.jp/2026/10/202611.html"
+  ],
+  "suggested_method": "html"
+ },
+ "ngk": {
+  "checked": "2026-11-17T00:05:29",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://ngk.yoshimoto.co.jp/schedule/",
+   "https://ngk.yoshimoto.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "manzai-gekijo": {
+  "checked": "2026-11-17T00:05:33",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://manzaigekijyo.yoshimoto.co.jp/schedule/",
+   "https://manzaigekijyo.yoshimoto.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "suehirotei": {
+  "checked": "2026-11-17T00:05:36",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "suzumoto": {
+  "checked": "2026-11-17T00:05:41",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "asakusa-engei": {
+  "checked": "2026-11-17T00:05:46",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.asakusaengei.com/rss.php"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.asakusaengei.com/schedule/",
+   "https://www.asakusaengei.com/schedule/?ca=5574"
+  ],
+  "suggested_method": "rss"
+ },
+ "hanjotei": {
+  "checked": "2026-11-17T00:05:50",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.hanjotei.jp/feed/"
+   ],
+   [
+    "application/rss+xml",
+    "https://www.hanjotei.jp/comments/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.hanjotei.jp/calendar/"
+  ],
+  "suggested_method": "rss"
+ },
  "yoshimoto": {
-  "checked": "2026-11-16T15:35:55",
+  "checked": "2026-11-17T00:05:54",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -426,7 +1360,7 @@
   "suggested_method": "html"
  },
  "shochiku-geino": {
-  "checked": "2026-11-16T15:36:00",
+  "checked": "2026-11-17T00:05:58",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -437,15 +1371,87 @@
   "suggested_method": "html"
  },
  "ohtapro": {
-  "checked": "2026-11-16T15:36:04",
+  "checked": "2026-11-17T00:06:01",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
   "schedule_pages": [],
   "suggested_method": "html"
  },
+ "watanabe-ent": {
+  "checked": "2026-11-17T00:06:05",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "jinrikisha": {
+  "checked": "2026-11-17T00:06:11",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.p-jinriki.com/news/2026/007095.php",
+   "https://www.p-jinriki.com/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "maseki": {
+  "checked": "2026-11-17T00:06:42",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.maseki.co.jp/live/",
+   "https://www.maseki.co.jp/schedule/"
+  ],
+  "suggested_method": "html"
+ },
+ "grape": {
+  "checked": "2026-11-17T00:06:45",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://grapecom.jp/schedule/2026-11/"
+  ],
+  "suggested_method": "html"
+ },
+ "asai-kikaku": {
+  "checked": "2026-11-17T00:06:51",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://asaikikaku.co.jp/news/live/34362.html",
+   "https://asaikikaku.co.jp/live_event"
+  ],
+  "suggested_method": "html"
+ },
+ "titan": {
+  "checked": "2026-11-17T00:06:57",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.titan-net.co.jp/schedule/",
+   "https://www.titan-net.co.jp/live/"
+  ],
+  "suggested_method": "html"
+ },
+ "sma": {
+  "checked": "2026-11-17T00:07:02",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.sma.co.jp/s/sma/live?ima=0000&type=item&dy=202611"
+  ],
+  "suggested_method": "html"
+ },
  "amuse": {
-  "checked": "2026-11-16T15:36:08",
+  "checked": "2026-11-17T00:07:09",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -455,8 +1461,54 @@
   ],
   "suggested_method": "html"
  },
+ "starto": {
+  "checked": "2026-11-17T00:07:13",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://starto.jp/s/p/media/list?ima=0716",
+   "https://starto.jp/s/p/live/10625"
+  ],
+  "suggested_method": "html"
+ },
+ "ldh": {
+  "checked": "2026-11-17T00:07:18",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.ldh.co.jp/live/",
+   "https://www.ldh.co.jp/perfectyear2026-calendar/"
+  ],
+  "suggested_method": "html"
+ },
+ "stardust": {
+  "checked": "2026-11-17T00:07:21",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.stardust.co.jp/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.stardust.co.jp/news/category/live/",
+   "https://www.stardust.co.jp/news/category/event/"
+  ],
+  "suggested_method": "rss"
+ },
+ "horipro": {
+  "checked": "2026-11-17T00:07:26",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
  "shinkansen": {
-  "checked": "2026-11-16T15:36:13",
+  "checked": "2026-11-17T00:07:29",
   "status": 200,
   "feeds": [],
   "jsonld_events": 0,
@@ -465,16 +1517,272 @@
   ],
   "suggested_method": "html"
  },
+ "yoshimoto-shinkigeki": {
+  "checked": "2026-11-17T00:07:34",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://shinkigeki.yoshimoto.co.jp/schedule/",
+   "https://shinkigeki.yoshimoto.co.jp/news/detail/446"
+  ],
+  "suggested_method": "html"
+ },
  "tower-records": {
-  "checked": "2026-11-16T15:36:18",
-  "status": 403,
+  "checked": "2026-11-17T00:07:38",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://tower.jp/article/feature_item/2026/07/01/3007",
+   "https://tower.jp/search/advanced/item/search?genre=4&limit=24&detailSearch=on&detailSearchType=item&displayAllTab=off&recondition=True&format=312&sort=New&kid=pbksearchcl"
+  ],
+  "suggested_method": "html"
+ },
+ "iwate-kenmin": {
+  "checked": "2026-11-17T00:07:42",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.iwate-kenmin.jp/wp/wp-content/uploads/2026/10/00f86791a29077c2e2cc00a147d5c108.pdf",
+   "https://www.iwate-kenmin.jp/events/"
+  ],
+  "suggested_method": "html"
+ },
+ "alios": {
+  "checked": "2026-11-17T00:07:47",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://iwaki-alios.jp/schedule-all",
+   "https://iwaki-alios.jp/will-premier-list"
+  ],
+  "suggested_method": "html"
+ },
+ "takasaki-geigeki": {
+  "checked": "2026-11-17T00:07:51",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.takasaki-foundation.or.jp/theatre/concert_list.php",
+   "https://www.takasaki-foundation.or.jp/theatre/concert.php"
+  ],
+  "suggested_method": "html"
+ },
+ "sonic-city": {
+  "checked": "2026-11-17T00:07:57",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.sonic-city.or.jp/visitors/calendar.html",
+   "https://www.sonic-city.or.jp/event.html"
+  ],
+  "suggested_method": "html"
+ },
+ "muse-tokorozawa": {
+  "checked": "2026-11-17T00:08:01",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.muse-tokorozawa.or.jp/calendar/",
+   "https://www.muse-tokorozawa.or.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "morinohall21": {
+  "checked": "2026-11-17T00:08:06",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.morinohall21.com/event/",
+   "https://www.morinohall21.com/event/index.html"
+  ],
+  "suggested_method": "html"
+ },
+ "fuchu-mori": {
+  "checked": "2026-11-17T00:08:10",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.fuchu-cpf.or.jp/cgi-evt/event.cgi?s_category=1",
+   "https://www.fuchu-cpf.or.jp/theater/1007382.html"
+  ],
+  "suggested_method": "html"
+ },
+ "minatomirai-hall": {
+  "checked": "2026-11-17T00:08:14",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://yokohama-minatomiraihall.jp/concert",
+   "https://yokohama-minatomiraihall.jp/concert/calendar.html"
+  ],
+  "suggested_method": "html"
+ },
+ "kannai-hall": {
+  "checked": "2026-11-17T00:08:19",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.kannaihall.jp/audience/schedule/",
+   "https://www.kannaihall.jp/events/"
+  ],
+  "suggested_method": "html"
+ },
+ "yokosuka-geigeki": {
+  "checked": "2026-11-17T00:08:23",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.yokosuka-arts.or.jp/performance/",
+   "https://www.yokosuka-arts.or.jp/performance/calendar/index.php"
+  ],
+  "suggested_method": "html"
+ },
+ "ryutopia": {
+  "checked": "2026-11-17T00:08:27",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.ryutopia.or.jp/performance/",
+   "https://www.ryutopia.or.jp/performance/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "aubade": {
+  "checked": "2026-11-17T00:08:33",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.aubade.or.jp/topics/performance/weekend_concert2026/",
+   "https://www.aubade.or.jp/new_event/"
+  ],
+  "suggested_method": "html"
+ },
+ "matsumoto-geijutsu": {
+  "checked": "2026-11-17T00:08:38",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.mpac.jp/event/43135/",
+   "https://www.mpac.jp/event/43285/"
+  ],
+  "suggested_method": "html"
+ },
+ "act-city": {
+  "checked": "2026-11-17T00:08:42",
+  "status": 200,
   "feeds": [],
   "jsonld_events": 0,
   "schedule_pages": [],
   "suggested_method": "html"
  },
+ "century-hall": {
+  "checked": "2026-11-17T00:08:47",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "mie-bunka": {
+  "checked": "2026-11-17T00:08:52",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.center-mie.or.jp/event/",
+   "https://www.center-mie.or.jp/event/search"
+  ],
+  "suggested_method": "html"
+ },
+ "biwako-hall": {
+  "checked": "2026-11-17T00:09:03",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.biwako-hall.or.jp/performance",
+   "https://www.biwako-hall.or.jp/performance/silvester_moriyama2026"
+  ],
+  "suggested_method": "html"
+ },
+ "kyoto-concert-hall": {
+  "checked": "2026-11-17T00:09:08",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "fenice-sakai": {
+  "checked": "2026-11-17T00:09:13",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.fenice-sacay.jp/feed/"
+   ],
+   [
+    "application/rss+xml",
+    "https://www.fenice-sacay.jp/comments/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.fenice-sacay.jp/event/",
+   "https://www.fenice-sacay.jp/calendar/"
+  ],
+  "suggested_method": "rss"
+ },
+ "kobe-kokusai": {
+  "checked": "2026-11-17T00:09:18",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.kih.co.jp/kokusaihall/event/index",
+   "https://www.kih.co.jp/kokusaihall/event/detail/2287"
+  ],
+  "suggested_method": "html"
+ },
+ "archaic-hall": {
+  "checked": "2026-11-17T00:09:22",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.archaic.or.jp/schedule/",
+   "https://www.archaic.or.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "nara100": {
+  "checked": "2026-11-17T00:09:27",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.nara100.com/event/pickup.html",
+   "https://www.nara100.com/calendar/l_event1.html"
+  ],
+  "suggested_method": "html"
+ },
  "omuta-bunka": {
-  "checked": "2026-11-16T15:36:22",
+  "checked": "2026-11-17T00:09:31",
   "status": 200,
   "feeds": [
    [
@@ -484,6 +1792,1443 @@
    [
     "application/rss+xml",
     "https://omuta-bunka-kaikan.or.jp/comments/feed"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "rss"
+ },
+ "brick-hall": {
+  "checked": "2026-11-17T00:09:35",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.brickhall.jp/event/?Facility=1",
+   "https://www.brickhall.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "grantheatre": {
+  "checked": "2026-11-17T00:09:40",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://emo.or.jp/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://emo.or.jp/event-info",
+   "https://emo.or.jp/event/12461/"
+  ],
+  "suggested_method": "rss"
+ },
+ "medikit": {
+  "checked": "2026-11-17T00:09:48",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://miyazaki-ac.jp/feed/"
+   ],
+   [
+    "application/rss+xml",
+    "https://miyazaki-ac.jp/comments/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://miyazaki-ac.jp/event_organizercat/lineup/",
+   "https://miyazaki-ac.jp/schedule/"
+  ],
+  "suggested_method": "rss"
+ },
+ "okinawa-convention": {
+  "checked": "2026-11-17T00:09:54",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.oki-conven.jp/faq/faq14/",
+   "https://www.oki-conven.jp/images/stories/event/event-011265-001.jpg"
+  ],
+  "suggested_method": "html"
+ },
+ "nahart": {
+  "checked": "2026-11-17T00:10:00",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.nahart.jp/performance/",
+   "https://www.nahart.jp/stage/"
+  ],
+  "suggested_method": "html"
+ },
+ "ntv": {
+  "checked": "2026-11-17T00:10:04",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.ntv.co.jp/event"
+  ],
+  "suggested_method": "html"
+ },
+ "tv-asahi": {
+  "checked": "2026-11-17T00:10:08",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "tbs": {
+  "checked": "2026-11-17T00:10:11",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.tbs.co.jp/tv/",
+   "https://www.tbs.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "tv-tokyo": {
+  "checked": "2026-11-17T00:10:16",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.tv-tokyo.co.jp/timetable/",
+   "https://www.tv-tokyo.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "fujitv": {
+  "checked": "2026-11-17T00:10:19",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.fujitv.co.jp/timetable/weekly/index.html",
+   "https://www.fujitv.co.jp/events/"
+  ],
+  "suggested_method": "html"
+ },
+ "hbc": {
+  "checked": "2026-11-17T00:10:24",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.hbc.co.jp/event/idolfes/",
+   "https://www.hbc.co.jp/event/index.html"
+  ],
+  "suggested_method": "html"
+ },
+ "stv": {
+  "checked": "2026-11-17T00:10:28",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.stv.jp/tv/timetable/index.html",
+   "https://www.stv.jp/radio/timetable/index.html"
+  ],
+  "suggested_method": "html"
+ },
+ "htb": {
+  "checked": "2026-11-17T00:10:31",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.htb.co.jp/timetable/",
+   "https://www.htb.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "uhb": {
+  "checked": "2026-11-17T00:10:36",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.uhb.jp/timetable/",
+   "https://www.uhb.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "tvh": {
+  "checked": "2026-11-17T00:10:40",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.tv-hokkaido.co.jp/program/",
+   "https://www.tv-hokkaido.co.jp/event/tvh_46/"
+  ],
+  "suggested_method": "html"
+ },
+ "rab": {
+  "checked": "2026-11-17T00:10:44",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.rab.co.jp/tv/t-bangumi/",
+   "https://www.rab.co.jp/radio/r-bangumi/"
+  ],
+  "suggested_method": "html"
+ },
+ "atv": {
+  "checked": "2026-11-17T00:10:49",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.atv.jp/program/epg/"
+  ],
+  "suggested_method": "html"
+ },
+ "aba": {
+  "checked": "2026-11-17T00:10:54",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.aba-net.com/timetable/",
+   "https://www.aba-net.com/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "ibc": {
+  "checked": "2026-11-17T00:10:58",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.ibc.co.jp/timetable/tv/",
+   "https://www.ibc.co.jp/timetable/radio/"
+  ],
+  "suggested_method": "html"
+ },
+ "iat": {
+  "checked": "2026-11-17T00:11:02",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.iat.co.jp/programtable"
+  ],
+  "suggested_method": "html"
+ },
+ "tbc-sendai": {
+  "checked": "2026-11-17T00:11:09",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.tbc-sendai.co.jp/rpg/week_view.php",
+   "https://www.tbc-sendai.co.jp/tpg/week_view.php"
+  ],
+  "suggested_method": "html"
+ },
+ "mmt": {
+  "checked": "2026-11-17T00:11:14",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.mmt-tv.co.jp/program_table/",
+   "https://www.mmt-tv.co.jp/event/articles/7hiyjj9psm8y442t.html"
+  ],
+  "suggested_method": "html"
+ },
+ "ox": {
+  "checked": "2026-11-17T00:11:18",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "khb": {
+  "checked": "2026-11-17T00:11:21",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.khb-tv.co.jp/program/schedule/",
+   "https://www.khb-tv.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "abs": {
+  "checked": "2026-11-17T00:11:25",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.akita-abs.co.jp/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.akita-abs.co.jp/weeklyprogram/",
+   "https://www.akita-abs.co.jp/weeklyprogram/?pg=tv"
+  ],
+  "suggested_method": "rss"
+ },
+ "akt": {
+  "checked": "2026-11-17T00:11:30",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.akt.co.jp/kouen_event_list/kouen_event_list.htm"
+  ],
+  "suggested_method": "html"
+ },
+ "aab": {
+  "checked": "2026-11-17T00:11:34",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.aab-tv.co.jp/programtable/",
+   "https://www.aab-tv.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "ybc": {
+  "checked": "2026-11-17T00:11:38",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.ybc.co.jp/tv/tvpro/",
+   "https://www.ybc.co.jp/radio/radiopro/"
+  ],
+  "suggested_method": "html"
+ },
+ "yts": {
+  "checked": "2026-11-17T00:11:43",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.yts.co.jp/weekly-programs/",
+   "https://www.yts.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "tuy": {
+  "checked": "2026-11-17T00:11:48",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "sat": {
+  "checked": "2026-11-17T00:11:52",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.sakuranbo.co.jp/timetable/",
+   "https://www.sakuranbo.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "ftv": {
+  "checked": "2026-11-17T00:11:56",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.fukushima-tv.co.jp/program/today.html",
+   "https://www.fukushima-tv.co.jp/program/week.html"
+  ],
+  "suggested_method": "html"
+ },
+ "tuf": {
+  "checked": "2026-11-17T00:11:59",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.tuf.co.jp/program/detail?id=72",
+   "https://www.tuf.co.jp/event/detail?id=36"
+  ],
+  "suggested_method": "html"
+ },
+ "kfb": {
+  "checked": "2026-11-17T00:12:04",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.kfb.co.jp/tv/tvprogram.html",
+   "https://www.kfb.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "teletama": {
+  "checked": "2026-11-17T00:12:07",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.teletama.jp/newsrelease/",
+   "https://www.teletama.jp/sports/j-league.html"
+  ],
+  "suggested_method": "html"
+ },
+ "chibatv": {
+  "checked": "2026-11-17T00:12:12",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.chiba-tv.com/timetable/daily",
+   "https://www.chiba-tv.com/timetable/weekly"
+  ],
+  "suggested_method": "html"
+ },
+ "gtv": {
+  "checked": "2026-11-17T00:12:18",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.gtv.co.jp/program/schedule.html",
+   "https://www.gtv.co.jp/timetable/"
+  ],
+  "suggested_method": "html"
+ },
+ "mxtv": {
+  "checked": "2026-11-17T00:12:22",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://s.mxtv.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "nst": {
+  "checked": "2026-11-17T00:12:26",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "http://www.nsttv.com/rss2.xml"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.nsttv.com/program/",
+   "https://www.nsttv.com/event/"
+  ],
+  "suggested_method": "rss"
+ },
+ "bsn": {
+  "checked": "2026-11-17T00:12:31",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.ohbsn.com/tv/time-table.php",
+   "https://www.ohbsn.com/radio/time-table/"
+  ],
+  "suggested_method": "html"
+ },
+ "ux": {
+  "checked": "2026-11-17T00:12:35",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.uxtv.co.jp/event/",
+   "https://www.uxtv.co.jp/programtable/"
+  ],
+  "suggested_method": "html"
+ },
+ "bbt": {
+  "checked": "2026-11-17T00:12:40",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.bbt.co.jp/hensei/week.php",
+   "https://www.bbt.co.jp/event/ticket/"
+  ],
+  "suggested_method": "html"
+ },
+ "tut": {
+  "checked": "2026-11-17T00:12:45",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.tulip-tv.co.jp/programs/timetable.html",
+   "https://www.tulip-tv.co.jp/events/index.html"
+  ],
+  "suggested_method": "html"
+ },
+ "mro": {
+  "checked": "2026-11-17T00:12:50",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.mro.co.jp/tv-time-table/",
+   "https://www.mro.co.jp/radio-time-table/"
+  ],
+  "suggested_method": "html"
+ },
+ "ktk": {
+  "checked": "2026-11-17T00:12:55",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "http://www.ishikawa-tv.com/sp/timetable/day.php",
+   "https://www.ishikawa-tv.com/event_info/"
+  ],
+  "suggested_method": "html"
+ },
+ "hab": {
+  "checked": "2026-11-17T00:13:04",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.hab.co.jp/timetable/",
+   "https://www.hab.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "fti": {
+  "checked": "2026-11-17T00:13:09",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.fukui-tv.co.jp/?feed=rss2&page_id=177"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.fukui-tv.co.jp/program/week/week_main.php",
+   "https://www.fukui-tv.co.jp/event.html"
+  ],
+  "suggested_method": "rss"
+ },
+ "ybs": {
+  "checked": "2026-11-17T00:13:14",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.ybs.jp/timetable"
+  ],
+  "suggested_method": "html"
+ },
+ "uty": {
+  "checked": "2026-11-17T00:13:18",
+  "status": 403,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "nbs": {
+  "checked": "2026-11-17T00:13:22",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.nbs-tv.co.jp/program/week",
+   "https://www.nbs-tv.co.jp/information/single.php?id=64"
+  ],
+  "suggested_method": "html"
+ },
+ "tsb": {
+  "checked": "2026-11-17T00:13:27",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.tsb.jp/timetable/",
+   "https://www.tsb.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "abn": {
+  "checked": "2026-11-17T00:13:31",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.abn-tv.co.jp/programtable/",
+   "http://www.abn-tv.co.jp/type/"
+  ],
+  "suggested_method": "html"
+ },
+ "sut": {
+  "checked": "2026-11-17T00:13:36",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.sut-tv.com/timetable/",
+   "https://www.sut-tv.com/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "satv": {
+  "checked": "2026-11-17T00:13:39",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.satv.co.jp/0200weekly/"
+  ],
+  "suggested_method": "html"
+ },
+ "ctv": {
+  "checked": "2026-11-17T00:13:43",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.ctv.co.jp/event/schedule.html",
+   "https://www.ctv.co.jp/program-list/"
+  ],
+  "suggested_method": "html"
+ },
+ "cbc": {
+  "checked": "2026-11-17T00:13:47",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://hicbc.com/tv/program/",
+   "https://hicbc.com/radio/jtable.htm"
+  ],
+  "suggested_method": "html"
+ },
+ "tokai-tv": {
+  "checked": "2026-11-17T00:13:51",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.tokai-tv.com/events/"
+  ],
+  "suggested_method": "html"
+ },
+ "nagoyatv": {
+  "checked": "2026-11-17T00:13:55",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.nagoyatv.com/rss2.xml"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.nagoyatv.com/timetable/",
+   "https://www.nagoyatv.com/timetable/week.html"
+  ],
+  "suggested_method": "rss"
+ },
+ "tv-aichi": {
+  "checked": "2026-11-17T00:13:59",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://tv-aichi.co.jp/timetable/",
+   "https://tv-aichi.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "mie-tv": {
+  "checked": "2026-11-17T00:14:04",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.mietv.com/weekly_schedule",
+   "https://www.mietv.com/event"
+  ],
+  "suggested_method": "html"
+ },
+ "mbs": {
+  "checked": "2026-11-17T00:14:08",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.mbs.jp/timetable/",
+   "https://www.mbs.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "abc": {
+  "checked": "2026-11-17T00:14:11",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.asahi.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "ktv": {
+  "checked": "2026-11-17T00:14:14",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.ktv.jp/event/",
+   "https://www.ktv.jp/event/takuma/"
+  ],
+  "suggested_method": "html"
+ },
+ "ytv": {
+  "checked": "2026-11-17T00:14:19",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.ytv.co.jp/program-weekly/"
+  ],
+  "suggested_method": "html"
+ },
+ "tvo": {
+  "checked": "2026-11-17T00:14:23",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.tv-osaka.co.jp/timetables/weekly/",
+   "https://www.tv-osaka.co.jp/ip4/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "sun-tv": {
+  "checked": "2026-11-17T00:14:27",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.sun-tv.co.jp/feed/"
+   ],
+   [
+    "application/rss+xml",
+    "https://www.sun-tv.co.jp/comments/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.sun-tv.co.jp/weekly/",
+   "https://www.sun-tv.co.jp/monthly/"
+  ],
+  "suggested_method": "rss"
+ },
+ "kbs-kyoto": {
+  "checked": "2026-11-17T00:14:35",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.kbs-kyoto.co.jp/program/now_on_air/tv.htm",
+   "https://www.kbs-kyoto.co.jp/program/now_on_air/tv_day.htm"
+  ],
+  "suggested_method": "html"
+ },
+ "bbc-biwako": {
+  "checked": "2026-11-17T00:14:38",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.bbc-tv.co.jp/event/index.php",
+   "https://www.bbc-tv.co.jp/calendar/"
+  ],
+  "suggested_method": "html"
+ },
+ "nara-tv": {
+  "checked": "2026-11-17T00:14:43",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.naratv.co.jp/program/"
+  ],
+  "suggested_method": "html"
+ },
+ "wtv": {
+  "checked": "2026-11-17T00:14:47",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.tv-wakayama.co.jp/program/",
+   "https://www.tv-wakayama.co.jp/event/negoroji/"
+  ],
+  "suggested_method": "html"
+ },
+ "bss": {
+  "checked": "2026-11-17T00:14:52",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.bss.jp/event/",
+   "https://www.bss.jp/event/?id=675"
+  ],
+  "suggested_method": "html"
+ },
+ "nkt": {
+  "checked": "2026-11-17T00:14:57",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.nkt-tv.co.jp/program/",
+   "https://www.nkt-tv.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "tsk": {
+  "checked": "2026-11-17T00:15:01",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://tsk-tv.com/timetable/",
+   "https://tsk-tv.com/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "rsk": {
+  "checked": "2026-11-17T00:15:07",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.rsk.co.jp/tv/program/",
+   "https://www.rsk.co.jp/radio/program/"
+  ],
+  "suggested_method": "html"
+ },
+ "ohk": {
+  "checked": "2026-11-17T00:15:10",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.ohk.co.jp/programs/weekly/",
+   "https://www.ohk.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "ksb": {
+  "checked": "2026-11-17T00:15:14",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.ksb.co.jp/program/",
+   "https://www.ksb.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "rnc": {
+  "checked": "2026-11-17T00:15:24",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.rnc.co.jp/event/",
+   "https://www.rnc.co.jp/event/kosodatefes/"
+  ],
+  "suggested_method": "html"
+ },
+ "rcc": {
+  "checked": "2026-11-17T00:15:29",
+  "status": "robots_disallow"
+ },
+ "htv": {
+  "checked": "2026-11-17T00:15:29",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.htv.jp/bangumi/",
+   "https://www.htv.jp/bangumi/index.php"
+  ],
+  "suggested_method": "html"
+ },
+ "home-tv": {
+  "checked": "2026-11-17T00:15:33",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.home-tv.co.jp/programtable/",
+   "https://www.home-tv.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "tss": {
+  "checked": "2026-11-17T00:15:37",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "http://www.tss-tv.co.jp/rss2.xml"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.tss-tv.co.jp/jp/timetable/",
+   "https://www.tss-tv.co.jp/jp/timetable/sp_timetable.php"
+  ],
+  "suggested_method": "rss"
+ },
+ "tys": {
+  "checked": "2026-11-17T00:15:41",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://tys.co.jp/ProgramSchedule",
+   "https://tys.co.jp/Event"
+  ],
+  "suggested_method": "html"
+ },
+ "yab": {
+  "checked": "2026-11-17T00:15:46",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.yab.co.jp/weeklyprogram",
+   "https://www.yab.co.jp/event"
+  ],
+  "suggested_method": "html"
+ },
+ "rnb": {
+  "checked": "2026-11-17T00:15:50",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.rnb.co.jp/tv_program/",
+   "https://www.rnb.co.jp/rd_program/"
+  ],
+  "suggested_method": "html"
+ },
+ "ebc": {
+  "checked": "2026-11-17T00:15:55",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.ebc.co.jp/bangumi/timetable/",
+   "https://www.ebc.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "itv": {
+  "checked": "2026-11-17T00:16:00",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.itv6.jp/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.itv6.jp/event/"
+  ],
+  "suggested_method": "rss"
+ },
+ "kutv": {
+  "checked": "2026-11-17T00:16:06",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.kutv.co.jp/program/",
+   "https://www.kutv.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "rkb": {
+  "checked": "2026-11-17T00:16:13",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://rkb.jp/program/",
+   "https://rkb.jp/live"
+  ],
+  "suggested_method": "html"
+ },
+ "kbc": {
+  "checked": "2026-11-17T00:16:17",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://kbc.co.jp/tv-timetable/",
+   "https://kbc.co.jp/r-timetable/"
+  ],
+  "suggested_method": "html"
+ },
+ "fbs": {
+  "checked": "2026-11-17T00:16:21",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.fbs.co.jp/shittoku_fukuoka/",
+   "https://www.fbs.co.jp/event/kinro-ghibli.html"
+  ],
+  "suggested_method": "html"
+ },
+ "tnc": {
+  "checked": "2026-11-17T00:16:26",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.tnc.co.jp/timetable/",
+   "https://www.tnc.co.jp/event/category/pickup"
+  ],
+  "suggested_method": "html"
+ },
+ "tvq": {
+  "checked": "2026-11-17T00:16:31",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.tvq.co.jp/tv/weekly/",
+   "https://www.tvq.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "nbc-nagasaki": {
+  "checked": "2026-11-17T00:16:36",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.nbc-nagasaki.co.jp/tv/program/",
+   "https://www.nbc-nagasaki.co.jp/event"
+  ],
+  "suggested_method": "html"
+ },
+ "ktn": {
+  "checked": "2026-11-17T00:16:42",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.ktn.co.jp/timetable/",
+   "https://www.ktn.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "ncc": {
+  "checked": "2026-11-17T00:16:47",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.ncctv.co.jp/events",
+   "https://www.ncctv.co.jp/events/soccer-ncc"
+  ],
+  "suggested_method": "html"
+ },
+ "rkk": {
+  "checked": "2026-11-17T00:16:51",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://rkk.jp/tv/tv-prog.php",
+   "https://rkk.jp/radioprog/"
+  ],
+  "suggested_method": "html"
+ },
+ "tku": {
+  "checked": "2026-11-17T00:16:56",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.tku.co.jp/weeklytimetable/",
+   "https://www.tku.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "kab": {
+  "checked": "2026-11-17T00:16:59",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.kab.co.jp/programtable/",
+   "https://www.kab.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "tos": {
+  "checked": "2026-11-17T00:17:04",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.tostv.jp/weekly/",
+   "https://www.tostv.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "oab": {
+  "checked": "2026-11-17T00:17:09",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.oab.co.jp/timetable/",
+   "https://www.oab.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "mrt": {
+  "checked": "2026-11-17T00:17:13",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://mrt.jp/television/tvtimetable/",
+   "https://mrt.jp/radio/weeklytimetable/"
+  ],
+  "suggested_method": "html"
+ },
+ "umk": {
+  "checked": "2026-11-17T00:17:17",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.umk.co.jp/event/",
+   "https://www.umk.co.jp/programtable/?week=now"
+  ],
+  "suggested_method": "html"
+ },
+ "mbc-kagoshima": {
+  "checked": "2026-11-17T00:17:22",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "kts": {
+  "checked": "2026-11-17T00:17:26",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.kts-tv.co.jp/timetable/",
+   "https://www.kts-tv.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "kkb": {
+  "checked": "2026-11-17T00:17:30",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.kkb.co.jp/epgdata/Weekly1.php",
+   "https://www.kkb.co.jp/event.php"
+  ],
+  "suggested_method": "html"
+ },
+ "kyt": {
+  "checked": "2026-11-17T00:17:35",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.kyt-tv.com/program_list/",
+   "https://www.kyt-tv.com/events/"
+  ],
+  "suggested_method": "html"
+ },
+ "rbc": {
+  "checked": "2026-11-17T00:17:41",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.rbc.co.jp/event/princeiceworld2026.html",
+   "https://www.rbc.co.jp/event/mn2026col.html"
+  ],
+  "suggested_method": "html"
+ },
+ "otv": {
+  "checked": "2026-11-17T00:17:45",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.otv.co.jp/timetable/",
+   "https://www.otv.co.jp/information/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "qab": {
+  "checked": "2026-11-17T00:17:50",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.qab.co.jp/feed/"
+   ],
+   [
+    "application/rss+xml",
+    "https://www.qab.co.jp/comments/feed/"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.qab.co.jp/events/",
+   "https://www.qab.co.jp/timetable/index.php"
+  ],
+  "suggested_method": "rss"
+ },
+ "tokyofm": {
+  "checked": "2026-11-17T00:17:55",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.tfm.co.jp/timetable/",
+   "https://www.tfm.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "jwave": {
+  "checked": "2026-11-17T00:17:58",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.j-wave.co.jp/contents/timetable/contents.html",
+   "https://www.j-wave.co.jp/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "bayfm": {
+  "checked": "2026-11-17T00:18:02",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "nack5": {
+  "checked": "2026-11-17T00:18:06",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.nack5.co.jp/timetable/time-table.pdf",
+   "https://www.nack5.co.jp/air-schedule/"
+  ],
+  "suggested_method": "html"
+ },
+ "fmyokohama": {
+  "checked": "2026-11-17T00:18:10",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "nippon-hoso": {
+  "checked": "2026-11-17T00:18:13",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.1242.com/timetable/",
+   "https://www.1242.com/calendar/2027/"
+  ],
+  "suggested_method": "html"
+ },
+ "bunka-hoso": {
+  "checked": "2026-11-17T00:18:18",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.joqr.co.jp/qr/dailyprogram/",
+   "https://www.joqr.co.jp/tag/イベント/"
+  ],
+  "suggested_method": "html"
+ },
+ "tbsradio": {
+  "checked": "2026-11-17T00:18:22",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "airg": {
+  "checked": "2026-11-17T00:18:26",
+  "status": 403,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "datefm": {
+  "checked": "2026-11-17T00:18:29",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://datefm.jp/timetable/"
+  ],
+  "suggested_method": "html"
+ },
+ "zipfm": {
+  "checked": "2026-11-17T00:18:35",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "fmaichi": {
+  "checked": "2026-11-17T00:18:40",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://fma.co.jp/pc/01pro/tt/",
+   "https://fma.co.jp/f/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "fm802": {
+  "checked": "2026-11-17T00:18:47",
+  "status": 403,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "fmcocolo": {
+  "checked": "2026-11-17T00:18:51",
+  "status": 403,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [],
+  "suggested_method": "html"
+ },
+ "fmosaka": {
+  "checked": "2026-11-17T00:18:55",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "https://www.fmosaka.net/_rss/rss20.xml"
+   ]
+  ],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.fmosaka.net/_ct/17074332?offset=0&tg=★イベントカレンダー",
+   "https://www.fmosaka.net/_tags/★イベントカレンダー"
+  ],
+  "suggested_method": "rss"
+ },
+ "kissfm": {
+  "checked": "2026-11-17T00:18:59",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.kiss-fm.co.jp/information/event/"
+  ],
+  "suggested_method": "html"
+ },
+ "alpha-station": {
+  "checked": "2026-11-17T00:19:04",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://fm-kyoto.jp/event"
+  ],
+  "suggested_method": "html"
+ },
+ "fmfukuoka": {
+  "checked": "2026-11-17T00:19:08",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://fmfukuoka.co.jp/guest/",
+   "https://fmfukuoka.co.jp/live/"
+  ],
+  "suggested_method": "html"
+ },
+ "crossfm": {
+  "checked": "2026-11-17T00:19:12",
+  "status": 200,
+  "feeds": [],
+  "jsonld_events": 0,
+  "schedule_pages": [
+   "https://www.crossfm.co.jp/timetable/w_timetable.php"
+  ],
+  "suggested_method": "html"
+ },
+ "lovefm": {
+  "checked": "2026-11-17T00:19:18",
+  "status": 200,
+  "feeds": [
+   [
+    "application/rss+xml",
+    "feed://lovefm.co.jp/rss/guest.xml"
+   ],
+   [
+    "application/rss+xml",
+    "feed://lovefm.co.jp/rss/topic.xml"
+   ],
+   [
+    "application/rss+xml",
+    "feed://lovefm.co.jp/rss/fukuoka_info.xml"
    ]
   ],
   "jsonld_events": 0,
