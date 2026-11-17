@@ -1,25 +1,5 @@
 {
-"__version__": "5",
-"https://www.sapporo-dome.co.jp/schedule/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.nipponbudokan.or.jp/feed": {
-"etag": "\"0bdcb0b51f740c9e69411cd47e219ff8\"",
-"last_modified": "Tue, 17 Nov 2026 02:19:04 GMT"
-},
-"https://www.kyoceradome-osaka.jp/schedule/": {
-"etag": null,
-"last_modified": null
-},
-"https://helloproject.com/schedule/": {
-"etag": "\"7c1e8b62c0551d607609651b479e34b0\"",
-"last_modified": "Tue, 17 Nov 2026 07:30:13 GMT"
-},
-"https://helloproject.com/event/9ef219df9409c04f059e39b331add3e7dd4a71477cad8af9f44e72900e315189/": {
-"etag": "\"b27338230427334c65483098d391cae7\"",
-"last_modified": "Sun, 15 Nov 2026 00:30:34 GMT"
-},
+"__version__": "6",
 "https://www.lilia.or.jp/events": {
 "etag": null,
 "last_modified": null
