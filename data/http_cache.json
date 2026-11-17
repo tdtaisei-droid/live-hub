@@ -1,26 +1,6 @@
 {
-"__version__": "6",
-"https://www.lilia.or.jp/events": {
-"etag": null,
-"last_modified": null
-},
+"__version__": "7",
 "https://www.niigata-kenminkaikan.jp/event/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.g-ncc.jp/visitors/events/": {
-"etag": null,
-"last_modified": null
-},
-"https://marinart.jp/event/index.html": {
-"etag": null,
-"last_modified": null
-},
-"https://www.kobe-bunka.jp/hall/schedule/event/": {
-"etag": null,
-"last_modified": null
-},
-"https://okayama-pat.jp/event_info/": {
 "etag": null,
 "last_modified": null
 }
