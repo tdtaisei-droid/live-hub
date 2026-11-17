@@ -131,8 +131,19 @@ _GENERIC_MUSIC = re.compile(r"(ライブ|LIVE)", re.I)
 _STRONG_MUSIC = re.compile(r"(ツアー|TOUR|コンサート|フェス|ワンマン|対バン|リサイタル|アリーナ|ドーム公演|ホール公演|歌唱|バンド)", re.I)
 
 
+# 会場サイトの「ジャンル:音楽」のような表記
+_SITE_GENRE = [(re.compile(r"ジャンル\s*[:：]\s*(音楽|コンサート|ライブ|ポップス|ロック|ジャズ)"), "music"),
+               (re.compile(r"ジャンル\s*[:：]\s*(お笑い|演芸|寄席|落語)"), "comedy"),
+               (re.compile(r"ジャンル\s*[:：]\s*ミュージカル"), "musical"),
+               (re.compile(r"ジャンル\s*[:：]\s*(演劇|舞台|ステージ)"), "stage")]
+
+
 def classify_genre_with_default(text: str, default: Optional[str]) -> Optional[str]:
     g = classify_genre(text, default)
+    if g is None:  # 公演名から決まらないときは、会場サイトのジャンル表記を使う
+        for pat, gname in _SITE_GENRE:
+            if pat.search(text):
+                return gname
     if g == "music" and default and default != "music" and not _STRONG_MUSIC.search(text):
         return default
     return g
