@@ -82,7 +82,9 @@ class Fetcher:
                     self.robots_state[base] = "ok"
             except Exception as exc:
                 rp.parse(["User-agent: *", "Disallow: /"])  # 確認できないときは巡回しない(安全側)
-                self.robots_state[base] = f"unreachable ({type(exc).__name__})"
+                why = str(getattr(exc, "reason", "") or exc)[:80]
+                # 名前解決できない(=URLの誤り)か、接続を断られた/応答がない(=海外からの遮断の可能性)かを区別して残す
+                self.robots_state[base] = f"unreachable ({type(exc).__name__}: {why})"
             self._robots[base] = rp
         rp = self._robots[base]
         return True if rp is None else rp.can_fetch(USER_AGENT.split("/")[0], url)
