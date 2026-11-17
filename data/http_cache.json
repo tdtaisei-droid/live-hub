@@ -1,50 +1,26 @@
 {
-"__version__": "4",
+"__version__": "5",
+"https://www.sapporo-dome.co.jp/schedule/": {
+"etag": null,
+"last_modified": null
+},
+"https://www.nipponbudokan.or.jp/feed": {
+"etag": "\"0bdcb0b51f740c9e69411cd47e219ff8\"",
+"last_modified": "Tue, 17 Nov 2026 02:19:04 GMT"
+},
+"https://www.kyoceradome-osaka.jp/schedule/": {
+"etag": null,
+"last_modified": null
+},
 "https://helloproject.com/schedule/": {
-"etag": "\"42bcb0706d309c2813358af919ea027b\"",
-"last_modified": "Tue, 17 Nov 2026 06:50:13 GMT"
+"etag": "\"7c1e8b62c0551d607609651b479e34b0\"",
+"last_modified": "Tue, 17 Nov 2026 07:30:13 GMT"
 },
 "https://helloproject.com/event/9ef219df9409c04f059e39b331add3e7dd4a71477cad8af9f44e72900e315189/": {
 "etag": "\"b27338230427334c65483098d391cae7\"",
 "last_modified": "Sun, 15 Nov 2026 00:30:34 GMT"
 },
-"https://spn.ken-on.com:443/schedule/today.php": {
-"etag": null,
-"last_modified": null
-},
-"https://spn.ken-on.com:443/schedule/": {
-"etag": null,
-"last_modified": null
-},
-"https://asobisystem.com/schedule/?schedule-category=event": {
-"etag": null,
-"last_modified": null
-},
-"https://asobisystem.com/solution/?solution-category=event": {
-"etag": null,
-"last_modified": null
-},
-"https://candytune.asobisystem.com/live_information/schedule/list": {
-"etag": null,
-"last_modified": null
-},
-"https://www.mfca.jp/%e3%83%88%e3%83%83%e3%83%97%e3%83%9a%e3%83%bc%e3%82%b8/feed": {
-"etag": "W/\"f0d7ed0100e055b2d7223864a156f753\"",
-"last_modified": "Tue, 17 Nov 2026 05:12:01 GMT"
-},
 "https://www.lilia.or.jp/events": {
-"etag": null,
-"last_modified": null
-},
-"https://www.b-academy.jp/hall/series_teikei.html": {
-"etag": "\"300deb45a917b622a3c5e0f4a8275876-gzip\"",
-"last_modified": "Tue, 17 Nov 2026 06:57:29 GMT"
-},
-"https://www.b-academy.jp/hall/calendar.html": {
-"etag": "\"65856cfa2093cd0c54e161ec3cb06893-gzip\"",
-"last_modified": "Tue, 17 Nov 2026 06:57:33 GMT"
-},
-"https://www.neribun.or.jp/event/index.html": {
 "etag": null,
 "last_modified": null
 },
@@ -65,34 +41,6 @@
 "last_modified": null
 },
 "https://okayama-pat.jp/event_info/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.sapporo-dome.co.jp/schedule/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.nipponbudokan.or.jp/feed": {
-"etag": "\"0bdcb0b51f740c9e69411cd47e219ff8\"",
-"last_modified": "Tue, 17 Nov 2026 02:19:04 GMT"
-},
-"https://k-arena.com/schedule/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.nagoya-dome.co.jp/newstopics/event/": {
-"etag": null,
-"last_modified": null
-},
-"https://www.kyoceradome-osaka.jp/schedule/": {
-"etag": null,
-"last_modified": null
-},
-"https://okinawa-arena.jp/events": {
-"etag": "W/\"3ce35ce844bfb0bef7e3114d66b289b4\"",
-"last_modified": "Tue, 17 Nov 2026 04:08:33 GMT"
-},
-"https://www.aimyong.net/news/3/?range=future_event_end_time&sort=asc": {
 "etag": null,
 "last_modified": null
 }
