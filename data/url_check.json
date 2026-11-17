@@ -23,7 +23,7 @@
  },
  "hotstuff": {
   "url": "https://www.hotstuff.co.jp/",
-  "checked": "2026-11-17T06:34:27",
+  "checked": "2026-11-17T07:08:27",
   "ok": false,
   "identity": "ホットスタッフ ■パソコン販売・修理・データレスキュー(データ復旧・データ修復・データ復元) 浜松市を中心にパソコン販売・修理、データ復旧、ネットワーク構築等、パソコンの導入からサポートまで法人・個人問わず対応しております。",
   "matched": null,
@@ -45,10 +45,10 @@
  },
  "hip": {
   "url": "https://www.hipjpn.co.jp/",
-  "checked": "2026-11-17T06:34:31",
+  "checked": "2026-11-17T07:08:32",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: timed out)"
  },
  "vintage-rock": {
   "url": "https://www.vintage-rock.com/",
@@ -60,24 +60,24 @@
  },
  "sunrise-tokyo": {
   "url": "https://www.sunrisetokyo.com/",
-  "checked": "2026-11-17T06:34:52",
+  "checked": "2026-11-17T07:08:52",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "red-hot": {
   "url": "https://www.red-hot.ne.jp/",
-  "checked": "2026-11-17T06:34:52",
+  "checked": "2026-11-17T07:08:53",
   "ok": false,
   "reason": "robots.txtで拒否",
   "robots": "ok"
  },
  "kyodo-osaka": {
   "url": "https://www.kyodo-osaka.co.jp/",
-  "checked": "2026-11-17T06:34:53",
+  "checked": "2026-11-17T07:08:53",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, c)"
  },
  "greens": {
   "url": "https://www.greens-corp.co.jp/",
@@ -95,10 +95,10 @@
  },
  "kyodo-sapporo": {
   "url": "https://www.kyodo-sapporo.co.jp/",
-  "checked": "2026-11-17T06:34:53",
+  "checked": "2026-11-17T07:08:54",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "kyodo-hokuriku": {
   "url": "https://www.kyodo-hokuriku.co.jp/",
@@ -109,10 +109,10 @@
  },
  "kyodo-tohoku": {
   "url": "https://www.kyodo-tohoku.co.jp/",
-  "checked": "2026-11-17T06:34:53",
+  "checked": "2026-11-17T07:08:54",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "north-road": {
   "url": "https://www.north-road.co.jp/",
@@ -123,10 +123,10 @@
  },
  "fob-niigata": {
   "url": "https://www.fob-net.co.jp/",
-  "checked": "2026-11-17T06:34:53",
+  "checked": "2026-11-17T07:08:54",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "k-arena": {
   "url": "https://k-arena.com/",
@@ -260,10 +260,10 @@
  },
  "diamond-hall": {
   "url": "https://www.diamond-hall.jp/",
-  "checked": "2026-11-17T06:34:53",
+  "checked": "2026-11-17T07:08:54",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "bottom-line": {
   "url": "https://www.bottomline.co.jp/",
@@ -290,10 +290,10 @@
  },
  "namba-hatch": {
   "url": "https://www.namba-hatch.com/",
-  "checked": "2026-11-17T06:34:54",
+  "checked": "2026-11-17T07:08:54",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, c)"
  },
  "kyocera-dome": {
   "url": "https://www.kyoceradome-osaka.jp/",
@@ -318,10 +318,10 @@
  },
  "drum-logos": {
   "url": "https://www.drumlogos.jp/",
-  "checked": "2026-11-17T06:34:54",
+  "checked": "2026-11-17T07:08:55",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "marine-messe": {
   "url": "https://www.marinemesse.or.jp/",
@@ -332,7 +332,7 @@
  },
  "tdc-hall": {
   "url": "https://www.tokyo-dome.co.jp/hall/",
-  "checked": "2026-11-17T06:34:54",
+  "checked": "2026-11-17T07:08:55",
   "ok": false,
   "identity": "後楽園ホール | 東京ドームシティ 数々の名勝負が生まれた、格闘技の聖地ともいわれる後楽園ホール。多目的ホールとして新商品発表会やダンス競技など様々なイベントに利用いただけます。 東京ドームシティ公式サイト 後楽園ホール | 東京ドームシティ",
   "matched": null,
@@ -341,7 +341,7 @@
  },
  "garden-hall": {
   "url": "https://www.gardenplace.jp/",
-  "checked": "2026-11-17T06:35:00",
+  "checked": "2026-11-17T07:08:59",
   "ok": false,
   "identity": "恵比寿ガーデンプレイス公式WEBサイト 東京都渋谷区および目黒区に跨る複合施設、恵比寿ガーデンプレイスの公式ホームページです。JR山手線地下鉄日比谷線恵比寿駅徒歩5分。緑あふれる施設内ではレストラン、映画、写真美術館、ビール博物館、ショッピングが楽しめます。 恵比寿ガーデンプレイス 恵比寿ガーデンプレイス",
   "matched": null,
@@ -370,18 +370,18 @@
   "matched": "よしもと漫才劇場"
  },
  "jimbocho-yoshimoto": {
-  "url": "https://jimbocho.yoshimoto.co.jp/",
-  "checked": "2026-11-17T06:35:06",
-  "ok": false,
-  "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "url": "https://jimbocho-manzaigekijyo.yoshimoto.co.jp/",
+  "checked": "2026-11-17T07:09:06",
+  "ok": true,
+  "identity": "神保町よしもと漫才劇場 東京・神保町にある、若手芸人が出演している吉本興業が運営する劇場サイト。漫才やコントなど若さと熱量で365日毎日公演中! 神保町よしもと漫才劇場 神保町よしもと漫才劇場",
+  "matched": "神保町よしもと漫才劇場"
  },
  "shibuya-yoshimoto": {
   "url": "https://shibuya.yoshimoto.co.jp/",
-  "checked": "2026-11-17T06:35:06",
+  "checked": "2026-11-17T07:09:10",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "omiya-raccoon": {
   "url": "https://omiya.yoshimoto.co.jp/",
@@ -399,10 +399,10 @@
  },
  "fukuoka-yoshimoto": {
   "url": "https://fukuoka.yoshimoto.co.jp/",
-  "checked": "2026-11-17T06:35:07",
+  "checked": "2026-11-17T07:09:10",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "yoshimoto-shinkigeki": {
   "url": "https://shinkigeki.yoshimoto.co.jp/",
@@ -470,10 +470,10 @@
  },
  "brillia-hall": {
   "url": "https://brillia-hall.jp/",
-  "checked": "2026-11-17T06:35:07",
+  "checked": "2026-11-17T07:09:10",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "sunshine-theater": {
   "url": "https://www.sunshine-theatre.co.jp/",
@@ -485,10 +485,10 @@
  },
  "honda-gekijo": {
   "url": "https://www.honda-geki.com/",
-  "checked": "2026-11-17T06:35:07",
+  "checked": "2026-11-17T07:09:10",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: timed out)"
  },
  "shinkabukiza": {
   "url": "https://www.shinkabukiza.co.jp/",
@@ -557,10 +557,10 @@
  },
  "sunmusic": {
   "url": "https://www.sunmusic.org/",
-  "checked": "2026-11-17T06:35:27",
+  "checked": "2026-11-17T07:09:30",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "asai-kikaku": {
   "url": "https://www.asaikikaku.co.jp/",
@@ -659,13 +659,13 @@
  },
  "tvi": {
   "url": "https://www.tvi.jp/",
-  "checked": "2026-11-17T06:35:27",
+  "checked": "2026-11-17T07:09:31",
   "ok": false,
   "reason": "HTTP 403"
  },
  "mit": {
   "url": "https://www.mit.co.jp/",
-  "checked": "2026-11-17T06:35:31",
+  "checked": "2026-11-17T07:09:35",
   "ok": false,
   "identity": "タレントマネジメントや組織活性化はM-ITコンサルティング M-IT Consulting 株式会社 M-ITコンサルティングは、科学的なアプローチに基づく人財診断、組織診断によって、定量的に企業組織の現状把握を行い、的確な現状分析に基づいて戦略、組織、人財に関する最適なソリューションをご提供するコンサルティングカンパニーです。 タレントマネジメントや組織活性化はM-ITコンサルティング",
   "matched": null,
@@ -729,7 +729,7 @@
  },
  "fct": {
   "url": "https://www.fct.co.jp/",
-  "checked": "2026-11-17T06:35:36",
+  "checked": "2026-11-17T07:09:40",
   "ok": false,
   "reason": "HTTP 403"
  },
@@ -756,7 +756,7 @@
  },
  "tvk": {
   "url": "https://www.tvk-yokohama.com/",
-  "checked": "2026-11-17T06:35:40",
+  "checked": "2026-11-17T07:09:44",
   "ok": false,
   "reason": "HTTP 307"
  },
@@ -783,7 +783,7 @@
  },
  "tochitere": {
   "url": "https://www.tochigi-tv.jp/",
-  "checked": "2026-11-17T06:35:45",
+  "checked": "2026-11-17T07:09:49",
   "ok": false,
   "identity": "システムメンテナンスのお知らせ メンテナンスのお知らせ",
   "matched": null,
@@ -799,7 +799,7 @@
  },
  "teny": {
   "url": "https://www.teny.co.jp/",
-  "checked": "2026-11-17T06:35:52",
+  "checked": "2026-11-17T07:09:56",
   "ok": false,
   "reason": "HTTP 403"
  },
@@ -827,7 +827,7 @@
  },
  "knb": {
   "url": "https://www.knb.ne.jp/",
-  "checked": "2026-11-17T06:35:56",
+  "checked": "2026-11-17T07:10:00",
   "ok": false,
   "reason": "HTTP 403"
  },
@@ -861,7 +861,7 @@
  },
  "tvkanazawa": {
   "url": "https://www.tvkanazawa.co.jp/",
-  "checked": "2026-11-17T06:36:01",
+  "checked": "2026-11-17T07:10:06",
   "ok": false,
   "reason": "HTTP 403"
  },
@@ -874,7 +874,7 @@
  },
  "fbc": {
   "url": "https://www.fbc.jp/",
-  "checked": "2026-11-17T06:36:05",
+  "checked": "2026-11-17T07:10:10",
   "ok": false,
   "reason": "HTTP 403"
  },
@@ -901,7 +901,7 @@
  },
  "sbc": {
   "url": "https://sbc21.co.jp/",
-  "checked": "2026-11-17T06:36:09",
+  "checked": "2026-11-17T07:10:15",
   "ok": false,
   "reason": "robots.txtで拒否",
   "robots": "ok"
@@ -943,10 +943,10 @@
  },
  "sdt": {
   "url": "https://www.sdt.co.jp/",
-  "checked": "2026-11-17T06:36:10",
+  "checked": "2026-11-17T07:10:16",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, c)"
  },
  "mie-tv": {
   "url": "https://www.mietv.com/",
@@ -1036,10 +1036,10 @@
  },
  "tsc": {
   "url": "https://www.tv-setouchi.co.jp/",
-  "checked": "2026-11-17T06:36:10",
+  "checked": "2026-11-17T07:10:16",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: timed out)"
  },
  "rnc": {
   "url": "https://www.rnc.co.jp/",
@@ -1050,7 +1050,7 @@
  },
  "kry": {
   "url": "https://kry.co.jp/",
-  "checked": "2026-11-17T06:36:30",
+  "checked": "2026-11-17T07:10:36",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
   "robots": "unreachable (HTTP 503)"
@@ -1072,7 +1072,7 @@
  },
  "jrt": {
   "url": "https://www.jrt.co.jp/",
-  "checked": "2026-11-17T06:36:32",
+  "checked": "2026-11-17T07:10:37",
   "ok": false,
   "reason": "HTTP 403"
  },
@@ -1099,14 +1099,14 @@
  },
  "eat": {
   "url": "https://www.eat.jp/",
-  "checked": "2026-11-17T06:36:37",
+  "checked": "2026-11-17T07:10:42",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, c)"
  },
  "rkc": {
   "url": "https://www.rkc-kochi.co.jp/",
-  "checked": "2026-11-17T06:36:37",
+  "checked": "2026-11-17T07:10:42",
   "ok": false,
   "reason": "HTTP 403"
  },
@@ -1119,17 +1119,17 @@
  },
  "kss": {
   "url": "https://www.kss-tv.co.jp/",
-  "checked": "2026-11-17T06:36:41",
+  "checked": "2026-11-17T07:10:46",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "sts": {
   "url": "https://www.sts-tv.jp/",
-  "checked": "2026-11-17T06:36:41",
+  "checked": "2026-11-17T07:10:46",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "nbc-nagasaki": {
   "url": "https://www.nbc-nagasaki.co.jp/",
@@ -1147,7 +1147,7 @@
  },
  "nib": {
   "url": "https://www.nib.jp/",
-  "checked": "2026-11-17T06:36:41",
+  "checked": "2026-11-17T07:10:46",
   "ok": false,
   "reason": "HTTP 403"
  },
@@ -1175,7 +1175,7 @@
  },
  "kkt": {
   "url": "https://www.kkt.jp/",
-  "checked": "2026-11-17T06:36:46",
+  "checked": "2026-11-17T07:10:50",
   "ok": false,
   "reason": "HTTP 403"
  },
@@ -1188,10 +1188,10 @@
  },
  "obs": {
   "url": "https://www.e-obs.com/",
-  "checked": "2026-11-17T06:36:50",
+  "checked": "2026-11-17T07:10:55",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: timed out)"
  },
  "tos": {
   "url": "https://www.tostv.jp/",
@@ -1273,7 +1273,7 @@
  },
  "interfm": {
   "url": "https://www.interfm.co.jp/",
-  "checked": "2026-11-17T06:37:10",
+  "checked": "2026-11-17T07:11:15",
   "ok": false,
   "reason": "error: RemoteDisconnected('Remote end closed connection without response')"
  },
@@ -1300,10 +1300,10 @@
  },
  "abc-radio": {
   "url": "https://www.abc1008.com/",
-  "checked": "2026-11-17T06:37:14",
+  "checked": "2026-11-17T07:11:20",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "lovefm": {
   "url": "https://lovefm.co.jp/",
@@ -1351,23 +1351,23 @@
  },
  "nhk-hall": {
   "url": "https://www.nhk-sc.or.jp/nhk_hall/",
-  "checked": "2026-11-17T06:37:14",
+  "checked": "2026-11-17T07:11:20",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: timed out)"
  },
  "suntory-hall": {
   "url": "https://www.suntory.co.jp/suntoryhall/",
-  "checked": "2026-11-17T06:37:35",
+  "checked": "2026-11-17T07:11:40",
   "ok": false,
   "reason": "HTTP 403"
  },
  "kinema-club": {
   "url": "https://www.kinema-club.com/",
-  "checked": "2026-11-17T06:37:38",
+  "checked": "2026-11-17T07:11:43",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -3] Temporary failure in name resolution)"
  },
  "eggman": {
   "url": "https://eggman.jp/",
@@ -1399,10 +1399,10 @@
  },
  "shimokita-garden": {
   "url": "https://gar-den.in/",
-  "checked": "2026-11-17T06:37:48",
+  "checked": "2026-11-17T07:11:53",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -5] No address associated with hostname)"
  },
  "makuhari-messe": {
   "url": "https://www.m-messe.co.jp/",
@@ -1413,10 +1413,10 @@
  },
  "kashiwa-palooza": {
   "url": "https://www.palooza.jp/",
-  "checked": "2026-11-17T06:37:49",
+  "checked": "2026-11-17T07:11:53",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "nissan-stadium": {
   "url": "https://www.nissan-stadium.jp/",
@@ -1434,7 +1434,7 @@
  },
  "yokohama-bayhall": {
   "url": "https://www.bayhall.jp/",
-  "checked": "2026-11-17T06:37:49",
+  "checked": "2026-11-17T07:11:53",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
   "robots": "unreachable (HTTP 500)"
@@ -1448,17 +1448,17 @@
  },
  "spade-box": {
   "url": "https://www.spadebox.jp/",
-  "checked": "2026-11-17T06:37:50",
+  "checked": "2026-11-17T07:11:54",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "club-upset": {
   "url": "https://www.club-upset.com/",
-  "checked": "2026-11-17T06:37:50",
+  "checked": "2026-11-17T07:11:54",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, c)"
  },
  "grandcube": {
   "url": "https://www.gco.co.jp/",
@@ -1483,10 +1483,10 @@
  },
  "kobe-chickengeorge": {
   "url": "https://www.chickengeorge.co.jp/",
-  "checked": "2026-11-17T06:37:51",
+  "checked": "2026-11-17T07:11:56",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "rohm-theatre": {
   "url": "https://rohmtheatrekyoto.jp/",
@@ -1513,10 +1513,10 @@
  },
  "okayama-crazymama": {
   "url": "https://www.crazymama.jp/",
-  "checked": "2026-11-17T06:37:52",
+  "checked": "2026-11-17T07:11:56",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "fukuoka-sunpalace": {
   "url": "https://www.f-sunpalace.com/",
@@ -1587,10 +1587,10 @@
  },
  "kanazawa-kagekiza": {
   "url": "https://www.kanazawa-kagekiza.jp/",
-  "checked": "2026-11-17T06:37:52",
+  "checked": "2026-11-17T07:11:56",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "biwako-hall": {
   "url": "https://www.biwako-hall.or.jp/",
@@ -1615,10 +1615,10 @@
  },
  "namikiri": {
   "url": "https://www.namikiri.jp/",
-  "checked": "2026-11-17T06:37:52",
+  "checked": "2026-11-17T07:11:56",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, c)"
  },
  "kobe-kokusai": {
   "url": "https://www.kih.co.jp/",
@@ -1644,7 +1644,7 @@
  },
  "ehime-kenmin": {
   "url": "https://www.ecf.or.jp/",
-  "checked": "2026-11-17T06:37:54",
+  "checked": "2026-11-17T07:11:57",
   "ok": false,
   "identity": "公益財団法人 愛媛県文化振興財団 - 公益財団法人 愛媛県文化振興財団 - 公益財団法人 愛媛県文化振興財団 -",
   "matched": null,
@@ -1675,10 +1675,10 @@
  },
  "hozan-hall": {
   "url": "https://www.housanhall.com/",
-  "checked": "2026-11-17T06:37:59",
+  "checked": "2026-11-17T07:12:02",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "okinawa-convention": {
   "url": "https://www.oki-conven.jp/",
@@ -1713,10 +1713,10 @@
  },
  "hokuto-bunka": {
   "url": "https://www.n-bunka.jp/",
-  "checked": "2026-11-17T06:37:59",
+  "checked": "2026-11-17T07:12:02",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:101)"
  },
  "matsumoto-geijutsu": {
   "url": "https://www.mpac.jp/",
@@ -1727,10 +1727,10 @@
  },
  "phoenix-plaza": {
   "url": "https://www.phoenix-plaza.or.jp/",
-  "checked": "2026-11-17T06:38:00",
+  "checked": "2026-11-17T07:12:03",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "takasaki-geigeki": {
   "url": "https://www.takasaki-foundation.or.jp/theatre/",
@@ -1777,10 +1777,10 @@
  },
  "akita-milhas": {
   "url": "https://akita-milhas.jp/",
-  "checked": "2026-11-17T06:38:00",
+  "checked": "2026-11-17T07:12:03",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "alios": {
   "url": "https://iwaki-alios.jp/",
@@ -1798,10 +1798,10 @@
  },
  "asahikawa-bunka": {
   "url": "https://www.asahikawa-bunka.jp/",
-  "checked": "2026-11-17T06:38:05",
+  "checked": "2026-11-17T07:12:03",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "hakodate-shimin": {
   "url": "https://www.zaidan-hakodate.com/kaikan/",
@@ -1812,31 +1812,31 @@
  },
  "kushiro-bunka": {
   "url": "https://www.kushiro-bunka.jp/",
-  "checked": "2026-11-17T06:38:10",
+  "checked": "2026-11-17T07:12:03",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "obihiro-bunka": {
   "url": "https://www.obihiro-bunka.jp/",
-  "checked": "2026-11-17T06:38:10",
+  "checked": "2026-11-17T07:12:03",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "aomori-link": {
   "url": "https://www.aomori-bunka.jp/",
-  "checked": "2026-11-17T06:38:10",
+  "checked": "2026-11-17T07:12:03",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "hachinohe-kokaido": {
   "url": "https://hachinohe-kokaido.jp/",
-  "checked": "2026-11-17T06:38:10",
+  "checked": "2026-11-17T07:12:03",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "morioka-bunka": {
   "url": "https://www.mfca.jp/",
@@ -1847,21 +1847,21 @@
  },
  "sendai-denryoku": {
   "url": "https://www.denryokuhall.jp/",
-  "checked": "2026-11-17T06:38:16",
+  "checked": "2026-11-17T07:12:03",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "yamagin-kenmin": {
   "url": "https://yamagin-hall.jp/",
-  "checked": "2026-11-17T06:38:16",
+  "checked": "2026-11-17T07:12:03",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "koriyama-bunka": {
   "url": "https://www.bunka-manabi.or.jp/",
-  "checked": "2026-11-17T06:38:16",
+  "checked": "2026-11-17T07:12:03",
   "ok": false,
   "identity": "公益財団法人郡山市文化・学び振興公社 公益財団法人郡山市文化・学び振興公社は、市民文化の振興、文化財の調査研究及び労働福祉の増進を行うとともに、豊かな人間性の涵養を図り、もって市民福祉の向上に寄与することを目的として、公益目的事業及びその他の事業を展開しております。",
   "matched": null,
@@ -1869,17 +1869,17 @@
  },
  "mito-shimin": {
   "url": "https://mitoshiminkaikan.jp/",
-  "checked": "2026-11-17T06:38:20",
+  "checked": "2026-11-17T07:12:08",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "utsunomiya-bunka": {
   "url": "https://u-bunka.jp/",
-  "checked": "2026-11-17T06:38:20",
+  "checked": "2026-11-17T07:12:08",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "lilia": {
   "url": "https://www.lilia.or.jp/",
@@ -1890,21 +1890,21 @@
  },
  "chiba-bunka": {
   "url": "https://www.chiba-bunka.jp/",
-  "checked": "2026-11-17T06:38:26",
+  "checked": "2026-11-17T07:12:08",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "nakano-zero": {
   "url": "https://www.nices.or.jp/",
-  "checked": "2026-11-17T06:38:26",
+  "checked": "2026-11-17T07:12:08",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "jcom-hachioji": {
   "url": "https://www.hachiojibunka.or.jp/",
-  "checked": "2026-11-17T06:38:26",
+  "checked": "2026-11-17T07:12:08",
   "ok": false,
   "identity": "公益財団法人 八王子市学園都市文化ふれあい財団 | 愛される財団を目指して 令和8年10月15日(木)発行...",
   "matched": null,
@@ -1919,7 +1919,7 @@
  },
  "aprico": {
   "url": "https://www.ota-bunka.or.jp/",
-  "checked": "2026-11-17T06:38:35",
+  "checked": "2026-11-17T07:12:13",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
   "robots": "unreachable (HTTP 503)"
@@ -1933,13 +1933,13 @@
  },
  "calutz": {
   "url": "https://www.kbz.or.jp/calutz/",
-  "checked": "2026-11-17T06:38:40",
+  "checked": "2026-11-17T07:12:14",
   "ok": false,
   "reason": "HTTP 404"
  },
  "chigasaki-bunka": {
   "url": "https://www.chigasaki-arts.jp/",
-  "checked": "2026-11-17T06:38:46",
+  "checked": "2026-11-17T07:12:20",
   "ok": false,
   "identity": "公益財団法人 茅ヶ崎市文化・スポーツ振興財団|トップページ 市民の自主的で創造的な文化芸術活動およびスポーツ活動を支援・促進し、豊かな地域文化の形成と発展に寄与するため、文化芸術・スポーツの向上と振興を図るさまざまな事業を行っています。",
   "matched": null,
@@ -1947,10 +1947,10 @@
  },
  "odawara-sannomaru": {
   "url": "https://odawara-sannomaru-hall.jp/",
-  "checked": "2026-11-17T06:38:50",
+  "checked": "2026-11-17T07:12:24",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "nagaragawa": {
   "url": "https://www.g-ncc.jp/",
@@ -1968,10 +1968,10 @@
  },
  "nagoya-kokaido": {
   "url": "https://nagoya-kokaido.jp/",
-  "checked": "2026-11-17T06:38:59",
+  "checked": "2026-11-17T07:12:24",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "kobe-bunka": {
   "url": "https://www.kobe-bunka.jp/hall/",
@@ -1982,10 +1982,10 @@
  },
  "torigin": {
   "url": "https://www.tottori-bunka.or.jp/",
-  "checked": "2026-11-17T06:39:04",
+  "checked": "2026-11-17T07:12:24",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "harenowa": {
   "url": "https://okayama-pat.jp/",
@@ -1996,41 +1996,41 @@
  },
  "phoenix-hall-hiroshima": {
   "url": "https://www.pcf.city.hiroshima.jp/ica/",
-  "checked": "2026-11-17T06:39:17",
+  "checked": "2026-11-17T07:12:24",
   "ok": false,
   "reason": "HTTP 404"
  },
  "rexxam": {
   "url": "https://www.kenminhall.com/",
-  "checked": "2026-11-17T06:39:21",
+  "checked": "2026-11-17T07:12:29",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: timed out)"
  },
  "kochi-kenmin": {
   "url": "https://kenminhall.or.jp/",
-  "checked": "2026-11-17T06:39:41",
+  "checked": "2026-11-17T07:12:49",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "fukuoka-shimin-hall": {
   "url": "https://www.fukuoka-shiminhall.jp/",
-  "checked": "2026-11-17T06:39:42",
+  "checked": "2026-11-17T07:12:49",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "kurume-plaza": {
   "url": "https://www.kurume-cityplaza.jp/",
-  "checked": "2026-11-17T06:39:42",
+  "checked": "2026-11-17T07:12:49",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
  },
  "horipro-com": {
   "url": "https://www.horipro.co.jp/",
-  "checked": "2026-11-17T06:39:42",
+  "checked": "2026-11-17T07:12:49",
   "ok": false,
   "identity": "ホリプロオフィシャルサイト ホリプロは、昭和35年(1960年)の創業以降、「文化をプロモートする人間産業」という企業理念のもと、タレントの発掘・育成を強みとするマネージメント事業を中心として、番組やCMを制作する映像事業、ミュージカルなどの演劇をプロデュースする公演事業など、さまざまな事業を複合的に展開する総合エンターテイメント企業です。 ホリプロオフィシャルサイト HORIPRO",
   "matched": null,
@@ -2038,7 +2038,7 @@
  },
  "avex": {
   "url": "https://avex.jp/",
-  "checked": "2026-11-17T06:39:47",
+  "checked": "2026-11-17T07:12:54",
   "ok": false,
   "identity": "",
   "matched": null,
@@ -2046,7 +2046,7 @@
  },
  "watanabe-pro": {
   "url": "https://www.watanabepro.co.jp/",
-  "checked": "2026-11-17T06:40:18",
+  "checked": "2026-11-17T07:13:25",
   "ok": false,
   "identity": "ワタナベエンターテインメント ワタナベエンターテインメント公式サイト。お笑い芸人から俳優、ミュージシャン、文化人まで幅広い所属アーティストのプロフィールや最新情報などをお届けします。 ワタナベエンターテインメント",
   "matched": null,
@@ -2085,9 +2085,319 @@
  },
  "fob-kanazawa": {
   "url": "https://www.fob-net.co.jp/",
-  "checked": "2026-11-17T06:40:45",
+  "checked": "2026-11-17T07:13:32",
   "ok": false,
   "reason": "robots.txtを確認できず(安全のため見送り)",
-  "robots": "unreachable (URLError)"
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
+ },
+ "paypay-dome": {
+  "url": "https://www.softbankhawks.co.jp/stadium/",
+  "checked": "2026-11-17T07:13:32",
+  "ok": false,
+  "identity": "みずほPayPayドーム情報 | 福岡ソフトバンクホークス 福岡ソフトバンクホークスのオフィシャルサイトです みずほPayPayドーム情報 | 福岡ソフトバンクホークス 福岡ソフトバンクホークス みずほPayPayドーム情報",
+  "matched": null,
+  "reason": "ページの名乗りに名前が見つからない"
+ },
+ "belluna-dome": {
+  "url": "https://www.seibulions.jp/stadium/",
+  "checked": "2026-11-17T07:13:38",
+  "ok": false,
+  "identity": "スタジアム | 埼玉西武ライオンズ 埼玉西武ライオンズ | プロ野球・埼玉西武ライオンズオフィシャルサイトです。試合や選手はもちろん、チケットやイベント、ファンクラブに至るまで球団オフィシャルならではの公式情報をファンのみなさまに提供します。 スタジアム | 埼玉西武ライオンズ 埼玉西武ライオンズ スタジアム",
+  "matched": null,
+  "reason": "ページの名乗りに名前が見つからない"
+ },
+ "sapporo-kyobun": {
+  "url": "https://www.kyobun.org/",
+  "checked": "2026-11-17T07:13:44",
+  "ok": true,
+  "identity": "札幌市教育文化会館 札幌市教育文化会館 札幌市教育文化会館",
+  "matched": "札幌市教育文化会館"
+ },
+ "kitakami-sakura": {
+  "url": "https://www.sakurahall.jp/",
+  "checked": "2026-11-17T07:13:48",
+  "ok": true,
+  "identity": "さくらホールfeat.ツガワ",
+  "matched": "さくらホル"
+ },
+ "ibaraki-kenmin": {
+  "url": "https://www.ibaraki-kenmin.jp/",
+  "checked": "2026-11-17T07:13:55",
+  "ok": false,
+  "reason": "robots.txtを確認できず(安全のため見送り)",
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
+ },
+ "tochigi-sobun": {
+  "url": "https://www.sobun.jp/",
+  "checked": "2026-11-17T07:13:55",
+  "ok": false,
+  "reason": "robots.txtを確認できず(安全のため見送り)",
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
+ },
+ "westa-kawagoe": {
+  "url": "https://www.westa-kawagoe.jp/",
+  "checked": "2026-11-17T07:13:55",
+  "ok": true,
+  "identity": "ウェスタ川越 多彩なふれあいによる地域活力の創造拠点 ウェスタ川越は各種コンサートやイベントの開催、講座の開催等、多彩なふれあいによる地域活力の埼玉県の複合施設です。",
+  "matched": "ウェスタ川越"
+ },
+ "saitama-kaikan": {
+  "url": "https://www.saf.or.jp/saitama_kaikan/",
+  "checked": "2026-11-17T07:14:01",
+  "ok": false,
+  "reason": "HTTP 404"
+ },
+ "toda-bunka": {
+  "url": "https://www.toda-bunka.jp/",
+  "checked": "2026-11-17T07:14:06",
+  "ok": false,
+  "reason": "robots.txtを確認できず(安全のため見送り)",
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
+ },
+ "hitomi-kinen": {
+  "url": "https://hitomi.swu.ac.jp/",
+  "checked": "2026-11-17T07:14:06",
+  "ok": false,
+  "reason": "robots.txtを確認できず(安全のため見送り)",
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
+ },
+ "hokutopia": {
+  "url": "https://www.kitabunka.or.jp/",
+  "checked": "2026-11-17T07:14:06",
+  "ok": false,
+  "identity": "公益財団法人北区文化振興財団 北区文化振興財団 東京都北区における地域文化の振興を図り、「個性豊かな文化都市北区」の実現に向け、さまざまな文化芸術事業を行っています。",
+  "matched": null,
+  "reason": "ページの名乗りに名前が見つからない",
+  "final_url": "https://kitabunka.or.jp/"
+ },
+ "suginami-kokaido": {
+  "url": "https://suginamikoukaidou.com/",
+  "checked": "2026-11-17T07:14:12",
+  "ok": true,
+  "identity": "杉並公会堂 公式サイト | 日本有数の音響効果を誇る大ホール 音楽・演劇・集会・テレビ番組収録・学校行事と46年もの間、区民をはじめ多くの方々に親しまれてきた旧杉並公会堂。あらゆる想いを継承しつつ、2006年6月さらに愛される公会堂として誕生しました。日本有数の音響効果を誇る大ホール。演劇や発表会など多目的に活躍する小ホール。リハーサルやパーティなど多目的に使える当ホールならではの自由スペースのグ",
+  "matched": "杉並公会堂",
+  "final_url": "https://www.suginamikoukaidou.com/"
+ },
+ "tiara-koto": {
+  "url": "https://www.kcf.or.jp/tiara/",
+  "checked": "2026-11-17T07:14:23",
+  "ok": true,
+  "identity": "ティアラこうとう | 公益財団法人 江東区文化コミュニティ財団",
+  "matched": "ティアラこうとう"
+ },
+ "shinjuku-bunka": {
+  "url": "https://www.regasu-shinjuku.or.jp/bunka-center/",
+  "checked": "2026-11-17T07:14:28",
+  "ok": false,
+  "reason": "robots.txtを確認できず(安全のため見送り)",
+  "robots": "unreachable (URLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local )"
+ },
+ "katsushika-symphony": {
+  "url": "https://www.k-mil.gr.jp/",
+  "checked": "2026-11-17T07:14:29",
+  "ok": true,
+  "identity": "かつしかシンフォニーヒルズ・かめありリリオホール・文化芸術創造・国際交流|葛飾区文化施設指定管理者 葛飾区文化会館(かつしかシンフォニーヒルズ)と葛飾区亀有文化ホール(かめありリリオホール)のコンサート・公演情報とかつしか文化芸術創造、葛飾区国際交流活動のHPです",
+  "matched": "かつしかシンフォニヒルズ"
+ },
+ "tokyo-bunka-kaikan": {
+  "url": "https://www.t-bunka.jp/",
+  "checked": "2026-11-17T07:14:33",
+  "ok": true,
+  "identity": "東京文化会館 東京文化会館 | Tokyo Bunka Kaikan -- 東京文化会館は、「首都東京にオペラやバレエもできる本格的な音楽ホールを」という要望に応え、東京都が開都500年事業として建設し、1961(昭和36)年4月にオープンしました。以来今日まで、オペラ、バレエ、クラシックコンサートなど、世界中の著名なアーティストによる名演の数々が繰り広げられ、“奇跡的”とも言われる音響の良さと相",
+  "matched": "東京文化会館"
+ },
+ "nippon-seinenkan": {
+  "url": "https://www.nippon-seinenkan.or.jp/hall/",
+  "checked": "2026-11-17T07:14:39",
+  "ok": false,
+  "reason": "HTTP 404"
+ },
+ "triphony": {
+  "url": "https://www.triphony.com/",
+  "checked": "2026-11-17T07:14:43",
+  "ok": true,
+  "identity": "すみだトリフォニーホール すみだトリフォニーホール",
+  "matched": "すみだトリフォニホル"
+ },
+ "orchard": {
+  "url": "https://www.bunkamura.co.jp/orchard/",
+  "checked": "2026-11-17T07:14:49",
+  "ok": true,
+  "identity": "オーチャードホール | Bunkamura Bunkamura オーチャードホール 様々な文化を通して未来を創る。それがBunkamuraです。",
+  "matched": "bunkamuraオチャドホル"
+ },
+ "operacity": {
+  "url": "https://www.operacity.jp/",
+  "checked": "2026-11-17T07:14:53",
+  "ok": true,
+  "identity": "東京オペラシティ コンサートホール/リサイタルホール/アートギャラリー 西新宿・初台にある複合文化施設「東京オペラシティ」。コンサートホール/リサイタルホールのコンサート情報。アートギャラリーの展覧会情報。Arts友の会情報など。 東京オペラシティ コンサートホール/リサイタルホール/アートギャラリー 東京オペラシティ コンサートホール/リサイタルホール/アートギャラリー",
+  "matched": "東京オペラシティコンサトホル"
+ },
+ "kamakura-arts": {
+  "url": "https://www.kamakura-arts.or.jp/",
+  "checked": "2026-11-17T07:14:58",
+  "ok": false,
+  "identity": "公益財団法人鎌倉市芸術文化振興財団 鎌倉市芸術文化振興財団 当財団は神奈川県知事から公益法人の認定を受け、平成24年4月1日より公益財団法人として、新たなスタートを切りました。今後は当財団の設立趣旨である「鎌倉市における芸術文化の向上と振興を図ると共に、市民の芸術文化活動の育成・支援」に一層力を入れ、豊かで格調高い地域文化の形成と発展に貢献してまいります。 公益財団法人鎌倉市芸術文化振興財団 鎌倉",
+  "matched": null,
+  "reason": "ページの名乗りに名前が見つからない"
+ },
+ "muza": {
+  "url": "https://www.kawasaki-sym-hall.jp/",
+  "checked": "2026-11-17T07:15:04",
+  "ok": true,
+  "identity": "トップ|ミューザ川崎シンフォニーホール ミューザ川崎シンフォニーホールは、「音楽のまち・かわさき」を目指す新しいコンサートホールです。 ミューザ川崎シンフォニーホール ミューザ川崎シンフォニーホール",
+  "matched": "ミュザ川崎シンフォニホル"
+ },
+ "kanagawa-ongakudo": {
+  "url": "https://www.kanagawa-ongakudo.com/",
+  "checked": "2026-11-17T07:15:09",
+  "ok": true,
+  "identity": "神奈川県立音楽堂 昭和29年、公立施設としては日本で初めての音楽専用ホールとして開館したホール。施設、交通案内。横浜市西区。 神奈川県立音楽堂 神奈川県立音楽堂",
+  "matched": "神奈川県立音楽堂"
+ },
+ "niigata-terrsa": {
+  "url": "https://www.n-terrsa.jp/",
+  "checked": "2026-11-17T07:15:13",
+  "ok": true,
+  "identity": "新潟テルサ 働く者が自ら文化・芸術を愛し、スポーツに親しみ、職業の安定を図りながらリラックス・リフレッシュ・ソシアルを求める場を提供する福祉施設です。",
+  "matched": "新潟テルサ"
+ },
+ "ishikawa-ongakudo": {
+  "url": "https://www.ongakudo.jp/",
+  "checked": "2026-11-17T07:15:18",
+  "ok": true,
+  "identity": "石川県立音楽堂 石川県立音楽堂はクラシックホール、邦楽ホール、多目的ホールを備えた音楽文化施設です。オーケストラ・アンサンブル金沢のフランチャイズホールとして幅広いジャンルの音楽イベントを開催しています。極上の音響環境と優れた設備で、最高の音楽体験を提供します。 石川県立音楽堂 石川県立音楽堂 石川県立音楽堂",
+  "matched": "石川県立音楽堂",
+  "final_url": "https://ongakudo.jp/"
+ },
+ "nagano-arts": {
+  "url": "https://www.nagano-arts.or.jp/",
+  "checked": "2026-11-17T07:15:26",
+  "ok": true,
+  "identity": "長野市芸術館 長野市芸術館 長野市芸術館",
+  "matched": "長野市芸術館"
+ },
+ "rosetheater": {
+  "url": "https://www.rosetheater.com/",
+  "checked": "2026-11-17T07:15:31",
+  "ok": false,
+  "reason": "robots.txtを確認できず(安全のため見送り)",
+  "robots": "unreachable (URLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local )"
+ },
+ "granship": {
+  "url": "https://www.granship.or.jp/",
+  "checked": "2026-11-17T07:15:31",
+  "ok": true,
+  "identity": "グランシップ/GRANSHIP 静岡県コンベンションアーツセンター JR東静岡駅から徒歩3分。静岡市駿河区東静岡に立地する船を形取った大規模複合施設。イベント・コンサート・コンベンションが頻繁に開催され、大ホール・中ホールに貸会議室その他にも静岡芸術劇場や県立図書館と文化施設が充実。愛称は「グランシップ」。 GRANSHIP/グランシップ GRANSHIP/グランシップ 公演・イベントに参加する ",
+  "matched": "グランシップ"
+ },
+ "maytheater": {
+  "url": "https://www.maytheater.jp/",
+  "checked": "2026-11-17T07:15:35",
+  "ok": true,
+  "identity": "トップページ - 公益財団法人 吹田市文化振興事業団 メイシアター トップページ - 公益財団法人 吹田市文化振興事業団 メイシアター 公益財団法人 吹田市文化振興事業団 メイシアター",
+  "matched": "メイシアタ",
+  "final_url": "https://maytheater.jp/"
+ },
+ "toyonaka-hall": {
+  "url": "https://www.toyonaka-hall.jp/",
+  "checked": "2026-11-17T07:15:41",
+  "ok": true,
+  "identity": "豊中市立文化芸術センター 豊中市立文化芸術センター",
+  "matched": "豊中市立文化芸術センタ"
+ },
+ "okayama-symphony": {
+  "url": "https://www.okayama-symphonyhall.or.jp/",
+  "checked": "2026-11-17T07:15:47",
+  "ok": false,
+  "reason": "robots.txtを確認できず(安全のため見送り)",
+  "robots": "unreachable (URLError: timed out)"
+ },
+ "sunport-hall": {
+  "url": "https://www.sunport-hall.jp/",
+  "checked": "2026-11-17T07:16:07",
+  "ok": true,
+  "identity": "サンポートホール高松 公益財団法人高松市文化芸術財団は、幅広い市民とともに、文化芸術活動の振興・普及を図り、人と人、心と心がふれあう、高松らしい文化の創造と交流に寄与することを目的としております。 サンポートホール高松 サンポートホール高松 サンポートホール高松 サンポートホール高松",
+  "matched": "サンポトホル高松"
+ },
+ "karuport": {
+  "url": "https://www.bunkaplaza.or.jp/",
+  "checked": "2026-11-17T07:16:13",
+  "ok": true,
+  "identity": "高知市文化プラザかるぽーと 高知市文化プラザかるぽーと 高知市文化プラザかるぽーと",
+  "matched": "高知市文化プラザかるぽと"
+ },
+ "acros": {
+  "url": "https://www.acros.or.jp/",
+  "checked": "2026-11-17T07:16:18",
+  "ok": true,
+  "identity": "アクロス福岡 国際・文化・情報の交流拠点。福岡シンフォニーホールや国際会議場を備えた複合施設です。",
+  "matched": "アクロス福岡"
+ },
+ "arkas": {
+  "url": "https://arkas.or.jp/",
+  "checked": "2026-11-17T07:16:23",
+  "ok": true,
+  "identity": "アルカスSASEBO公式ホームページ アルカスSASEBO 公式ホームページ|公演情報をはじめ、ホール施設の情報を提供しています。長崎県佐世保市 NEWS",
+  "matched": "アルカスsasebo",
+  "final_url": "https://www.arkas.or.jp/"
+ },
+ "kengeki": {
+  "url": "https://www.kengeki.or.jp/",
+  "checked": "2026-11-17T07:16:31",
+  "ok": true,
+  "identity": "熊本県立劇場",
+  "matched": "熊本県立劇場"
+ },
+ "b-con": {
+  "url": "https://www.b-con-plaza.jp/",
+  "checked": "2026-11-17T07:16:36",
+  "ok": false,
+  "reason": "robots.txtを確認できず(安全のため見送り)",
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
+ },
+ "hbg-hall": {
+  "url": "https://h-bunka.or.jp/",
+  "checked": "2026-11-17T07:16:36",
+  "ok": false,
+  "identity": "転送/公益財団法人ひろしま文化振興財団 公益財団法人,ひろしま文化振興財団への転送のページです。",
+  "matched": null,
+  "reason": "ページの名乗りに名前が見つからない"
+ },
+ "bigship": {
+  "url": "https://www.bigship.jp/",
+  "checked": "2026-11-17T07:16:41",
+  "ok": true,
+  "identity": "株式会社ビッグシップ – Bigship.jp 株式会社ビッグシップ",
+  "matched": "ビッグシップ",
+  "final_url": "https://bigship.jp/"
+ },
+ "glion-arena": {
+  "url": "https://glion-arena.com/",
+  "checked": "2026-11-17T07:16:46",
+  "ok": false,
+  "reason": "robots.txtを確認できず(安全のため見送り)",
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
+ },
+ "gaishi-hall": {
+  "url": "https://www.nagoya-gaishi.jp/",
+  "checked": "2026-11-17T07:16:47",
+  "ok": false,
+  "reason": "robots.txtを確認できず(安全のため見送り)",
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
+ },
+ "grande21": {
+  "url": "https://www.miyagi-sports.or.jp/grande21/",
+  "checked": "2026-11-17T07:16:47",
+  "ok": false,
+  "reason": "robots.txtを確認できず(安全のため見送り)",
+  "robots": "unreachable (URLError: [Errno -2] Name or service not known)"
+ },
+ "makomanai-arena": {
+  "url": "https://www.makomanai.com/",
+  "checked": "2026-11-17T07:16:47",
+  "ok": false,
+  "reason": "robots.txtを確認できず(安全のため見送り)",
+  "robots": "unreachable (URLError: [Errno 104] Connection reset by peer)"
  }
 }
